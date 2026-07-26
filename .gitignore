@@ -1,0 +1,5 @@
+node_modules/
+server/.env
+server/audio/
+server/videos/*.mp4
+tools/
