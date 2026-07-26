@@ -79,6 +79,8 @@ Signing in is **optional** — browsing, searching, and listening to recipes all
 
 To enable persistent accounts: add `DATABASE_URL=postgresql://...` to `server/.env` locally, and as an environment variable in Render's dashboard for the deployed version. Also set `SESSION_SECRET` to a fixed random string in both places — without it, a new one is generated on every restart, which silently logs everyone out.
 
+**"Add recipe" is admin-only.** Regular accounts (including every tester) can sign up, sign in, and use everything else, but can't add recipes — that button only appears for accounts whose email is listed in `ADMIN_EMAILS` (comma-separated, in `server/.env`). This is enforced on the backend too, not just hidden in the UI — a non-admin hitting the endpoint directly gets a `403`. Remember to set `ADMIN_EMAILS` as an environment variable in Render's dashboard as well, since `.env` itself is never committed to git.
+
 ## Where things live
 
 - `public/` — the frontend (what you see in the browser)

@@ -41,6 +41,29 @@ app.use("/audio", express.static(path.join(__dirname, "audio")));
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// Admin status is computed from an env var, not stored on the user record —
+// change who's an admin at any time just by editing ADMIN_EMAILS, no data
+// migration needed. Comma-separated, case-insensitive.
+const ADMIN_EMAILS = (process.env.ADMIN_EMAILS || "")
+  .split(",")
+  .map((e) => e.trim().toLowerCase())
+  .filter(Boolean);
+
+function withAdminFlag(user) {
+  if (!user) return null;
+  return { ...user, isAdmin: ADMIN_EMAILS.includes(user.email.toLowerCase()) };
+}
+
+function requireAdmin(req, res, next) {
+  if (!req.session.userId) return res.status(401).json({ error: "Sign in required." });
+  users.findById(req.session.userId).then((user) => {
+    if (!user || !ADMIN_EMAILS.includes(user.email.toLowerCase())) {
+      return res.status(403).json({ error: "Admin access required." });
+    }
+    next();
+  }).catch((err) => res.status(502).json({ error: err.message }));
+}
+
 app.post("/api/auth/register", async (req, res) => {
   try {
     const { name, email, password, demographics } = req.body || {};
@@ -60,7 +83,7 @@ app.post("/api/auth/register", async (req, res) => {
       }
     });
     req.session.userId = user.id;
-    res.json({ user: users.toPublicUser(user) });
+    res.json({ user: withAdminFlag(users.toPublicUser(user)) });
   } catch (err) {
     res.status(502).json({ error: "Couldn't create account: " + err.message });
   }
@@ -75,7 +98,7 @@ app.post("/api/auth/login", async (req, res) => {
       return res.status(401).json({ error: "Incorrect email or password." });
     }
     req.session.userId = user.id;
-    res.json({ user: users.toPublicUser(user) });
+    res.json({ user: withAdminFlag(users.toPublicUser(user)) });
   } catch (err) {
     res.status(502).json({ error: "Couldn't sign in: " + err.message });
   }
@@ -89,7 +112,7 @@ app.get("/api/auth/me", async (req, res) => {
   if (!req.session.userId) return res.json({ user: null });
   const user = await users.findById(req.session.userId);
   if (!user) return res.json({ user: null });
-  res.json({ user: users.toPublicUser(user) });
+  res.json({ user: withAdminFlag(users.toPublicUser(user)) });
 });
 
 app.get("/api/recipes", (req, res) => {
@@ -108,7 +131,7 @@ app.get("/api/ui-text", (req, res) => {
   res.json(JSON.parse(fs.readFileSync(uiTextPath, "utf-8")));
 });
 
-app.post("/api/recipes/generate", async (req, res) => {
+app.post("/api/recipes/generate", requireAdmin, async (req, res) => {
   const { text } = req.body || {};
   if (!text || !text.trim()) {
     return res.status(400).json({ error: "Paste some recipe text first." });

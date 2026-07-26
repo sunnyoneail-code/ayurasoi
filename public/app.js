@@ -258,7 +258,7 @@ function render() {
   langSelect.onchange = (e) => { stopWalkthrough(); state.lang = e.target.value; render(); };
   headerControls.appendChild(langSelect);
 
-  if (!state.openRecipe && !state.authView) {
+  if (!state.openRecipe && !state.authView && state.user && state.user.isAdmin) {
     const addBtn = el("button", "add-recipe-nav-btn", state.addingRecipe ? t.addRecipeCancel : t.addRecipeNav);
     addBtn.onclick = () => { state.addingRecipe = !state.addingRecipe; render(); };
     headerControls.appendChild(addBtn);
@@ -305,11 +305,12 @@ function render() {
     return;
   }
 
-  if (state.addingRecipe) {
+  if (state.addingRecipe && state.user && state.user.isAdmin) {
     app.appendChild(renderAddRecipe(t));
     app.appendChild(renderFooter(t));
     return;
   }
+  state.addingRecipe = false;
 
   const searchInput = el("input", "search-input");
   searchInput.type = "text";
