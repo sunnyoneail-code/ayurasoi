@@ -67,6 +67,18 @@ No AI video generation at all anymore — that requires a paid service no matter
 
 If you ever want real filmed video for a recipe, drop an actual video file's path into that recipe's `videoUrl` field in `server/data/recipes.json` — the player will pick it up automatically instead of showing the icon strip.
 
+### User accounts — sign up, sign in, basic demographics
+
+Real accounts with hashed passwords (Node's built-in `scrypt`, never stored in plaintext) and cookie-based sessions (`express-session`). Sign-up collects name, email, password, and optional demographics (age range, gender, country) — all editable/skippable except name/email/password.
+
+Signing in is **optional** — browsing, searching, and listening to recipes all still work fully logged-out. This is deliberate: the point of sharing this with testers is to lower friction, not add a login wall in front of the thing you actually want feedback on.
+
+**Storage has two modes:**
+- **No `DATABASE_URL` set** → accounts are stored in `server/data/users.json` (gitignored, never committed). Fine for local testing, but wiped on every server restart — same limitation as recipes added via "Add recipe."
+- **`DATABASE_URL` set** (a free [Neon](https://console.neon.tech) Postgres connection string) → accounts persist for real, survive restarts and redeploys. The `users` table is created automatically on first startup if it doesn't exist.
+
+To enable persistent accounts: add `DATABASE_URL=postgresql://...` to `server/.env` locally, and as an environment variable in Render's dashboard for the deployed version. Also set `SESSION_SECRET` to a fixed random string in both places — without it, a new one is generated on every restart, which silently logs everyone out.
+
 ## Where things live
 
 - `public/` — the frontend (what you see in the browser)
@@ -74,6 +86,7 @@ If you ever want real filmed video for a recipe, drop an actual video file's pat
 - `server/data/recipes.json` — the actual recipe database. Back this up if you add recipes you care about.
 - `server/data/uiText.json` — generated UI text for all 16 languages (source of truth is `uiText.en.json` + the generation scripts)
 - `server/audio/` — cached generated narration `.mp3` files, created on first play per recipe/language
+- `server/data/users.json` — fallback account storage when no `DATABASE_URL` is set (gitignored — never committed, since it holds password hashes)
 
 ## Sharing it with test users (temporary public link)
 
@@ -91,7 +104,7 @@ It prints a `https://....trycloudflare.com` URL after a few seconds — that's w
 
 - **The link only works while both `node server/index.js` and this `cloudflared` command are running on your computer.** Close either one (or put your laptop to sleep) and the link goes down.
 - **The link changes every time you restart the tunnel.** If you need a stable, unchanging link, that requires a real deployment (a free Cloudflare account with a named tunnel, or hosting on Render/Railway) rather than this quick option.
-- **There's no login and no access control.** Anyone who has the link can use the full app, including adding recipes — it's meant for a small group of trusted testers you send the link to directly, not for posting publicly.
+- **Signing in is optional, and there's no access control beyond that.** Anyone who has the link can browse and use the full app without an account, and anyone can create an account — it's meant for a small group of trusted testers you send the link to directly, not for posting publicly.
 - **Feedback on data they add**: since `server/data/recipes.json` is a single shared file, if multiple testers add recipes at the same time, they're all editing the same file — fine for casual testing, but worth knowing.
 - **The free tier caps at 200 concurrent requests** — no realistic concern for a small test group.
 

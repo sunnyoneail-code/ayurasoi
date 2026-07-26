@@ -387,3 +387,29 @@ h1 {
   font-size: 0.78rem;
   line-height: 1.5;
 }
+
+.welcome-text {
+  font-size: 0.85rem;
+  color: var(--muted);
+  white-space: nowrap;
+  align-self: center;
+}
+
+.form-field {
+  margin-bottom: 14px;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.switch-link {
+  margin-top: 14px;
+  color: var(--accent);
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 0.9rem;
+}

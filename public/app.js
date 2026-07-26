@@ -46,6 +46,9 @@ const CATEGORY_DEFS = [
   { id: "vitality", key: "catVitality" }
 ];
 
+const AGE_RANGES = ["Under 18", "18-24", "25-34", "35-44", "45-54", "55-64", "65+"];
+const GENDER_OPTIONS = ["Female", "Male", "Non-binary"];
+
 let state = {
   lang: "en",
   category: "all",
@@ -59,8 +62,82 @@ let state = {
   walkthroughPlaying: false,
   walkthroughLoading: false,
   walkthroughError: "",
-  walkthroughStep: -1
+  walkthroughStep: -1,
+  user: null,
+  authView: null,
+  authForm: { name: "", email: "", password: "", confirmPassword: "", ageRange: "", gender: "", country: "" },
+  authStatus: "idle",
+  authError: ""
 };
+
+function resetAuthForm() {
+  state.authForm = { name: "", email: "", password: "", confirmPassword: "", ageRange: "", gender: "", country: "" };
+  state.authStatus = "idle";
+  state.authError = "";
+}
+
+async function submitSignUp() {
+  const f = state.authForm;
+  if (f.password !== f.confirmPassword) {
+    state.authStatus = "error";
+    state.authError = UI_TEXT[state.lang].passwordMismatch;
+    render();
+    return;
+  }
+  state.authStatus = "loading";
+  state.authError = "";
+  render();
+  try {
+    const res = await apiFetch("/api/auth/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: f.name,
+        email: f.email,
+        password: f.password,
+        demographics: { ageRange: f.ageRange, gender: f.gender, country: f.country }
+      })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Unknown error");
+    state.user = data.user;
+    state.authView = null;
+    resetAuthForm();
+  } catch (err) {
+    state.authStatus = "error";
+    state.authError = err.message;
+  }
+  render();
+}
+
+async function submitSignIn() {
+  const f = state.authForm;
+  state.authStatus = "loading";
+  state.authError = "";
+  render();
+  try {
+    const res = await apiFetch("/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: f.email, password: f.password })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Unknown error");
+    state.user = data.user;
+    state.authView = null;
+    resetAuthForm();
+  } catch (err) {
+    state.authStatus = "error";
+    state.authError = err.message;
+  }
+  render();
+}
+
+async function submitLogOut() {
+  await apiFetch("/api/auth/logout", { method: "POST" });
+  state.user = null;
+  render();
+}
 
 // Real generated audio files, played back the same way on every device —
 // no dependence on whatever voices happen to be installed locally.
@@ -181,10 +258,24 @@ function render() {
   langSelect.onchange = (e) => { stopWalkthrough(); state.lang = e.target.value; render(); };
   headerControls.appendChild(langSelect);
 
-  if (!state.openRecipe) {
+  if (!state.openRecipe && !state.authView) {
     const addBtn = el("button", "add-recipe-nav-btn", state.addingRecipe ? t.addRecipeCancel : t.addRecipeNav);
     addBtn.onclick = () => { state.addingRecipe = !state.addingRecipe; render(); };
     headerControls.appendChild(addBtn);
+  }
+
+  if (state.user) {
+    headerControls.appendChild(el("span", "welcome-text", t.welcomePrefix + state.user.name));
+    const logOutBtn = el("button", "add-recipe-nav-btn", t.logOut);
+    logOutBtn.onclick = submitLogOut;
+    headerControls.appendChild(logOutBtn);
+  } else {
+    const signInBtn = el("button", "add-recipe-nav-btn", t.signIn);
+    signInBtn.onclick = () => { state.authView = "signin"; resetAuthForm(); render(); };
+    headerControls.appendChild(signInBtn);
+    const signUpBtn = el("button", "add-recipe-nav-btn", t.signUp);
+    signUpBtn.onclick = () => { state.authView = "signup"; resetAuthForm(); render(); };
+    headerControls.appendChild(signUpBtn);
   }
 
   titleRow.appendChild(headerControls);
@@ -193,6 +284,18 @@ function render() {
 
   if (state.loading) {
     app.appendChild(el("p", "no-results", t.loading));
+    return;
+  }
+
+  if (state.authView === "signup") {
+    app.appendChild(renderSignUp(t));
+    app.appendChild(renderFooter(t));
+    return;
+  }
+
+  if (state.authView === "signin") {
+    app.appendChild(renderSignIn(t));
+    app.appendChild(renderFooter(t));
     return;
   }
 
@@ -271,6 +374,103 @@ function renderAddRecipe(t) {
   submitBtn.disabled = state.addRecipeStatus === "loading";
   submitBtn.onclick = submitNewRecipe;
   wrap.appendChild(submitBtn);
+
+  return wrap;
+}
+
+function labeledInput(labelText, type, value, onInput) {
+  const wrap = el("div", "form-field");
+  wrap.appendChild(el("label", "form-label", labelText));
+  const input = document.createElement("input");
+  input.type = type;
+  input.value = value;
+  input.className = "add-recipe-textarea";
+  input.style.minHeight = "auto";
+  input.oninput = (e) => onInput(e.target.value);
+  wrap.appendChild(input);
+  return wrap;
+}
+
+function labeledSelect(labelText, options, placeholderText, value, onChange) {
+  const wrap = el("div", "form-field");
+  wrap.appendChild(el("label", "form-label", labelText));
+  const select = document.createElement("select");
+  select.className = "lang-select";
+  select.style.maxWidth = "none";
+  select.style.width = "100%";
+  const blank = document.createElement("option");
+  blank.value = "";
+  blank.textContent = placeholderText;
+  select.appendChild(blank);
+  options.forEach((opt) => {
+    const o = document.createElement("option");
+    o.value = opt;
+    o.textContent = opt;
+    if (opt === value) o.selected = true;
+    select.appendChild(o);
+  });
+  select.onchange = (e) => onChange(e.target.value);
+  wrap.appendChild(select);
+  return wrap;
+}
+
+function renderSignUp(t) {
+  const wrap = el("div", "detail");
+  const backBtn = el("button", "back-btn", t.back);
+  backBtn.onclick = () => { state.authView = null; render(); };
+  wrap.appendChild(backBtn);
+
+  wrap.appendChild(el("h2", null, t.signUpTitle));
+
+  const f = state.authForm;
+  wrap.appendChild(labeledInput(t.nameLabel, "text", f.name, (v) => { f.name = v; }));
+  wrap.appendChild(labeledInput(t.emailLabel, "email", f.email, (v) => { f.email = v; }));
+  wrap.appendChild(labeledInput(t.passwordLabel, "password", f.password, (v) => { f.password = v; }));
+  wrap.appendChild(labeledInput(t.confirmPasswordLabel, "password", f.confirmPassword, (v) => { f.confirmPassword = v; }));
+  wrap.appendChild(labeledSelect(t.ageRangeLabel, AGE_RANGES, t.selectOption, f.ageRange, (v) => { f.ageRange = v; }));
+  wrap.appendChild(labeledSelect(t.genderLabel, GENDER_OPTIONS, t.selectOption, f.gender, (v) => { f.gender = v; }));
+  wrap.appendChild(labeledInput(t.countryLabel, "text", f.country, (v) => { f.country = v; }));
+
+  if (state.authStatus === "error") {
+    wrap.appendChild(el("p", "media-note error-note", t.authErrorPrefix + state.authError));
+  }
+
+  const submitBtn = el("button", "walkthrough-btn", state.authStatus === "loading" ? t.signUpSubmitting : t.signUpSubmit);
+  submitBtn.disabled = state.authStatus === "loading";
+  submitBtn.onclick = submitSignUp;
+  wrap.appendChild(submitBtn);
+
+  const switchLink = el("p", "card-purpose switch-link", t.switchToSignIn);
+  switchLink.onclick = () => { state.authView = "signin"; resetAuthForm(); render(); };
+  wrap.appendChild(switchLink);
+
+  return wrap;
+}
+
+function renderSignIn(t) {
+  const wrap = el("div", "detail");
+  const backBtn = el("button", "back-btn", t.back);
+  backBtn.onclick = () => { state.authView = null; render(); };
+  wrap.appendChild(backBtn);
+
+  wrap.appendChild(el("h2", null, t.signInTitle));
+
+  const f = state.authForm;
+  wrap.appendChild(labeledInput(t.emailLabel, "email", f.email, (v) => { f.email = v; }));
+  wrap.appendChild(labeledInput(t.passwordLabel, "password", f.password, (v) => { f.password = v; }));
+
+  if (state.authStatus === "error") {
+    wrap.appendChild(el("p", "media-note error-note", t.authErrorPrefix + state.authError));
+  }
+
+  const submitBtn = el("button", "walkthrough-btn", state.authStatus === "loading" ? t.signInSubmitting : t.signInSubmit);
+  submitBtn.disabled = state.authStatus === "loading";
+  submitBtn.onclick = submitSignIn;
+  wrap.appendChild(submitBtn);
+
+  const switchLink = el("p", "card-purpose switch-link", t.switchToSignUp);
+  switchLink.onclick = () => { state.authView = "signup"; resetAuthForm(); render(); };
+  wrap.appendChild(switchLink);
 
   return wrap;
 }
@@ -424,12 +624,14 @@ render();
 Promise.all([
   apiFetch("/api/recipes").then((res) => res.json()),
   apiFetch("/api/languages").then((res) => res.json()),
-  apiFetch("/api/ui-text").then((res) => res.json())
+  apiFetch("/api/ui-text").then((res) => res.json()),
+  apiFetch("/api/auth/me").then((res) => res.json())
 ])
-  .then(([recipes, languages, uiText]) => {
+  .then(([recipes, languages, uiText, authMe]) => {
     RECIPES = recipes;
     LANGUAGES = languages;
     UI_TEXT = uiText;
+    state.user = authMe.user;
     state.loading = false;
     render();
   })
