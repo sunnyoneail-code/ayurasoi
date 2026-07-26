@@ -4,7 +4,7 @@ const path = require("path");
 const fs = require("fs");
 const express = require("express");
 const store = require("./recipeStore");
-const { generateRecipeFromText } = require("./recipeExtractor");
+const { generateRecipeFromText, translateBlock } = require("./recipeExtractor");
 const { LANGUAGES } = require("./languages");
 const { getOrCreateAudioManifest } = require("./audioCache");
 
@@ -59,6 +59,16 @@ app.post("/api/recipes/:id/audio", async (req, res) => {
   } catch (err) {
     const status = err.code === "TTS_UNSUPPORTED" ? 422 : 502;
     res.status(status).json({ error: err.message });
+  }
+});
+
+// TEMPORARY diagnostic route — remove once translation issues are diagnosed.
+app.get("/api/debug/translate-test", async (req, res) => {
+  try {
+    const result = await translateBlock("hello", "hi");
+    res.json({ ok: true, result });
+  } catch (err) {
+    res.json({ ok: false, error: err.message, stack: err.stack });
   }
 });
 
