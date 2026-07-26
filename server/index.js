@@ -54,6 +54,11 @@ function withAdminFlag(user) {
   return { ...user, isAdmin: ADMIN_EMAILS.includes(user.email.toLowerCase()) };
 }
 
+function requireAuth(req, res, next) {
+  if (!req.session.userId) return res.status(401).json({ error: "Sign in required." });
+  next();
+}
+
 function requireAdmin(req, res, next) {
   if (!req.session.userId) return res.status(401).json({ error: "Sign in required." });
   users.findById(req.session.userId).then((user) => {
@@ -115,7 +120,7 @@ app.get("/api/auth/me", async (req, res) => {
   res.json({ user: withAdminFlag(users.toPublicUser(user)) });
 });
 
-app.get("/api/recipes", (req, res) => {
+app.get("/api/recipes", requireAuth, (req, res) => {
   res.json(store.readRecipes());
 });
 
@@ -146,7 +151,7 @@ app.post("/api/recipes/generate", requireAdmin, async (req, res) => {
   }
 });
 
-app.post("/api/recipes/:id/audio", async (req, res) => {
+app.post("/api/recipes/:id/audio", requireAuth, async (req, res) => {
   const { id } = req.params;
   const lang = (req.body && req.body.lang) || "en";
   const recipe = store.getRecipe(id);

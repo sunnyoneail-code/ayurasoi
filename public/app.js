@@ -76,6 +76,17 @@ function resetAuthForm() {
   state.authError = "";
 }
 
+// Recipes are only fetched once someone has an account/session — the
+// endpoint itself requires auth too, so this isn't just a UI nicety.
+async function loadRecipes() {
+  try {
+    const res = await apiFetch("/api/recipes");
+    if (res.ok) RECIPES = await res.json();
+  } catch (err) {
+    // Left for the gate/list screens to handle via empty RECIPES.
+  }
+}
+
 async function submitSignUp() {
   const f = state.authForm;
   if (f.password !== f.confirmPassword) {
@@ -103,6 +114,7 @@ async function submitSignUp() {
     state.user = data.user;
     state.authView = null;
     resetAuthForm();
+    await loadRecipes();
   } catch (err) {
     state.authStatus = "error";
     state.authError = err.message;
@@ -126,6 +138,7 @@ async function submitSignIn() {
     state.user = data.user;
     state.authView = null;
     resetAuthForm();
+    await loadRecipes();
   } catch (err) {
     state.authStatus = "error";
     state.authError = err.message;
@@ -136,6 +149,9 @@ async function submitSignIn() {
 async function submitLogOut() {
   await apiFetch("/api/auth/logout", { method: "POST" });
   state.user = null;
+  state.openRecipe = null;
+  state.addingRecipe = false;
+  RECIPES = [];
   render();
 }
 
@@ -299,6 +315,12 @@ function render() {
     return;
   }
 
+  if (!state.user) {
+    app.appendChild(renderGate(t));
+    app.appendChild(renderFooter(t));
+    return;
+  }
+
   if (state.openRecipe) {
     app.appendChild(renderDetail(state.openRecipe, t));
     app.appendChild(renderFooter(t));
@@ -412,6 +434,24 @@ function labeledSelect(labelText, options, placeholderText, value, onChange) {
   });
   select.onchange = (e) => onChange(e.target.value);
   wrap.appendChild(select);
+  return wrap;
+}
+
+function renderGate(t) {
+  const wrap = el("div", "detail gate-screen");
+  wrap.appendChild(el("h2", null, t.gateTitle));
+  wrap.appendChild(el("p", "card-purpose", t.gateMessage));
+
+  const btnRow = el("div", "walkthrough-controls");
+  const signUpBtn = el("button", "walkthrough-btn", t.signUp);
+  signUpBtn.onclick = () => { state.authView = "signup"; resetAuthForm(); render(); };
+  btnRow.appendChild(signUpBtn);
+
+  const signInBtn = el("button", "walkthrough-btn secondary", t.signIn);
+  signInBtn.onclick = () => { state.authView = "signin"; resetAuthForm(); render(); };
+  btnRow.appendChild(signInBtn);
+
+  wrap.appendChild(btnRow);
   return wrap;
 }
 
@@ -623,16 +663,15 @@ function renderFooter(t) {
 render();
 
 Promise.all([
-  apiFetch("/api/recipes").then((res) => res.json()),
   apiFetch("/api/languages").then((res) => res.json()),
   apiFetch("/api/ui-text").then((res) => res.json()),
   apiFetch("/api/auth/me").then((res) => res.json())
 ])
-  .then(([recipes, languages, uiText, authMe]) => {
-    RECIPES = recipes;
+  .then(async ([languages, uiText, authMe]) => {
     LANGUAGES = languages;
     UI_TEXT = uiText;
     state.user = authMe.user;
+    if (state.user) await loadRecipes();
     state.loading = false;
     render();
   })

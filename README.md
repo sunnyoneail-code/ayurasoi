@@ -71,7 +71,7 @@ If you ever want real filmed video for a recipe, drop an actual video file's pat
 
 Real accounts with hashed passwords (Node's built-in `scrypt`, never stored in plaintext) and cookie-based sessions (`express-session`). Sign-up collects name, email, password, and optional demographics (age range, gender, country) — all editable/skippable except name/email/password.
 
-Signing in is **optional** — browsing, searching, and listening to recipes all still work fully logged-out. This is deliberate: the point of sharing this with testers is to lower friction, not add a login wall in front of the thing you actually want feedback on.
+**Signing in is required to see any recipe content.** Anonymous visitors get a "create a free account to continue" gate screen with Sign up / Sign in buttons (and can still pick their language before doing so) — recipes, translations, and audio are only reachable after that. This is enforced on the backend too: `GET /api/recipes` and the audio endpoint both return `401` for anonymous requests, so it's not just a UI gate that could be bypassed by calling the API directly.
 
 **Storage has two modes:**
 - **No `DATABASE_URL` set** → accounts are stored in `server/data/users.json` (gitignored, never committed). Fine for local testing, but wiped on every server restart — same limitation as recipes added via "Add recipe."
@@ -106,7 +106,7 @@ It prints a `https://....trycloudflare.com` URL after a few seconds — that's w
 
 - **The link only works while both `node server/index.js` and this `cloudflared` command are running on your computer.** Close either one (or put your laptop to sleep) and the link goes down.
 - **The link changes every time you restart the tunnel.** If you need a stable, unchanging link, that requires a real deployment (a free Cloudflare account with a named tunnel, or hosting on Render/Railway) rather than this quick option.
-- **Signing in is optional, and there's no access control beyond that.** Anyone who has the link can browse and use the full app without an account, and anyone can create an account — it's meant for a small group of trusted testers you send the link to directly, not for posting publicly.
+- **An account is required to see recipes.** Anyone with the link can create one, though — there's no invite list or approval step, so it's still meant for a small group of trusted testers you send the link to directly, not for posting publicly.
 - **Feedback on data they add**: since `server/data/recipes.json` is a single shared file, if multiple testers add recipes at the same time, they're all editing the same file — fine for casual testing, but worth knowing.
 - **The free tier caps at 200 concurrent requests** — no realistic concern for a small test group.
 

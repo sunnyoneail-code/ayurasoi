@@ -54,5 +54,7 @@
   "switchToSignUp": "Need an account? Sign up",
   "authErrorPrefix": "Couldn't do that: ",
   "passwordMismatch": "Passwords don't match.",
-  "selectOption": "Prefer not to say"
+  "selectOption": "Prefer not to say",
+  "gateTitle": "Create a free account to continue",
+  "gateMessage": "Recipes, translations, and audio narration are available once you sign up or sign in. It only takes a moment."
 }

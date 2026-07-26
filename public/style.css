@@ -413,3 +413,13 @@ h1 {
   text-decoration: underline;
   font-size: 0.9rem;
 }
+
+.gate-screen {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.gate-screen .walkthrough-controls {
+  justify-content: center;
+  margin-top: 20px;
+}

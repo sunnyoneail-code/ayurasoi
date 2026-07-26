@@ -55,7 +55,9 @@
     "switchToSignUp": "Need an account? Sign up",
     "authErrorPrefix": "Couldn't do that: ",
     "passwordMismatch": "Passwords don't match.",
-    "selectOption": "Prefer not to say"
+    "selectOption": "Prefer not to say",
+    "gateTitle": "Create a free account to continue",
+    "gateMessage": "Recipes, translations, and audio narration are available once you sign up or sign in. It only takes a moment."
   },
   "hi": {
     "title": "AyurRasoi",
@@ -114,7 +116,9 @@
     "switchToSignUp": "एक खाता चाहिए? साइन अप करें",
     "authErrorPrefix": "ऐसा नहीं कर सका: ",
     "passwordMismatch": "पासवर्ड मेल नहीं खाते.",
-    "selectOption": "नहीं कहना पसंद करते हैं"
+    "selectOption": "नहीं कहना पसंद करते हैं",
+    "gateTitle": "जारी रखने के लिए एक निःशुल्क खाता बनाएँ",
+    "gateMessage": "आपके साइन अप या साइन इन करने के बाद रेसिपी, अनुवाद और ऑडियो कथन उपलब्ध होते हैं। इसमें केवल एक क्षण लगता है।"
   },
   "bn": {
     "title": "আয়ুররসোই",
@@ -173,7 +177,9 @@
     "switchToSignUp": "একটি অ্যাকাউন্ট প্রয়োজন? সাইন আপ করুন",
     "authErrorPrefix": "এটা করতে পারেনি: ",
     "passwordMismatch": "পাসওয়ার্ড মেলে না।",
-    "selectOption": "না বলতে পছন্দ করেন"
+    "selectOption": "না বলতে পছন্দ করেন",
+    "gateTitle": "চালিয়ে যেতে একটি বিনামূল্যের অ্যাকাউন্ট তৈরি করুন",
+    "gateMessage": "আপনি সাইন আপ বা সাইন ইন করার পরে রেসিপি, অনুবাদ এবং অডিও বর্ণনা পাওয়া যায়৷ এটি শুধুমাত্র একটি মুহূর্ত নেয়৷"
   },
   "mr": {
     "title": "आयुर्रासोई",
@@ -232,7 +238,9 @@
     "switchToSignUp": "खाते हवे आहे? साइन अप करा",
     "authErrorPrefix": "ते करू शकलो नाही: ",
     "passwordMismatch": "पासवर्ड जुळत नाहीत.",
-    "selectOption": "न म्हणणे पसंत करतात"
+    "selectOption": "न म्हणणे पसंत करतात",
+    "gateTitle": "सुरू ठेवण्यासाठी एक विनामूल्य खाते तयार करा",
+    "gateMessage": "तुम्ही साइन अप केल्यानंतर किंवा साइन इन केल्यावर पाककृती, भाषांतरे आणि ऑडिओ कथन उपलब्ध असतात. यास फक्त एक क्षण लागतो."
   },
   "ta": {
     "title": "ஆயுர்ரசோய்",
@@ -291,7 +299,9 @@
     "switchToSignUp": "கணக்கு வேண்டுமா? பதிவு செய்யவும்",
     "authErrorPrefix": "அதைச் செய்ய முடியவில்லை: ",
     "passwordMismatch": "கடவுச்சொற்கள் பொருந்தவில்லை.",
-    "selectOption": "சொல்லாமல் இருக்க விருப்பம்"
+    "selectOption": "சொல்லாமல் இருக்க விருப்பம்",
+    "gateTitle": "தொடர இலவச கணக்கை உருவாக்கவும்",
+    "gateMessage": "நீங்கள் பதிவு செய்தவுடன் அல்லது உள்நுழைந்தவுடன் சமையல் குறிப்புகள், மொழிபெயர்ப்புகள் மற்றும் ஆடியோ விவரிப்புகள் கிடைக்கும். இதற்கு சிறிது நேரம் ஆகும்."
   },
   "te": {
     "title": "ఆయుర్ రసోయ్",
@@ -350,7 +360,9 @@
     "switchToSignUp": "ఖాతా కావాలా? సైన్ అప్ చేయండి",
     "authErrorPrefix": "అది చేయలేకపోయింది: ",
     "passwordMismatch": "పాస్‌వర్డ్‌లు సరిపోలడం లేదు.",
-    "selectOption": "చెప్పకూడదని ఇష్టపడతారు"
+    "selectOption": "చెప్పకూడదని ఇష్టపడతారు",
+    "gateTitle": "కొనసాగించడానికి ఉచిత ఖాతాను సృష్టించండి",
+    "gateMessage": "మీరు సైన్ అప్ చేసిన తర్వాత లేదా సైన్ ఇన్ చేసిన తర్వాత వంటకాలు, అనువాదాలు మరియు ఆడియో నేరేషన్ అందుబాటులో ఉంటాయి. దీనికి కొంత సమయం మాత్రమే పడుతుంది."
   },
   "kn": {
     "title": "ಆಯುರ್ರಾಸೋಯಿ",
@@ -409,7 +421,9 @@
     "switchToSignUp": "ಖಾತೆ ಬೇಕೇ? ಸೈನ್ ಅಪ್ ಮಾಡಿ",
     "authErrorPrefix": "ಅದನ್ನು ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ: ",
     "passwordMismatch": "ಪಾಸ್‌ವರ್ಡ್‌ಗಳು ಹೊಂದಿಕೆಯಾಗುತ್ತಿಲ್ಲ.",
-    "selectOption": "ಹೇಳದಿರಲು ಆದ್ಯತೆ"
+    "selectOption": "ಹೇಳದಿರಲು ಆದ್ಯತೆ",
+    "gateTitle": "ಮುಂದುವರಿಸಲು ಉಚಿತ ಖಾತೆಯನ್ನು ರಚಿಸಿ",
+    "gateMessage": "ಒಮ್ಮೆ ನೀವು ಸೈನ್ ಅಪ್ ಅಥವಾ ಸೈನ್ ಇನ್ ಮಾಡಿದ ನಂತರ ಪಾಕವಿಧಾನಗಳು, ಅನುವಾದಗಳು ಮತ್ತು ಆಡಿಯೊ ನಿರೂಪಣೆಗಳು ಲಭ್ಯವಿರುತ್ತವೆ. ಇದು ಕೇವಲ ಒಂದು ಕ್ಷಣವನ್ನು ತೆಗೆದುಕೊಳ್ಳುತ್ತದೆ."
   },
   "or": {
     "title": "ଆୟୁର୍ ରସୋଇ |",
@@ -468,7 +482,9 @@
     "switchToSignUp": "ଏକ ଖାତା ଦରକାର କି? ସାଇନ୍ ଅପ୍ କରନ୍ତୁ |",
     "authErrorPrefix": "ତାହା କରିପାରିଲା ନାହିଁ: ",
     "passwordMismatch": "ପାସୱାର୍ଡ ମେଳ ଖାଉ ନାହିଁ |",
-    "selectOption": "କହିବାକୁ ପସନ୍ଦ କରନ୍ତୁ ନାହିଁ |"
+    "selectOption": "କହିବାକୁ ପସନ୍ଦ କରନ୍ତୁ ନାହିଁ |",
+    "gateTitle": "ଜାରି ରଖିବାକୁ ଏକ ମାଗଣା ଖାତା ସୃଷ୍ଟି କରନ୍ତୁ |",
+    "gateMessage": "ଆପଣ ସାଇନ୍ ଅପ୍ କିମ୍ବା ସାଇନ୍ ଇନ୍ କରିବା ପରେ ରେସିପି, ଅନୁବାଦ, ଏବଂ ଅଡିଓ କାହାଣୀ ଉପଲବ୍ଧ | ଏହା କେବଳ କିଛି ସମୟ ନେଇଥାଏ |"
   },
   "gu": {
     "title": "આયુરરાસોઈ",
@@ -527,7 +543,9 @@
     "switchToSignUp": "એકાઉન્ટની જરૂર છે? સાઇન અપ કરો",
     "authErrorPrefix": "તે કરી શક્યું નથી: ",
     "passwordMismatch": "પાસવર્ડ મેળ ખાતા નથી.",
-    "selectOption": "ન કહેવાનું પસંદ કરે છે"
+    "selectOption": "ન કહેવાનું પસંદ કરે છે",
+    "gateTitle": "ચાલુ રાખવા માટે મફત એકાઉન્ટ બનાવો",
+    "gateMessage": "એકવાર તમે સાઇન અપ કરો અથવા સાઇન ઇન કરો પછી વાનગીઓ, અનુવાદો અને ઑડિઓ વર્ણન ઉપલબ્ધ છે. તે માત્ર એક ક્ષણ લે છે."
   },
   "pa": {
     "title": "ਆਯੁਰਰਾਸੋਈ",
@@ -586,7 +604,9 @@
     "switchToSignUp": "ਇੱਕ ਖਾਤੇ ਦੀ ਲੋੜ ਹੈ? ਸਾਈਨ ਅੱਪ ਕਰੋ",
     "authErrorPrefix": "ਇਹ ਨਹੀਂ ਕਰ ਸਕਿਆ: ",
     "passwordMismatch": "ਪਾਸਵਰਡ ਮੇਲ ਨਹੀਂ ਖਾਂਦੇ।",
-    "selectOption": "ਨਾ ਕਹਿਣਾ ਪਸੰਦ ਕਰਦੇ ਹਨ"
+    "selectOption": "ਨਾ ਕਹਿਣਾ ਪਸੰਦ ਕਰਦੇ ਹਨ",
+    "gateTitle": "ਜਾਰੀ ਰੱਖਣ ਲਈ ਇੱਕ ਮੁਫਤ ਖਾਤਾ ਬਣਾਓ",
+    "gateMessage": "ਤੁਹਾਡੇ ਵੱਲੋਂ ਸਾਈਨ ਅੱਪ ਜਾਂ ਸਾਈਨ ਇਨ ਕਰਨ ਤੋਂ ਬਾਅਦ ਪਕਵਾਨਾਂ, ਅਨੁਵਾਦ ਅਤੇ ਆਡੀਓ ਵਰਣਨ ਉਪਲਬਧ ਹੁੰਦੇ ਹਨ। ਇਸ ਵਿੱਚ ਸਿਰਫ਼ ਇੱਕ ਪਲ ਲੱਗਦਾ ਹੈ।"
   },
   "fr": {
     "title": "AyurRasoi",
@@ -645,7 +665,9 @@
     "switchToSignUp": "Besoin d'un compte ? Inscrivez-vous",
     "authErrorPrefix": "Je n'ai pas pu faire ça : ",
     "passwordMismatch": "Les mots de passe ne correspondent pas.",
-    "selectOption": "Je préfère ne pas dire"
+    "selectOption": "Je préfère ne pas dire",
+    "gateTitle": "Créez un compte gratuit pour continuer",
+    "gateMessage": "Les recettes, les traductions et la narration audio sont disponibles une fois que vous vous inscrivez ou vous connectez. Cela ne prend que quelques instants."
   },
   "es": {
     "title": "AyurRasoi",
@@ -704,7 +726,9 @@
     "switchToSignUp": "¿Necesitas una cuenta? Regístrate",
     "authErrorPrefix": "No pude hacer eso: ",
     "passwordMismatch": "Las contraseñas no coinciden.",
-    "selectOption": "Prefiero no decir"
+    "selectOption": "Prefiero no decir",
+    "gateTitle": "Crea una cuenta gratuita para continuar",
+    "gateMessage": "Las recetas, traducciones y narraciones de audio están disponibles una vez que te registras o inicias sesión. Solo toma un momento."
   },
   "de": {
     "title": "AyurRasoi",
@@ -763,7 +787,9 @@
     "switchToSignUp": "Benötigen Sie ein Konto? Melden Sie sich an",
     "authErrorPrefix": "Konnte das nicht tun: ",
     "passwordMismatch": "Passwörter stimmen nicht überein.",
-    "selectOption": "Sag es lieber nicht"
+    "selectOption": "Sag es lieber nicht",
+    "gateTitle": "Erstellen Sie ein kostenloses Konto, um fortzufahren",
+    "gateMessage": "Rezepte, Übersetzungen und Audiokommentare sind verfügbar, sobald Sie sich angemeldet oder angemeldet haben. Es dauert nur einen Moment."
   },
   "ru": {
     "title": "АюрРасой",
@@ -822,7 +848,9 @@
     "switchToSignUp": "Нужен аккаунт? Зарегистрироваться",
     "authErrorPrefix": "Не смог этого сделать: ",
     "passwordMismatch": "Пароли не совпадают.",
-    "selectOption": "Предпочитаю не говорить"
+    "selectOption": "Предпочитаю не говорить",
+    "gateTitle": "Создайте бесплатную учетную запись, чтобы продолжить",
+    "gateMessage": "Рецепты, переводы и аудиозапись доступны после регистрации или входа в систему. Это займет всего минуту."
   },
   "zh": {
     "title": "阿尤拉索伊",
@@ -881,7 +909,9 @@
     "switchToSignUp": "需要帐户吗？注册",
     "authErrorPrefix": "无法做到这一点： ",
     "passwordMismatch": "密码不匹配。",
-    "selectOption": "宁愿不说"
+    "selectOption": "宁愿不说",
+    "gateTitle": "创建一个免费帐户以继续",
+    "gateMessage": "注册或登录后即可使用食谱、翻译和音频旁白。只需片刻时间。"
   },
   "yue": {
     "title": "阿尤拉索伊",
@@ -940,6 +970,8 @@
     "switchToSignUp": "需要帐户吗？注册",
     "authErrorPrefix": "无法做到这一点： ",
     "passwordMismatch": "密码不匹配。",
-    "selectOption": "宁愿不说"
+    "selectOption": "宁愿不说",
+    "gateTitle": "创建一个免费帐户以继续",
+    "gateMessage": "注册或登录后即可使用食谱、翻译和音频旁白。只需片刻时间。"
   }
 }
