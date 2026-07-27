@@ -150,25 +150,75 @@ function parseRecipeText(rawText) {
   };
 }
 
-// Lingva Translate is a free, keyless, open-source front end for Google
-// Translate's engine — no signup, no cost. Public instances occasionally
-// go down, so we try a short list and fall back through them.
+// Translation provider chain, all free and keyless:
+// 1. Google's public "gtx" client endpoint — the same backend Lingva
+//    itself wraps, but hit directly instead of through a community-run
+//    proxy (this mirrors how audio narration already talks to Google's
+//    public translate_tts endpoint directly).
+// 2. Lingva Translate mirrors, as a fallback if Google's endpoint is
+//    ever unreachable.
+// 3. MyMemory — a dedicated free translation API, last resort (has a
+//    short per-request text length limit, fine as a final fallback).
 const LINGVA_INSTANCES = process.env.LINGVA_URL
   ? [process.env.LINGVA_URL]
   : ["https://lingva.ml", "https://translate.plausibility.cloud"];
 
-async function translateBlock(text, target) {
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+async function translateViaGoogle(text, target) {
+  const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${encodeURIComponent(target)}&dt=t&q=${encodeURIComponent(text)}`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Google translate returned ${res.status}`);
+  const data = await res.json();
+  const segments = data && data[0];
+  if (!Array.isArray(segments) || !segments.length) throw new Error("Google translate returned no text.");
+  return segments.map((seg) => seg[0]).join("");
+}
+
+async function translateViaLingva(text, target) {
   let lastError;
   for (const base of LINGVA_INSTANCES) {
     try {
       const res = await fetch(`${base}/api/v1/en/${target}/${encodeURIComponent(text)}`);
-      if (!res.ok) throw new Error(`Translation service returned ${res.status}`);
+      if (!res.ok) throw new Error(`Lingva returned ${res.status}`);
       const data = await res.json();
-      if (!data.translation) throw new Error("Translation service returned no text.");
+      if (!data.translation) throw new Error("Lingva returned no text.");
       return data.translation;
     } catch (err) {
       lastError = err;
     }
+  }
+  throw lastError;
+}
+
+async function translateViaMyMemory(text, target) {
+  const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|${encodeURIComponent(target)}`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`MyMemory returned ${res.status}`);
+  const data = await res.json();
+  const translated = data && data.responseData && data.responseData.translatedText;
+  if (!translated) throw new Error("MyMemory returned no text.");
+  return translated;
+}
+
+const PROVIDERS = [translateViaGoogle, translateViaLingva, translateViaMyMemory];
+
+// A couple of short retries with backoff rides out a transient blip
+// across the whole provider chain without waiting for a separate script
+// run; a sustained outage still surfaces as a normal failure so the
+// resumable migration script can pick it up again later.
+async function translateBlock(text, target, retriesLeft = 2) {
+  let lastError;
+  for (const provider of PROVIDERS) {
+    try {
+      return await provider(text, target);
+    } catch (err) {
+      lastError = err;
+    }
+  }
+  if (retriesLeft > 0) {
+    await sleep(5000 * (3 - retriesLeft));
+    return translateBlock(text, target, retriesLeft - 1);
   }
   throw lastError;
 }

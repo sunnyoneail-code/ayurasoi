@@ -3,11 +3,20 @@
 // the free Lingva Translate service. Safe to re-run — it skips any
 // recipe/language pair that's already translated, so an interrupted run
 // just picks up where it left off.
+//
+// Optional: pass language codes as CLI args to restrict this run to just
+// those languages (e.g. `node generateTranslations.js hi ta te`) — handy
+// for prioritizing a short list first and filling in the rest later.
 
 const fs = require("fs");
 const path = require("path");
-const { LANGUAGES } = require("../languages");
+const { LANGUAGES: ALL_LANGUAGES } = require("../languages");
 const { translateBlock, translateLines } = require("../recipeExtractor");
+
+const ONLY_CODES = process.argv.slice(2);
+const LANGUAGES = ONLY_CODES.length
+  ? ALL_LANGUAGES.filter((l) => ONLY_CODES.includes(l.code))
+  : ALL_LANGUAGES;
 
 const RECIPES_PATH = path.join(__dirname, "..", "data", "recipes.json");
 const UI_EN_PATH = path.join(__dirname, "..", "data", "uiText.en.json");
@@ -66,7 +75,7 @@ async function migrateRecipes() {
         console.log(`  [${recipe.id}] ${lang.code} FAILED: ${err.message}`);
       }
       fs.writeFileSync(RECIPES_PATH, JSON.stringify(recipes, null, 2), "utf-8");
-      await sleep(150);
+      await sleep(1200);
     }
   }
 

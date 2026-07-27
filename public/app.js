@@ -37,7 +37,45 @@ const INGREDIENT_IMAGES = [
   { match: /fennel/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Fennel_seeds_01.jpg/500px-Fennel_seeds_01.jpg", alt: "Fennel seeds" },
   { match: /turmeric/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Turmeric_Root_and_Turmeric_Powder.jpg/500px-Turmeric_Root_and_Turmeric_Powder.jpg", alt: "Turmeric" },
   { match: /amla|gooseberry/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Indian_Gooseberry_%28Amla%29.jpg/500px-Indian_Gooseberry_%28Amla%29.jpg", alt: "Amla (Indian gooseberry)" },
-  { match: /ashwagandha/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/WithaniaFruit.jpg/330px-WithaniaFruit.jpg", alt: "Ashwagandha" }
+  { match: /ashwagandha/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/WithaniaFruit.jpg/330px-WithaniaFruit.jpg", alt: "Ashwagandha" },
+  { match: /neem/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Neem_leaves.JPG/500px-Neem_leaves.JPG", alt: "Neem leaves" },
+  { match: /aloe vera|aloe/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Aloe_vera_leaf_showing_the_gel_%281%29.JPG/500px-Aloe_vera_leaf_showing_the_gel_%281%29.JPG", alt: "Aloe vera leaf" },
+  { match: /licorice|liquorice|mulethi/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Liquiritiae_radix_suessholzwurzel.jpg/500px-Liquiritiae_radix_suessholzwurzel.jpg", alt: "Licorice root (Mulethi)" },
+  { match: /fenugreek|methi/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Fenugreek_seeds.jpg/500px-Fenugreek_seeds.jpg", alt: "Fenugreek seeds" },
+  { match: /cinnamon/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Cinnamon_sticks_-_%281%29.jpg/500px-Cinnamon_sticks_-_%281%29.jpg", alt: "Cinnamon sticks" },
+  { match: /clove/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Cloves_whole.JPG/500px-Cloves_whole.JPG", alt: "Cloves" },
+  { match: /sesame/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Sesame_seeds.JPG/500px-Sesame_seeds.JPG", alt: "Sesame seeds" },
+  { match: /coconut oil|coconut/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Coconut_Oil_%284404443713%29.jpg/500px-Coconut_Oil_%284404443713%29.jpg", alt: "Coconut oil" },
+  { match: /rose water|rosewater|rose petal/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Rose_water_flask.jpg/500px-Rose_water_flask.jpg", alt: "Rose water" },
+  { match: /hibiscus/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Hibiscus_rosa-sinensis_flower_2.JPG/500px-Hibiscus_rosa-sinensis_flower_2.JPG", alt: "Hibiscus flower" },
+  { match: /onion/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Whole_onion.jpg/500px-Whole_onion.jpg", alt: "Onion" },
+  { match: /garlic/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Allium_sativum_-_Garlic_-_01.jpg/500px-Allium_sativum_-_Garlic_-_01.jpg", alt: "Garlic" },
+  { match: /saffron|kesar/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Saffron.JPG/500px-Saffron.JPG", alt: "Saffron strands" },
+  { match: /nutmeg|jaiphal/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Nutmeg.jpg/500px-Nutmeg.jpg", alt: "Nutmeg" },
+  { match: /curd|yogurt|yoghurt|dahi/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Yoghurt_in_bowl.jpg/500px-Yoghurt_in_bowl.jpg", alt: "Curd (Yogurt)" },
+  { match: /besan|gram flour|chickpea flour/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Gram_flour_AvL.jpg/500px-Gram_flour_AvL.jpg", alt: "Besan (gram flour)" },
+  { match: /multani mitti|fuller's earth|fullers earth/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Fuller%27s_earth_powder.jpg/500px-Fuller%27s_earth_powder.jpg", alt: "Multani mitti (Fuller's earth)" },
+  { match: /shikakai/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Shikakai_%28Senegalia_rugata%29_seed_pods.jpg/500px-Shikakai_%28Senegalia_rugata%29_seed_pods.jpg", alt: "Shikakai pods" },
+  { match: /reetha|ritha|soap ?nut/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Ritha_%28Sapindus_mukorossi%29_fruits.jpg/500px-Ritha_%28Sapindus_mukorossi%29_fruits.jpg", alt: "Reetha (soap nut)" },
+  { match: /brahmi|bacopa/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Bacopa_monnieri_Brahmi_flower.jpg/500px-Bacopa_monnieri_Brahmi_flower.jpg", alt: "Brahmi (Bacopa monnieri)" },
+  { match: /guduchi|giloy/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Giloy.jpg/330px-Giloy.jpg", alt: "Guduchi (Giloy) stem" },
+  { match: /castor oil|castor seed|castor plant|castor/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Castor_oil_plant_seeds.jpg/330px-Castor_oil_plant_seeds.jpg", alt: "Castor oil plant seeds" },
+  { match: /mustard oil|mustard seed|mustard/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Mustard_Seeds.JPG/330px-Mustard_Seeds.JPG", alt: "Mustard seeds" },
+  { match: /barley/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Barley_Seeds.jpg/330px-Barley_Seeds.jpg", alt: "Barley grains" },
+  { match: /\bdates\b|dried date/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Dried_dates_-_1.jpg/330px-Dried_dates_-_1.jpg", alt: "Dried dates" },
+  { match: /raisins?|kishmish/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Raisins.jpg/330px-Raisins.jpg", alt: "Raisins" },
+  { match: /almonds?/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Heap_of_almonds.jpg/330px-Heap_of_almonds.jpg", alt: "Almonds" },
+  { match: /black salt|kala namak|rock salt/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Black_salt.jpg/330px-Black_salt.jpg", alt: "Black salt (kala namak)" },
+  { match: /asafoetida|asafetida|hing/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Heing.JPG/330px-Heing.JPG", alt: "Asafoetida (hing)" },
+  { match: /cucumber/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Cucumber_picture.jpg/330px-Cucumber_picture.jpg", alt: "Cucumber" },
+  { match: /sandalwood|chandan/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Santalum_album_%28Chandan%29_in_Hyderabad%2C_AP_W_IMG_0023.jpg/330px-Santalum_album_%28Chandan%29_in_Hyderabad%2C_AP_W_IMG_0023.jpg", alt: "Sandalwood (Chandan) tree" },
+  { match: /triphala/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Haritaki_%28Sanskrit-_%E0%A4%B9%E0%A4%B0%E0%A5%80%E0%A4%A4%E0%A4%95%E0%A5%80%29_%283308328291%29.jpg/330px-Haritaki_%28Sanskrit-_%E0%A4%B9%E0%A4%B0%E0%A5%80%E0%A4%A4%E0%A4%95%E0%A5%80%29_%283308328291%29.jpg", alt: "Triphala churna (Haritaki, one of its three fruits)" },
+  { match: /shatavari/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Asparagus_racemosus.JPG/330px-Asparagus_racemosus.JPG", alt: "Shatavari (Asparagus racemosus) plant" },
+  { match: /jatamansi|spikenard/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Nardostachys_jatamansi_rhizome_with_a_scale_to_asses_its_size_Photo_N_C_SHAH.jpg/330px-Nardostachys_jatamansi_rhizome_with_a_scale_to_asses_its_size_Photo_N_C_SHAH.jpg", alt: "Jatamansi rhizome" },
+  { match: /tagara|indian valerian/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Valeriana_jatamansi_-_Chelsea_Physic_Garden_-_DSC02853.jpg/330px-Valeriana_jatamansi_-_Chelsea_Physic_Garden_-_DSC02853.jpg", alt: "Tagara (Indian valerian) plant" },
+  { match: /punarnava/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Punar-nava_%28Telugu-_%E0%B0%AA%E0%B1%81%E0%B0%A8%E0%B0%B0%E0%B1%8D%E0%B0%A8%E0%B0%B5%29_%284938290660%29.jpg/330px-Punar-nava_%28Telugu-_%E0%B0%AA%E0%B1%81%E0%B0%A8%E0%B0%B0%E0%B1%8D%E0%B0%A8%E0%B0%B5%29_%284938290660%29.jpg", alt: "Punarnava plant" },
+  { match: /manjistha|manjishtha|indian madder/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Manjishta_%28Telugu-_%E0%B0%AE%E0%B0%82%E0%B0%9C%E0%B0%BF%E0%B0%B7%E0%B1%8D%E0%B0%A0%29_%286331763392%29.jpg/330px-Manjishta_%28Telugu-_%E0%B0%AE%E0%B0%82%E0%B0%9C%E0%B0%BF%E0%B0%B7%E0%B1%8D%E0%B0%A0%29_%286331763392%29.jpg", alt: "Manjistha (Indian madder)" },
+  { match: /guggul/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Commiphora_wightii_05.JPG/330px-Commiphora_wightii_05.JPG", alt: "Guggul (Commiphora wightii) tree" }
 ];
 const DEFAULT_INGREDIENT_IMAGE = { url: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Spices_%285466679811%29.jpg", alt: "Spices" };
 
@@ -59,7 +97,17 @@ const CATEGORY_DEFS = [
   { id: "digestion", key: "catDigestion" },
   { id: "immunity", key: "catImmunity" },
   { id: "cold-cough", key: "catColdCough" },
-  { id: "vitality", key: "catVitality" }
+  { id: "vitality", key: "catVitality" },
+  { id: "sleep", key: "catSleep" },
+  { id: "stress", key: "catStress" },
+  { id: "skin", key: "catSkin" },
+  { id: "hair", key: "catHair" },
+  { id: "joint-pain", key: "catJointPain" },
+  { id: "womens-health", key: "catWomensHealth" },
+  { id: "oral-care", key: "catOralCare" },
+  { id: "eye-care", key: "catEyeCare" },
+  { id: "weight-management", key: "catWeightManagement" },
+  { id: "detox", key: "catDetox" }
 ];
 
 const AGE_RANGES = ["Under 18", "18-24", "25-34", "35-44", "45-54", "55-64", "65+"];
@@ -602,8 +650,18 @@ function renderRecipeOfDayBanner(recipe, t) {
 
 const MOOD_RULES = [
   { re: /sore throat|cough|cold\b|congestion|flu|blocked nose/i, category: "cold-cough" },
-  { re: /stomach|bloat|gas\b|indigestion|digest|acid|constipat/i, category: "digestion" },
-  { re: /stress|anxious|anxiety|sleep|insomnia|tired|energy|fatigue|exhaust/i, category: "vitality" },
+  { re: /stomach|bloat|gas\b|indigestion|digest|acid reflux|acidity|constipat/i, category: "digestion" },
+  { re: /can'?t sleep|sleep|insomnia|can'?t fall asleep|restless night/i, category: "sleep" },
+  { re: /stress|anxious|anxiety|overwhelm|worried|nervous|mind racing/i, category: "stress" },
+  { re: /joint|knee|muscle ache|muscle pain|stiff|arthritis|back pain/i, category: "joint-pain" },
+  { re: /skin|acne|pimple|dry skin|glow|dull skin/i, category: "skin" },
+  { re: /hair|scalp|dandruff|hair fall|hair loss/i, category: "hair" },
+  { re: /period|menstrual|cramps|pms\b/i, category: "womens-health" },
+  { re: /tooth|teeth|gum|bad breath|mouth/i, category: "oral-care" },
+  { re: /eye strain|tired eyes|puffy eyes|eyes\b/i, category: "eye-care" },
+  { re: /weight|metabolism|sluggish metabolism/i, category: "weight-management" },
+  { re: /detox|cleanse|toxin|heavy feeling/i, category: "detox" },
+  { re: /tired|energy|fatigue|exhaust|low stamina/i, category: "vitality" },
   { re: /immun|weak|run down|sick often|fever/i, category: "immunity" }
 ];
 

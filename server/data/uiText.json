@@ -34,6 +34,16 @@
     "catImmunity": "Immunity",
     "catColdCough": "Cold & Cough",
     "catVitality": "Vitality",
+    "catSleep": "Sleep",
+    "catStress": "Stress & Mind",
+    "catSkin": "Skin Care",
+    "catHair": "Hair Care",
+    "catJointPain": "Joint & Muscle",
+    "catWomensHealth": "Women's Health",
+    "catOralCare": "Oral Care",
+    "catEyeCare": "Eye Care",
+    "catWeightManagement": "Weight Management",
+    "catDetox": "Detox",
     "signIn": "Sign in",
     "signUp": "Sign up",
     "logOut": "Log out",
@@ -170,7 +180,17 @@
     "newPasswordLabel": "नया पासवर्ड",
     "resetPasswordSubmit": "नया पासवर्ड सेट करें",
     "resetPasswordSuccess": "पासवर्ड अपडेट किया गया. अब आप साइन इन कर सकते हैं.",
-    "continueWithGoogle": "Google के साथ जारी रखें"
+    "continueWithGoogle": "Google के साथ जारी रखें",
+    "catSleep": "सो जाओ",
+    "catStress": "तनाव और मन",
+    "catSkin": "त्वचा की देखभाल",
+    "catHair": "बालों की देखभाल",
+    "catJointPain": "जोड़ एवं मांसपेशी",
+    "catWomensHealth": "महिला स्वास्थ्य",
+    "catOralCare": "मौखिक देखभाल",
+    "catEyeCare": "नेत्र देखभाल",
+    "catWeightManagement": "वज़न प्रबंधन",
+    "catDetox": "डिटॉक्स"
   },
   "bn": {
     "title": "আয়ুররসোই",
@@ -257,7 +277,17 @@
     "newPasswordLabel": "নতুন পাসওয়ার্ড",
     "resetPasswordSubmit": "নতুন পাসওয়ার্ড সেট করুন",
     "resetPasswordSuccess": "পাসওয়ার্ড আপডেট করা হয়েছে। আপনি এখন সাইন ইন করতে পারেন.",
-    "continueWithGoogle": "Google এর সাথে চালিয়ে যান"
+    "continueWithGoogle": "Google এর সাথে চালিয়ে যান",
+    "catSleep": "ঘুম",
+    "catStress": "স্ট্রেস এবং মন",
+    "catSkin": "ত্বকের যত্ন",
+    "catHair": "চুলের যত্ন",
+    "catJointPain": "জয়েন্ট এবং পেশী",
+    "catWomensHealth": "মহিলাদের স্বাস্থ্য",
+    "catOralCare": "ওরাল কেয়ার",
+    "catEyeCare": "চোখের যত্ন",
+    "catWeightManagement": "ওজন ব্যবস্থাপনা",
+    "catDetox": "ডিটক্স"
   },
   "mr": {
     "title": "आयुर्रासोई",
@@ -344,7 +374,17 @@
     "newPasswordLabel": "नवीन पासवर्ड",
     "resetPasswordSubmit": "नवीन पासवर्ड सेट करा",
     "resetPasswordSuccess": "पासवर्ड अपडेट केला. तुम्ही आता साइन इन करू शकता.",
-    "continueWithGoogle": "Google सह सुरू ठेवा"
+    "continueWithGoogle": "Google सह सुरू ठेवा",
+    "catSleep": "झोप",
+    "catStress": "ताण आणि मन",
+    "catSkin": "त्वचेची काळजी",
+    "catHair": "केसांची निगा",
+    "catJointPain": "सांधे आणि स्नायू",
+    "catWomensHealth": "महिला आरोग्य",
+    "catOralCare": "तोंडी काळजी",
+    "catEyeCare": "डोळ्यांची काळजी",
+    "catWeightManagement": "वजन व्यवस्थापन",
+    "catDetox": "डिटॉक्स"
   },
   "ta": {
     "title": "ஆயுர்ரசோய்",
@@ -431,7 +471,17 @@
     "newPasswordLabel": "புதிய கடவுச்சொல்",
     "resetPasswordSubmit": "புதிய கடவுச்சொல்லை அமைக்கவும்",
     "resetPasswordSuccess": "கடவுச்சொல் புதுப்பிக்கப்பட்டது. நீங்கள் இப்போது உள்நுழையலாம்.",
-    "continueWithGoogle": "Google உடன் தொடரவும்"
+    "continueWithGoogle": "Google உடன் தொடரவும்",
+    "catSleep": "தூங்கு",
+    "catStress": "மன அழுத்தம் மற்றும் மனம்",
+    "catSkin": "தோல் பராமரிப்பு",
+    "catHair": "முடி பராமரிப்பு",
+    "catJointPain": "மூட்டு மற்றும் தசை",
+    "catWomensHealth": "பெண்களின் ஆரோக்கியம்",
+    "catOralCare": "வாய்வழி பராமரிப்பு",
+    "catEyeCare": "கண் பராமரிப்பு",
+    "catWeightManagement": "எடை மேலாண்மை",
+    "catDetox": "டிடாக்ஸ்"
   },
   "te": {
     "title": "ఆయుర్ రసోయ్",
@@ -518,7 +568,17 @@
     "newPasswordLabel": "కొత్త పాస్‌వర్డ్",
     "resetPasswordSubmit": "కొత్త పాస్‌వర్డ్‌ని సెట్ చేయండి",
     "resetPasswordSuccess": "పాస్‌వర్డ్ నవీకరించబడింది. మీరు ఇప్పుడు సైన్ ఇన్ చేయవచ్చు.",
-    "continueWithGoogle": "Googleతో కొనసాగించండి"
+    "continueWithGoogle": "Googleతో కొనసాగించండి",
+    "catSleep": "నిద్రించు",
+    "catStress": "ఒత్తిడి & మనస్సు",
+    "catSkin": "చర్మ సంరక్షణ",
+    "catHair": "జుట్టు సంరక్షణ",
+    "catJointPain": "జాయింట్ & కండరము",
+    "catWomensHealth": "మహిళల ఆరోగ్యం",
+    "catOralCare": "ఓరల్ కేర్",
+    "catEyeCare": "కంటి సంరక్షణ",
+    "catWeightManagement": "బరువు నిర్వహణ",
+    "catDetox": "నిర్విషీకరణ"
   },
   "kn": {
     "title": "ಆಯುರ್ರಾಸೋಯಿ",
@@ -605,7 +665,17 @@
     "newPasswordLabel": "ಹೊಸ ಪಾಸ್ವರ್ಡ್",
     "resetPasswordSubmit": "ಹೊಸ ಗುಪ್ತಪದವನ್ನು ಹೊಂದಿಸಿ",
     "resetPasswordSuccess": "ಪಾಸ್ವರ್ಡ್ ನವೀಕರಿಸಲಾಗಿದೆ. ನೀವು ಈಗ ಸೈನ್ ಇನ್ ಮಾಡಬಹುದು.",
-    "continueWithGoogle": "Google ನೊಂದಿಗೆ ಮುಂದುವರಿಯಿರಿ"
+    "continueWithGoogle": "Google ನೊಂದಿಗೆ ಮುಂದುವರಿಯಿರಿ",
+    "catSleep": "ನಿದ್ರೆ",
+    "catStress": "ಒತ್ತಡ ಮತ್ತು ಮನಸ್ಸು",
+    "catSkin": "ಚರ್ಮದ ಆರೈಕೆ",
+    "catHair": "ಕೂದಲು ಆರೈಕೆ",
+    "catJointPain": "ಜಂಟಿ ಮತ್ತು ಸ್ನಾಯು",
+    "catWomensHealth": "ಮಹಿಳಾ ಆರೋಗ್ಯ",
+    "catOralCare": "ಓರಲ್ ಕೇರ್",
+    "catEyeCare": "ಕಣ್ಣಿನ ಆರೈಕೆ",
+    "catWeightManagement": "ತೂಕ ನಿರ್ವಹಣೆ",
+    "catDetox": "ಡಿಟಾಕ್ಸ್"
   },
   "or": {
     "title": "ଆୟୁର୍ ରସୋଇ |",
@@ -692,7 +762,17 @@
     "newPasswordLabel": "ନୂତନ ପାସୱାର୍ଡ |",
     "resetPasswordSubmit": "ନୂତନ ପାସୱାର୍ଡ ସେଟ୍ କରନ୍ତୁ |",
     "resetPasswordSuccess": "ପାସୱାର୍ଡ ଅପଡେଟ୍ ହୋଇଛି | ଆପଣ ବର୍ତ୍ତମାନ ସାଇନ୍ ଇନ୍ କରିପାରିବେ |",
-    "continueWithGoogle": "ଗୁଗୁଲ୍ ସହିତ ଜାରି ରଖନ୍ତୁ |"
+    "continueWithGoogle": "ଗୁଗୁଲ୍ ସହିତ ଜାରି ରଖନ୍ତୁ |",
+    "catSleep": "ଶୋଇବା |",
+    "catStress": "ଚାପ ଏବଂ ମନ",
+    "catSkin": "ଚର୍ମ ଯତ୍ନ |",
+    "catHair": "କେଶ ଯତ୍ନ |",
+    "catJointPain": "ମିଳିତ ଏବଂ ମାଂସପେଶୀ |",
+    "catWomensHealth": "ମହିଳା ସ୍ୱାସ୍ଥ୍ୟ",
+    "catOralCare": "ଓରାଲ୍ କେୟାର |",
+    "catEyeCare": "ଚକ୍ଷୁ ଯତ୍ନ |",
+    "catWeightManagement": "ଓଜନ ପରିଚାଳନା",
+    "catDetox": "ଡିଟକ୍ସ |"
   },
   "gu": {
     "title": "આયુરરાસોઈ",
@@ -779,7 +859,17 @@
     "newPasswordLabel": "નવો પાસવર્ડ",
     "resetPasswordSubmit": "નવો પાસવર્ડ સેટ કરો",
     "resetPasswordSuccess": "પાસવર્ડ અપડેટ કર્યો. તમે હવે સાઇન ઇન કરી શકો છો.",
-    "continueWithGoogle": "Google સાથે ચાલુ રાખો"
+    "continueWithGoogle": "Google સાથે ચાલુ રાખો",
+    "catSleep": "ઊંઘ",
+    "catStress": "તણાવ અને મન",
+    "catSkin": "ત્વચા સંભાળ",
+    "catHair": "હેર કેર",
+    "catJointPain": "સાંધા અને સ્નાયુ",
+    "catWomensHealth": "મહિલા આરોગ્ય",
+    "catOralCare": "ઓરલ કેર",
+    "catEyeCare": "આંખની સંભાળ",
+    "catWeightManagement": "વજન વ્યવસ્થાપન",
+    "catDetox": "ડિટોક્સ"
   },
   "pa": {
     "title": "ਆਯੁਰਰਾਸੋਈ",
@@ -866,7 +956,17 @@
     "newPasswordLabel": "ਨਵਾਂ ਪਾਸਵਰਡ",
     "resetPasswordSubmit": "ਨਵਾਂ ਪਾਸਵਰਡ ਸੈੱਟ ਕਰੋ",
     "resetPasswordSuccess": "ਪਾਸਵਰਡ ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ। ਤੁਸੀਂ ਹੁਣ ਸਾਈਨ ਇਨ ਕਰ ਸਕਦੇ ਹੋ।",
-    "continueWithGoogle": "Google ਨਾਲ ਜਾਰੀ ਰੱਖੋ"
+    "continueWithGoogle": "Google ਨਾਲ ਜਾਰੀ ਰੱਖੋ",
+    "catSleep": "ਸਲੀਪ",
+    "catStress": "ਤਣਾਅ ਅਤੇ ਦਿਮਾਗ",
+    "catSkin": "ਚਮੜੀ ਦੀ ਦੇਖਭਾਲ",
+    "catHair": "ਵਾਲਾਂ ਦੀ ਦੇਖਭਾਲ",
+    "catJointPain": "ਜੋੜ ਅਤੇ ਮਾਸਪੇਸ਼ੀ",
+    "catWomensHealth": "ਔਰਤਾਂ ਦੀ ਸਿਹਤ",
+    "catOralCare": "ਮੂੰਹ ਦੀ ਦੇਖਭਾਲ",
+    "catEyeCare": "ਅੱਖਾਂ ਦੀ ਦੇਖਭਾਲ",
+    "catWeightManagement": "ਭਾਰ ਪ੍ਰਬੰਧਨ",
+    "catDetox": "ਡੀਟੌਕਸ"
   },
   "fr": {
     "title": "AyurRasoi",
@@ -953,7 +1053,17 @@
     "newPasswordLabel": "Nouveau mot de passe",
     "resetPasswordSubmit": "Définir un nouveau mot de passe",
     "resetPasswordSuccess": "Mot de passe mis à jour. Vous pouvez vous connecter maintenant.",
-    "continueWithGoogle": "Continuer avec Google"
+    "continueWithGoogle": "Continuer avec Google",
+    "catSleep": "Dormir",
+    "catStress": "Stress et esprit",
+    "catSkin": "Soins de la peau",
+    "catHair": "Soins capillaires",
+    "catJointPain": "Articulations et muscles",
+    "catWomensHealth": "Santé des femmes",
+    "catOralCare": "Soins bucco-dentaires",
+    "catEyeCare": "Soins des yeux",
+    "catWeightManagement": "Gestion du poids",
+    "catDetox": "Détox"
   },
   "es": {
     "title": "AyurRasoi",
@@ -1040,7 +1150,17 @@
     "newPasswordLabel": "Nueva contraseña",
     "resetPasswordSubmit": "Establecer nueva contraseña",
     "resetPasswordSuccess": "Contraseña actualizada. Puedes iniciar sesión ahora.",
-    "continueWithGoogle": "Continuar con Google"
+    "continueWithGoogle": "Continuar con Google",
+    "catSleep": "Dormir",
+    "catStress": "Estrés y mente",
+    "catSkin": "Cuidado de la piel",
+    "catHair": "cuidado del cabello",
+    "catJointPain": "Articulaciones y músculos",
+    "catWomensHealth": "Salud de la Mujer",
+    "catOralCare": "cuidado bucal",
+    "catEyeCare": "Cuidado de los ojos",
+    "catWeightManagement": "Control de peso",
+    "catDetox": "desintoxicación"
   },
   "de": {
     "title": "AyurRasoi",
@@ -1127,7 +1247,17 @@
     "newPasswordLabel": "Neues Passwort",
     "resetPasswordSubmit": "Neues Passwort festlegen",
     "resetPasswordSuccess": "Passwort aktualisiert. Sie können sich jetzt anmelden.",
-    "continueWithGoogle": "Weiter mit Google"
+    "continueWithGoogle": "Weiter mit Google",
+    "catSleep": "Schlafen",
+    "catStress": "Stress & Geist",
+    "catSkin": "Hautpflege",
+    "catHair": "Haarpflege",
+    "catJointPain": "Gelenk & Muskel",
+    "catWomensHealth": "Frauengesundheit",
+    "catOralCare": "Mundpflege",
+    "catEyeCare": "Augenpflege",
+    "catWeightManagement": "Gewichtsmanagement",
+    "catDetox": "Entgiftung"
   },
   "ru": {
     "title": "АюрРасой",
@@ -1214,7 +1344,17 @@
     "newPasswordLabel": "Новый пароль",
     "resetPasswordSubmit": "Установить новый пароль",
     "resetPasswordSuccess": "Пароль обновлен. Вы можете войти в систему сейчас.",
-    "continueWithGoogle": "Продолжить с Google"
+    "continueWithGoogle": "Продолжить с Google",
+    "catSleep": "Спать",
+    "catStress": "Стресс и разум",
+    "catSkin": "Уход за кожей",
+    "catHair": "Уход за волосами",
+    "catJointPain": "Суставы и мышцы",
+    "catWomensHealth": "Женское здоровье",
+    "catOralCare": "Уход за полостью рта",
+    "catEyeCare": "Уход за глазами",
+    "catWeightManagement": "Управление весом",
+    "catDetox": "Детокс"
   },
   "zh": {
     "title": "阿尤拉索伊",
@@ -1301,7 +1441,17 @@
     "newPasswordLabel": "新密码",
     "resetPasswordSubmit": "设置新密码",
     "resetPasswordSuccess": "密码已更新。您现在可以登录。",
-    "continueWithGoogle": "继续使用谷歌"
+    "continueWithGoogle": "继续使用谷歌",
+    "catSleep": "睡眠",
+    "catStress": "压力与心灵",
+    "catSkin": "皮肤护理",
+    "catHair": "头发护理",
+    "catJointPain": "关节与肌肉",
+    "catWomensHealth": "女性健康",
+    "catOralCare": "口腔护理",
+    "catEyeCare": "眼部护理",
+    "catWeightManagement": "体重管理",
+    "catDetox": "排毒"
   },
   "yue": {
     "title": "阿尤拉索伊",
@@ -1388,6 +1538,16 @@
     "newPasswordLabel": "新密码",
     "resetPasswordSubmit": "设置新密码",
     "resetPasswordSuccess": "密码已更新。您现在可以登录。",
-    "continueWithGoogle": "继续使用谷歌"
+    "continueWithGoogle": "继续使用谷歌",
+    "catSleep": "睡眠",
+    "catStress": "压力与心灵",
+    "catSkin": "皮肤护理",
+    "catHair": "头发护理",
+    "catJointPain": "关节与肌肉",
+    "catWomensHealth": "女性健康",
+    "catOralCare": "口腔护理",
+    "catEyeCare": "眼部护理",
+    "catWeightManagement": "体重管理",
+    "catDetox": "排毒"
   }
 }
