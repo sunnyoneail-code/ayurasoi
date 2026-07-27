@@ -11,6 +11,11 @@ const { LANGUAGES } = require("./languages");
 const { getOrCreateAudioManifest } = require("./audioCache");
 const { hashPassword, verifyPassword } = require("./auth");
 const users = require("./userStore");
+const favorites = require("./favoritesStore");
+const ratings = require("./ratingsStore");
+const resetTokens = require("./resetTokenStore");
+const { sendPasswordResetEmail } = require("./email");
+const googleOAuth = require("./googleOAuth");
 const { initSchema } = require("./db");
 
 const app = express();
@@ -40,6 +45,13 @@ app.use("/videos", express.static(path.join(__dirname, "videos")));
 app.use("/audio", express.static(path.join(__dirname, "audio")));
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// At least 8 characters with a letter and a number — matches the hint
+// shown on the sign-up form, enforced here too so it can't be bypassed
+// by calling the API directly.
+function isPasswordStrong(password) {
+  return typeof password === "string" && password.length >= 8 && /[a-zA-Z]/.test(password) && /[0-9]/.test(password);
+}
 
 // Admin status is computed from an env var, not stored on the user record —
 // change who's an admin at any time just by editing ADMIN_EMAILS, no data
@@ -74,7 +86,7 @@ app.post("/api/auth/register", async (req, res) => {
     const { name, email, password, demographics } = req.body || {};
     if (!name || !name.trim()) return res.status(400).json({ error: "Name is required." });
     if (!email || !EMAIL_RE.test(email)) return res.status(400).json({ error: "A valid email is required." });
-    if (!password || password.length < 8) return res.status(400).json({ error: "Password must be at least 8 characters." });
+    if (!isPasswordStrong(password)) return res.status(400).json({ error: "Password must be at least 8 characters and include a letter and a number." });
     if (await users.findByEmail(email)) return res.status(409).json({ error: "An account with this email already exists." });
 
     const user = await users.addUser({
@@ -106,6 +118,95 @@ app.post("/api/auth/login", async (req, res) => {
     res.json({ user: withAdminFlag(users.toPublicUser(user)) });
   } catch (err) {
     res.status(502).json({ error: "Couldn't sign in: " + err.message });
+  }
+});
+
+app.post("/api/auth/forgot-password", async (req, res) => {
+  const { email } = req.body || {};
+  // Always return the same generic response whether or not the email
+  // matches an account — prevents using this endpoint to check which
+  // emails are registered.
+  const generic = { ok: true, message: "If that email has an account, a reset link is on its way." };
+  if (!email) return res.json(generic);
+  try {
+    const user = await users.findByEmail(email);
+    if (user) {
+      const token = await resetTokens.createResetToken(user.id);
+      const base = process.env.APP_BASE_URL || `${req.protocol}://${req.get("host")}`;
+      const resetLink = `${base}/?reset=${token}`;
+      await sendPasswordResetEmail(user.email, resetLink);
+    }
+  } catch (err) {
+    console.error("forgot-password error:", err.message);
+  }
+  res.json(generic);
+});
+
+app.post("/api/auth/reset-password", async (req, res) => {
+  try {
+    const { token, newPassword } = req.body || {};
+    if (!token) return res.status(400).json({ error: "Missing reset token." });
+    if (!isPasswordStrong(newPassword)) {
+      return res.status(400).json({ error: "Password must be at least 8 characters and include a letter and a number." });
+    }
+    const result = await resetTokens.consumeResetToken(token);
+    if (!result.valid) {
+      const messages = {
+        not_found: "That reset link isn't valid.",
+        used: "That reset link has already been used.",
+        expired: "That reset link has expired — request a new one."
+      };
+      return res.status(400).json({ error: messages[result.reason] || "That reset link isn't valid." });
+    }
+    await users.setPasswordHash(result.userId, hashPassword(newPassword));
+    res.json({ ok: true });
+  } catch (err) {
+    const status = err.code === "NO_DB" ? 501 : 502;
+    res.status(status).json({ error: err.message });
+  }
+});
+
+app.get("/api/auth/google", (req, res) => {
+  if (!process.env.GOOGLE_CLIENT_ID) {
+    return res.status(501).send("Google Sign-In isn't configured on this server yet.");
+  }
+  const state = googleOAuth.randomState();
+  req.session.googleOAuthState = state;
+  res.redirect(googleOAuth.buildAuthUrl(req, state));
+});
+
+app.get("/api/auth/google/callback", async (req, res) => {
+  const { code, state } = req.query;
+  const base = process.env.APP_BASE_URL || `${req.protocol}://${req.get("host")}`;
+  if (!code || !state || state !== req.session.googleOAuthState) {
+    return res.redirect(`${base}/?authError=${encodeURIComponent("Google sign-in failed (invalid state). Please try again.")}`);
+  }
+  delete req.session.googleOAuthState;
+
+  try {
+    const profile = await googleOAuth.exchangeCodeForProfile(req, code);
+    let user = await users.findByGoogleId(profile.googleId);
+    if (!user) {
+      user = await users.findByEmail(profile.email);
+      if (user && !user.googleId) {
+        // An account with this email already exists via password sign-up.
+        // Since we can't attach googleId without a dedicated "link
+        // accounts" flow, treat this as a normal login for that account.
+      } else if (!user) {
+        user = await users.addUser({
+          name: profile.name,
+          email: profile.email,
+          passwordHash: null,
+          googleId: profile.googleId,
+          demographics: {}
+        });
+      }
+    }
+    req.session.userId = user.id;
+    res.redirect(base + "/");
+  } catch (err) {
+    console.error("Google OAuth callback error:", err.message);
+    res.redirect(`${base}/?authError=${encodeURIComponent("Couldn't complete Google sign-in. Please try again.")}`);
   }
 });
 
@@ -162,6 +263,58 @@ app.post("/api/recipes/:id/audio", requireAuth, async (req, res) => {
     res.json({ lines });
   } catch (err) {
     const status = err.code === "TTS_UNSUPPORTED" ? 422 : 502;
+    res.status(status).json({ error: err.message });
+  }
+});
+
+app.get("/api/favorites", requireAuth, async (req, res) => {
+  try {
+    res.json({ recipeIds: await favorites.listFavorites(req.session.userId) });
+  } catch (err) {
+    res.status(502).json({ error: err.message });
+  }
+});
+
+app.post("/api/recipes/:id/favorite", requireAuth, async (req, res) => {
+  try {
+    const result = await favorites.toggleFavorite(req.session.userId, req.params.id);
+    res.json(result);
+  } catch (err) {
+    const status = err.code === "NO_DB" ? 501 : 502;
+    res.status(status).json({ error: err.message });
+  }
+});
+
+app.get("/api/ratings/averages", requireAuth, async (req, res) => {
+  try {
+    res.json(await ratings.getAllAverages());
+  } catch (err) {
+    res.status(502).json({ error: err.message });
+  }
+});
+
+app.get("/api/recipes/:id/ratings", requireAuth, async (req, res) => {
+  try {
+    const summary = await ratings.getRatingsForRecipe(req.params.id);
+    const mine = await ratings.getUserRating(req.session.userId, req.params.id);
+    res.json({ ...summary, myRating: mine });
+  } catch (err) {
+    res.status(502).json({ error: err.message });
+  }
+});
+
+app.post("/api/recipes/:id/rating", requireAuth, async (req, res) => {
+  const { rating, comment } = req.body || {};
+  const n = Number(rating);
+  if (!Number.isInteger(n) || n < 1 || n > 5) {
+    return res.status(400).json({ error: "Rating must be a whole number from 1 to 5." });
+  }
+  try {
+    await ratings.upsertRating(req.session.userId, req.params.id, n, (comment || "").slice(0, 1000));
+    const summary = await ratings.getRatingsForRecipe(req.params.id);
+    res.json(summary);
+  } catch (err) {
+    const status = err.code === "NO_DB" ? 501 : 502;
     res.status(status).json({ error: err.message });
   }
 });

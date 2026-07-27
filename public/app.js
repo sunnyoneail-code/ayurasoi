@@ -5,6 +5,7 @@
 let RECIPES = [];
 let LANGUAGES = [];
 let UI_TEXT = {};
+let RATINGS_AVERAGES = {};
 
 const ADD_RECIPE_PLACEHOLDER = "Name: Ginger tea for sore throat\nIngredients:\n- Ginger\n- Water\n- Honey\nSteps:\n1. Boil sliced ginger in water for 10 minutes.\n2. Add honey once warm.\n3. Drink twice a day.\nSource: Charaka Samhita\n\n(Keep the English words Name/Ingredients/Steps/Source — write everything else in whatever language you like.)";
 
@@ -18,24 +19,39 @@ function apiFetch(url, options) {
   return fetch(url, opts);
 }
 
-const ICONS = [
-  { match: /milk/i, icon: "🥛" },
-  { match: /honey/i, icon: "🍯" },
-  { match: /jaggery/i, icon: "🍬" },
-  { match: /ginger/i, icon: "🫚" },
-  { match: /pepper|pippali/i, icon: "🌶️" },
-  { match: /tulsi|basil/i, icon: "🌿" },
-  { match: /cardamom/i, icon: "🌱" },
-  { match: /water/i, icon: "💧" },
-  { match: /cumin|coriander|fennel|seed/i, icon: "🌰" },
-  { match: /turmeric/i, icon: "🟠" },
-  { match: /amla|gooseberry/i, icon: "🍈" },
-  { match: /triphala|churna|powder/i, icon: "🥄" }
+// Real photos (Wikipedia/Wikimedia Commons, freely licensed) instead of
+// emoji — matched by keyword against the ingredient text, same approach
+// as the old icon system just swapping what gets rendered.
+const INGREDIENT_IMAGES = [
+  { match: /milk/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Glass_of_Milk_%2833657535532%29.jpg/330px-Glass_of_Milk_%2833657535532%29.jpg", alt: "Milk" },
+  { match: /honey/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Runny_hunny.jpg/330px-Runny_hunny.jpg", alt: "Honey" },
+  { match: /jaggery/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Sa-indian-gud.jpg/330px-Sa-indian-gud.jpg", alt: "Jaggery" },
+  { match: /ginger/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/GingerRoot_Novo_Los_Angeles.jpg/500px-GingerRoot_Novo_Los_Angeles.jpg", alt: "Ginger root" },
+  { match: /pippali|long pepper/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Long_pepper_plant%28Piper_longum%29.JPG/500px-Long_pepper_plant%28Piper_longum%29.JPG", alt: "Long pepper (pippali)" },
+  { match: /pepper/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Black_peppercorns_gn.jpg/500px-Black_peppercorns_gn.jpg", alt: "Black pepper" },
+  { match: /tulsi|basil/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Tulsi_or_Tulasi_Holy_basil.jpg/330px-Tulsi_or_Tulasi_Holy_basil.jpg", alt: "Tulsi (holy basil)" },
+  { match: /cardamom/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Cardamom_pods_-_Green_BNC.jpg/500px-Cardamom_pods_-_Green_BNC.jpg", alt: "Cardamom pods" },
+  { match: /water/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Clean_water_for_a_village_in_West_Lombok_%2810686572086%29.jpg/330px-Clean_water_for_a_village_in_West_Lombok_%2810686572086%29.jpg", alt: "Water" },
+  { match: /cumin/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Dried_cumin_seeds.jpg/500px-Dried_cumin_seeds.jpg", alt: "Cumin seeds" },
+  { match: /coriander/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Coriander_Seeds.jpg/500px-Coriander_Seeds.jpg", alt: "Coriander seeds" },
+  { match: /fennel/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Fennel_seeds_01.jpg/500px-Fennel_seeds_01.jpg", alt: "Fennel seeds" },
+  { match: /turmeric/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Turmeric_Root_and_Turmeric_Powder.jpg/500px-Turmeric_Root_and_Turmeric_Powder.jpg", alt: "Turmeric" },
+  { match: /amla|gooseberry/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Indian_Gooseberry_%28Amla%29.jpg/500px-Indian_Gooseberry_%28Amla%29.jpg", alt: "Amla (Indian gooseberry)" },
+  { match: /ashwagandha/i, url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/WithaniaFruit.jpg/330px-WithaniaFruit.jpg", alt: "Ashwagandha" }
 ];
+const DEFAULT_INGREDIENT_IMAGE = { url: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Spices_%285466679811%29.jpg", alt: "Spices" };
 
-function getIngredientIcon(text) {
-  const found = ICONS.find((i) => i.match.test(text));
-  return found ? found.icon : "🌾";
+function getIngredientImage(text) {
+  return INGREDIENT_IMAGES.find((i) => i.match.test(text)) || DEFAULT_INGREDIENT_IMAGE;
+}
+
+function ingredientPhoto(text, className) {
+  const img = document.createElement("img");
+  const info = getIngredientImage(text);
+  img.src = info.url;
+  img.alt = info.alt;
+  img.className = className;
+  return img;
 }
 
 const CATEGORY_DEFS = [
@@ -67,7 +83,26 @@ let state = {
   authView: null,
   authForm: { name: "", email: "", password: "", confirmPassword: "", ageRange: "", gender: "", country: "" },
   authStatus: "idle",
-  authError: ""
+  authError: "",
+  favoriteIds: new Set(),
+  showFavoritesOnly: false,
+  ratingsCache: {},
+  ratingDraft: 0,
+  commentDraft: "",
+  ratingStatus: "idle",
+  ratingError: "",
+  moodOpen: false,
+  moodInputText: "",
+  moodPick: null,
+  forgotEmail: "",
+  forgotStatus: "idle",
+  forgotMessage: "",
+  resetToken: null,
+  resetPasswordDraft: "",
+  resetConfirmDraft: "",
+  resetStatus: "idle",
+  resetError: "",
+  resetSuccess: false
 };
 
 function resetAuthForm() {
@@ -87,11 +122,101 @@ async function loadRecipes() {
   }
 }
 
+async function loadFavorites() {
+  try {
+    const res = await apiFetch("/api/favorites");
+    if (res.ok) {
+      const data = await res.json();
+      state.favoriteIds = new Set(data.recipeIds);
+    }
+  } catch (err) {
+    // Non-fatal — favorites just show as empty if this fails.
+  }
+}
+
+async function loadRatingsAverages() {
+  try {
+    const res = await apiFetch("/api/ratings/averages");
+    if (res.ok) RATINGS_AVERAGES = await res.json();
+  } catch (err) {
+    // Non-fatal — cards just show no rating yet.
+  }
+}
+
+async function loadRatingForRecipe(recipeId) {
+  state.ratingDraft = 0;
+  state.commentDraft = "";
+  state.ratingStatus = "idle";
+  state.ratingError = "";
+  try {
+    const res = await apiFetch(`/api/recipes/${recipeId}/ratings`);
+    if (res.ok) {
+      const data = await res.json();
+      state.ratingsCache[recipeId] = data;
+      if (data.myRating) {
+        state.ratingDraft = data.myRating.rating;
+        state.commentDraft = data.myRating.comment || "";
+      }
+      render();
+    }
+  } catch (err) {
+    // Non-fatal — the detail view just shows no ratings yet.
+  }
+}
+
+async function submitRating(recipeId) {
+  if (!state.ratingDraft) return;
+  state.ratingStatus = "loading";
+  state.ratingError = "";
+  render();
+  try {
+    const res = await apiFetch(`/api/recipes/${recipeId}/rating`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ rating: state.ratingDraft, comment: state.commentDraft })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Unknown error");
+    state.ratingsCache[recipeId] = { ...data, myRating: { rating: state.ratingDraft, comment: state.commentDraft } };
+    RATINGS_AVERAGES[recipeId] = { average: data.average, count: data.count };
+    state.ratingStatus = "idle";
+  } catch (err) {
+    state.ratingStatus = "error";
+    state.ratingError = err.message;
+  }
+  render();
+}
+
+async function toggleFavorite(recipeId) {
+  const wasFavorited = state.favoriteIds.has(recipeId);
+  if (wasFavorited) state.favoriteIds.delete(recipeId); else state.favoriteIds.add(recipeId);
+  render();
+  try {
+    const res = await apiFetch(`/api/recipes/${recipeId}/favorite`, { method: "POST" });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Unknown error");
+    if (data.favorited) state.favoriteIds.add(recipeId); else state.favoriteIds.delete(recipeId);
+  } catch (err) {
+    if (wasFavorited) state.favoriteIds.add(recipeId); else state.favoriteIds.delete(recipeId);
+  }
+  render();
+}
+
+function isPasswordStrong(password) {
+  return typeof password === "string" && password.length >= 8 && /[a-zA-Z]/.test(password) && /[0-9]/.test(password);
+}
+
 async function submitSignUp() {
   const f = state.authForm;
   if (f.password !== f.confirmPassword) {
     state.authStatus = "error";
     state.authError = UI_TEXT[state.lang].passwordMismatch;
+    render();
+    return;
+  }
+  if (!isPasswordStrong(f.password)) {
+    state.authStatus = "error";
+    state.authError = UI_TEXT[state.lang].passwordHint;
     render();
     return;
   }
@@ -114,7 +239,7 @@ async function submitSignUp() {
     state.user = data.user;
     state.authView = null;
     resetAuthForm();
-    await loadRecipes();
+    await Promise.all([loadRecipes(), loadFavorites(), loadRatingsAverages()]);
   } catch (err) {
     state.authStatus = "error";
     state.authError = err.message;
@@ -138,10 +263,61 @@ async function submitSignIn() {
     state.user = data.user;
     state.authView = null;
     resetAuthForm();
-    await loadRecipes();
+    await Promise.all([loadRecipes(), loadFavorites(), loadRatingsAverages()]);
   } catch (err) {
     state.authStatus = "error";
     state.authError = err.message;
+  }
+  render();
+}
+
+async function submitForgotPassword() {
+  state.forgotStatus = "loading";
+  render();
+  try {
+    const res = await apiFetch("/api/auth/forgot-password", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: state.forgotEmail })
+    });
+    const data = await res.json();
+    state.forgotStatus = "sent";
+    state.forgotMessage = data.message || UI_TEXT[state.lang].resetLinkSent;
+  } catch (err) {
+    state.forgotStatus = "sent";
+    state.forgotMessage = UI_TEXT[state.lang].resetLinkSent;
+  }
+  render();
+}
+
+async function submitResetPassword() {
+  if (state.resetPasswordDraft !== state.resetConfirmDraft) {
+    state.resetStatus = "error";
+    state.resetError = UI_TEXT[state.lang].passwordMismatch;
+    render();
+    return;
+  }
+  if (!isPasswordStrong(state.resetPasswordDraft)) {
+    state.resetStatus = "error";
+    state.resetError = UI_TEXT[state.lang].passwordHint;
+    render();
+    return;
+  }
+  state.resetStatus = "loading";
+  render();
+  try {
+    const res = await apiFetch("/api/auth/reset-password", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ token: state.resetToken, newPassword: state.resetPasswordDraft })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Unknown error");
+    state.resetStatus = "idle";
+    state.resetSuccess = true;
+  } catch (err) {
+    state.resetStatus = "error";
+    state.resetError = err.message;
   }
   render();
 }
@@ -151,6 +327,9 @@ async function submitLogOut() {
   state.user = null;
   state.openRecipe = null;
   state.addingRecipe = false;
+  state.favoriteIds = new Set();
+  state.showFavoritesOnly = false;
+  state.ratingsCache = {};
   RECIPES = [];
   render();
 }
@@ -230,6 +409,7 @@ async function submitNewRecipe() {
     state.addRecipeText = "";
     state.addRecipeStatus = "idle";
     state.openRecipe = data.id;
+    await loadRatingForRecipe(data.id);
   } catch (err) {
     state.addRecipeStatus = "error";
     state.addRecipeError = err.message;
@@ -303,6 +483,12 @@ function render() {
     return;
   }
 
+  if (state.resetToken) {
+    app.appendChild(renderResetPassword(t));
+    app.appendChild(renderFooter(t));
+    return;
+  }
+
   if (state.authView === "signup") {
     app.appendChild(renderSignUp(t));
     app.appendChild(renderFooter(t));
@@ -311,6 +497,12 @@ function render() {
 
   if (state.authView === "signin") {
     app.appendChild(renderSignIn(t));
+    app.appendChild(renderFooter(t));
+    return;
+  }
+
+  if (state.authView === "forgot") {
+    app.appendChild(renderForgotPassword(t));
     app.appendChild(renderFooter(t));
     return;
   }
@@ -334,6 +526,23 @@ function render() {
   }
   state.addingRecipe = false;
 
+  if (state.moodOpen) {
+    app.appendChild(renderMoodPicker(t));
+    app.appendChild(renderFooter(t));
+    return;
+  }
+
+  const recipeOfDay = pickRecipeOfDay();
+  if (recipeOfDay && !state.search && state.category === "all" && !state.showFavoritesOnly) {
+    app.appendChild(renderRecipeOfDayBanner(recipeOfDay, t));
+  }
+
+  const toolsRow = el("div", "tools-row");
+  const moodBtn = el("button", "add-recipe-nav-btn", t.moodButton);
+  moodBtn.onclick = () => { state.moodOpen = true; render(); };
+  toolsRow.appendChild(moodBtn);
+  app.appendChild(toolsRow);
+
   const searchInput = el("input", "search-input");
   searchInput.type = "text";
   searchInput.placeholder = t.searchPlaceholder;
@@ -347,13 +556,17 @@ function render() {
     chip.onclick = () => { state.category = c.id; render(); };
     chipRow.appendChild(chip);
   });
+  const favChip = el("button", "chip" + (state.showFavoritesOnly ? " active" : ""), "★ " + t.favoritesOnly);
+  favChip.onclick = () => { state.showFavoritesOnly = !state.showFavoritesOnly; render(); };
+  chipRow.appendChild(favChip);
   app.appendChild(chipRow);
 
   const filtered = RECIPES.filter((r) => {
     const matchesCategory = state.category === "all" || r.category === state.category;
     const text = (r.en.name + " " + (r[state.lang] ? r[state.lang].name : "")).toLowerCase();
     const matchesSearch = text.includes(state.search.toLowerCase());
-    return matchesCategory && matchesSearch;
+    const matchesFavorite = !state.showFavoritesOnly || state.favoriteIds.has(r.id);
+    return matchesCategory && matchesSearch && matchesFavorite;
   });
 
   const grid = el("div", "grid");
@@ -366,14 +579,110 @@ function render() {
   app.appendChild(renderFooter(t));
 }
 
+// Deterministic pick so everyone sees the same "recipe of the day" and it
+// only changes once per calendar day, without needing a backend endpoint.
+function pickRecipeOfDay() {
+  if (!RECIPES.length) return null;
+  const today = new Date();
+  const dayString = `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`;
+  let hash = 0;
+  for (let i = 0; i < dayString.length; i += 1) hash = (hash * 31 + dayString.charCodeAt(i)) >>> 0;
+  return RECIPES[hash % RECIPES.length];
+}
+
+function renderRecipeOfDayBanner(recipe, t) {
+  const data = recipe[state.lang] || recipe.en;
+  const banner = el("div", "recipe-of-day");
+  banner.appendChild(el("span", "card-category", "★ " + t.recipeOfDayLabel));
+  banner.appendChild(el("h3", null, data.name));
+  banner.appendChild(el("p", "card-purpose", data.purpose));
+  banner.onclick = () => { state.openRecipe = recipe.id; loadRatingForRecipe(recipe.id); render(); };
+  return banner;
+}
+
+const MOOD_RULES = [
+  { re: /sore throat|cough|cold\b|congestion|flu|blocked nose/i, category: "cold-cough" },
+  { re: /stomach|bloat|gas\b|indigestion|digest|acid|constipat/i, category: "digestion" },
+  { re: /stress|anxious|anxiety|sleep|insomnia|tired|energy|fatigue|exhaust/i, category: "vitality" },
+  { re: /immun|weak|run down|sick often|fever/i, category: "immunity" }
+];
+
+function suggestRecipeForMood(input) {
+  const text = (input || "").toLowerCase();
+  let matchedCategory = null;
+  for (const rule of MOOD_RULES) {
+    if (rule.re.test(text)) { matchedCategory = rule.category; break; }
+  }
+  const pool = matchedCategory ? RECIPES.filter((r) => r.category === matchedCategory) : RECIPES;
+  if (!pool.length) return { recipe: null, matched: false };
+  let best = pool[0];
+  let bestScore = -1;
+  pool.forEach((r) => {
+    const avg = (RATINGS_AVERAGES[r.id] && RATINGS_AVERAGES[r.id].average) || 0;
+    if (avg > bestScore) { bestScore = avg; best = r; }
+  });
+  return { recipe: best, matched: !!matchedCategory };
+}
+
+function renderMoodPicker(t) {
+  const wrap = el("div", "detail");
+  const backBtn = el("button", "back-btn", t.back);
+  backBtn.onclick = () => { state.moodOpen = false; state.moodPick = null; render(); };
+  wrap.appendChild(backBtn);
+  wrap.appendChild(el("h2", null, t.moodTitle));
+  wrap.appendChild(el("p", "card-purpose", t.moodHelp));
+
+  const input = document.createElement("textarea");
+  input.className = "add-recipe-textarea";
+  input.style.minHeight = "60px";
+  input.placeholder = t.moodPlaceholder;
+  input.value = state.moodInputText;
+  input.oninput = (e) => { state.moodInputText = e.target.value; };
+  wrap.appendChild(input);
+
+  const submitBtn = el("button", "walkthrough-btn", t.moodSubmit);
+  submitBtn.onclick = () => { state.moodPick = suggestRecipeForMood(state.moodInputText); render(); };
+  wrap.appendChild(submitBtn);
+
+  if (state.moodPick) {
+    if (!state.moodPick.matched) wrap.appendChild(el("p", "media-note", t.moodNoMatch));
+    if (state.moodPick.recipe) {
+      const card = renderCard(state.moodPick.recipe, t);
+      const pickedId = state.moodPick.recipe.id;
+      card.onclick = () => { state.moodOpen = false; state.openRecipe = pickedId; loadRatingForRecipe(pickedId); render(); };
+      wrap.appendChild(card);
+    }
+  }
+
+  return wrap;
+}
+
+function favoriteStarButton(recipeId, className) {
+  const isFav = state.favoriteIds.has(recipeId);
+  const btn = el("button", className + (isFav ? " favorited" : ""), isFav ? "★" : "☆");
+  btn.setAttribute("aria-label", isFav ? UI_TEXT[state.lang].favoriteRemove : UI_TEXT[state.lang].favoriteAdd);
+  btn.onclick = (e) => { e.stopPropagation(); toggleFavorite(recipeId); };
+  return btn;
+}
+
+function ratingSummaryLine(recipeId, t) {
+  const info = RATINGS_AVERAGES[recipeId];
+  if (!info || !info.count) return el("p", "card-rating muted", t.noRatingsYet);
+  return el("p", "card-rating", `★ ${info.average.toFixed(1)} · ${info.count} ${t.ratingsSuffix}`);
+}
+
 function renderCard(recipe, t) {
   const card = el("div", "card");
   const cat = CATEGORY_DEFS.find((c) => c.id === recipe.category);
   const data = recipe[state.lang] || recipe.en;
-  card.appendChild(el("span", "card-category", cat ? t[cat.key] : ""));
+  const topRow = el("div", "card-top-row");
+  topRow.appendChild(el("span", "card-category", cat ? t[cat.key] : ""));
+  topRow.appendChild(favoriteStarButton(recipe.id, "favorite-star"));
+  card.appendChild(topRow);
   card.appendChild(el("h3", null, data.name));
   card.appendChild(el("p", "card-purpose", data.purpose));
-  card.onclick = () => { state.openRecipe = recipe.id; render(); };
+  card.appendChild(ratingSummaryLine(recipe.id, t));
+  card.onclick = () => { state.openRecipe = recipe.id; loadRatingForRecipe(recipe.id); render(); };
   return card;
 }
 
@@ -455,6 +764,14 @@ function renderGate(t) {
   return wrap;
 }
 
+function googleButton() {
+  const btn = document.createElement("a");
+  btn.href = "/api/auth/google";
+  btn.className = "walkthrough-btn secondary google-btn";
+  btn.textContent = UI_TEXT[state.lang].continueWithGoogle;
+  return btn;
+}
+
 function renderSignUp(t) {
   const wrap = el("div", "detail");
   const backBtn = el("button", "back-btn", t.back);
@@ -462,11 +779,14 @@ function renderSignUp(t) {
   wrap.appendChild(backBtn);
 
   wrap.appendChild(el("h2", null, t.signUpTitle));
+  wrap.appendChild(googleButton());
+  wrap.appendChild(el("p", "or-divider", "—"));
 
   const f = state.authForm;
   wrap.appendChild(labeledInput(t.nameLabel, "text", f.name, (v) => { f.name = v; }));
   wrap.appendChild(labeledInput(t.emailLabel, "email", f.email, (v) => { f.email = v; }));
   wrap.appendChild(labeledInput(t.passwordLabel, "password", f.password, (v) => { f.password = v; }));
+  wrap.appendChild(el("p", "password-hint", t.passwordHint));
   wrap.appendChild(labeledInput(t.confirmPasswordLabel, "password", f.confirmPassword, (v) => { f.confirmPassword = v; }));
   wrap.appendChild(labeledSelect(t.ageRangeLabel, AGE_RANGES, t.selectOption, f.ageRange, (v) => { f.ageRange = v; }));
   wrap.appendChild(labeledSelect(t.genderLabel, GENDER_OPTIONS, t.selectOption, f.gender, (v) => { f.gender = v; }));
@@ -495,6 +815,8 @@ function renderSignIn(t) {
   wrap.appendChild(backBtn);
 
   wrap.appendChild(el("h2", null, t.signInTitle));
+  wrap.appendChild(googleButton());
+  wrap.appendChild(el("p", "or-divider", "—"));
 
   const f = state.authForm;
   wrap.appendChild(labeledInput(t.emailLabel, "email", f.email, (v) => { f.email = v; }));
@@ -509,9 +831,75 @@ function renderSignIn(t) {
   submitBtn.onclick = submitSignIn;
   wrap.appendChild(submitBtn);
 
+  const forgotLink = el("p", "card-purpose switch-link", t.forgotPassword);
+  forgotLink.onclick = () => { state.authView = "forgot"; state.forgotEmail = f.email; state.forgotStatus = "idle"; render(); };
+  wrap.appendChild(forgotLink);
+
   const switchLink = el("p", "card-purpose switch-link", t.switchToSignUp);
   switchLink.onclick = () => { state.authView = "signup"; resetAuthForm(); render(); };
   wrap.appendChild(switchLink);
+
+  return wrap;
+}
+
+function renderForgotPassword(t) {
+  const wrap = el("div", "detail");
+  const backBtn = el("button", "back-btn", t.back);
+  backBtn.onclick = () => { state.authView = "signin"; render(); };
+  wrap.appendChild(backBtn);
+
+  wrap.appendChild(el("h2", null, t.resetPasswordTitle));
+  wrap.appendChild(el("p", "card-purpose", t.resetPasswordHelp));
+
+  if (state.forgotStatus === "sent") {
+    wrap.appendChild(el("p", "media-note", state.forgotMessage));
+    return wrap;
+  }
+
+  wrap.appendChild(labeledInput(t.emailLabel, "email", state.forgotEmail, (v) => { state.forgotEmail = v; }));
+
+  const submitBtn = el("button", "walkthrough-btn", t.sendResetLink);
+  submitBtn.disabled = state.forgotStatus === "loading";
+  submitBtn.onclick = submitForgotPassword;
+  wrap.appendChild(submitBtn);
+
+  return wrap;
+}
+
+function renderResetPassword(t) {
+  const wrap = el("div", "detail");
+
+  wrap.appendChild(el("h2", null, t.resetPasswordTitle));
+
+  if (state.resetSuccess) {
+    wrap.appendChild(el("p", "media-note", t.resetPasswordSuccess));
+    const goSignIn = el("button", "walkthrough-btn", t.signIn);
+    goSignIn.onclick = () => {
+      state.resetToken = null;
+      state.resetSuccess = false;
+      const url = new URL(window.location.href);
+      url.searchParams.delete("reset");
+      window.history.replaceState({}, "", url);
+      state.authView = "signin";
+      resetAuthForm();
+      render();
+    };
+    wrap.appendChild(goSignIn);
+    return wrap;
+  }
+
+  wrap.appendChild(labeledInput(t.newPasswordLabel, "password", state.resetPasswordDraft, (v) => { state.resetPasswordDraft = v; }));
+  wrap.appendChild(el("p", "password-hint", t.passwordHint));
+  wrap.appendChild(labeledInput(t.confirmPasswordLabel, "password", state.resetConfirmDraft, (v) => { state.resetConfirmDraft = v; }));
+
+  if (state.resetStatus === "error") {
+    wrap.appendChild(el("p", "media-note error-note", state.resetError));
+  }
+
+  const submitBtn = el("button", "walkthrough-btn", t.resetPasswordSubmit);
+  submitBtn.disabled = state.resetStatus === "loading";
+  submitBtn.onclick = submitResetPassword;
+  wrap.appendChild(submitBtn);
 
   return wrap;
 }
@@ -524,7 +912,10 @@ function renderDetail(id, t) {
   wrap.appendChild(backBtn);
 
   const data = recipe[state.lang] || recipe.en;
-  wrap.appendChild(el("h2", null, data.name));
+  const titleRow = el("div", "detail-title-row");
+  titleRow.appendChild(el("h2", null, data.name));
+  titleRow.appendChild(favoriteStarButton(recipe.id, "favorite-star large"));
+  wrap.appendChild(titleRow);
   wrap.appendChild(el("p", "card-purpose", data.purpose));
 
   if (recipe.translationWarning) {
@@ -540,7 +931,7 @@ function renderDetail(id, t) {
   const ul = el("ul", "ingredient-list");
   data.ingredients.forEach((i, idx) => {
     const li = el("li");
-    li.appendChild(el("span", "ingredient-icon", getIngredientIcon(recipe.en.ingredients[idx])));
+    li.appendChild(ingredientPhoto(recipe.en.ingredients[idx], "ingredient-photo"));
     li.appendChild(document.createTextNode(i));
     ul.appendChild(li);
   });
@@ -583,7 +974,59 @@ function renderDetail(id, t) {
     wrap.appendChild(sourcingBox);
   }
 
+  wrap.appendChild(renderRatings(recipe, t));
+
   return wrap;
+}
+
+function renderRatings(recipe, t) {
+  const box = el("div", "ratings-box");
+  box.appendChild(el("h4", null, t.ratingsLabel));
+
+  const cached = state.ratingsCache[recipe.id];
+
+  const starRow = el("div", "star-picker");
+  starRow.appendChild(el("span", "form-label", t.yourRatingLabel));
+  const stars = el("div");
+  for (let i = 1; i <= 5; i += 1) {
+    const starBtn = el("button", "star-pick-btn" + (i <= state.ratingDraft ? " picked" : ""), i <= state.ratingDraft ? "★" : "☆");
+    starBtn.onclick = () => { state.ratingDraft = i; render(); };
+    stars.appendChild(starBtn);
+  }
+  starRow.appendChild(stars);
+  box.appendChild(starRow);
+
+  const commentInput = document.createElement("textarea");
+  commentInput.className = "add-recipe-textarea";
+  commentInput.style.minHeight = "60px";
+  commentInput.placeholder = t.commentPlaceholder;
+  commentInput.value = state.commentDraft;
+  commentInput.oninput = (e) => { state.commentDraft = e.target.value; };
+  box.appendChild(commentInput);
+
+  if (state.ratingStatus === "error") {
+    box.appendChild(el("p", "media-note error-note", state.ratingError));
+  }
+
+  const submitBtn = el("button", "walkthrough-btn", t.submitRatingBtn);
+  submitBtn.disabled = state.ratingStatus === "loading" || !state.ratingDraft;
+  submitBtn.onclick = () => submitRating(recipe.id);
+  box.appendChild(submitBtn);
+
+  const commentsList = el("div", "comments-list");
+  if (!cached || !cached.count) {
+    commentsList.appendChild(el("p", "media-note", t.noRatingsYet));
+  } else {
+    cached.comments.forEach((c) => {
+      const item = el("div", "comment-item");
+      item.appendChild(el("div", "comment-header", `${"★".repeat(c.rating)}${"☆".repeat(5 - c.rating)} — ${c.userName}`));
+      if (c.comment) item.appendChild(el("p", "comment-text", c.comment));
+      commentsList.appendChild(item);
+    });
+  }
+  box.appendChild(commentsList);
+
+  return box;
 }
 
 function renderMedia(recipe, t) {
@@ -594,7 +1037,7 @@ function renderMedia(recipe, t) {
   recipe.en.ingredients.forEach((ing, idx) => {
     const tile = el("div", "icon-tile");
     tile.dataset.ingredientIdx = idx;
-    tile.appendChild(el("span", "icon-tile-emoji", getIngredientIcon(ing)));
+    tile.appendChild(ingredientPhoto(ing, "icon-tile-photo"));
     strip.appendChild(tile);
   });
   box.appendChild(strip);
@@ -660,6 +1103,17 @@ function renderFooter(t) {
   return footer;
 }
 
+const startupUrl = new URL(window.location.href);
+const resetTokenFromUrl = startupUrl.searchParams.get("reset");
+if (resetTokenFromUrl) state.resetToken = resetTokenFromUrl;
+const authErrorFromUrl = startupUrl.searchParams.get("authError");
+if (authErrorFromUrl) {
+  state.authView = "signin";
+  state.authStatus = "error";
+  state.authError = authErrorFromUrl;
+  window.history.replaceState({}, "", startupUrl.pathname);
+}
+
 render();
 
 Promise.all([
@@ -671,7 +1125,7 @@ Promise.all([
     LANGUAGES = languages;
     UI_TEXT = uiText;
     state.user = authMe.user;
-    if (state.user) await loadRecipes();
+    if (state.user) await Promise.all([loadRecipes(), loadFavorites(), loadRatingsAverages()]);
     state.loading = false;
     render();
   })

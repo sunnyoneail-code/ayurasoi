@@ -22,7 +22,8 @@ function rowToUser(row) {
     id: row.id,
     name: row.name,
     email: row.email,
-    passwordHash: row.password_hash || row.passwordHash,
+    passwordHash: row.password_hash ?? row.passwordHash ?? null,
+    googleId: row.google_id ?? row.googleId ?? null,
     demographics: {
       ageRange: row.age_range ?? row.demographics?.ageRange ?? "",
       gender: row.gender ?? row.demographics?.gender ?? "",
@@ -50,24 +51,43 @@ async function findById(id) {
   return list.find((u) => u.id === id) || null;
 }
 
-async function addUser({ name, email, passwordHash, demographics }) {
+async function findByGoogleId(googleId) {
+  if (pool) {
+    const { rows } = await pool.query("SELECT * FROM users WHERE google_id = $1", [googleId]);
+    return rowToUser(rows[0]);
+  }
+  const list = readUsersFile();
+  return list.find((u) => u.googleId === googleId) || null;
+}
+
+async function addUser({ name, email, passwordHash, googleId, demographics }) {
   const id = crypto.randomUUID();
   const demo = demographics || {};
 
   if (pool) {
     const { rows } = await pool.query(
-      `INSERT INTO users (id, name, email, password_hash, age_range, gender, country)
-       VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
-      [id, name, email, passwordHash, demo.ageRange || "", demo.gender || "", demo.country || ""]
+      `INSERT INTO users (id, name, email, password_hash, google_id, age_range, gender, country)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`,
+      [id, name, email, passwordHash || null, googleId || null, demo.ageRange || "", demo.gender || "", demo.country || ""]
     );
     return rowToUser(rows[0]);
   }
 
   const list = readUsersFile();
-  const user = { id, name, email, passwordHash, demographics: demo, createdAt: new Date().toISOString() };
+  const user = { id, name, email, passwordHash: passwordHash || null, googleId: googleId || null, demographics: demo, createdAt: new Date().toISOString() };
   list.push(user);
   writeUsersFile(list);
   return user;
+}
+
+async function setPasswordHash(userId, passwordHash) {
+  if (pool) {
+    await pool.query("UPDATE users SET password_hash = $1 WHERE id = $2", [passwordHash, userId]);
+    return;
+  }
+  const list = readUsersFile();
+  const user = list.find((u) => u.id === userId);
+  if (user) { user.passwordHash = passwordHash; writeUsersFile(list); }
 }
 
 function toPublicUser(user) {
@@ -76,4 +96,4 @@ function toPublicUser(user) {
   return publicFields;
 }
 
-module.exports = { findByEmail, findById, addUser, toPublicUser };
+module.exports = { findByEmail, findById, findByGoogleId, addUser, setPasswordHash, toPublicUser };
