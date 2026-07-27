@@ -5,6 +5,8 @@
     "searchPlaceholder": "Search recipes…",
     "sourceLabel": "Source",
     "ingredientsLabel": "Ingredients",
+    "buyLabel": "Buy",
+    "affiliateDisclosure": "As an Amazon Associate, we may earn a small commission from qualifying purchases made through these links — at no extra cost to you.",
     "stepsLabel": "Steps",
     "safetyLabel": "Safety note",
     "sourcingLabel": "Where to source",
@@ -190,7 +192,9 @@
     "catOralCare": "मौखिक देखभाल",
     "catEyeCare": "नेत्र देखभाल",
     "catWeightManagement": "वज़न प्रबंधन",
-    "catDetox": "डिटॉक्स"
+    "catDetox": "डिटॉक्स",
+    "buyLabel": "खरीदें",
+    "affiliateDisclosure": "अमेज़ॅन एसोसिएट के रूप में, हम इन लिंक के माध्यम से की गई योग्य खरीदारी से एक छोटा सा कमीशन कमा सकते हैं - बिना किसी अतिरिक्त लागत के।"
   },
   "bn": {
     "title": "আয়ুররসোই",
@@ -287,7 +291,9 @@
     "catOralCare": "ওরাল কেয়ার",
     "catEyeCare": "চোখের যত্ন",
     "catWeightManagement": "ওজন ব্যবস্থাপনা",
-    "catDetox": "ডিটক্স"
+    "catDetox": "ডিটক্স",
+    "buyLabel": "কিনুন",
+    "affiliateDisclosure": "একজন অ্যামাজন সহযোগী হিসাবে, আমরা এই লিঙ্কগুলির মাধ্যমে করা যোগ্য কেনাকাটা থেকে একটি ছোট কমিশন পেতে পারি — আপনার কোন অতিরিক্ত খরচ ছাড়াই।"
   },
   "mr": {
     "title": "आयुर्रासोई",
@@ -384,7 +390,9 @@
     "catOralCare": "तोंडी काळजी",
     "catEyeCare": "डोळ्यांची काळजी",
     "catWeightManagement": "वजन व्यवस्थापन",
-    "catDetox": "डिटॉक्स"
+    "catDetox": "डिटॉक्स",
+    "buyLabel": "खरेदी करा",
+    "affiliateDisclosure": "Amazon सहयोगी म्हणून, आम्ही या लिंक्सद्वारे केलेल्या पात्र खरेदीतून एक लहान कमिशन मिळवू शकतो — तुमच्यासाठी कोणतेही अतिरिक्त शुल्क न घेता."
   },
   "ta": {
     "title": "ஆயுர்ரசோய்",
@@ -481,7 +489,9 @@
     "catOralCare": "வாய்வழி பராமரிப்பு",
     "catEyeCare": "கண் பராமரிப்பு",
     "catWeightManagement": "எடை மேலாண்மை",
-    "catDetox": "டிடாக்ஸ்"
+    "catDetox": "டிடாக்ஸ்",
+    "buyLabel": "வாங்க",
+    "affiliateDisclosure": "அமேசான் அசோசியேட்டாக, இந்த இணைப்புகள் மூலம் செய்யப்படும் தகுதிவாய்ந்த கொள்முதல் மூலம் நாங்கள் ஒரு சிறிய கமிஷனைப் பெறலாம் - உங்களுக்கு எந்தக் கூடுதல் செலவும் இல்லை."
   },
   "te": {
     "title": "ఆయుర్ రసోయ్",
@@ -578,7 +588,9 @@
     "catOralCare": "ఓరల్ కేర్",
     "catEyeCare": "కంటి సంరక్షణ",
     "catWeightManagement": "బరువు నిర్వహణ",
-    "catDetox": "నిర్విషీకరణ"
+    "catDetox": "నిర్విషీకరణ",
+    "buyLabel": "కొనండి",
+    "affiliateDisclosure": "ఒక Amazon అసోసియేట్‌గా, మేము ఈ లింక్‌ల ద్వారా చేసిన అర్హత కొనుగోళ్ల నుండి చిన్న కమీషన్‌ను సంపాదించవచ్చు - మీకు ఎటువంటి అదనపు ఖర్చు లేకుండా."
   },
   "kn": {
     "title": "ಆಯುರ್ರಾಸೋಯಿ",
@@ -675,7 +687,9 @@
     "catOralCare": "ಓರಲ್ ಕೇರ್",
     "catEyeCare": "ಕಣ್ಣಿನ ಆರೈಕೆ",
     "catWeightManagement": "ತೂಕ ನಿರ್ವಹಣೆ",
-    "catDetox": "ಡಿಟಾಕ್ಸ್"
+    "catDetox": "ಡಿಟಾಕ್ಸ್",
+    "buyLabel": "ಖರೀದಿಸಿ",
+    "affiliateDisclosure": "Amazon ಅಸೋಸಿಯೇಟ್ ಆಗಿ, ಈ ಲಿಂಕ್‌ಗಳ ಮೂಲಕ ಮಾಡಿದ ಅರ್ಹತೆ ಖರೀದಿಗಳಿಂದ ನಾವು ಸಣ್ಣ ಕಮಿಷನ್ ಗಳಿಸಬಹುದು - ನಿಮಗೆ ಯಾವುದೇ ಹೆಚ್ಚುವರಿ ವೆಚ್ಚವಿಲ್ಲ."
   },
   "or": {
     "title": "ଆୟୁର୍ ରସୋଇ |",
@@ -772,7 +786,9 @@
     "catOralCare": "ଓରାଲ୍ କେୟାର |",
     "catEyeCare": "ଚକ୍ଷୁ ଯତ୍ନ |",
     "catWeightManagement": "ଓଜନ ପରିଚାଳନା",
-    "catDetox": "ଡିଟକ୍ସ |"
+    "catDetox": "ଡିଟକ୍ସ |",
+    "buyLabel": "କିଣନ୍ତୁ |",
+    "affiliateDisclosure": "ଆମାଜନ୍ ଆସୋସିଏଟ୍ ଭାବରେ, ଆମେ ଏହି ଲିଙ୍କ୍ ମାଧ୍ୟମରେ କରାଯାଇଥିବା ଯୋଗ୍ୟତା କ୍ରୟରୁ ଏକ ଛୋଟ କମିଶନ ଉପାର୍ଜନ କରିପାରିବା - ଆପଣଙ୍କ ପାଇଁ କ cost ଣସି ଅତିରିକ୍ତ ମୂଲ୍ୟରେ |"
   },
   "gu": {
     "title": "આયુરરાસોઈ",
@@ -869,7 +885,9 @@
     "catOralCare": "ઓરલ કેર",
     "catEyeCare": "આંખની સંભાળ",
     "catWeightManagement": "વજન વ્યવસ્થાપન",
-    "catDetox": "ડિટોક્સ"
+    "catDetox": "ડિટોક્સ",
+    "buyLabel": "ખરીદો",
+    "affiliateDisclosure": "એમેઝોન એસોસિયેટ તરીકે, અમે આ લિંક્સ દ્વારા કરવામાં આવેલી યોગ્યતાપૂર્ણ ખરીદીઓમાંથી એક નાનું કમિશન મેળવી શકીએ છીએ — તમારા માટે કોઈ વધારાના ખર્ચ વિના."
   },
   "pa": {
     "title": "ਆਯੁਰਰਾਸੋਈ",
@@ -966,7 +984,9 @@
     "catOralCare": "ਮੂੰਹ ਦੀ ਦੇਖਭਾਲ",
     "catEyeCare": "ਅੱਖਾਂ ਦੀ ਦੇਖਭਾਲ",
     "catWeightManagement": "ਭਾਰ ਪ੍ਰਬੰਧਨ",
-    "catDetox": "ਡੀਟੌਕਸ"
+    "catDetox": "ਡੀਟੌਕਸ",
+    "buyLabel": "ਖਰੀਦੋ",
+    "affiliateDisclosure": "ਇੱਕ ਐਮਾਜ਼ਾਨ ਐਸੋਸੀਏਟ ਹੋਣ ਦੇ ਨਾਤੇ, ਅਸੀਂ ਇਹਨਾਂ ਲਿੰਕਾਂ ਦੁਆਰਾ ਕੀਤੀ ਗਈ ਯੋਗ ਖਰੀਦਦਾਰੀ ਤੋਂ ਇੱਕ ਛੋਟਾ ਕਮਿਸ਼ਨ ਕਮਾ ਸਕਦੇ ਹਾਂ - ਤੁਹਾਡੇ ਲਈ ਕੋਈ ਵਾਧੂ ਲਾਗਤ ਨਹੀਂ।"
   },
   "fr": {
     "title": "AyurRasoi",
@@ -1063,7 +1083,9 @@
     "catOralCare": "Soins bucco-dentaires",
     "catEyeCare": "Soins des yeux",
     "catWeightManagement": "Gestion du poids",
-    "catDetox": "Détox"
+    "catDetox": "Détox",
+    "buyLabel": "Acheter",
+    "affiliateDisclosure": "En tant qu'associé Amazon, nous pouvons gagner une petite commission sur les achats éligibles effectués via ces liens, sans frais supplémentaires pour vous."
   },
   "es": {
     "title": "AyurRasoi",
@@ -1160,7 +1182,9 @@
     "catOralCare": "cuidado bucal",
     "catEyeCare": "Cuidado de los ojos",
     "catWeightManagement": "Control de peso",
-    "catDetox": "desintoxicación"
+    "catDetox": "desintoxicación",
+    "buyLabel": "comprar",
+    "affiliateDisclosure": "Como asociado de Amazon, podemos ganar una pequeña comisión por compras calificadas realizadas a través de estos enlaces, sin costo adicional para usted."
   },
   "de": {
     "title": "AyurRasoi",
@@ -1257,7 +1281,9 @@
     "catOralCare": "Mundpflege",
     "catEyeCare": "Augenpflege",
     "catWeightManagement": "Gewichtsmanagement",
-    "catDetox": "Entgiftung"
+    "catDetox": "Entgiftung",
+    "buyLabel": "Kaufen",
+    "affiliateDisclosure": "Als Amazon-Partner erhalten wir möglicherweise eine kleine Provision für qualifizierte Käufe, die über diese Links getätigt werden – ohne zusätzliche Kosten für Sie."
   },
   "ru": {
     "title": "АюрРасой",
@@ -1354,7 +1380,9 @@
     "catOralCare": "Уход за полостью рта",
     "catEyeCare": "Уход за глазами",
     "catWeightManagement": "Управление весом",
-    "catDetox": "Детокс"
+    "catDetox": "Детокс",
+    "buyLabel": "Купить",
+    "affiliateDisclosure": "Как партнер Amazon, мы можем получать небольшую комиссию за соответствующие покупки, совершенные по этим ссылкам, — без каких-либо дополнительных затрат с вашей стороны."
   },
   "zh": {
     "title": "阿尤拉索伊",
@@ -1451,7 +1479,9 @@
     "catOralCare": "口腔护理",
     "catEyeCare": "眼部护理",
     "catWeightManagement": "体重管理",
-    "catDetox": "排毒"
+    "catDetox": "排毒",
+    "buyLabel": "购买",
+    "affiliateDisclosure": "作为亚马逊合作伙伴，我们可以从通过这些链接进行的合格购买中赚取小额佣金，而您无需支付额外费用。"
   },
   "yue": {
     "title": "阿尤拉索伊",
@@ -1548,6 +1578,8 @@
     "catOralCare": "口腔护理",
     "catEyeCare": "眼部护理",
     "catWeightManagement": "体重管理",
-    "catDetox": "排毒"
+    "catDetox": "排毒",
+    "buyLabel": "购买",
+    "affiliateDisclosure": "作为亚马逊合作伙伴，我们可以从通过这些链接进行的合格购买中赚取小额佣金，而您无需支付额外费用。"
   }
 }

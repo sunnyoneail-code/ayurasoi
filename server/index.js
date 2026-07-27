@@ -229,6 +229,14 @@ app.get("/api/languages", (req, res) => {
   res.json(LANGUAGES);
 });
 
+// Public, non-sensitive settings the frontend needs — currently just the
+// Amazon Associates tracking ID for ingredient "buy" links. Left unset,
+// the buy links still work (plain Amazon search, no affiliate credit)
+// until a real tag is added to server/.env.
+app.get("/api/config", (req, res) => {
+  res.json({ amazonAffiliateTag: process.env.AMAZON_AFFILIATE_TAG || null });
+});
+
 app.get("/api/ui-text", (req, res) => {
   const uiTextPath = path.join(__dirname, "data", "uiText.json");
   if (!fs.existsSync(uiTextPath)) {

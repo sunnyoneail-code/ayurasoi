@@ -4,6 +4,8 @@
   "searchPlaceholder": "Search recipes…",
   "sourceLabel": "Source",
   "ingredientsLabel": "Ingredients",
+  "buyLabel": "Buy",
+  "affiliateDisclosure": "As an Amazon Associate, we may earn a small commission from qualifying purchases made through these links — at no extra cost to you.",
   "stepsLabel": "Steps",
   "safetyLabel": "Safety note",
   "sourcingLabel": "Where to source",

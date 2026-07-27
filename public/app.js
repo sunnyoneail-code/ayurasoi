@@ -6,6 +6,7 @@ let RECIPES = [];
 let LANGUAGES = [];
 let UI_TEXT = {};
 let RATINGS_AVERAGES = {};
+let AMAZON_AFFILIATE_TAG = null;
 
 const ADD_RECIPE_PLACEHOLDER = "Name: Ginger tea for sore throat\nIngredients:\n- Ginger\n- Water\n- Honey\nSteps:\n1. Boil sliced ginger in water for 10 minutes.\n2. Add honey once warm.\n3. Drink twice a day.\nSource: Charaka Samhita\n\n(Keep the English words Name/Ingredients/Steps/Source — write everything else in whatever language you like.)";
 
@@ -17,6 +18,46 @@ function apiFetch(url, options) {
   const opts = options || {};
   opts.headers = Object.assign({ "bypass-tunnel-reminder": "true" }, opts.headers || {});
   return fetch(url, opts);
+}
+
+// Adjustable text size for readability — older users in particular asked
+// for this. Independent of the main render() cycle: it just sets the
+// root font-size, and since most of style.css is written in rem units,
+// everything downstream of the root scales proportionally with it.
+const FONT_SCALES = [0.875, 1, 1.15, 1.3, 1.5];
+const FONT_SCALE_STORAGE_KEY = "ayurrasoi_fontScaleIndex";
+
+function getFontScaleIndex() {
+  const stored = parseInt(localStorage.getItem(FONT_SCALE_STORAGE_KEY), 10);
+  return Number.isInteger(stored) && stored >= 0 && stored < FONT_SCALES.length ? stored : 1;
+}
+
+function applyFontScale(index) {
+  document.documentElement.style.fontSize = (16 * FONT_SCALES[index]) + "px";
+  localStorage.setItem(FONT_SCALE_STORAGE_KEY, String(index));
+}
+
+applyFontScale(getFontScaleIndex());
+
+function fontSizeControls() {
+  const wrap = el("div", "font-size-controls");
+  const index = getFontScaleIndex();
+
+  const minusBtn = el("button", "font-size-btn", "A-");
+  minusBtn.type = "button";
+  minusBtn.disabled = index === 0;
+  minusBtn.title = "Decrease text size";
+  minusBtn.onclick = () => { applyFontScale(Math.max(0, index - 1)); render(); };
+  wrap.appendChild(minusBtn);
+
+  const plusBtn = el("button", "font-size-btn", "A+");
+  plusBtn.type = "button";
+  plusBtn.disabled = index === FONT_SCALES.length - 1;
+  plusBtn.title = "Increase text size";
+  plusBtn.onclick = () => { applyFontScale(Math.min(FONT_SCALES.length - 1, index + 1)); render(); };
+  wrap.appendChild(plusBtn);
+
+  return wrap;
 }
 
 // Real photos (Wikipedia/Wikimedia Commons, freely licensed) instead of
@@ -83,13 +124,72 @@ function getIngredientImage(text) {
   return INGREDIENT_IMAGES.find((i) => i.match.test(text)) || DEFAULT_INGREDIENT_IMAGE;
 }
 
+// Wikimedia thumb URLs look like ".../commons/thumb/7/78/Filename.jpg/500px-Filename.jpg".
+// Requesting an arbitrary larger width (e.g. bumping straight to 1000px)
+// fails with a 400 if that exceeds the source image's real resolution,
+// so instead this strips the "/thumb" segment and the trailing
+// "/500px-Filename.jpg" part to link straight to the original file —
+// always valid, and the truest "see it properly" version anyway. URLs
+// that don't match the thumb pattern (the generic fallback photo) are
+// already the original file, so they pass through unchanged.
+function largeIngredientImageUrl(url) {
+  const m = url.match(/^(.*\/commons)\/thumb\/(.+)\/\d+px-[^/]+$/);
+  return m ? `${m[1]}/${m[2]}` : url;
+}
+
+// A single reusable lightbox overlay, attached directly to <body> rather
+// than inside #app — render() wipes #app's innerHTML on every state
+// change (e.g. typing a comment), which would otherwise close it.
+function openImageLightbox(url, alt) {
+  const overlay = el("div", "image-lightbox-overlay");
+  const img = document.createElement("img");
+  img.src = largeIngredientImageUrl(url);
+  img.alt = alt;
+  img.className = "image-lightbox-photo";
+  overlay.appendChild(img);
+  const close = () => overlay.remove();
+  overlay.onclick = close;
+  document.addEventListener("keydown", function onKey(e) {
+    if (e.key === "Escape") { close(); document.removeEventListener("keydown", onKey); }
+  });
+  document.body.appendChild(overlay);
+}
+
 function ingredientPhoto(text, className) {
   const img = document.createElement("img");
   const info = getIngredientImage(text);
   img.src = info.url;
   img.alt = info.alt;
   img.className = className;
+  img.style.cursor = "zoom-in";
+  img.onclick = () => openImageLightbox(info.url, info.alt);
   return img;
+}
+
+// A clean product search phrase from an ingredient line — strips the
+// trailing "— quantity" part (and any leading bullet), leaving something
+// like "Ashwagandha (Withania somnifera) root powder" to search Amazon
+// for. No per-ingredient curation needed; scales to every recipe.
+function ingredientSearchTerm(text) {
+  return text.split(/[—-]\s*(?:\d|a pinch|to taste)/i)[0].trim();
+}
+
+function amazonBuyLink(text) {
+  const term = ingredientSearchTerm(text);
+  const params = new URLSearchParams({ k: term });
+  if (AMAZON_AFFILIATE_TAG) params.set("tag", AMAZON_AFFILIATE_TAG);
+  return `https://www.amazon.com/s?${params.toString()}`;
+}
+
+function ingredientBuyLink(text, label) {
+  const a = document.createElement("a");
+  a.href = amazonBuyLink(text);
+  a.target = "_blank";
+  a.rel = "nofollow sponsored noopener";
+  a.className = "ingredient-buy-link";
+  a.textContent = label;
+  a.title = label;
+  return a;
 }
 
 const CATEGORY_DEFS = [
@@ -501,6 +601,7 @@ function render() {
   });
   langSelect.onchange = (e) => { stopWalkthrough(); state.lang = e.target.value; render(); };
   headerControls.appendChild(langSelect);
+  headerControls.appendChild(fontSizeControls());
 
   if (!state.openRecipe && !state.authView && state.user && state.user.isAdmin) {
     const addBtn = el("button", "add-recipe-nav-btn", state.addingRecipe ? t.addRecipeCancel : t.addRecipeNav);
@@ -990,10 +1091,12 @@ function renderDetail(id, t) {
   data.ingredients.forEach((i, idx) => {
     const li = el("li");
     li.appendChild(ingredientPhoto(recipe.en.ingredients[idx], "ingredient-photo"));
-    li.appendChild(document.createTextNode(i));
+    li.appendChild(el("span", "ingredient-text", i));
+    li.appendChild(ingredientBuyLink(recipe.en.ingredients[idx], t.buyLabel));
     ul.appendChild(li);
   });
   wrap.appendChild(ul);
+  wrap.appendChild(el("p", "affiliate-disclosure", t.affiliateDisclosure));
 
   wrap.appendChild(renderMedia(recipe, t));
 
@@ -1177,12 +1280,14 @@ render();
 Promise.all([
   apiFetch("/api/languages").then((res) => res.json()),
   apiFetch("/api/ui-text").then((res) => res.json()),
-  apiFetch("/api/auth/me").then((res) => res.json())
+  apiFetch("/api/auth/me").then((res) => res.json()),
+  apiFetch("/api/config").then((res) => res.json())
 ])
-  .then(async ([languages, uiText, authMe]) => {
+  .then(async ([languages, uiText, authMe, config]) => {
     LANGUAGES = languages;
     UI_TEXT = uiText;
     state.user = authMe.user;
+    AMAZON_AFFILIATE_TAG = config.amazonAffiliateTag;
     if (state.user) await Promise.all([loadRecipes(), loadFavorites(), loadRatingsAverages()]);
     state.loading = false;
     render();
