@@ -250,7 +250,14 @@ let state = {
   resetConfirmDraft: "",
   resetStatus: "idle",
   resetError: "",
-  resetSuccess: false
+  resetSuccess: false,
+  completeProfileForm: { ageRange: "", gender: "", country: "" },
+  completeProfileStatus: "idle",
+  completeProfileError: "",
+  viewingDashboard: false,
+  dashboardData: null,
+  dashboardStatus: "idle",
+  dashboardError: ""
 };
 
 function resetAuthForm() {
@@ -289,6 +296,23 @@ async function loadRatingsAverages() {
   } catch (err) {
     // Non-fatal — cards just show no rating yet.
   }
+}
+
+async function loadDashboard() {
+  state.dashboardStatus = "loading";
+  state.dashboardError = "";
+  render();
+  try {
+    const res = await apiFetch("/api/admin/dashboard");
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Unknown error");
+    state.dashboardData = data;
+    state.dashboardStatus = "idle";
+  } catch (err) {
+    state.dashboardStatus = "error";
+    state.dashboardError = err.message;
+  }
+  render();
 }
 
 async function loadRatingForRecipe(recipeId) {
@@ -368,6 +392,12 @@ async function submitSignUp() {
     render();
     return;
   }
+  if (!f.ageRange || !f.gender || !f.country.trim()) {
+    state.authStatus = "error";
+    state.authError = UI_TEXT[state.lang].demographicsRequired;
+    render();
+    return;
+  }
   state.authStatus = "loading";
   state.authError = "";
   render();
@@ -415,6 +445,35 @@ async function submitSignIn() {
   } catch (err) {
     state.authStatus = "error";
     state.authError = err.message;
+  }
+  render();
+}
+
+async function submitCompleteProfile() {
+  const f = state.completeProfileForm;
+  if (!f.ageRange || !f.gender || !f.country.trim()) {
+    state.completeProfileStatus = "error";
+    state.completeProfileError = UI_TEXT[state.lang].demographicsRequired;
+    render();
+    return;
+  }
+  state.completeProfileStatus = "loading";
+  state.completeProfileError = "";
+  render();
+  try {
+    const res = await apiFetch("/api/auth/demographics", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(f)
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Unknown error");
+    state.user = data.user;
+    state.completeProfileStatus = "idle";
+    await Promise.all([loadRecipes(), loadFavorites(), loadRatingsAverages()]);
+  } catch (err) {
+    state.completeProfileStatus = "error";
+    state.completeProfileError = err.message;
   }
   render();
 }
@@ -607,6 +666,14 @@ function render() {
     const addBtn = el("button", "add-recipe-nav-btn", state.addingRecipe ? t.addRecipeCancel : t.addRecipeNav);
     addBtn.onclick = () => { state.addingRecipe = !state.addingRecipe; render(); };
     headerControls.appendChild(addBtn);
+
+    const dashboardBtn = el("button", "add-recipe-nav-btn", state.viewingDashboard ? "Close dashboard" : "Dashboard");
+    dashboardBtn.onclick = () => {
+      state.viewingDashboard = !state.viewingDashboard;
+      if (state.viewingDashboard) loadDashboard();
+      render();
+    };
+    headerControls.appendChild(dashboardBtn);
   }
 
   if (state.user) {
@@ -658,6 +725,18 @@ function render() {
 
   if (!state.user) {
     app.appendChild(renderGate(t));
+    app.appendChild(renderFooter(t));
+    return;
+  }
+
+  if (state.user.needsDemographics) {
+    app.appendChild(renderCompleteProfile(t));
+    app.appendChild(renderFooter(t));
+    return;
+  }
+
+  if (state.viewingDashboard && state.user.isAdmin) {
+    app.appendChild(renderDashboard());
     app.appendChild(renderFooter(t));
     return;
   }
@@ -920,6 +999,124 @@ function renderGate(t) {
   btnRow.appendChild(signInBtn);
 
   wrap.appendChild(btnRow);
+  return wrap;
+}
+
+// Shown to any signed-in user missing age range/gender/country — Google
+// sign-ins skip the sign-up form entirely, and this also catches the
+// handful of accounts that predate demographics being required. Blocks
+// the rest of the app the same way the anonymous gate screen does.
+function renderCompleteProfile(t) {
+  const wrap = el("div", "detail gate-screen");
+  wrap.appendChild(el("h2", null, t.completeProfileTitle));
+  wrap.appendChild(el("p", "card-purpose", t.completeProfileMessage));
+
+  const f = state.completeProfileForm;
+  wrap.appendChild(labeledSelect(t.ageRangeLabel, AGE_RANGES, t.selectOption, f.ageRange, (v) => { f.ageRange = v; }));
+  wrap.appendChild(labeledSelect(t.genderLabel, GENDER_OPTIONS, t.selectOption, f.gender, (v) => { f.gender = v; }));
+  wrap.appendChild(labeledInput(t.countryLabel, "text", f.country, (v) => { f.country = v; }));
+
+  if (state.completeProfileStatus === "error") {
+    wrap.appendChild(el("p", "media-note error-note", t.authErrorPrefix + state.completeProfileError));
+  }
+
+  const submitBtn = el("button", "walkthrough-btn", state.completeProfileStatus === "loading" ? t.completeProfileSubmitting : t.completeProfileSubmit);
+  submitBtn.disabled = state.completeProfileStatus === "loading";
+  submitBtn.onclick = submitCompleteProfile;
+  wrap.appendChild(submitBtn);
+
+  const logOutBtn = el("button", "back-btn", t.logOut);
+  logOutBtn.onclick = submitLogOut;
+  wrap.appendChild(logOutBtn);
+
+  return wrap;
+}
+
+// Admin-only analytics — deliberately kept English-only rather than run
+// through the translation pipeline, since it's internal tooling for the
+// site owner rather than user-facing content.
+function statCard(label, value) {
+  const card = el("div", "stat-card");
+  card.appendChild(el("div", "stat-card-value", String(value)));
+  card.appendChild(el("div", "stat-card-label", label));
+  return card;
+}
+
+function statBarRow(label, count, maxCount) {
+  const row = el("div", "stat-bar-row");
+  row.appendChild(el("div", "stat-bar-label", label));
+  const track = el("div", "stat-bar-track");
+  const fill = el("div", "stat-bar-fill");
+  fill.style.width = (maxCount > 0 ? (count / maxCount) * 100 : 0) + "%";
+  track.appendChild(fill);
+  row.appendChild(track);
+  row.appendChild(el("div", "stat-bar-count", String(count)));
+  return row;
+}
+
+function statBarGroup(title, rows) {
+  const wrap = el("div", "stat-group");
+  wrap.appendChild(el("h4", null, title));
+  const maxCount = Math.max(1, ...rows.map((r) => r.count));
+  rows.forEach((r) => wrap.appendChild(statBarRow(r.label, r.count, maxCount)));
+  return wrap;
+}
+
+function renderDashboard() {
+  const wrap = el("div", "detail");
+  const backBtn = el("button", "back-btn", "← Back");
+  backBtn.onclick = () => { state.viewingDashboard = false; render(); };
+  wrap.appendChild(backBtn);
+  wrap.appendChild(el("h2", null, "Dashboard"));
+
+  if (state.dashboardStatus === "loading" && !state.dashboardData) {
+    wrap.appendChild(el("p", "no-results", "Loading…"));
+    return wrap;
+  }
+  if (state.dashboardStatus === "error") {
+    wrap.appendChild(el("p", "media-note error-note", state.dashboardError));
+    return wrap;
+  }
+  const d = state.dashboardData;
+  if (!d) return wrap;
+
+  const cards = el("div", "stat-card-row");
+  cards.appendChild(statCard("Total users", d.users.total));
+  cards.appendChild(statCard("New (7 days)", d.users.newLast7Days));
+  cards.appendChild(statCard("New (30 days)", d.users.newLast30Days));
+  cards.appendChild(statCard("Recipes", d.recipeCount));
+  cards.appendChild(statCard("Favorites saved", d.engagement.totalFavorites));
+  cards.appendChild(statCard("Ratings submitted", d.engagement.totalRatings));
+  cards.appendChild(statCard("Avg. rating", d.engagement.averageRatingOverall ? d.engagement.averageRatingOverall.toFixed(2) : "—"));
+  wrap.appendChild(cards);
+
+  wrap.appendChild(statBarGroup("Sign-up method", [
+    { label: "Password", count: d.users.signupMethod.password },
+    { label: "Google", count: d.users.signupMethod.google }
+  ]));
+  wrap.appendChild(statBarGroup("Age range", d.users.ageRangeBreakdown.map((r) => ({ label: r.label, count: r.count }))));
+  wrap.appendChild(statBarGroup("Gender", d.users.genderBreakdown.map((r) => ({ label: r.label, count: r.count }))));
+  wrap.appendChild(statBarGroup("Country", d.users.countryBreakdown.map((r) => ({ label: r.label, count: r.count }))));
+  wrap.appendChild(statBarGroup("Favorites by category", d.engagement.categoryPopularity.map((r) => ({ label: r.category, count: r.count }))));
+
+  if (d.engagement.topFavorited.length) {
+    wrap.appendChild(el("h4", null, "Most favorited recipes"));
+    const list = el("ol", "dashboard-list");
+    d.engagement.topFavorited.forEach((r) => {
+      list.appendChild(el("li", null, `${r.title} — ${r.count} favorite${r.count === 1 ? "" : "s"}`));
+    });
+    wrap.appendChild(list);
+  }
+
+  if (d.engagement.topRated.length) {
+    wrap.appendChild(el("h4", null, "Top rated recipes"));
+    const list = el("ol", "dashboard-list");
+    d.engagement.topRated.forEach((r) => {
+      list.appendChild(el("li", null, `${r.title} — ${r.average.toFixed(1)}★ (${r.count} rating${r.count === 1 ? "" : "s"})`));
+    });
+    wrap.appendChild(list);
+  }
+
   return wrap;
 }
 

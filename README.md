@@ -82,6 +82,10 @@ To enable persistent accounts: add `DATABASE_URL=postgresql://...` to `server/.e
 
 **"Add recipe" is admin-only.** Regular accounts (including every tester) can sign up, sign in, and use everything else, but can't add recipes — that button only appears for accounts whose email is listed in `ADMIN_EMAILS` (comma-separated, in `server/.env`). This is enforced on the backend too, not just hidden in the UI — a non-admin hitting the endpoint directly gets a `403`. Remember to set `ADMIN_EMAILS` as an environment variable in Render's dashboard as well, since `.env` itself is never committed to git.
 
+**Age range, gender, and country are required**, not optional — enforced both client-side (sign-up form) and server-side (`/api/auth/register` rejects a request missing any of the three). Google sign-ins skip the sign-up form entirely, so any account missing one of these fields — whether from Google sign-in or from before this requirement existed — hits a "Complete your profile" gate right after signing in, before it can browse recipes. This uses the same database columns as before; nothing to migrate.
+
+**Admin dashboard** — a "Dashboard" button (same admin-only gating as "Add recipe") shows aggregate stats pulled live from Postgres: total users, new signups (7/30 days), sign-up method (password vs. Google), age/gender/country breakdowns, total favorites/ratings, most-favorited recipes, top-rated recipes, and favorites by category. Requires `DATABASE_URL` to be set (same as favorites/ratings) — it's read-only aggregate queries, no new tables. Deliberately kept English-only rather than run through the translation pipeline, since it's internal tooling for the site owner, not user-facing content.
+
 ### Making it stickier: favorites, ratings, a daily pick, and a mood-based recommender
 
 - **Favorites** — the star on any recipe card or detail page saves it to your account (`favorites` table in Postgres). "★ Favorites" in the chip row filters the list down to just your saved recipes.

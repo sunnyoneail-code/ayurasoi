@@ -90,10 +90,35 @@ async function setPasswordHash(userId, passwordHash) {
   if (user) { user.passwordHash = passwordHash; writeUsersFile(list); }
 }
 
+// Used both by the register route and by the "complete your profile" gate
+// that Google sign-ins (and any pre-existing account missing a field)
+// hit before they can browse recipes, now that demographics are required.
+async function updateDemographics(userId, { ageRange, gender, country }) {
+  if (pool) {
+    const { rows } = await pool.query(
+      "UPDATE users SET age_range = $1, gender = $2, country = $3 WHERE id = $4 RETURNING *",
+      [ageRange, gender, country, userId]
+    );
+    return rowToUser(rows[0]);
+  }
+  const list = readUsersFile();
+  const user = list.find((u) => u.id === userId);
+  if (user) {
+    user.demographics = { ageRange, gender, country };
+    writeUsersFile(list);
+  }
+  return user;
+}
+
+function hasCompleteDemographics(user) {
+  const d = (user && user.demographics) || {};
+  return Boolean(d.ageRange && d.gender && d.country);
+}
+
 function toPublicUser(user) {
   if (!user) return null;
   const { passwordHash, ...publicFields } = user;
   return publicFields;
 }
 
-module.exports = { findByEmail, findById, findByGoogleId, addUser, setPasswordHash, toPublicUser };
+module.exports = { findByEmail, findById, findByGoogleId, addUser, setPasswordHash, toPublicUser, updateDemographics, hasCompleteDemographics };

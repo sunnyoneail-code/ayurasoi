@@ -16,6 +16,7 @@ const ratings = require("./ratingsStore");
 const resetTokens = require("./resetTokenStore");
 const { sendPasswordResetEmail } = require("./email");
 const googleOAuth = require("./googleOAuth");
+const stats = require("./statsStore");
 const { initSchema } = require("./db");
 
 const app = express();
@@ -63,7 +64,11 @@ const ADMIN_EMAILS = (process.env.ADMIN_EMAILS || "")
 
 function withAdminFlag(user) {
   if (!user) return null;
-  return { ...user, isAdmin: ADMIN_EMAILS.includes(user.email.toLowerCase()) };
+  return {
+    ...user,
+    isAdmin: ADMIN_EMAILS.includes(user.email.toLowerCase()),
+    needsDemographics: !users.hasCompleteDemographics(user)
+  };
 }
 
 function requireAuth(req, res, next) {
@@ -87,6 +92,9 @@ app.post("/api/auth/register", async (req, res) => {
     if (!name || !name.trim()) return res.status(400).json({ error: "Name is required." });
     if (!email || !EMAIL_RE.test(email)) return res.status(400).json({ error: "A valid email is required." });
     if (!isPasswordStrong(password)) return res.status(400).json({ error: "Password must be at least 8 characters and include a letter and a number." });
+    if (!demographics || !demographics.ageRange || !demographics.gender || !demographics.country || !demographics.country.trim()) {
+      return res.status(400).json({ error: "Age range, gender, and country are required." });
+    }
     if (await users.findByEmail(email)) return res.status(409).json({ error: "An account with this email already exists." });
 
     const user = await users.addUser({
@@ -219,6 +227,32 @@ app.get("/api/auth/me", async (req, res) => {
   const user = await users.findById(req.session.userId);
   if (!user) return res.json({ user: null });
   res.json({ user: withAdminFlag(users.toPublicUser(user)) });
+});
+
+// Fills in age range / gender / country for accounts that don't have them
+// yet — Google sign-ins skip the sign-up form entirely, and a few
+// accounts predate demographics being required, so this is the one place
+// both paths converge before the app treats a profile as complete.
+app.put("/api/auth/demographics", requireAuth, async (req, res) => {
+  try {
+    const { ageRange, gender, country } = req.body || {};
+    if (!ageRange || !gender || !country || !country.trim()) {
+      return res.status(400).json({ error: "Age range, gender, and country are required." });
+    }
+    const updated = await users.updateDemographics(req.session.userId, { ageRange, gender, country: country.trim() });
+    res.json({ user: withAdminFlag(users.toPublicUser(updated)) });
+  } catch (err) {
+    res.status(502).json({ error: "Couldn't save that: " + err.message });
+  }
+});
+
+app.get("/api/admin/dashboard", requireAdmin, async (req, res) => {
+  try {
+    res.json(await stats.getDashboard());
+  } catch (err) {
+    const status = err.code === "NO_DB" ? 501 : 502;
+    res.status(status).json({ error: err.message });
+  }
 });
 
 app.get("/api/recipes", requireAuth, (req, res) => {
