@@ -7,6 +7,7 @@ let LANGUAGES = [];
 let UI_TEXT = {};
 let RATINGS_AVERAGES = {};
 let AMAZON_AFFILIATE_TAG = null;
+let SOURCE_TEXTS = [];
 
 const ADD_RECIPE_PLACEHOLDER = "Name: Ginger tea for sore throat\nIngredients:\n- Ginger\n- Water\n- Honey\nSteps:\n1. Boil sliced ginger in water for 10 minutes.\n2. Add honey once warm.\n3. Drink twice a day.\nSource: Charaka Samhita\n\n(Keep the English words Name/Ingredients/Steps/Source — write everything else in whatever language you like.)";
 
@@ -306,7 +307,8 @@ let state = {
   digestSendStatus: "idle",
   digestSendResult: null,
   digestSendError: "",
-  unsubscribeNotice: null
+  unsubscribeNotice: null,
+  viewingSourceLibrary: false
 };
 
 function resetAuthForm() {
@@ -430,6 +432,15 @@ async function loadHealthProfile() {
     }
   } catch (err) {
     // Non-fatal — suggestions just run unpersonalized if this fails.
+  }
+}
+
+async function loadSourceTexts() {
+  try {
+    const res = await apiFetch("/api/source-texts");
+    if (res.ok) SOURCE_TEXTS = await res.json();
+  } catch (err) {
+    // Non-fatal — the section just shows empty if this fails.
   }
 }
 
@@ -576,7 +587,7 @@ async function submitSignUp() {
     state.user = data.user;
     state.authView = null;
     resetAuthForm();
-    await Promise.all([loadRecipes(), loadFavorites(), loadRatingsAverages(), loadHealthProfile()]);
+    await Promise.all([loadRecipes(), loadFavorites(), loadRatingsAverages(), loadHealthProfile(), loadSourceTexts()]);
   } catch (err) {
     state.authStatus = "error";
     state.authError = err.message;
@@ -600,7 +611,7 @@ async function submitSignIn() {
     state.user = data.user;
     state.authView = null;
     resetAuthForm();
-    await Promise.all([loadRecipes(), loadFavorites(), loadRatingsAverages(), loadHealthProfile()]);
+    await Promise.all([loadRecipes(), loadFavorites(), loadRatingsAverages(), loadHealthProfile(), loadSourceTexts()]);
   } catch (err) {
     state.authStatus = "error";
     state.authError = err.message;
@@ -629,7 +640,7 @@ async function submitCompleteProfile() {
     if (!res.ok) throw new Error(data.error || "Unknown error");
     state.user = data.user;
     state.completeProfileStatus = "idle";
-    await Promise.all([loadRecipes(), loadFavorites(), loadRatingsAverages(), loadHealthProfile()]);
+    await Promise.all([loadRecipes(), loadFavorites(), loadRatingsAverages(), loadHealthProfile(), loadSourceTexts()]);
   } catch (err) {
     state.completeProfileStatus = "error";
     state.completeProfileError = err.message;
@@ -825,6 +836,10 @@ function render() {
     const profileBtn = el("button", "add-recipe-nav-btn", state.viewingProfile ? t.closeProfile : t.profileNav);
     profileBtn.onclick = () => { state.viewingProfile = !state.viewingProfile; render(); };
     headerControls.appendChild(profileBtn);
+
+    const sourceLibraryBtn = el("button", "add-recipe-nav-btn", state.viewingSourceLibrary ? t.closeSourceLibrary : t.sourceLibraryNav);
+    sourceLibraryBtn.onclick = () => { state.viewingSourceLibrary = !state.viewingSourceLibrary; render(); };
+    headerControls.appendChild(sourceLibraryBtn);
   }
 
   if (!state.openRecipe && !state.authView && state.user && state.user.isAdmin) {
@@ -935,6 +950,12 @@ function render() {
 
   if (state.viewingProfile) {
     app.appendChild(renderProfile(t));
+    app.appendChild(renderFooter(t));
+    return;
+  }
+
+  if (state.viewingSourceLibrary) {
+    app.appendChild(renderSourceLibrary(t));
     app.appendChild(renderFooter(t));
     return;
   }
@@ -1275,6 +1296,51 @@ function checkboxGroup(t, title, options, selectedList, onToggle) {
 function translateOptionLabel(t, options, label) {
   const opt = options.find((o) => o.label === label);
   return opt ? (t[opt.key] || label) : label;
+}
+
+// Counts how many current recipes cite this classical text, by matching
+// each recipe's (English) `source` field against the text's keywords —
+// a lightweight connective touch, not a precise citation index.
+function recipesCitingText(entry) {
+  return RECIPES.filter((r) => entry.matchKeywords.some((kw) => (r.source || "").toLowerCase().includes(kw))).length;
+}
+
+function renderSourceLibrary(t) {
+  const wrap = el("div", "detail");
+  const backBtn = el("button", "back-btn", t.back);
+  backBtn.onclick = () => { state.viewingSourceLibrary = false; render(); };
+  wrap.appendChild(backBtn);
+
+  wrap.appendChild(el("h2", null, t.sourceLibraryTitle));
+  wrap.appendChild(el("p", "card-purpose", t.sourceLibraryIntro));
+
+  const grid = el("div", "source-library-grid");
+  SOURCE_TEXTS.forEach((entry) => {
+    const data = entry[state.lang] || entry.en;
+    const card = el("div", "source-text-card");
+
+    const img = document.createElement("img");
+    img.src = entry.imageUrl;
+    img.alt = data.imageAlt;
+    img.className = "source-text-photo";
+    img.style.cursor = "zoom-in";
+    img.onclick = () => openImageLightbox(entry.imageUrl, data.imageAlt);
+    card.appendChild(img);
+
+    card.appendChild(el("h3", null, data.name));
+    card.appendChild(el("p", "source-text-era", data.era));
+    card.appendChild(el("p", "card-purpose", data.description));
+    if (!entry.isManuscriptPhoto) {
+      card.appendChild(el("p", "media-note", t.sourceLibraryPrintedEditionNote));
+    }
+    const count = recipesCitingText(entry);
+    card.appendChild(el("p", "card-rating", `${count} ${count === 1 ? t.sourceLibraryRecipeSingular : t.sourceLibraryRecipePlural}`));
+
+    grid.appendChild(card);
+  });
+  wrap.appendChild(grid);
+
+  return wrap;
 }
 
 function renderProfile(t) {
@@ -1887,7 +1953,7 @@ Promise.all([
     UI_TEXT = uiText;
     state.user = authMe.user;
     AMAZON_AFFILIATE_TAG = config.amazonAffiliateTag;
-    if (state.user) await Promise.all([loadRecipes(), loadFavorites(), loadRatingsAverages(), loadHealthProfile()]);
+    if (state.user) await Promise.all([loadRecipes(), loadFavorites(), loadRatingsAverages(), loadHealthProfile(), loadSourceTexts()]);
     state.loading = false;
     render();
   })

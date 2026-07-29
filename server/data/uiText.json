@@ -89,6 +89,13 @@
     "concernWarningPrefix": "You've flagged: ",
     "profileNav": "Profile",
     "closeProfile": "Close profile",
+    "sourceLibraryNav": "The Source Library",
+    "closeSourceLibrary": "Close Source Library",
+    "sourceLibraryTitle": "The Source Library",
+    "sourceLibraryIntro": "Photos and background on the classical Ayurvedic texts this app's recipes are drawn from.",
+    "sourceLibraryPrintedEditionNote": "Shown here is a historical printed edition, since no manuscript photo of this specific text was found on Wikimedia Commons.",
+    "sourceLibraryRecipeSingular": "recipe references this text",
+    "sourceLibraryRecipePlural": "recipes reference this text",
     "profileTitle": "Your profile",
     "profilePrivacyNote": "This information is private to your account, never shown to anyone else, and never included in site-wide statistics. It's used only to personalize your own recipe suggestions — filtering out allergens and flagging recipes that may need extra caution. You can clear it at any time.",
     "profileCycleHeading": "Cycle tracking (optional)",
@@ -278,7 +285,14 @@
     "concernAutoimmune": "स्वप्रतिरक्षी स्थिति",
     "unsubscribeSuccess": "आपको AyurRasoi ईमेल से सदस्यता समाप्त कर दी गई है।",
     "unsubscribeInvalid": "वह सदस्यता समाप्त लिंक मान्य नहीं है.",
-    "unsubscribeErrorGeneric": "उस अनुरोध को संसाधित करते समय कुछ गलत हो गया।"
+    "unsubscribeErrorGeneric": "उस अनुरोध को संसाधित करते समय कुछ गलत हो गया।",
+    "sourceLibraryNav": "स्रोत पुस्तकालय",
+    "closeSourceLibrary": "सोर्स लाइब्रेरी बंद करें",
+    "sourceLibraryTitle": "स्रोत पुस्तकालय",
+    "sourceLibraryIntro": "इस ऐप के नुस्खे शास्त्रीय आयुर्वेदिक ग्रंथों की तस्वीरें और पृष्ठभूमि से लिए गए हैं।",
+    "sourceLibraryPrintedEditionNote": "यहां दिखाया गया एक ऐतिहासिक मुद्रित संस्करण है, क्योंकि इस विशिष्ट पाठ की कोई पांडुलिपि तस्वीर विकिमीडिया कॉमन्स पर नहीं मिली थी।",
+    "sourceLibraryRecipeSingular": "नुस्खा इस पाठ का संदर्भ देता है",
+    "sourceLibraryRecipePlural": "व्यंजन इस पाठ का संदर्भ देते हैं"
   },
   "bn": {
     "title": "আয়ুররসোই",
@@ -419,7 +433,14 @@
     "concernAutoimmune": "অটোইমিউন অবস্থা",
     "unsubscribeSuccess": "আপনি AyurRasoi ইমেল থেকে সদস্যতা বাতিল করা হয়েছে.",
     "unsubscribeInvalid": "যে আনসাবস্ক্রাইব লিঙ্ক বৈধ নয়.",
-    "unsubscribeErrorGeneric": "অনুরোধটি প্রক্রিয়া করার সময় কিছু ভুল হয়েছে।"
+    "unsubscribeErrorGeneric": "অনুরোধটি প্রক্রিয়া করার সময় কিছু ভুল হয়েছে।",
+    "sourceLibraryNav": "উৎস লাইব্রেরি",
+    "closeSourceLibrary": "সোর্স লাইব্রেরি বন্ধ করুন",
+    "sourceLibraryTitle": "উৎস লাইব্রেরি",
+    "sourceLibraryIntro": "ক্লাসিক্যাল আয়ুর্বেদিক পাঠ্যের ফটো এবং পটভূমিতে এই অ্যাপের রেসিপিগুলি থেকে আঁকা হয়েছে।",
+    "sourceLibraryPrintedEditionNote": "এখানে দেখানো হয়েছে একটি ঐতিহাসিক মুদ্রিত সংস্করণ, যেহেতু উইকিমিডিয়া কমন্সে এই নির্দিষ্ট লেখাটির কোনো পাণ্ডুলিপির ছবি পাওয়া যায়নি।",
+    "sourceLibraryRecipeSingular": "রেসিপি এই টেক্সট উল্লেখ",
+    "sourceLibraryRecipePlural": "রেসিপি এই টেক্সট উল্লেখ"
   },
   "mr": {
     "title": "आयुर्रासोई",
@@ -560,7 +581,14 @@
     "concernAutoimmune": "स्वयंप्रतिकार स्थिती",
     "unsubscribeSuccess": "तुम्ही AyurRasoi ईमेलचे सदस्यत्व रद्द केले आहे.",
     "unsubscribeInvalid": "ती सदस्यता रद्द करण्याची लिंक वैध नाही.",
-    "unsubscribeErrorGeneric": "त्या विनंतीवर प्रक्रिया करताना काहीतरी चूक झाली."
+    "unsubscribeErrorGeneric": "त्या विनंतीवर प्रक्रिया करताना काहीतरी चूक झाली.",
+    "sourceLibraryNav": "स्त्रोत लायब्ररी",
+    "closeSourceLibrary": "स्रोत लायब्ररी बंद करा",
+    "sourceLibraryTitle": "स्त्रोत लायब्ररी",
+    "sourceLibraryIntro": "शास्त्रीय आयुर्वेदिक ग्रंथांचे फोटो आणि पार्श्वभूमी या ॲपच्या रेसिपीजमधून काढल्या आहेत.",
+    "sourceLibraryPrintedEditionNote": "विकिमीडिया कॉमन्सवर या विशिष्ट मजकुराचा कोणताही हस्तलिखित फोटो आढळला नसल्यामुळे येथे एक ऐतिहासिक मुद्रित आवृत्ती दाखवली आहे.",
+    "sourceLibraryRecipeSingular": "रेसिपी या मजकुराचा संदर्भ देते",
+    "sourceLibraryRecipePlural": "पाककृती या मजकूराचा संदर्भ देते"
   },
   "ta": {
     "title": "ஆயுர்ரசோய்",
@@ -701,7 +729,14 @@
     "concernAutoimmune": "ஆட்டோ இம்யூன் நிலை",
     "unsubscribeSuccess": "AyurRasoi மின்னஞ்சல்களிலிருந்து நீங்கள் குழுவிலகியுள்ளீர்கள்.",
     "unsubscribeInvalid": "அந்த குழுவிலகல் இணைப்பு தவறானது.",
-    "unsubscribeErrorGeneric": "அந்தக் கோரிக்கையைச் செயல்படுத்துவதில் ஏதோ தவறு ஏற்பட்டது."
+    "unsubscribeErrorGeneric": "அந்தக் கோரிக்கையைச் செயல்படுத்துவதில் ஏதோ தவறு ஏற்பட்டது.",
+    "sourceLibraryNav": "மூல நூலகம்",
+    "closeSourceLibrary": "மூடு மூல நூலகம்",
+    "sourceLibraryTitle": "மூல நூலகம்",
+    "sourceLibraryIntro": "கிளாசிக்கல் ஆயுர்வேத நூல்களின் புகைப்படங்களும் பின்புலமும் இந்த ஆப்ஸின் சமையல் குறிப்புகள் வரையப்பட்டவை.",
+    "sourceLibraryPrintedEditionNote": "விக்கிமீடியா காமன்ஸில் இந்தக் குறிப்பிட்ட உரையின் கையெழுத்துப் புகைப்படம் எதுவும் காணப்படாததால், ஒரு வரலாற்று அச்சிடப்பட்ட பதிப்பு இங்கே காட்டப்பட்டுள்ளது.",
+    "sourceLibraryRecipeSingular": "செய்முறை இந்த உரையை குறிக்கிறது",
+    "sourceLibraryRecipePlural": "சமையல் குறிப்பு இந்த உரையை குறிப்பிடுகிறது"
   },
   "te": {
     "title": "ఆయుర్ రసోయ్",
@@ -842,7 +877,14 @@
     "concernAutoimmune": "ఆటో ఇమ్యూన్ పరిస్థితి",
     "unsubscribeSuccess": "మీరు AyurRasoi ఇమెయిల్‌ల నుండి అన్‌సబ్‌స్క్రైబ్ చేయబడ్డారు.",
     "unsubscribeInvalid": "ఆ అన్‌సబ్‌స్క్రైబ్ లింక్ చెల్లదు.",
-    "unsubscribeErrorGeneric": "ఆ అభ్యర్థనను ప్రాసెస్ చేయడంలో ఏదో తప్పు జరిగింది."
+    "unsubscribeErrorGeneric": "ఆ అభ్యర్థనను ప్రాసెస్ చేయడంలో ఏదో తప్పు జరిగింది.",
+    "sourceLibraryNav": "మూల గ్రంథాలయం",
+    "closeSourceLibrary": "మూల లైబ్రరీని మూసివేయండి",
+    "sourceLibraryTitle": "మూల గ్రంథాలయం",
+    "sourceLibraryIntro": "క్లాసికల్ ఆయుర్వేద గ్రంథాల ఫోటోలు మరియు నేపథ్యం ఈ యాప్ వంటకాల నుండి తీసుకోబడ్డాయి.",
+    "sourceLibraryPrintedEditionNote": "వికీమీడియా కామన్స్‌లో ఈ నిర్దిష్ట టెక్స్ట్ యొక్క మాన్యుస్క్రిప్ట్ ఫోటో ఏదీ కనుగొనబడలేదు కాబట్టి ఇక్కడ ఒక చారిత్రక ముద్రిత ఎడిషన్ చూపబడింది.",
+    "sourceLibraryRecipeSingular": "రెసిపీ ఈ వచనాన్ని సూచిస్తుంది",
+    "sourceLibraryRecipePlural": "వంటకాలు ఈ వచనాన్ని సూచిస్తాయి"
   },
   "kn": {
     "title": "ಆಯುರ್ರಾಸೋಯಿ",
@@ -983,7 +1025,14 @@
     "concernAutoimmune": "ಆಟೋಇಮ್ಯೂನ್ ಸ್ಥಿತಿ",
     "unsubscribeSuccess": "ನೀವು AyurRasoi ಇಮೇಲ್‌ಗಳಿಂದ ಅನ್‌ಸಬ್‌ಸ್ಕ್ರೈಬ್ ಆಗಿರುವಿರಿ.",
     "unsubscribeInvalid": "ಆ ಅನ್‌ಸಬ್‌ಸ್ಕ್ರೈಬ್ ಲಿಂಕ್ ಮಾನ್ಯವಾಗಿಲ್ಲ.",
-    "unsubscribeErrorGeneric": "ಆ ವಿನಂತಿಯನ್ನು ಪ್ರಕ್ರಿಯೆಗೊಳಿಸುವಾಗ ಏನೋ ತಪ್ಪಾಗಿದೆ."
+    "unsubscribeErrorGeneric": "ಆ ವಿನಂತಿಯನ್ನು ಪ್ರಕ್ರಿಯೆಗೊಳಿಸುವಾಗ ಏನೋ ತಪ್ಪಾಗಿದೆ.",
+    "sourceLibraryNav": "ಮೂಲ ಗ್ರಂಥಾಲಯ",
+    "closeSourceLibrary": "ಮೂಲ ಗ್ರಂಥಾಲಯವನ್ನು ಮುಚ್ಚಿ",
+    "sourceLibraryTitle": "ಮೂಲ ಗ್ರಂಥಾಲಯ",
+    "sourceLibraryIntro": "ಶಾಸ್ತ್ರೀಯ ಆಯುರ್ವೇದ ಪಠ್ಯಗಳ ಫೋಟೋಗಳು ಮತ್ತು ಹಿನ್ನೆಲೆ ಈ ಅಪ್ಲಿಕೇಶನ್‌ನ ಪಾಕವಿಧಾನಗಳನ್ನು ಎಳೆಯಲಾಗಿದೆ.",
+    "sourceLibraryPrintedEditionNote": "ವಿಕಿಮೀಡಿಯಾ ಕಾಮನ್ಸ್‌ನಲ್ಲಿ ಈ ನಿರ್ದಿಷ್ಟ ಪಠ್ಯದ ಯಾವುದೇ ಹಸ್ತಪ್ರತಿ ಫೋಟೋ ಕಂಡುಬಂದಿಲ್ಲವಾದ್ದರಿಂದ ಐತಿಹಾಸಿಕ ಮುದ್ರಿತ ಆವೃತ್ತಿಯನ್ನು ಇಲ್ಲಿ ತೋರಿಸಲಾಗಿದೆ.",
+    "sourceLibraryRecipeSingular": "ಪಾಕವಿಧಾನ ಈ ಪಠ್ಯವನ್ನು ಉಲ್ಲೇಖಿಸುತ್ತದೆ",
+    "sourceLibraryRecipePlural": "ಪಾಕವಿಧಾನಗಳು ಈ ಪಠ್ಯವನ್ನು ಉಲ್ಲೇಖಿಸುತ್ತವೆ"
   },
   "or": {
     "title": "ଆୟୁର୍ ରସୋଇ |",
@@ -1124,7 +1173,14 @@
     "concernAutoimmune": "ଅଟୋମ୍ୟୁମ୍ୟୁନ୍ ସ୍ଥିତି |",
     "unsubscribeSuccess": "ତୁମେ ଆୟୁର୍ ରସୋଇ ଇମେଲରୁ ସଦସ୍ୟତା ଗ୍ରହଣ କରିଛ |",
     "unsubscribeInvalid": "ସେହି ସଦସ୍ୟତା ଲିଙ୍କ ବ valid ଧ ନୁହେଁ |",
-    "unsubscribeErrorGeneric": "ସେହି ଅନୁରୋଧ ପ୍ରକ୍ରିୟାକରଣରେ କିଛି ଭୁଲ ହୋଇଗଲା |"
+    "unsubscribeErrorGeneric": "ସେହି ଅନୁରୋଧ ପ୍ରକ୍ରିୟାକରଣରେ କିଛି ଭୁଲ ହୋଇଗଲା |",
+    "sourceLibraryNav": "ଉତ୍ସ ଲାଇବ୍ରେରୀ |",
+    "closeSourceLibrary": "ଉତ୍ସ ଲାଇବ୍ରେରୀ ବନ୍ଦ କରନ୍ତୁ |",
+    "sourceLibraryTitle": "ଉତ୍ସ ଲାଇବ୍ରେରୀ |",
+    "sourceLibraryIntro": "ଶାସ୍ତ୍ରୀୟ ଆୟୁର୍ବେଦିକ ଗ୍ରନ୍ଥଗୁଡ଼ିକରେ ଫଟୋ ଏବଂ ପୃଷ୍ଠଭୂମି ଏହି ଆପର ରେସିପିଗୁଡ଼ିକ ଅଙ୍କିତ |",
+    "sourceLibraryPrintedEditionNote": "ୱିକିମିଡିଆ କମନ୍ସରେ ଏହି ନିର୍ଦ୍ଦିଷ୍ଟ ପାଠ୍ୟର କ man ଣସି ପାଣ୍ଡୁଲିପି ଫଟୋ ମିଳି ନ ଥିବାରୁ ଏଠାରେ ଏକ historical ତିହାସିକ ମୁଦ୍ରିତ ସଂସ୍କରଣ ପ୍ରଦର୍ଶିତ ହୋଇଛି |",
+    "sourceLibraryRecipeSingular": "ରେସିପି ଏହି ପାଠ୍ୟକୁ ଦର୍ଶାଏ |",
+    "sourceLibraryRecipePlural": "ରେସିପିଗୁଡ଼ିକ ଏହି ପାଠ୍ୟକୁ ସୂଚିତ କରେ |"
   },
   "gu": {
     "title": "આયુરરાસોઈ",
@@ -1265,7 +1321,14 @@
     "concernAutoimmune": "સ્વયંપ્રતિરક્ષા સ્થિતિ",
     "unsubscribeSuccess": "તમે AyurRasoi ઇમેઇલ્સમાંથી અનસબ્સ્ક્રાઇબ કરવામાં આવ્યા છો.",
     "unsubscribeInvalid": "તે અનસબ્સ્ક્રાઇબ લિંક માન્ય નથી.",
-    "unsubscribeErrorGeneric": "તે વિનંતી પર પ્રક્રિયા કરવામાં કંઈક ખોટું થયું."
+    "unsubscribeErrorGeneric": "તે વિનંતી પર પ્રક્રિયા કરવામાં કંઈક ખોટું થયું.",
+    "sourceLibraryNav": "સ્ત્રોત પુસ્તકાલય",
+    "closeSourceLibrary": "સ્ત્રોત લાઇબ્રેરી બંધ કરો",
+    "sourceLibraryTitle": "સ્ત્રોત પુસ્તકાલય",
+    "sourceLibraryIntro": "શાસ્ત્રીય આયુર્વેદિક ગ્રંથો પરના ફોટા અને પૃષ્ઠભૂમિ આ એપ્લિકેશનની વાનગીઓમાંથી લેવામાં આવી છે.",
+    "sourceLibraryPrintedEditionNote": "અહીં એક ઐતિહાસિક મુદ્રિત આવૃત્તિ બતાવવામાં આવી છે, કારણ કે વિકિમીડિયા કોમન્સ પર આ વિશિષ્ટ લખાણનો કોઈ હસ્તપ્રત ફોટો મળ્યો નથી.",
+    "sourceLibraryRecipeSingular": "રેસીપી આ ટેક્સ્ટનો સંદર્ભ આપે છે",
+    "sourceLibraryRecipePlural": "વાનગીઓ આ ટેક્સ્ટનો સંદર્ભ આપે છે"
   },
   "pa": {
     "title": "ਆਯੁਰਰਾਸੋਈ",
@@ -1406,7 +1469,14 @@
     "concernAutoimmune": "ਆਟੋਇਮਿਊਨ ਸਥਿਤੀ",
     "unsubscribeSuccess": "ਤੁਹਾਨੂੰ AyurRasoi ਈਮੇਲਾਂ ਤੋਂ ਗਾਹਕੀ ਹਟਾ ਦਿੱਤੀ ਗਈ ਹੈ।",
     "unsubscribeInvalid": "ਉਹ ਗਾਹਕੀ ਰੱਦ ਕਰਨ ਵਾਲਾ ਲਿੰਕ ਵੈਧ ਨਹੀਂ ਹੈ।",
-    "unsubscribeErrorGeneric": "ਉਸ ਬੇਨਤੀ 'ਤੇ ਪ੍ਰਕਿਰਿਆ ਕਰਦੇ ਸਮੇਂ ਕੁਝ ਗਲਤ ਹੋ ਗਿਆ।"
+    "unsubscribeErrorGeneric": "ਉਸ ਬੇਨਤੀ 'ਤੇ ਪ੍ਰਕਿਰਿਆ ਕਰਦੇ ਸਮੇਂ ਕੁਝ ਗਲਤ ਹੋ ਗਿਆ।",
+    "sourceLibraryNav": "ਸਰੋਤ ਲਾਇਬ੍ਰੇਰੀ",
+    "closeSourceLibrary": "ਸਰੋਤ ਲਾਇਬ੍ਰੇਰੀ ਬੰਦ ਕਰੋ",
+    "sourceLibraryTitle": "ਸਰੋਤ ਲਾਇਬ੍ਰੇਰੀ",
+    "sourceLibraryIntro": "ਕਲਾਸੀਕਲ ਆਯੁਰਵੈਦਿਕ ਪਾਠਾਂ ਦੀਆਂ ਫੋਟੋਆਂ ਅਤੇ ਪਿਛੋਕੜ ਇਸ ਐਪ ਦੀਆਂ ਪਕਵਾਨਾਂ ਤੋਂ ਖਿੱਚੀਆਂ ਗਈਆਂ ਹਨ।",
+    "sourceLibraryPrintedEditionNote": "ਇੱਥੇ ਇੱਕ ਇਤਿਹਾਸਕ ਪ੍ਰਿੰਟਿਡ ਐਡੀਸ਼ਨ ਦਿਖਾਇਆ ਗਿਆ ਹੈ, ਕਿਉਂਕਿ ਵਿਕੀਮੀਡੀਆ ਕਾਮਨਜ਼ 'ਤੇ ਇਸ ਖਾਸ ਟੈਕਸਟ ਦੀ ਕੋਈ ਹੱਥ-ਲਿਖਤ ਫੋਟੋ ਨਹੀਂ ਮਿਲੀ ਹੈ।",
+    "sourceLibraryRecipeSingular": "ਵਿਅੰਜਨ ਇਸ ਟੈਕਸਟ ਦਾ ਹਵਾਲਾ ਦਿੰਦਾ ਹੈ",
+    "sourceLibraryRecipePlural": "ਵਿਅੰਜਨ ਇਸ ਟੈਕਸਟ ਦਾ ਹਵਾਲਾ ਦਿੰਦੇ ਹਨ"
   },
   "fr": {
     "title": "AyurRasoi",
@@ -1547,7 +1617,14 @@
     "concernAutoimmune": "Maladie auto-immune",
     "unsubscribeSuccess": "Vous avez été désabonné des e-mails d'AyurRasoi.",
     "unsubscribeInvalid": "Ce lien de désabonnement n'est pas valide.",
-    "unsubscribeErrorGeneric": "Une erreur s'est produite lors du traitement de cette demande."
+    "unsubscribeErrorGeneric": "Une erreur s'est produite lors du traitement de cette demande.",
+    "sourceLibraryNav": "La bibliothèque source",
+    "closeSourceLibrary": "Fermer la bibliothèque source",
+    "sourceLibraryTitle": "La bibliothèque source",
+    "sourceLibraryIntro": "Photos et arrière-plan des textes ayurvédiques classiques dont sont tirées les recettes de cette application.",
+    "sourceLibraryPrintedEditionNote": "Il s'agit ici d'une édition imprimée historique, puisqu'aucune photo manuscrite de ce texte spécifique n'a été trouvée sur Wikimedia Commons.",
+    "sourceLibraryRecipeSingular": "la recette fait référence à ce texte",
+    "sourceLibraryRecipePlural": "les recettes font référence à ce texte"
   },
   "es": {
     "title": "AyurRasoi",
@@ -1688,7 +1765,14 @@
     "concernAutoimmune": "Condición autoinmune",
     "unsubscribeSuccess": "Se te ha cancelado la suscripción a los correos electrónicos de AyurRasoi.",
     "unsubscribeInvalid": "Ese enlace para cancelar la suscripción no es válido.",
-    "unsubscribeErrorGeneric": "Algo salió mal al procesar esa solicitud."
+    "unsubscribeErrorGeneric": "Algo salió mal al procesar esa solicitud.",
+    "sourceLibraryNav": "La biblioteca fuente",
+    "closeSourceLibrary": "Cerrar biblioteca de código fuente",
+    "sourceLibraryTitle": "La biblioteca fuente",
+    "sourceLibraryIntro": "Fotos y antecedentes de los textos ayurvédicos clásicos de los que se extraen las recetas de esta aplicación.",
+    "sourceLibraryPrintedEditionNote": "Aquí se muestra una edición impresa histórica, ya que no se encontró ninguna fotografía manuscrita de este texto específico en Wikimedia Commons.",
+    "sourceLibraryRecipeSingular": "la receta hace referencia a este texto",
+    "sourceLibraryRecipePlural": "recetas hacen referencia a este texto"
   },
   "de": {
     "title": "AyurRasoi",
@@ -1829,7 +1913,14 @@
     "concernAutoimmune": "Autoimmunerkrankung",
     "unsubscribeSuccess": "Sie wurden von AyurRasoi-E-Mails abgemeldet.",
     "unsubscribeInvalid": "Dieser Abmeldelink ist ungültig.",
-    "unsubscribeErrorGeneric": "Bei der Verarbeitung dieser Anfrage ist ein Fehler aufgetreten."
+    "unsubscribeErrorGeneric": "Bei der Verarbeitung dieser Anfrage ist ein Fehler aufgetreten.",
+    "sourceLibraryNav": "Die Quellenbibliothek",
+    "closeSourceLibrary": "Schließen Sie die Quellbibliothek",
+    "sourceLibraryTitle": "Die Quellenbibliothek",
+    "sourceLibraryIntro": "Fotos und Hintergrundinformationen zu den klassischen ayurvedischen Texten, aus denen die Rezepte dieser App stammen.",
+    "sourceLibraryPrintedEditionNote": "Hier ist eine historische gedruckte Ausgabe abgebildet, da auf Wikimedia Commons kein Manuskriptfoto dieses spezifischen Textes gefunden wurde.",
+    "sourceLibraryRecipeSingular": "Das Rezept verweist auf diesen Text",
+    "sourceLibraryRecipePlural": "Rezepte verweisen auf diesen Text"
   },
   "ru": {
     "title": "АюрРасой",
@@ -1970,7 +2061,14 @@
     "concernAutoimmune": "Аутоиммунное состояние",
     "unsubscribeSuccess": "Вы отписались от рассылок AyurRasoi.",
     "unsubscribeInvalid": "Эта ссылка для отказа от подписки недействительна.",
-    "unsubscribeErrorGeneric": "Что-то пошло не так при обработке этого запроса."
+    "unsubscribeErrorGeneric": "Что-то пошло не так при обработке этого запроса.",
+    "sourceLibraryNav": "Исходная библиотека",
+    "closeSourceLibrary": "Закрыть библиотеку исходного кода",
+    "sourceLibraryTitle": "Исходная библиотека",
+    "sourceLibraryIntro": "Фотографии и предыстория классических аюрведических текстов, на основе которых взяты рецепты этого приложения.",
+    "sourceLibraryPrintedEditionNote": "Здесь показано историческое печатное издание, поскольку на Wikimedia Commons не было найдено ни одной рукописной фотографии этого конкретного текста.",
+    "sourceLibraryRecipeSingular": "рецепт ссылается на этот текст",
+    "sourceLibraryRecipePlural": "рецепты ссылаются на этот текст"
   },
   "zh": {
     "title": "阿尤拉索伊",
@@ -2111,7 +2209,14 @@
     "concernAutoimmune": "自身免疫性疾病",
     "unsubscribeSuccess": "您已取消订阅 AyurRasoi 电子邮件。",
     "unsubscribeInvalid": "该取消订阅链接无效。",
-    "unsubscribeErrorGeneric": "处理该请求时出了点问题。"
+    "unsubscribeErrorGeneric": "处理该请求时出了点问题。",
+    "sourceLibraryNav": "源库",
+    "closeSourceLibrary": "闭源库",
+    "sourceLibraryTitle": "源库",
+    "sourceLibraryIntro": "该应用程序的食谱取自经典阿育吠陀文本的照片和背景。",
+    "sourceLibraryPrintedEditionNote": "这里显示的是历史印刷版，因为在维基共享资源上没有找到该特定文本的手稿照片。",
+    "sourceLibraryRecipeSingular": "食谱引用了这篇文章",
+    "sourceLibraryRecipePlural": "食谱参考这篇文章"
   },
   "yue": {
     "title": "阿尤拉索伊",
@@ -2252,6 +2357,13 @@
     "concernAutoimmune": "自身免疫性疾病",
     "unsubscribeSuccess": "您已取消订阅 AyurRasoi 电子邮件。",
     "unsubscribeInvalid": "该取消订阅链接无效。",
-    "unsubscribeErrorGeneric": "处理该请求时出了点问题。"
+    "unsubscribeErrorGeneric": "处理该请求时出了点问题。",
+    "sourceLibraryNav": "源库",
+    "closeSourceLibrary": "闭源库",
+    "sourceLibraryTitle": "源库",
+    "sourceLibraryIntro": "该应用程序的食谱取自经典阿育吠陀文本的照片和背景。",
+    "sourceLibraryPrintedEditionNote": "这里显示的是历史印刷版，因为在维基共享资源上没有找到该特定文本的手稿照片。",
+    "sourceLibraryRecipeSingular": "食谱引用了这篇文章",
+    "sourceLibraryRecipePlural": "食谱参考这篇文章"
   }
 }

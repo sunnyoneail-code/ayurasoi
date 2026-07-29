@@ -1,5 +1,19 @@
 const crypto = require("crypto");
+const fs = require("fs");
+const path = require("path");
 const store = require("./recipeStore");
+
+const SOURCE_TEXTS_PATH = path.join(__dirname, "data", "sourceTexts.json");
+
+// Finds the Source Library entry (if any) matching a recipe's `source`
+// citation, so the digest email can show a real scripture photo tied to
+// that day's Recipe of the Day rather than a generic/no image.
+function sourceTextForRecipe(recipe) {
+  if (!recipe || !fs.existsSync(SOURCE_TEXTS_PATH)) return null;
+  const texts = JSON.parse(fs.readFileSync(SOURCE_TEXTS_PATH, "utf-8"));
+  const sourceLower = (recipe.source || "").toLowerCase();
+  return texts.find((entry) => entry.matchKeywords.some((kw) => sourceLower.includes(kw))) || null;
+}
 
 // Same deterministic hash the frontend uses for "Recipe of the Day"
 // (public/app.js pickRecipeOfDay) — ported here so the weekly digest
@@ -78,8 +92,15 @@ function buildUnsubscribeLink(baseUrl, userId) {
 }
 
 function buildDigestContent({ tipTitle, tipText, recipeOfDay, pubmedPicks }) {
+  const sourceText = sourceTextForRecipe(recipeOfDay);
+  const sourceImageHtml = sourceText
+    ? `<img src="${sourceText.imageUrl}" alt="${sourceText.en.imageAlt}" style="max-width:100%;border-radius:8px;margin:8px 0;" />`
+    : "";
+
   const recipeSection = recipeOfDay
-    ? `<h3 style="color:#b5651d;">Recipe of the Day: ${recipeOfDay.en.name}</h3><p>${recipeOfDay.en.purpose}</p>`
+    ? `<h3 style="color:#b5651d;">Recipe of the Day: ${recipeOfDay.en.name}</h3>${sourceImageHtml}<p>${recipeOfDay.en.purpose}</p>${
+        sourceText ? `<p style="font-size:0.8rem;color:#7a6a52;">From the Source Library: ${sourceText.en.name}${sourceText.isManuscriptPhoto ? "" : " (printed edition shown)"}</p>` : ""
+      }`
     : "";
 
   const tipSection = tipText

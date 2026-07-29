@@ -405,6 +405,14 @@ app.get("/api/ui-text", (req, res) => {
   res.json(JSON.parse(fs.readFileSync(uiTextPath, "utf-8")));
 });
 
+// "The Source Library" — gated behind login same as recipes, since it's
+// part of the app's content, not public marketing material.
+app.get("/api/source-texts", requireAuth, (req, res) => {
+  const sourceTextsPath = path.join(__dirname, "data", "sourceTexts.json");
+  if (!fs.existsSync(sourceTextsPath)) return res.json([]);
+  res.json(JSON.parse(fs.readFileSync(sourceTextsPath, "utf-8")));
+});
+
 app.post("/api/recipes/generate", requireAdmin, async (req, res) => {
   const { text } = req.body || {};
   if (!text || !text.trim()) {

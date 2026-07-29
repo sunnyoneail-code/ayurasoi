@@ -1,0 +1,630 @@
+[
+  {
+    "id": "charaka-samhita",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/A_section_of_the_Carakasamhita_-_sutrasthana_Wellcome_L0040423.jpg/500px-A_section_of_the_Carakasamhita_-_sutrasthana_Wellcome_L0040423.jpg",
+    "isManuscriptPhoto": true,
+    "matchKeywords": [
+      "charaka"
+    ],
+    "en": {
+      "name": "Charaka Samhita",
+      "imageAlt": "Manuscript page from the Charaka Samhita (sutrasthana section), Wellcome Collection",
+      "description": "One of the foundational texts of Ayurveda, built on the earlier Agnivesha Samhita and redacted into its present form by Charaka, with a later supplement added by Dridhabala. It focuses primarily on internal medicine (kayachikitsa) — physiology, diagnosis, and treatment of disease — across eight sections. Together with the Sushruta Samhita and Ashtanga Hridaya, it forms part of the 'Brihat Trayi' (great triad) of classical Ayurvedic texts.",
+      "era": "Compiled/redacted c. 100 BCE – 200 CE, from the earlier Agnivesha Samhita"
+    },
+    "hi": {
+      "name": "चरक संहिता",
+      "imageAlt": "चरक संहिता (सूत्रस्थान अनुभाग), वेलकम संग्रह से पांडुलिपि पृष्ठ",
+      "description": "आयुर्वेद के मूलभूत ग्रंथों में से एक, जो पहले अग्निवेश संहिता पर बनाया गया था और चरक द्वारा इसके वर्तमान स्वरूप में संशोधित किया गया था, जिसमें बाद में द्रिधबाला द्वारा एक पूरक जोड़ा गया था। यह मुख्य रूप से आठ वर्गों में आंतरिक चिकित्सा (कायाचिकित्सा) - शरीर विज्ञान, निदान और रोग के उपचार पर केंद्रित है। सुश्रुत संहिता और अष्टांग हृदय के साथ, यह शास्त्रीय आयुर्वेदिक ग्रंथों की 'बृहत् त्रयी' (महान त्रय) का हिस्सा बनता है।",
+      "era": "संकलित/संपादित सी. 100 ईसा पूर्व - 200 ई.पू., पूर्ववर्ती अग्निवेश संहिता से"
+    },
+    "bn": {
+      "name": "চরক সংহিতা",
+      "imageAlt": "চরক সংহিতা (সূত্রস্থান বিভাগ), ওয়েলকাম সংগ্রহ থেকে পাণ্ডুলিপি পাতা",
+      "description": "আয়ুর্বেদের মৌলিক গ্রন্থগুলির মধ্যে একটি, যা পূর্ববর্তী অগ্নিবেশ সংহিতার উপর নির্মিত এবং চরক দ্বারা এটির বর্তমান আকারে সংশোধিত হয়েছে, পরবর্তীতে দ্রিধাবালা দ্বারা একটি পরিপূরক যোগ করা হয়েছে। এটি আটটি বিভাগে প্রাথমিকভাবে অভ্যন্তরীণ ওষুধে (কায়চিকিৎসা) - শরীরবিদ্যা, রোগ নির্ণয় এবং রোগের চিকিত্সার উপর দৃষ্টি নিবদ্ধ করে। সুশ্রুত সংহিতা এবং অষ্টাঙ্গ হৃদয়ের সাথে একত্রে, এটি শাস্ত্রীয় আয়ুর্বেদিক গ্রন্থের 'বৃহৎ ত্রয়ী' (মহান ত্রয়ী) অংশ গঠন করে।",
+      "era": "সংকলিত/সংশোধন করা গ. 100 BCE - 200 CE, পূর্ববর্তী অগ্নিবেশ সংহিতা থেকে"
+    },
+    "mr": {
+      "name": "चरक संहिता",
+      "imageAlt": "चरक संहिता (सूत्रस्थान विभाग), वेलकम कलेक्शनमधील हस्तलिखित पृष्ठ",
+      "description": "आयुर्वेदाच्या मूलभूत ग्रंथांपैकी एक, पूर्वीच्या अग्निवेश संहितेवर बांधला गेला आणि चरकाने त्याचे सध्याचे स्वरूप सुधारित केले, नंतर द्रिधाबालाने जोडलेले परिशिष्ट. हे प्रामुख्याने अंतर्गत औषधांवर (कायाचिकित्सा) - शरीरविज्ञान, निदान आणि रोगाचे उपचार - आठ विभागांमध्ये लक्ष केंद्रित करते. सुश्रुत संहिता आणि अष्टांग हृदयासह, हे शास्त्रीय आयुर्वेदिक ग्रंथांच्या 'बृहत त्रयी' (महान त्रयी) चा भाग बनते.",
+      "era": "संकलित/संशोधित c. 100 BCE - 200 CE, पूर्वीच्या अग्निवेश संहिता पासून"
+    },
+    "ta": {
+      "name": "சரக சம்ஹிதை",
+      "imageAlt": "சரக சம்ஹிதையிலிருந்து கையெழுத்துப் பக்கம் (சூத்திரஸ்தானப் பகுதி), வெல்கம் சேகரிப்பு",
+      "description": "ஆயுர்வேதத்தின் அடிப்படை நூல்களில் ஒன்று, முந்தைய அக்னிவேஷ சம்ஹிதையின் மீது கட்டப்பட்டது மற்றும் சரகாவால் அதன் தற்போதைய வடிவத்தில் மாற்றியமைக்கப்பட்டது, பின்னர் த்ரிதபாலாவின் துணையுடன் சேர்க்கப்பட்டது. இது முதன்மையாக உள் மருத்துவத்தில் (கயாச்சிகிட்சா) கவனம் செலுத்துகிறது - உடலியல், நோய் கண்டறிதல் மற்றும் நோய் சிகிச்சை - எட்டு பிரிவுகளில். சுஷ்ருத சம்ஹிதா மற்றும் அஷ்டாங்க ஹிருதயத்துடன், இது பாரம்பரிய ஆயுர்வேத நூல்களின் 'பிரிஹத் த்ரயி' (பெரிய முக்கோணம்) பகுதியாகும்.",
+      "era": "தொகுக்கப்பட்ட/திருத்தப்பட்ட சி. 100 BCE - 200 CE, முந்தைய அக்னிவேஷ சம்ஹிதையிலிருந்து"
+    },
+    "te": {
+      "name": "చరక సంహిత",
+      "imageAlt": "చరక సంహిత (సూత్రస్థాన విభాగం), వెల్‌కమ్ కలెక్షన్ నుండి మాన్యుస్క్రిప్ట్ పేజీ",
+      "description": "ఆయుర్వేదం యొక్క పునాది గ్రంథాలలో ఒకటి, మునుపటి అగ్నివేశ సంహితపై నిర్మించబడింది మరియు చరకచే దాని ప్రస్తుత రూపంలోకి మార్చబడింది, తరువాత దృఢబలచే జోడించబడింది. ఇది ప్రధానంగా అంతర్గత ఔషధం (కయాచికిట్సా)పై దృష్టి పెడుతుంది - శరీరధర్మ శాస్త్రం, రోగ నిర్ధారణ మరియు వ్యాధి చికిత్స - ఎనిమిది విభాగాలలో. సుశ్రుత సంహిత మరియు అష్టాంగ హృదయంతో కలిసి, ఇది శాస్త్రీయ ఆయుర్వేద గ్రంథాల యొక్క 'బృహత్ త్రాయి' (గొప్ప త్రయం)లో భాగం.",
+      "era": "సంకలనం / సవరించిన సి. 100 BCE - 200 CE, మునుపటి అగ్నివేష సంహిత నుండి"
+    },
+    "kn": {
+      "name": "ಚರಕ ಸಂಹಿತೆ",
+      "imageAlt": "ಚರಕ ಸಂಹಿತಾ (ಸೂತ್ರಸ್ಥಾನ ವಿಭಾಗ), ವೆಲ್‌ಕಂ ಸಂಗ್ರಹದಿಂದ ಹಸ್ತಪ್ರತಿ ಪುಟ",
+      "description": "ಆಯುರ್ವೇದದ ಮೂಲಭೂತ ಪಠ್ಯಗಳಲ್ಲಿ ಒಂದನ್ನು ಹಿಂದಿನ ಅಗ್ನಿವೇಶ ಸಂಹಿತೆಯ ಮೇಲೆ ನಿರ್ಮಿಸಲಾಗಿದೆ ಮತ್ತು ಚರಕನಿಂದ ಅದರ ಪ್ರಸ್ತುತ ರೂಪಕ್ಕೆ ಮರುರೂಪಿಸಲಾಗಿದೆ, ನಂತರದ ಪೂರಕವನ್ನು ದೃಢಬಲದಿಂದ ಸೇರಿಸಲಾಯಿತು. ಇದು ಪ್ರಾಥಮಿಕವಾಗಿ ಆಂತರಿಕ ಔಷಧ (ಕಯಾಚಿಕಿಟ್ಸಾ) - ಶರೀರಶಾಸ್ತ್ರ, ರೋಗನಿರ್ಣಯ ಮತ್ತು ರೋಗದ ಚಿಕಿತ್ಸೆ - ಎಂಟು ವಿಭಾಗಗಳಲ್ಲಿ ಕೇಂದ್ರೀಕರಿಸುತ್ತದೆ. ಸುಶ್ರುತ ಸಂಹಿತಾ ಮತ್ತು ಅಷ್ಟಾಂಗ ಹೃದಯದೊಂದಿಗೆ, ಇದು ಶಾಸ್ತ್ರೀಯ ಆಯುರ್ವೇದ ಪಠ್ಯಗಳ 'ಬೃಹತ್ ತ್ರಯಿ' (ಮಹಾನ್ ತ್ರಿಕೋನ) ಭಾಗವಾಗಿದೆ.",
+      "era": "ಸಂಕಲನ/ಪರಿಷ್ಕರಿಸಿದ ಸಿ. 100 BCE - 200 CE, ಹಿಂದಿನ ಅಗ್ನಿವೇಶ ಸಂಹಿತಾದಿಂದ"
+    },
+    "or": {
+      "name": "ଚରାକା ସମିତା |",
+      "imageAlt": "ଚାରାକା ସମିତା (ସୂତ୍ରସ୍ତାନା ବିଭାଗ) ରୁ ପାଣ୍ଡୁଲିପି ପୃଷ୍ଠା, ୱେଲକମ୍ କଲେକ୍ସନ୍ |",
+      "description": "ଆୟୁର୍ବେଦର ଏକ ମୂଳ ଗ୍ରନ୍ଥ, ଯାହା ଆଗ୍ନୀଭା ସମିତାଙ୍କ ଉପରେ ନିର୍ମିତ ହୋଇଥିଲା ଏବଂ ଚାରାକା ଦ୍ its ାରା ଏହାର ବର୍ତ୍ତମାନର ରୂପରେ ପରିଣତ ହୋଇଥିଲା ଏବଂ ପରବର୍ତ୍ତୀ ସପ୍ଲିମେଣ୍ଟ ସହିତ ଦ୍ର id ପଦଲା ଯୋଗ କରିଥିଲେ | ଏହା ମୁଖ୍ୟତ internal ଆଭ୍ୟନ୍ତରୀଣ medicine ଷଧ (କାୟାଚିକିତା) - ଶାରୀରିକ ବିଜ୍ଞାନ, ନିରାକରଣ ଏବଂ ରୋଗର ଚିକିତ୍ସା ଉପରେ ଧ୍ୟାନ ଦେଇଥାଏ - ଆଠଟି ବିଭାଗରେ | ସୁଶ୍ରୁତା ସମିତା ଏବଂ ଅଷ୍ଟାଙ୍ଗା ହ୍ରଦୟାଙ୍କ ସହିତ ମିଶି ଏହା ଶାସ୍ତ୍ରୀୟ ଆୟୁର୍ବେଦିକ ଗ୍ରନ୍ଥଗୁଡ଼ିକର 'ବ୍ରିହାଟ୍ ଟ୍ରାଇ' (ମହାନ ତ୍ରିକୋଣୀୟ) ର ଏକ ଅଂଶ ଅଟେ |",
+      "era": "ସଂକଳିତ / ପୁନ da ନିର୍ମାଣ c। 100 ଖ୍ରୀଷ୍ଟପୂର୍ବ - 200 ଖ୍ରୀଷ୍ଟପୂର୍ବ, ଆଗ୍ନୀଭା ସମିତାଙ୍କ ଠାରୁ |"
+    },
+    "gu": {
+      "name": "ચરક સંહિતા",
+      "imageAlt": "ચરક સંહિતા (સૂત્રસ્થાન વિભાગ), વેલકમ કલેક્શનમાંથી હસ્તપ્રત પૃષ્ઠ",
+      "description": "આયુર્વેદના પાયાના ગ્રંથોમાંનો એક, જે અગાઉની અગ્નિવેશ સંહિતા પર બાંધવામાં આવ્યો હતો અને ચરક દ્વારા તેના વર્તમાન સ્વરૂપમાં ફેરફાર કરવામાં આવ્યો હતો, જેમાં પાછળથી દ્રિધાબાલા દ્વારા પૂરક ઉમેરાયું હતું. તે મુખ્યત્વે આંતરિક દવા (કાયચિકિત્સા) પર ધ્યાન કેન્દ્રિત કરે છે - શરીરવિજ્ઞાન, નિદાન અને રોગની સારવાર - આઠ વિભાગોમાં. સુશ્રુત સંહિતા અને અષ્ટાંગ હૃદય સાથે મળીને, તે શાસ્ત્રીય આયુર્વેદિક ગ્રંથોના 'બૃહત ત્રયી' (મહાન ત્રિપુટી)નો ભાગ બનાવે છે.",
+      "era": "સંકલિત/સુધારિત c. 100 BCE - 200 CE, અગાઉની અગ્નિવેશ સંહિતામાંથી"
+    },
+    "pa": {
+      "name": "ਚਰਕ ਸੰਹਿਤਾ",
+      "imageAlt": "ਚਰਕ ਸੰਹਿਤਾ (ਸੂਤਰਸਥਾਨ ਭਾਗ), ਵੈਲਕਮ ਸੰਗ੍ਰਹਿ ਤੋਂ ਹੱਥ-ਲਿਖਤ ਪੰਨਾ",
+      "description": "ਆਯੁਰਵੇਦ ਦੇ ਬੁਨਿਆਦੀ ਪਾਠਾਂ ਵਿੱਚੋਂ ਇੱਕ, ਜੋ ਕਿ ਪਹਿਲਾਂ ਦੀ ਅਗਨੀਵੇਸ਼ਾ ਸੰਹਿਤਾ ਉੱਤੇ ਬਣਾਇਆ ਗਿਆ ਸੀ ਅਤੇ ਚਰਕ ਦੁਆਰਾ ਇਸਦੇ ਮੌਜੂਦਾ ਰੂਪ ਵਿੱਚ ਸੰਸ਼ੋਧਿਤ ਕੀਤਾ ਗਿਆ ਸੀ, ਬਾਅਦ ਵਿੱਚ ਦ੍ਰਿਧਾਬਾਲਾ ਦੁਆਰਾ ਜੋੜਿਆ ਗਿਆ ਇੱਕ ਪੂਰਕ। ਇਹ ਮੁੱਖ ਤੌਰ 'ਤੇ ਅੰਦਰੂਨੀ ਦਵਾਈ (ਕਯਾਚਿਕਿਤਸਾ) - ਸਰੀਰ ਵਿਗਿਆਨ, ਨਿਦਾਨ, ਅਤੇ ਬਿਮਾਰੀ ਦੇ ਇਲਾਜ - ਅੱਠ ਭਾਗਾਂ ਵਿੱਚ ਕੇਂਦਰਿਤ ਹੈ। ਸੁਸ਼ਰੁਤ ਸੰਹਿਤਾ ਅਤੇ ਅਸ਼ਟਾਂਗ ਹਿਰਦੇ ਦੇ ਨਾਲ, ਇਹ ਕਲਾਸੀਕਲ ਆਯੁਰਵੈਦਿਕ ਗ੍ਰੰਥਾਂ ਦੇ 'ਬ੍ਰਹਿਤ ਤ੍ਰੈਈ' (ਮਹਾਨ ਤ੍ਰਿਯ) ਦਾ ਹਿੱਸਾ ਹੈ।",
+      "era": "ਸੰਕਲਿਤ/ਸੁਧਾਰਿਤ c. 100 ਈਸਾ ਪੂਰਵ – 200 ਈਸਵੀ, ਪਹਿਲਾਂ ਦੀ ਅਗਨੀਵੇਸ਼ਾ ਸੰਹਿਤਾ ਤੋਂ"
+    },
+    "fr": {
+      "name": "Charaka Samhita",
+      "imageAlt": "Page de manuscrit du Charaka Samhita (section sutrasthana), Wellcome Collection",
+      "description": "L'un des textes fondateurs de l'Ayurveda, construit sur l'Agnivesha Samhita antérieur et rédigé dans sa forme actuelle par Charaka, avec un supplément ultérieur ajouté par Dridhabala. Il se concentre principalement sur la médecine interne (kayachikitsa) – physiologie, diagnostic et traitement des maladies – à travers huit sections. Avec le Sushruta Samhita et l'Ashtanga Hridaya, il fait partie du « Brihat Trayi » (grande triade) des textes ayurvédiques classiques.",
+      "era": "Compilé/expurgé c. 100 BCE – 200 CE, du premier Agnivesha Samhita"
+    },
+    "es": {
+      "name": "Charaka Samhita",
+      "imageAlt": "Página manuscrita del Charaka Samhita (sección sutrasthana), Colección Wellcome",
+      "description": "Uno de los textos fundamentales del Ayurveda, basado en el anterior Agnivesha Samhita y redactado en su forma actual por Charaka, con un suplemento posterior añadido por Dridhabala. Se centra principalmente en medicina interna (kayachikitsa) (fisiología, diagnóstico y tratamiento de enfermedades) en ocho secciones. Junto con Sushruta Samhita y Ashtanga Hridaya, forma parte de la 'Brihat Trayi' (gran tríada) de textos ayurvédicos clásicos.",
+      "era": "Compilado/redactado c. 100 a. C. - 200 d. C., del anterior Agnivesha Samhita"
+    },
+    "de": {
+      "name": "Charaka Samhita",
+      "imageAlt": "Manuskriptseite aus der Charaka Samhita (Sutrasthana-Abschnitt), Wellcome Collection",
+      "description": "Einer der Grundtexte des Ayurveda, der auf dem früheren Agnivesha Samhita aufbaut und von Charaka in seine heutige Form gebracht wurde, mit einer späteren Ergänzung durch Dridhabala. Der Schwerpunkt liegt in acht Abschnitten hauptsächlich auf der Inneren Medizin (Kayachikitsa) – Physiologie, Diagnose und Behandlung von Krankheiten. Zusammen mit Sushruta Samhita und Ashtanga Hridaya ist es Teil des „Brihat Trayi“ (großer Dreiklang) der klassischen ayurvedischen Texte.",
+      "era": "Zusammengestellt/redigiert c. Chr. – 200 n. Chr., aus der früheren Agnivesha Samhita"
+    },
+    "ru": {
+      "name": "Чарака Самхита",
+      "imageAlt": "Страница рукописи из Чарака Самхиты (раздел Сутрастхана), Wellcome Collection",
+      "description": "Один из основополагающих текстов Аюрведы, основанный на более ранней Агнивеша-самхите и отредактированный в ее нынешней форме Чаракой, с более поздним дополнением, добавленным Дридхабалой. Основное внимание уделяется внутренней медицине (каячикитса) — физиологии, диагностике и лечению заболеваний — в восьми разделах. Вместе с Сушрута Самхитой и Аштанга Хридайей она составляет часть «Брихат Трайи» (великой триады) классических аюрведических текстов.",
+      "era": "Составлено/отредактировано c. 100 г. до н.э. – 200 г. н.э., из более ранней Агнивеша Самхиты."
+    },
+    "zh": {
+      "name": "查罗卡三密塔",
+      "imageAlt": "《Charaka Samhita》（Sutrasthana 部分）的手稿页，Wellcome Collection",
+      "description": "阿育吠陀的基础文本之一，建立在早期的《阿格尼维沙集》（Agnivesha Samhita）的基础上，并由查拉卡（Charaka）编辑成现在的形式，后来由德里达巴拉（Dridhabala）添加了补充。它主要侧重于内科 (kayachikitsa)——疾病的生理学、诊断和治疗——涵盖八个部分。它与《Sushruta Samhita》和《Ashtanga Hridaya》一起构成了古典阿育吠陀文本“Brihat Trayi”（大三合会）的一部分。",
+      "era": "编译/编辑 c.公元前 100 年 – 公元 200 年，来自早期的 Agnivesha Samhita"
+    },
+    "yue": {
+      "name": "查罗卡三密塔",
+      "imageAlt": "《Charaka Samhita》（Sutrasthana 部分）的手稿页，Wellcome Collection",
+      "description": "阿育吠陀的基础文本之一，建立在早期的《阿格尼维沙集》（Agnivesha Samhita）的基础上，并由查拉卡（Charaka）编辑成现在的形式，后来由德里达巴拉（Dridhabala）添加了补充。它主要侧重于内科 (kayachikitsa)——疾病的生理学、诊断和治疗——涵盖八个部分。它与《Sushruta Samhita》和《Ashtanga Hridaya》一起构成了古典阿育吠陀文本“Brihat Trayi”（大三合会）的一部分。",
+      "era": "编译/编辑 c.公元前 100 年 – 公元 200 年，来自早期的 Agnivesha Samhita"
+    }
+  },
+  {
+    "id": "sushruta-samhita",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Page_of_text_from_the_Susrutasamhita_Wellcome_L0034906.jpg/500px-Page_of_text_from_the_Susrutasamhita_Wellcome_L0034906.jpg",
+    "isManuscriptPhoto": true,
+    "matchKeywords": [
+      "sushruta"
+    ],
+    "en": {
+      "name": "Sushruta Samhita",
+      "imageAlt": "Manuscript page from the Sushruta Samhita, Wellcome Collection",
+      "description": "Attributed to the physician Sushruta, this is the foundational treatise of Ayurvedic surgery (shalya chikitsa), describing surgical instruments, operative techniques (including early rhinoplasty), and human anatomy. Its ancient core was expanded and redacted through the early centuries CE. It forms part of the Brihat Trayi alongside the Charaka Samhita and Ashtanga Hridaya.",
+      "era": "Core compiled c. 6th century BCE – 4th century CE"
+    },
+    "hi": {
+      "name": "सुश्रुत संहिता",
+      "imageAlt": "सुश्रुत संहिता, वेलकम संग्रह से पांडुलिपि पृष्ठ",
+      "description": "चिकित्सक सुश्रुत को समर्पित, यह आयुर्वेदिक सर्जरी (शल्य चिकित्सा) का मूलभूत ग्रंथ है, जिसमें सर्जिकल उपकरणों, ऑपरेटिव तकनीकों (प्रारंभिक राइनोप्लास्टी सहित) और मानव शरीर रचना का वर्णन किया गया है। इसके प्राचीन मूल भाग का विस्तार और संशोधन प्रारंभिक शताब्दी ई.पू. के दौरान किया गया था। यह चरक संहिता और अष्टांग हृदय के साथ बृहत त्रयी का हिस्सा है।",
+      "era": "कोर संकलित सी. छठी शताब्दी ईसा पूर्व - चौथी शताब्दी ई.पू"
+    },
+    "bn": {
+      "name": "সুশ্রুত সংহিতা",
+      "imageAlt": "সুশ্রুত সংহিতা, ওয়েলকাম সংগ্রহ থেকে পাণ্ডুলিপি পাতা",
+      "description": "চিকিত্সক সুশ্রুতকে দায়ী করা হয়েছে, এটি আয়ুর্বেদিক অস্ত্রোপচারের (শল্য চিকিতসা), অস্ত্রোপচারের যন্ত্র, অপারেটিভ কৌশল (প্রাথমিক রাইনোপ্লাস্টি সহ), এবং মানব শারীরস্থান বর্ণনা করে। এর প্রাচীন মূল অংশটি সিই শতাব্দীর প্রথম দিকে প্রসারিত এবং সংশোধন করা হয়েছিল। এটি চরক সংহিতা এবং অষ্টাঙ্গ হৃদয়ের পাশাপাশি বৃহৎ ত্রয়ের অংশ।",
+      "era": "কোর সংকলিত গ. খ্রিস্টপূর্ব 6 ষ্ঠ শতাব্দী - 4 র্থ শতাব্দী"
+    },
+    "mr": {
+      "name": "सुश्रुत संहिता",
+      "imageAlt": "सुश्रुत संहिता, वेलकम संग्रहातील हस्तलिखित पृष्ठ",
+      "description": "वैद्य सुश्रुत यांना श्रेय दिलेला, हा आयुर्वेदिक शस्त्रक्रियेचा (शल्य चिकीत्सा) पायाभूत ग्रंथ आहे, ज्यामध्ये शस्त्रक्रिया उपकरणे, शस्त्रक्रिया तंत्रे (प्रारंभिक राइनोप्लास्टीसह), आणि मानवी शरीरशास्त्र यांचे वर्णन आहे. त्याचा प्राचीन गाभा सी.ई.च्या सुरुवातीच्या शतकांमध्ये विस्तारित आणि सुधारित करण्यात आला. हे चरक संहिता आणि अष्टांग हृदयाच्या बरोबरीने बृहत त्रयीचा भाग बनते.",
+      "era": "कोर संकलित सी. 6वे शतक BC - 4थे शतक CE"
+    },
+    "ta": {
+      "name": "சுஷ்ருத சம்ஹிதா",
+      "imageAlt": "சுஷ்ருத சம்ஹிதாவின் கையெழுத்துப் பக்கம், வெல்கம் சேகரிப்பு",
+      "description": "மருத்துவரான சுஷ்ருதாவுக்குக் காரணம், இது ஆயுர்வேத அறுவை சிகிச்சையின் (ஷல்ய சிகித்சா) அடிப்படைக் கட்டுரையாகும், இது அறுவை சிகிச்சை கருவிகள், அறுவை சிகிச்சை நுட்பங்கள் (ஆரம்பகால மூக்கு அறுவை சிகிச்சை உட்பட) மற்றும் மனித உடற்கூறியல் ஆகியவற்றை விவரிக்கிறது. அதன் பழங்கால மையமானது கிபி ஆரம்ப நூற்றாண்டுகளில் விரிவடைந்து திருத்தப்பட்டது. இது சரக சம்ஹிதை மற்றும் அஷ்டாங்க ஹிருதயத்துடன் பிருஹத் த்ரயியின் ஒரு பகுதியாகும்.",
+      "era": "கோர் தொகுக்கப்பட்ட c. கிமு 6 ஆம் நூற்றாண்டு - கிபி 4 ஆம் நூற்றாண்டு"
+    },
+    "te": {
+      "name": "సుశ్రుత సంహిత",
+      "imageAlt": "సుశ్రుత సంహిత నుండి మాన్యుస్క్రిప్ట్ పేజీ, వెల్‌కమ్ కలెక్షన్",
+      "description": "వైద్యుడు సుశ్రుతకు ఆపాదించబడినది, ఇది ఆయుర్వేద శస్త్రచికిత్స (శల్య చికిత్స), శస్త్రచికిత్సా సాధనాలు, ఆపరేటివ్ పద్ధతులు (ప్రారంభ రైనోప్లాస్టీతో సహా) మరియు మానవ శరీర నిర్మాణ శాస్త్రాన్ని వివరిస్తుంది. CE ప్రారంభ శతాబ్దాలలో దీని పురాతన కోర్ విస్తరించబడింది మరియు సవరించబడింది. ఇది చరక సంహిత మరియు అష్టాంగ హృదయంతో పాటు బృహత్ త్రాయిలో భాగం.",
+      "era": "కోర్ కంపైల్ సి. 6వ శతాబ్దం BCE – 4వ శతాబ్దం CE"
+    },
+    "kn": {
+      "name": "ಸುಶ್ರುತ ಸಂಹಿತಾ",
+      "imageAlt": "ಸುಶ್ರುತ ಸಂಹಿತೆಯ ಹಸ್ತಪ್ರತಿ ಪುಟ, ವೆಲ್‌ಕಂ ಸಂಗ್ರಹ",
+      "description": "ವೈದ್ಯನಾದ ಸುಶ್ರುತನಿಗೆ, ಇದು ಆಯುರ್ವೇದ ಶಸ್ತ್ರಚಿಕಿತ್ಸೆಯ (ಶಲ್ಯ ಚಿಕಿತ್ಸಾ) ಆಧಾರ ಗ್ರಂಥವಾಗಿದೆ, ಶಸ್ತ್ರಚಿಕಿತ್ಸಾ ಉಪಕರಣಗಳು, ಆಪರೇಟಿವ್ ತಂತ್ರಗಳು (ಆರಂಭಿಕ ರೈನೋಪ್ಲ್ಯಾಸ್ಟಿ ಸೇರಿದಂತೆ) ಮತ್ತು ಮಾನವ ಅಂಗರಚನಾಶಾಸ್ತ್ರವನ್ನು ವಿವರಿಸುತ್ತದೆ. ಇದರ ಪ್ರಾಚೀನ ಕೋರ್ ಅನ್ನು CE ಆರಂಭಿಕ ಶತಮಾನಗಳ ಮೂಲಕ ವಿಸ್ತರಿಸಲಾಯಿತು ಮತ್ತು ಮರುರೂಪಿಸಲಾಯಿತು. ಇದು ಚರಕ ಸಂಹಿತೆ ಮತ್ತು ಅಷ್ಟಾಂಗ ಹೃದಯದ ಜೊತೆಗೆ ಬೃಹತ್ ತ್ರಾಯಿಯ ಭಾಗವಾಗಿದೆ.",
+      "era": "ಕೋರ್ ಸಂಕಲನ ಸಿ. 6 ನೇ ಶತಮಾನ BCE - 4 ನೇ ಶತಮಾನ CE"
+    },
+    "or": {
+      "name": "ସୁଶ୍ରୁତା ସମିତା |",
+      "imageAlt": "ସୁଶ୍ରୁତା ସମିତାଙ୍କ ପାଣ୍ଡୁଲିପି ପୃଷ୍ଠା, ୱେଲକମ୍ କଲେକ୍ସନ୍ |",
+      "description": "ଚିକିତ୍ସକ ସୁଶ୍ରୁତାଙ୍କ ପାଇଁ ଏହା ଆୟୁର୍ବେଦିକ ସର୍ଜରୀ (ଶାଲିଆ ଚିକିଟା) ର ମୂଳ ଚିକିତ୍ସା, ସର୍ଜିକାଲ୍ ଯନ୍ତ୍ର, ଅପରେଟିଭ୍ କ ques ଶଳ (ପ୍ରାରମ୍ଭିକ ରାଇନୋପ୍ଲାଷ୍ଟି ଅନ୍ତର୍ଭୂକ୍ତ କରି) ଏବଂ ମାନବ ଆନାଟୋମି ବର୍ଣ୍ଣନା କରେ | ଏହାର ପ୍ରାଚୀନ ମୂଳ ବିସ୍ତାର କରାଯାଇଥିଲା ଏବଂ ଖ୍ରୀଷ୍ଟପୂର୍ବ ଶତାବ୍ଦୀରେ ପୁନ da ନିର୍ମାଣ କରାଯାଇଥିଲା | ଏହା ଚରାକା ସମିତା ଏବଂ ଅଷ୍ଟାଙ୍ଗା ହ୍ରଦୟା ସହିତ ବ୍ରିହାଟ ଟ୍ରାଇର ଏକ ଅଂଶ |",
+      "era": "କୋର ସଂକଳିତ ଗ। ଖ୍ରୀଷ୍ଟପୂର୍ବ ଷଷ୍ଠ ଶତାବ୍ଦୀ - ଚତୁର୍ଥ ଶତାବ୍ଦୀ |"
+    },
+    "gu": {
+      "name": "સુશ્રુત સંહિતા",
+      "imageAlt": "સુશ્રુત સંહિતા, વેલકમ કલેક્શનમાંથી હસ્તપ્રત પૃષ્ઠ",
+      "description": "ચિકિત્સક સુશ્રુતને આભારી, આ આયુર્વેદિક શસ્ત્રક્રિયા (શલ્ય ચિકિત્સા) નો પાયાનો ગ્રંથ છે, જેમાં સર્જીકલ સાધનો, ઓપરેટિવ તકનીકો (પ્રારંભિક રાયનોપ્લાસ્ટી સહિત), અને માનવ શરીરરચનાનું વર્ણન છે. તેના પ્રાચીન કોરનો વિસ્તરણ કરવામાં આવ્યો હતો અને પ્રારંભિક સદીઓ સીઇ દ્વારા તેને સુધારેલ હતો. તે ચરક સંહિતા અને અષ્ટાંગ હૃદયની સાથે બૃહત ત્રયીનો ભાગ બનાવે છે.",
+      "era": "કોર સંકલિત સી. છઠ્ઠી સદી બીસીઈ - ચોથી સદી સીઈ"
+    },
+    "pa": {
+      "name": "ਸੁਸ਼ਰੁਤਾ ਸੰਹਿਤਾ",
+      "imageAlt": "ਸੁਸ਼ਰੁਤ ਸੰਹਿਤਾ, ਵੈਲਕਮ ਸੰਗ੍ਰਹਿ ਤੋਂ ਹੱਥ-ਲਿਖਤ ਪੰਨਾ",
+      "description": "ਚਿਕਿਤਸਕ ਸੁਸ਼ਰੁਤ ਨੂੰ ਵਿਸ਼ੇਸ਼ਤਾ ਦਿੱਤੀ ਗਈ, ਇਹ ਆਯੁਰਵੈਦਿਕ ਸਰਜਰੀ (ਸ਼ਾਲਯ ਚਿਕਿਤਸਾ) ਦਾ ਬੁਨਿਆਦੀ ਗ੍ਰੰਥ ਹੈ, ਜਿਸ ਵਿੱਚ ਸਰਜੀਕਲ ਯੰਤਰਾਂ, ਆਪਰੇਟਿਵ ਤਕਨੀਕਾਂ (ਸ਼ੁਰੂਆਤੀ ਰਾਈਨੋਪਲਾਸਟੀ ਸਮੇਤ), ਅਤੇ ਮਨੁੱਖੀ ਸਰੀਰ ਵਿਗਿਆਨ ਦਾ ਵਰਣਨ ਕੀਤਾ ਗਿਆ ਹੈ। ਇਸ ਦੇ ਪ੍ਰਾਚੀਨ ਮੂਲ ਦਾ ਵਿਸਤਾਰ ਕੀਤਾ ਗਿਆ ਸੀ ਅਤੇ ਸ਼ੁਰੂਆਤੀ ਸਦੀਆਂ ਈਸਵੀ ਵਿੱਚ ਸੋਧਿਆ ਗਿਆ ਸੀ। ਇਹ ਚਰਕ ਸੰਹਿਤਾ ਅਤੇ ਅਸ਼ਟਾਂਗ ਹਿਰਦੇ ਦੇ ਨਾਲ ਬ੍ਰਹਿਤ ਤ੍ਰੇਈ ਦਾ ਹਿੱਸਾ ਹੈ।",
+      "era": "ਕੋਰ ਕੰਪਾਇਲਡ ਸੀ. 6ਵੀਂ ਸਦੀ ਈਸਾ ਪੂਰਵ - ਚੌਥੀ ਸਦੀ ਈ"
+    },
+    "fr": {
+      "name": "Sushruta Samhita",
+      "imageAlt": "Page de manuscrit de Sushruta Samhita, Wellcome Collection",
+      "description": "Attribué au médecin Sushruta, il s'agit du traité fondateur de la chirurgie ayurvédique (shalya chikitsa), décrivant les instruments chirurgicaux, les techniques opératoires (y compris la rhinoplastie précoce) et l'anatomie humaine. Son noyau ancien a été agrandi et rédigé au cours des premiers siècles de notre ère. Il fait partie du Brihat Trayi aux côtés du Charaka Samhita et de l'Ashtanga Hridaya.",
+      "era": "Core compilé c. 6ème siècle avant notre ère – 4ème siècle après JC"
+    },
+    "es": {
+      "name": "Sushruta Samhita",
+      "imageAlt": "Página manuscrita de Sushruta Samhita, Colección Wellcome",
+      "description": "Atribuido al médico Sushruta, este es el tratado fundamental de la cirugía ayurvédica (shalya chikitsa), que describe instrumentos quirúrgicos, técnicas operativas (incluida la rinoplastia temprana) y anatomía humana. Su núcleo antiguo fue ampliado y redactado durante los primeros siglos d.C. Forma parte de Brihat Trayi junto con Charaka Samhita y Ashtanga Hridaya.",
+      "era": "Núcleo compilado c. Siglo VI a.C. – Siglo IV d.C."
+    },
+    "de": {
+      "name": "Sushruta Samhita",
+      "imageAlt": "Manuskriptseite aus der Sushruta Samhita, Wellcome Collection",
+      "description": "Dies ist die grundlegende Abhandlung der ayurvedischen Chirurgie (shalya chikitsa), die dem Arzt Sushruta zugeschrieben wird und chirurgische Instrumente, Operationstechniken (einschließlich früher Nasenkorrekturen) und die menschliche Anatomie beschreibt. Sein alter Kern wurde in den ersten Jahrhunderten n. Chr. erweitert und redigiert. Es ist neben Charaka Samhita und Ashtanga Hridaya Teil des Brihat Trayi.",
+      "era": "Kern kompiliert c. 6. Jahrhundert v. Chr. – 4. Jahrhundert n. Chr"
+    },
+    "ru": {
+      "name": "Сушрута Самхита",
+      "imageAlt": "Страница рукописи из Сушрута Самхиты, Коллекция Wellcome.",
+      "description": "Это основополагающий трактат аюрведической хирургии (шаля чикитса), приписываемый врачу Сушруте, в котором описываются хирургические инструменты, оперативные методы (включая раннюю ринопластику) и анатомия человека. Его древнее ядро ​​было расширено и отредактировано в первые века нашей эры. Он является частью Брихат Трайи наряду с Чарака Самхитой и Аштанга Хридайей.",
+      "era": "Ядро скомпилировано c. VI век до н.э. – IV век н.э."
+    },
+    "zh": {
+      "name": "善论",
+      "imageAlt": "Sushruta Samhita 的手稿页，Wellcome Collection",
+      "description": "这是阿育吠陀外科 (shalya chikitsa) 的基础专着，由医生 Sushruta 撰写，描述了手术器械、手术技术（包括早期鼻整形术）和人体解剖学。它古老的核心在公元早期几个世纪得到了扩展和编辑。它与 Charaka Samhita 和 Ashtanga Hridaya 一起构成 Brihat Trayi 的一部分。",
+      "era": "核心编译 C.公元前 6 世纪 – 公元 4 世纪"
+    },
+    "yue": {
+      "name": "善论",
+      "imageAlt": "Sushruta Samhita 的手稿页，Wellcome Collection",
+      "description": "这是阿育吠陀外科 (shalya chikitsa) 的基础专着，由医生 Sushruta 撰写，描述了手术器械、手术技术（包括早期鼻整形术）和人体解剖学。它古老的核心在公元早期几个世纪得到了扩展和编辑。它与 Charaka Samhita 和 Ashtanga Hridaya 一起构成 Brihat Trayi 的一部分。",
+      "era": "核心编译 C.公元前 6 世纪 – 公元 4 世纪"
+    }
+  },
+  {
+    "id": "ashtanga-hridaya",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/%E0%A6%85%E0%A6%B7%E0%A7%8D%E0%A6%9F%E0%A6%BE%E0%A6%99%E0%A7%8D%E0%A6%97_%E0%A6%B9%E0%A7%83%E0%A6%A6%E0%A6%AF%E0%A6%BC_-_%E0%A6%AC%E0%A6%BE%E0%A6%97%E0%A7%8D%E2%80%8C%E0%A6%AD%E0%A6%9F.pdf/page1-500px-%E0%A6%85%E0%A6%B7%E0%A7%8D%E0%A6%9F%E0%A6%BE%E0%A6%99%E0%A7%8D%E0%A6%97_%E0%A6%B9%E0%A7%83%E0%A6%A6%E0%A6%AF%E0%A6%BC_-_%E0%A6%AC%E0%A6%BE%E0%A6%97%E0%A7%8D%E2%80%8C%E0%A6%AD%E0%A6%9F.pdf.jpg",
+    "isManuscriptPhoto": false,
+    "matchKeywords": [
+      "ashtanga hridaya",
+      "ashtanga samgraha"
+    ],
+    "en": {
+      "name": "Ashtanga Hridaya",
+      "imageAlt": "Title page of a 1916 Bengali printed edition of the Ashtanga Hridaya (no manuscript photo of this text was found on Wikimedia Commons)",
+      "description": "Composed by the physician Vagbhata around the 6th–7th century CE, the Ashtanga Hridaya ('Heart of the Eight Branches') is a condensed, verse-form synthesis of the teachings found in the Charaka and Sushruta Samhitas. It systematically covers all eight traditional branches of Ayurveda and became one of the most widely used clinical references across South Asia and Tibet. The image shown is the title page of a 1916 Bengali printed edition, since no photograph of an original manuscript folio was found on Wikimedia Commons.",
+      "era": "Compiled c. 6th – 7th century CE"
+    },
+    "hi": {
+      "name": "अष्टांग हृदय",
+      "imageAlt": "अष्टांग हृदय के 1916 के बंगाली मुद्रित संस्करण का शीर्षक पृष्ठ (विकिमीडिया कॉमन्स पर इस पाठ की कोई पांडुलिपि तस्वीर नहीं मिली)",
+      "description": "6ठी-7वीं शताब्दी ईस्वी के आसपास चिकित्सक वाग्भट्ट द्वारा रचित, अष्टांग हृदय ('आठ शाखाओं का हृदय') चरक और सुश्रुत संहिता में पाई गई शिक्षाओं का एक संक्षिप्त, पद्य-रूप संश्लेषण है। यह व्यवस्थित रूप से आयुर्वेद की सभी आठ पारंपरिक शाखाओं को शामिल करता है और पूरे दक्षिण एशिया और तिब्बत में सबसे व्यापक रूप से उपयोग किए जाने वाले नैदानिक ​​​​संदर्भों में से एक बन गया है। दिखाया गया चित्र 1916 के बंगाली मुद्रित संस्करण का शीर्षक पृष्ठ है, क्योंकि विकिमीडिया कॉमन्स पर मूल पांडुलिपि फोलियो की कोई तस्वीर नहीं मिली थी।",
+      "era": "संकलित सी. छठी-सातवीं शताब्दी ई.पू"
+    },
+    "bn": {
+      "name": "অষ্টাঙ্গ হৃদয়",
+      "imageAlt": "অষ্টাঙ্গ হৃদয়ের 1916 সালের বাংলা মুদ্রিত সংস্করণের শিরোনাম পৃষ্ঠা (উইকিমিডিয়া কমন্সে এই পাঠ্যের কোনো পাণ্ডুলিপির ছবি পাওয়া যায়নি)",
+      "description": "খ্রিস্টীয় 6-7ম শতাব্দীর দিকে চিকিত্সক বাগ্ভট দ্বারা রচিত, অষ্টাঙ্গ হৃদয় ('আটটি শাখার হৃদয়') হল চরক এবং সুশ্রুত সংহিতায় পাওয়া শিক্ষাগুলির একটি ঘনীভূত, শ্লোক-আকৃতির সংশ্লেষণ। এটি পদ্ধতিগতভাবে আয়ুর্বেদের আটটি ঐতিহ্যবাহী শাখাকে কভার করে এবং দক্ষিণ এশিয়া এবং তিব্বত জুড়ে সর্বাধিক ব্যবহৃত ক্লিনিকাল রেফারেন্সগুলির মধ্যে একটি হয়ে উঠেছে। দেখানো চিত্রটি একটি 1916 সালের বাংলা মুদ্রিত সংস্করণের শিরোনাম পৃষ্ঠা, যেহেতু উইকিমিডিয়া কমন্সে একটি মূল পাণ্ডুলিপি ফোলিওর কোনো ছবি পাওয়া যায়নি।",
+      "era": "সংকলিত গ. 6 ম - 7 ম শতাব্দী সি.ই"
+    },
+    "mr": {
+      "name": "अष्टांग हृदयी",
+      "imageAlt": "अष्टांग हृदयाच्या 1916 च्या बंगाली मुद्रित आवृत्तीचे शीर्षक पृष्ठ (या मजकुराचा कोणताही हस्तलिखित फोटो विकिमीडिया कॉमन्सवर आढळला नाही)",
+      "description": "6व्या-7व्या शतकाच्या आसपास चिकित्सक वाग्भट यांनी रचलेला, अष्टांग हृदय ('आठ शाखांचे हृदय') हे चरक आणि सुश्रुत संहितांमध्ये सापडलेल्या शिकवणींचे संक्षेपित, श्लोक-स्वरूपाचे संश्लेषण आहे. हे आयुर्वेदाच्या सर्व आठ पारंपारिक शाखांचा पद्धतशीरपणे समावेश करते आणि दक्षिण आशिया आणि तिबेटमध्ये सर्वाधिक वापरल्या जाणाऱ्या क्लिनिकल संदर्भांपैकी एक बनले आहे. दाखवलेली प्रतिमा 1916 च्या बंगाली मुद्रित आवृत्तीचे शीर्षक पृष्ठ आहे, कारण विकिमीडिया कॉमन्सवर मूळ हस्तलिखित फोलिओचे कोणतेही छायाचित्र आढळले नाही.",
+      "era": "संकलित सी. 6 वे - 7 वे शतक CE"
+    },
+    "ta": {
+      "name": "அஷ்டாங்க ஹிருதயம்",
+      "imageAlt": "அஷ்டாங்க ஹிருதயாவின் 1916 ஆம் ஆண்டு பெங்காலி அச்சிடப்பட்ட பதிப்பின் தலைப்புப் பக்கம் (இந்த உரையின் கையெழுத்துப் புகைப்படம் விக்கிமீடியா காமன்ஸில் காணப்படவில்லை)",
+      "description": "கிபி 6-7 ஆம் நூற்றாண்டில் மருத்துவர் வாக்பட்டாவால் இயற்றப்பட்டது, அஷ்டாங்க ஹிருதயம் ('எட்டு கிளைகளின் இதயம்') சரகா மற்றும் சுஷ்ருத சம்ஹிதாக்களில் காணப்படும் போதனைகளின் சுருக்கப்பட்ட, வசன வடிவ தொகுப்பு ஆகும். இது முறையாக ஆயுர்வேதத்தின் எட்டு பாரம்பரியக் கிளைகளையும் உள்ளடக்கியது மற்றும் தெற்காசியா மற்றும் திபெத் முழுவதும் பரவலாகப் பயன்படுத்தப்படும் மருத்துவக் குறிப்புகளில் ஒன்றாக மாறியது. விக்கிமீடியா காமன்ஸில் அசல் கையெழுத்துப் பிரதியின் புகைப்படம் எதுவும் காணப்படாததால், காட்டப்பட்டுள்ள படம் 1916 ஆம் ஆண்டு பெங்காலி அச்சிடப்பட்ட பதிப்பின் தலைப்புப் பக்கமாகும்.",
+      "era": "தொகுக்கப்பட்டது சி. 6 - 7 ஆம் நூற்றாண்டு கி.பி"
+    },
+    "te": {
+      "name": "అష్టాంగ హృదయ",
+      "imageAlt": "అష్టాంగ హృదయ యొక్క 1916 బెంగాలీ ముద్రిత సంచిక యొక్క శీర్షిక పేజీ (ఈ వచనం యొక్క మాన్యుస్క్రిప్ట్ ఫోటో వికీమీడియా కామన్స్‌లో కనుగొనబడలేదు)",
+      "description": "6వ-7వ శతాబ్దపు CEలో వైద్యుడు వాగ్భటచే స్వరపరచబడిన అష్టాంగ హృదయ ('ఎనిమిది శాఖల హృదయం') అనేది చరక మరియు సుశ్రుత సంహితలలో కనిపించే బోధనల యొక్క సంక్షిప్త, పద్య-రూప సంశ్లేషణ. ఇది క్రమపద్ధతిలో ఆయుర్వేదంలోని ఎనిమిది సాంప్రదాయ శాఖలను కవర్ చేస్తుంది మరియు దక్షిణాసియా మరియు టిబెట్ అంతటా అత్యంత విస్తృతంగా ఉపయోగించే క్లినికల్ రిఫరెన్స్‌లలో ఒకటిగా మారింది. వికీమీడియా కామన్స్‌లో అసలు మాన్యుస్క్రిప్ట్ ఫోలియో యొక్క ఛాయాచిత్రం కనుగొనబడలేదు కాబట్టి చూపబడిన చిత్రం 1916 బెంగాలీ ముద్రిత ఎడిషన్ యొక్క శీర్షిక పేజీ.",
+      "era": "సంకలనం సి. 6వ - 7వ శతాబ్దం CE"
+    },
+    "kn": {
+      "name": "ಅಷ್ಟಾಂಗ ಹೃದಯ",
+      "imageAlt": "ಅಷ್ಟಾಂಗ ಹೃದಯದ 1916 ರ ಬಂಗಾಳಿ ಮುದ್ರಿತ ಆವೃತ್ತಿಯ ಶೀರ್ಷಿಕೆ ಪುಟ (ಈ ಪಠ್ಯದ ಯಾವುದೇ ಹಸ್ತಪ್ರತಿ ಫೋಟೋ ವಿಕಿಮೀಡಿಯಾ ಕಾಮನ್ಸ್‌ನಲ್ಲಿ ಕಂಡುಬಂದಿಲ್ಲ)",
+      "description": "6ನೇ-7ನೇ ಶತಮಾನದ CE ಯಲ್ಲಿ ವೈದ್ಯ ವಾಗ್ಭಟರಿಂದ ರಚಿಸಲ್ಪಟ್ಟ, ಅಷ್ಟಾಂಗ ಹೃದಯ ('ಎಂಟು ಶಾಖೆಗಳ ಹೃದಯ') ಚರಕ ಮತ್ತು ಸುಶ್ರುತ ಸಂಹಿತೆಗಳಲ್ಲಿ ಕಂಡುಬರುವ ಬೋಧನೆಗಳ ಸಾಂದ್ರೀಕೃತ, ಪದ್ಯ-ರೂಪದ ಸಂಶ್ಲೇಷಣೆಯಾಗಿದೆ. ಇದು ವ್ಯವಸ್ಥಿತವಾಗಿ ಆಯುರ್ವೇದದ ಎಲ್ಲಾ ಎಂಟು ಸಾಂಪ್ರದಾಯಿಕ ಶಾಖೆಗಳನ್ನು ಒಳಗೊಂಡಿದೆ ಮತ್ತು ದಕ್ಷಿಣ ಏಷ್ಯಾ ಮತ್ತು ಟಿಬೆಟ್‌ನಾದ್ಯಂತ ವ್ಯಾಪಕವಾಗಿ ಬಳಸಲಾಗುವ ಕ್ಲಿನಿಕಲ್ ಉಲ್ಲೇಖಗಳಲ್ಲಿ ಒಂದಾಗಿದೆ. ತೋರಿಸಿರುವ ಚಿತ್ರವು 1916 ರ ಬಂಗಾಳಿ ಮುದ್ರಿತ ಆವೃತ್ತಿಯ ಶೀರ್ಷಿಕೆ ಪುಟವಾಗಿದೆ, ಏಕೆಂದರೆ ವಿಕಿಮೀಡಿಯಾ ಕಾಮನ್ಸ್‌ನಲ್ಲಿ ಮೂಲ ಹಸ್ತಪ್ರತಿ ಫೋಲಿಯೊದ ಯಾವುದೇ ಛಾಯಾಚಿತ್ರ ಕಂಡುಬಂದಿಲ್ಲ.",
+      "era": "ಸಂಕಲನ ಸಿ. 6 ನೇ - 7 ನೇ ಶತಮಾನ CE"
+    },
+    "or": {
+      "name": "ଅଷ୍ଟାଙ୍ଗା ହ୍ରଦୟା |",
+      "imageAlt": "1916 ବଙ୍ଗଳା ମୁଦ୍ରିତ ସଂସ୍କରଣର ଟାଇଟଲ୍ ପୃଷ୍ଠା ଆଷ୍ଟଙ୍ଗା ହ୍ରିଡାୟା (ଉଇକିମିଡ଼ିଆ କମନ୍ସରେ ଏହି ପାଠ୍ୟର କ man ଣସି ପାଣ୍ଡୁଲିପି ଫଟୋ ମିଳିଲା ନାହିଁ)",
+      "description": "ଖ୍ରୀଷ୍ଟପୂର୍ବ ଷଷ୍ଠ - ସପ୍ତମ ଶତାବ୍ଦୀରେ ଚିକିତ୍ସକ ଭାଗବତଙ୍କ ଦ୍ osed ାରା ରଚନା ହୋଇଥିବା ଅଷ୍ଟାଙ୍ଗା ହ୍ରଦାୟା ('ହାର୍ଟ ଅଫ୍ ଦି ଆଠଟି ଶାଖା') ଚାରାକା ଏବଂ ସୁଶ୍ରୁତା ସମିତିରେ ମିଳୁଥିବା ଶିକ୍ଷାର ଏକ ଘନୀଭୂତ, ପଦ-ରୂପ ସିନ୍ଥେସିସ୍ | ଏହା ବ୍ୟବସ୍ଥିତ ଭାବରେ ଆୟୁର୍ବେଦର ସମସ୍ତ ଆଠଟି ପାରମ୍ପାରିକ ଶାଖାକୁ ଆବୃତ କରେ ଏବଂ ଦକ୍ଷିଣ ଏସିଆ ଏବଂ ତିବ୍ଦତରେ ବହୁଳ ଭାବରେ ବ୍ୟବହୃତ କ୍ଲିନିକାଲ୍ ରେଫରେନ୍ସ ମଧ୍ୟରୁ ଗୋଟିଏ ହେଲା | ପ୍ରଦର୍ଶିତ ପ୍ରତିଛବି ହେଉଛି 1916 ବଙ୍ଗାଳୀ ମୁଦ୍ରିତ ସଂସ୍କରଣର ଟାଇଟଲ୍ ପୃଷ୍ଠା, ଯେହେତୁ ଉଇକିମିଡ଼ିଆ କମନ୍ସରେ ମୂଳ ପାଣ୍ଡୁଲିପି ଫୋଲିଓର କ phot ଣସି ଫଟୋଗ୍ରାଫ୍ ମିଳିଲା ନାହିଁ |",
+      "era": "ସଂକଳିତ ଗ। ଷଷ୍ଠ - ସପ୍ତମ ଶତାବ୍ଦୀ"
+    },
+    "gu": {
+      "name": "અષ્ટાંગ હૃદય",
+      "imageAlt": "અષ્ટાંગ હૃદયની 1916ની બંગાળી મુદ્રિત આવૃત્તિનું શીર્ષક પૃષ્ઠ (વિકિમીડિયા કોમન્સ પર આ લખાણનો કોઈ હસ્તપ્રત ફોટો મળ્યો નથી)",
+      "description": "6ઠ્ઠી-7મી સદીની આસપાસ ચિકિત્સક વાગ્ભટ્ટ દ્વારા રચાયેલ, અષ્ટાંગ હૃદય ('આઠ શાખાઓનું હૃદય') એ ચરક અને સુશ્રુત સંહિતામાં મળેલા ઉપદેશોનું સંક્ષિપ્ત, શ્લોક સ્વરૂપનું સંશ્લેષણ છે. તે આયુર્વેદની તમામ આઠ પરંપરાગત શાખાઓને વ્યવસ્થિત રીતે આવરી લે છે અને સમગ્ર દક્ષિણ એશિયા અને તિબેટમાં સૌથી વધુ ઉપયોગમાં લેવાતા ક્લિનિકલ સંદર્ભોમાંનું એક બની ગયું છે. બતાવવામાં આવેલી છબી 1916ની બંગાળી મુદ્રિત આવૃત્તિનું શીર્ષક પૃષ્ઠ છે, કારણ કે વિકિમીડિયા કોમન્સ પર મૂળ હસ્તપ્રત ફોલિયોનો કોઈ ફોટોગ્રાફ મળ્યો નથી.",
+      "era": "સંકલિત સી. 6ઠ્ઠી-7મી સદી સી.ઈ"
+    },
+    "pa": {
+      "name": "ਅਸ਼ਟਾਂਗ ਹਿਰਦਾ",
+      "imageAlt": "ਅਸ਼ਟਾਂਗ ਹਿਰਦੇ ਦੇ 1916 ਦੇ ਬੰਗਾਲੀ ਛਪੇ ਐਡੀਸ਼ਨ ਦਾ ਸਿਰਲੇਖ ਪੰਨਾ (ਵਿਕੀਮੀਡੀਆ ਕਾਮਨਜ਼ 'ਤੇ ਇਸ ਲਿਖਤ ਦੀ ਕੋਈ ਹੱਥ-ਲਿਖਤ ਫੋਟੋ ਨਹੀਂ ਮਿਲੀ)",
+      "description": "6ਵੀਂ-7ਵੀਂ ਸਦੀ ਈਸਵੀ ਦੇ ਆਸਪਾਸ ਡਾਕਟਰ ਵਾਗਭੱਟ ਦੁਆਰਾ ਰਚਿਆ ਗਿਆ, ਅਸ਼ਟਾਂਗ ਹਿਰਦੈ ('ਅੱਠ ਸ਼ਾਖਾਵਾਂ ਦਾ ਦਿਲ') ਚਰਕ ਅਤੇ ਸੁਸ਼ਰੁਤ ਸੰਹਿਤਾਵਾਂ ਵਿੱਚ ਮਿਲਦੀਆਂ ਸਿੱਖਿਆਵਾਂ ਦਾ ਸੰਘਣਾ, ਛੰਦ-ਰੂਪ ਸੰਸ਼ਲੇਸ਼ਣ ਹੈ। ਇਹ ਯੋਜਨਾਬੱਧ ਢੰਗ ਨਾਲ ਆਯੁਰਵੇਦ ਦੀਆਂ ਸਾਰੀਆਂ ਅੱਠ ਪਰੰਪਰਾਗਤ ਸ਼ਾਖਾਵਾਂ ਨੂੰ ਕਵਰ ਕਰਦਾ ਹੈ ਅਤੇ ਦੱਖਣੀ ਏਸ਼ੀਆ ਅਤੇ ਤਿੱਬਤ ਵਿੱਚ ਸਭ ਤੋਂ ਵੱਧ ਵਰਤੇ ਜਾਣ ਵਾਲੇ ਕਲੀਨਿਕਲ ਸੰਦਰਭਾਂ ਵਿੱਚੋਂ ਇੱਕ ਬਣ ਗਿਆ ਹੈ। ਦਿਖਾਇਆ ਗਿਆ ਚਿੱਤਰ 1916 ਦੇ ਬੰਗਾਲੀ ਪ੍ਰਿੰਟਿਡ ਐਡੀਸ਼ਨ ਦਾ ਸਿਰਲੇਖ ਪੰਨਾ ਹੈ, ਕਿਉਂਕਿ ਵਿਕੀਮੀਡੀਆ ਕਾਮਨਜ਼ 'ਤੇ ਅਸਲੀ ਹੱਥ-ਲਿਖਤ ਫੋਲੀਓ ਦੀ ਕੋਈ ਤਸਵੀਰ ਨਹੀਂ ਮਿਲੀ ਹੈ।",
+      "era": "ਕੰਪਾਇਲਡ ਸੀ. 6ਵੀਂ-7ਵੀਂ ਸਦੀ ਈ"
+    },
+    "fr": {
+      "name": "Ashtanga Hridaya",
+      "imageAlt": "Page de titre d'une édition imprimée en bengali de 1916 de l'Ashtanga Hridaya (aucune photo manuscrite de ce texte n'a été trouvée sur Wikimedia Commons)",
+      "description": "Composé par le médecin Vagbhata vers les VIe et VIIe siècles de notre ère, l'Ashtanga Hridaya (« Cœur des huit branches ») est une synthèse condensée sous forme de vers des enseignements trouvés dans le Charaka et le Sushruta Samhitas. Il couvre systématiquement les huit branches traditionnelles de l'Ayurveda et est devenu l'une des références cliniques les plus utilisées en Asie du Sud et au Tibet. L'image présentée est la page de titre d'une édition imprimée en bengali de 1916, puisqu'aucune photographie d'un folio manuscrit original n'a été trouvée sur Wikimedia Commons.",
+      "era": "Compilé c. 6e – 7e siècle de notre ère"
+    },
+    "es": {
+      "name": "Ashtanga Hridaya",
+      "imageAlt": "Página de título de una edición impresa en bengalí de 1916 del Ashtanga Hridaya (no se encontró ninguna fotografía manuscrita de este texto en Wikimedia Commons)",
+      "description": "Compuesto por el médico Vagbhata alrededor del siglo VI-VII d.C., el Ashtanga Hridaya ('Corazón de las ocho ramas') es una síntesis condensada en forma de verso de las enseñanzas que se encuentran en Charaka y Sushruta Samhitas. Cubre sistemáticamente las ocho ramas tradicionales del Ayurveda y se convirtió en una de las referencias clínicas más utilizadas en el sur de Asia y el Tíbet. La imagen mostrada es la portada de una edición impresa bengalí de 1916, ya que no se encontró ninguna fotografía de un folio manuscrito original en Wikimedia Commons.",
+      "era": "Compilado c. Siglos VI-VII d.C."
+    },
+    "de": {
+      "name": "Ashtanga Hridaya",
+      "imageAlt": "Titelseite einer bengalischen Druckausgabe des Ashtanga Hridaya aus dem Jahr 1916 (auf Wikimedia Commons wurde kein Manuskriptfoto dieses Textes gefunden)",
+      "description": "Das Ashtanga Hridaya („Herz der acht Zweige“) wurde vom Arzt Vagbhata um das 6. bis 7. Jahrhundert n. Chr. verfasst und ist eine komprimierte Synthese in Versform der Lehren der Charaka- und Sushruta-Samhitas. Es deckt systematisch alle acht traditionellen Zweige des Ayurveda ab und wurde zu einem der am häufigsten verwendeten klinischen Referenzen in Südasien und Tibet. Das gezeigte Bild ist die Titelseite einer bengalischen Druckausgabe von 1916, da auf Wikimedia Commons kein Foto eines Originalmanuskriptblatts gefunden wurde.",
+      "era": "Zusammengestellt c. 6. – 7. Jahrhundert n. Chr"
+    },
+    "ru": {
+      "name": "Аштанга Хридая",
+      "imageAlt": "Титульный лист бенгальского печатного издания Аштанга Хридая 1916 года (на Wikimedia Commons не было найдено ни одной рукописной фотографии этого текста)",
+      "description": "Аштанга Хридая («Сердце восьми ветвей»), составленная врачом Вагбхатой примерно в VI–VII веках нашей эры, представляет собой сжатый синтез учений, содержащихся в Чараке и Сушрута-самхитах, в форме стихов. Он систематически охватывает все восемь традиционных направлений Аюрведы и стал одним из наиболее широко используемых клинических справочников в Южной Азии и Тибете. Показанное изображение является титульным листом бенгальского печатного издания 1916 года, поскольку на Wikimedia Commons не было найдено ни одной фотографии оригинального рукописного листа.",
+      "era": "Составлено c. 6-7 века н.э."
+    },
+    "zh": {
+      "name": "阿斯汤加赫里达亚",
+      "imageAlt": "1916 年孟加拉语印刷版 Ashtanga Hridaya 的扉页（在维基共享资源上未找到本文的手稿照片）",
+      "description": "Ashtanga Hridaya（“八枝之心”）由医生 Vagbhata 在公元 6-7 世纪左右创作，是对 Charaka 和 Sushruta Samhitas 中教义的浓缩、诗歌形式的综合。它系统地涵盖了阿育吠陀的所有八个传统分支，并成为南亚和西藏使用最广泛的临床参考书之一。所示图像是 1916 年孟加拉语印刷版的扉页，因为在维基共享资源上没有找到原始手稿对开页的照片。",
+      "era": "编译 C.公元六至七世纪"
+    },
+    "yue": {
+      "name": "阿斯汤加赫里达亚",
+      "imageAlt": "1916 年孟加拉语印刷版 Ashtanga Hridaya 的扉页（在维基共享资源上未找到本文的手稿照片）",
+      "description": "Ashtanga Hridaya（“八枝之心”）由医生 Vagbhata 在公元 6-7 世纪左右创作，是对 Charaka 和 Sushruta Samhitas 中教义的浓缩、诗歌形式的综合。它系统地涵盖了阿育吠陀的所有八个传统分支，并成为南亚和西藏使用最广泛的临床参考书之一。所示图像是 1916 年孟加拉语印刷版的扉页，因为在维基共享资源上没有找到原始手稿对开页的照片。",
+      "era": "编译 C.公元六至七世纪"
+    }
+  },
+  {
+    "id": "sharangdhara-samhita",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/%E0%A4%B6%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%99%E0%A5%8D%E0%A4%97%E0%A4%A7%E0%A4%B0_%E0%A4%B8%E0%A4%82%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A4%BE.djvu/page1-500px-%E0%A4%B6%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%99%E0%A5%8D%E0%A4%97%E0%A4%A7%E0%A4%B0_%E0%A4%B8%E0%A4%82%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A4%BE.djvu.jpg",
+    "isManuscriptPhoto": false,
+    "matchKeywords": [
+      "sharangdhara",
+      "sharngadhara"
+    ],
+    "en": {
+      "name": "Sharangdhara Samhita",
+      "imageAlt": "Title page of a 1950 printed edition of the Sharangdhara Samhita (no manuscript photo of this text was found on Wikimedia Commons)",
+      "description": "Composed by Sharngadhara, this text is generally dated to around the 14th century CE and belongs to the 'Laghutrayi' (lesser triad) of classical Ayurvedic texts, alongside the Madhava Nidana and Bhavaprakasha. It is especially noted for its systematic treatment of pulse diagnosis (nadi pariksha) and pharmaceutical preparation methods (bhaishajya kalpana). The image shown is the title page of a 1950 printed edition, since no manuscript photograph was found on Wikimedia Commons.",
+      "era": "Compiled c. early-to-mid 14th century CE"
+    },
+    "hi": {
+      "name": "शारंगधर संहिता",
+      "imageAlt": "शारंगधर संहिता के 1950 मुद्रित संस्करण का शीर्षक पृष्ठ (विकिमीडिया कॉमन्स पर इस पाठ की कोई पांडुलिपि तस्वीर नहीं मिली)",
+      "description": "शारंगधर द्वारा रचित, यह पाठ आमतौर पर 14वीं शताब्दी ईस्वी के आसपास का है और यह माधव निदान और भावप्रकाश के साथ-साथ शास्त्रीय आयुर्वेदिक ग्रंथों के 'लघुत्रयी' (कम त्रय) से संबंधित है। यह विशेष रूप से नाड़ी निदान (नाड़ी परीक्षा) और फार्मास्युटिकल तैयारी विधियों (भैषज्य कल्पना) के व्यवस्थित उपचार के लिए जाना जाता है। दिखाया गया चित्र 1950 के मुद्रित संस्करण का शीर्षक पृष्ठ है, क्योंकि विकिमीडिया कॉमन्स पर कोई पांडुलिपि तस्वीर नहीं मिली थी।",
+      "era": "संकलित सी. 14वीं शताब्दी के प्रारंभ से मध्य तक"
+    },
+    "bn": {
+      "name": "শারাংধারা সংহিতা",
+      "imageAlt": "শরংধারা সংহিতার 1950 সালের মুদ্রিত সংস্করণের শিরোনাম পৃষ্ঠা (উইকিমিডিয়া কমন্সে এই লেখাটির কোনো পাণ্ডুলিপির ছবি পাওয়া যায়নি)",
+      "description": "শার্ঙ্গাধারার দ্বারা রচিত, এই পাঠটি সাধারণত 14 শতকের কাছাকাছি এবং মাধব নিদান এবং ভবপ্রকাশের পাশাপাশি শাস্ত্রীয় আয়ুর্বেদিক গ্রন্থের 'লঘুত্রয়ী' (কম ত্রয়ী) অন্তর্গত। এটি বিশেষ করে নাড়ি নির্ণয় (নদী পরীক্ষা) এবং ফার্মাসিউটিক্যাল প্রস্তুতি পদ্ধতির (ভৈশাজ্য কল্পনা) পদ্ধতিগত চিকিত্সার জন্য উল্লেখ করা হয়। দেখানো চিত্রটি 1950 সালের মুদ্রিত সংস্করণের শিরোনাম পৃষ্ঠা, যেহেতু উইকিমিডিয়া কমন্সে কোনো পাণ্ডুলিপির ছবি পাওয়া যায়নি।",
+      "era": "সংকলিত গ. খ্রিস্টীয় 14 শতকের প্রথম থেকে মাঝামাঝি"
+    },
+    "mr": {
+      "name": "शारंगधारा संहिता",
+      "imageAlt": "शारंगधारा संहितेच्या 1950 च्या मुद्रित आवृत्तीचे शीर्षक पृष्ठ (या मजकुराचा कोणताही हस्तलिखित फोटो विकिमीडिया कॉमन्सवर आढळला नाही)",
+      "description": "शारंगधाराने रचलेला, हा मजकूर साधारणपणे 14 व्या शतकातील आहे आणि माधव निदान आणि भावप्रकाशाबरोबरच शास्त्रीय आयुर्वेदिक ग्रंथांच्या 'लघुत्रयी' (कमी त्रिकूट) चा आहे. नाडी निदान (नाडी परिक्षा) आणि औषध तयार करण्याच्या पद्धती (भैशाज्य कल्पना) यांच्या पद्धतशीर उपचारांसाठी हे विशेषतः प्रख्यात आहे. दाखवलेली प्रतिमा 1950 च्या मुद्रित आवृत्तीचे शीर्षक पृष्ठ आहे, कारण विकिमीडिया कॉमन्सवर कोणतेही हस्तलिखित छायाचित्र आढळले नाही.",
+      "era": "संकलित सी. 14 व्या शतकाच्या सुरुवातीपासून मध्यभागी"
+    },
+    "ta": {
+      "name": "ஷாரங்கதாரா சம்ஹிதா",
+      "imageAlt": "1950 ஆம் ஆண்டு அச்சிடப்பட்ட ஷரங்தரா சம்ஹிதா பதிப்பின் தலைப்புப் பக்கம் (இந்த உரையின் கையெழுத்துப் புகைப்படம் விக்கிமீடியா காமன்ஸில் காணப்படவில்லை)",
+      "description": "ஷர்ங்கதாராவால் இயற்றப்பட்டது, இந்த உரை பொதுவாக கிபி 14 ஆம் நூற்றாண்டைச் சேர்ந்தது மற்றும் மாதவ நிதானம் மற்றும் பவப்பிரகாசத்துடன் பாரம்பரிய ஆயுர்வேத நூல்களின் 'லகுத்ரயி' (குறைவான முக்கோணம்) சேர்ந்தது. இது குறிப்பாக நாடித்துடிப்பு நோயறிதல் (நாடி பரிக்ஷா) மற்றும் மருந்து தயாரிப்பு முறைகள் (பைஷஜ்ய கல்பனா) ஆகியவற்றின் முறையான சிகிச்சைக்காக குறிப்பிடத்தக்கது. விக்கிமீடியா காமன்ஸில் கையெழுத்துப் புகைப்படம் எதுவும் காணப்படாததால், காட்டப்பட்டுள்ள படம் 1950 அச்சிடப்பட்ட பதிப்பின் தலைப்புப் பக்கமாகும்.",
+      "era": "தொகுக்கப்பட்டது சி. கிபி 14 ஆம் நூற்றாண்டின் ஆரம்பம் முதல் நடுப்பகுதி வரை"
+    },
+    "te": {
+      "name": "శరంగధర సంహిత",
+      "imageAlt": "శరంగధర సంహిత యొక్క 1950 ముద్రిత సంచిక యొక్క శీర్షిక పేజీ (ఈ వచనం యొక్క మాన్యుస్క్రిప్ట్ ఫోటో వికీమీడియా కామన్స్‌లో కనుగొనబడలేదు)",
+      "description": "శార్ంగాధరచే స్వరపరచబడిన ఈ గ్రంథం సాధారణంగా 14వ శతాబ్దపు CE నాటిది మరియు మాధవ నిదాన మరియు భావప్రకాశాలతో పాటు శాస్త్రీయ ఆయుర్వేద గ్రంథాల 'లఘుత్రాయి' (తక్కువ త్రయం)కి చెందినది. ఇది ప్రత్యేకంగా పల్స్ నిర్ధారణ (నాడి పరీక్ష) మరియు ఔషధ తయారీ పద్ధతులు (భైషజ్య కల్పన) యొక్క క్రమబద్ధమైన చికిత్సకు ప్రసిద్ధి చెందింది. వికీమీడియా కామన్స్‌లో మాన్యుస్క్రిప్ట్ ఫోటో ఏదీ కనుగొనబడలేదు కాబట్టి చూపబడిన చిత్రం 1950 ముద్రిత ఎడిషన్ యొక్క శీర్షిక పేజీ.",
+      "era": "సంకలనం సి. 14వ శతాబ్దపు ప్రారంభ-మధ్య CE"
+    },
+    "kn": {
+      "name": "ಶಾರಂಗಧರ ಸಂಹಿತಾ",
+      "imageAlt": "ಶಾರಂಗಧಾರ ಸಂಹಿತೆಯ 1950 ರ ಮುದ್ರಿತ ಆವೃತ್ತಿಯ ಶೀರ್ಷಿಕೆ ಪುಟ (ಈ ಪಠ್ಯದ ಯಾವುದೇ ಹಸ್ತಪ್ರತಿ ಫೋಟೋ ವಿಕಿಮೀಡಿಯಾ ಕಾಮನ್ಸ್‌ನಲ್ಲಿ ಕಂಡುಬಂದಿಲ್ಲ)",
+      "description": "ಶಾರ್ಂಗಧರನಿಂದ ರಚಿಸಲ್ಪಟ್ಟ ಈ ಪಠ್ಯವು ಸಾಮಾನ್ಯವಾಗಿ 14 ನೇ ಶತಮಾನದ CE ಯ ದಿನಾಂಕವಾಗಿದೆ ಮತ್ತು ಮಾಧವ ನಿದಾನ ಮತ್ತು ಭಾವಪ್ರಕಾಶದ ಜೊತೆಗೆ ಶಾಸ್ತ್ರೀಯ ಆಯುರ್ವೇದ ಗ್ರಂಥಗಳ 'ಲಘುತ್ರಯಿ' (ಕಡಿಮೆ ಟ್ರೈಡ್) ಗೆ ಸೇರಿದೆ. ನಾಡಿ ರೋಗನಿರ್ಣಯ (ನಾಡಿ ಪರೀಕ್ಷೆ) ಮತ್ತು ಔಷಧೀಯ ತಯಾರಿಕೆಯ ವಿಧಾನಗಳ (ಭೈಶಜ್ಯ ಕಲ್ಪನಾ) ವ್ಯವಸ್ಥಿತ ಚಿಕಿತ್ಸೆಗಾಗಿ ಇದು ವಿಶೇಷವಾಗಿ ಗುರುತಿಸಲ್ಪಟ್ಟಿದೆ. ತೋರಿಸಿರುವ ಚಿತ್ರವು 1950 ರ ಮುದ್ರಿತ ಆವೃತ್ತಿಯ ಶೀರ್ಷಿಕೆ ಪುಟವಾಗಿದೆ, ಏಕೆಂದರೆ ವಿಕಿಮೀಡಿಯಾ ಕಾಮನ್ಸ್‌ನಲ್ಲಿ ಯಾವುದೇ ಹಸ್ತಪ್ರತಿ ಛಾಯಾಚಿತ್ರ ಕಂಡುಬಂದಿಲ್ಲ.",
+      "era": "ಸಂಕಲನ ಸಿ. 14 ನೇ ಶತಮಾನದ ಆರಂಭದಿಂದ ಮಧ್ಯದವರೆಗೆ CE"
+    },
+    "or": {
+      "name": "ଶରଙ୍ଗଧର ସମିତା |",
+      "imageAlt": "ଶାରଙ୍ଗଧର ସମିତିର 1950 ମୁଦ୍ରିତ ସଂସ୍କରଣର ଟାଇଟଲ୍ ପୃଷ୍ଠା (ଉଇକିମିଡ଼ିଆ କମନ୍ସରେ ଏହି ପାଠ୍ୟର କ man ଣସି ପାଣ୍ଡୁଲିପି ଫଟୋ ମିଳିଲା ନାହିଁ)",
+      "description": "ଶରଙ୍ଗଧାରା ଦ୍ osed ାରା ରଚନା ହୋଇଥିବା ଏହି ପାଠ ସାଧାରଣତ CE ଚତୁର୍ଦ୍ଦଶ ଶତାବ୍ଦୀରେ ନିର୍ମିତ ହୋଇଥିଲା ଏବଂ ମାଧବ ନିଦାନ ଏବଂ ଭବପ୍ରକାଶଙ୍କ ସହିତ ଶାସ୍ତ୍ରୀୟ ଆୟୁର୍ବେଦିକ ଗ୍ରନ୍ଥଗୁଡ଼ିକର 'ଲାଗୁଥ୍ରାଇ' (କମ୍ ତ୍ରିକୋଣୀୟ) ର ଅଟେ | ନାଡିର ନିରାକରଣ (ନାଡି ପାରିକଶା) ଏବଂ ଫାର୍ମାସ୍ୟୁଟିକାଲ୍ ପ୍ରସ୍ତୁତି ପ୍ରଣାଳୀ (ଭ ha ଜୟ କାଲପାନା) ର ବ୍ୟବସ୍ଥିତ ଚିକିତ୍ସା ପାଇଁ ଏହା ବିଶେଷ ଭାବରେ ଉଲ୍ଲେଖ କରାଯାଇଛି | ପ୍ରଦର୍ଶିତ ପ୍ରତିଛବି ହେଉଛି 1950 ମୁଦ୍ରିତ ସଂସ୍କରଣର ଟାଇଟଲ୍ ପୃଷ୍ଠା, ଯେହେତୁ ୱିକିମିଡିଆ କମନ୍ସରେ କ man ଣସି ପାଣ୍ଡୁଲିପି ଫଟୋଗ୍ରାଫ୍ ମିଳିଲା ନାହିଁ |",
+      "era": "ସଂକଳିତ ଗ। ଖ୍ରୀଷ୍ଟପୂର୍ବ ଚତୁର୍ଦ୍ଦଶ ଶତାବ୍ଦୀର ମଧ୍ୟଭାଗରୁ |"
+    },
+    "gu": {
+      "name": "શારંગધરા સંહિતા",
+      "imageAlt": "શારંગધારા સંહિતાની 1950ની મુદ્રિત આવૃત્તિનું શીર્ષક પૃષ્ઠ (વિકિમીડિયા કોમન્સ પર આ લખાણનો કોઈ હસ્તપ્રત ફોટો મળ્યો નથી)",
+      "description": "શારંગધારા દ્વારા રચિત, આ લખાણ સામાન્ય રીતે 14મી સદી સીઇની આસપાસનું છે અને તે માધવ નિદાન અને ભાવપ્રકાશની સાથે શાસ્ત્રીય આયુર્વેદિક ગ્રંથોના 'લઘુત્રયી' (ઓછી ત્રિપુટી) સાથે સંબંધિત છે. તે ખાસ કરીને નાડી નિદાન (નાડી પરિક્ષા) અને ફાર્માસ્યુટિકલ તૈયારી પદ્ધતિઓ (ભાઈશાજ્ય કલ્પના) ની પદ્ધતિસરની સારવાર માટે જાણીતું છે. બતાવવામાં આવેલી છબી એ 1950ની મુદ્રિત આવૃત્તિનું શીર્ષક પૃષ્ઠ છે, કારણ કે વિકિમીડિયા કોમન્સ પર કોઈ હસ્તપ્રત ફોટોગ્રાફ મળ્યો નથી.",
+      "era": "સંકલિત સી. 14મી સદીની શરૂઆતથી મધ્ય સુધી"
+    },
+    "pa": {
+      "name": "ਸ਼ਾਰੰਗਧਾਰਾ ਸੰਹਿਤਾ",
+      "imageAlt": "ਸ਼ਾਰੰਗਧਾਰਾ ਸੰਹਿਤਾ ਦੇ 1950 ਦੇ ਛਪੇ ਐਡੀਸ਼ਨ ਦਾ ਸਿਰਲੇਖ ਪੰਨਾ (ਵਿਕੀਮੀਡੀਆ ਕਾਮਨਜ਼ 'ਤੇ ਇਸ ਲਿਖਤ ਦੀ ਕੋਈ ਹੱਥ-ਲਿਖਤ ਫੋਟੋ ਨਹੀਂ ਮਿਲੀ)",
+      "description": "ਸ਼ਾਰੰਗਧਾਰਾ ਦੁਆਰਾ ਰਚਿਆ ਗਿਆ, ਇਹ ਪਾਠ ਆਮ ਤੌਰ 'ਤੇ 14ਵੀਂ ਸਦੀ ਈਸਵੀ ਦੇ ਆਸ-ਪਾਸ ਦਾ ਹੈ ਅਤੇ ਮਾਧਵ ਨਿਦਾਨ ਅਤੇ ਭਾਵਪ੍ਰਕਾਸ਼ ਦੇ ਨਾਲ-ਨਾਲ ਕਲਾਸੀਕਲ ਆਯੁਰਵੈਦਿਕ ਗ੍ਰੰਥਾਂ ਦੇ 'ਲਘੂਤ੍ਰੇਈ' (ਘੱਟ ਤ੍ਰਿਯ) ਨਾਲ ਸਬੰਧਤ ਹੈ। ਇਹ ਖਾਸ ਤੌਰ 'ਤੇ ਨਬਜ਼ ਦੇ ਨਿਦਾਨ (ਨਾਡੀ ਪਰੀਕਸ਼ਾ) ਅਤੇ ਫਾਰਮਾਸਿਊਟੀਕਲ ਤਿਆਰੀ ਵਿਧੀਆਂ (ਭੈਸ਼ਾਜਿਆ ਕਲਪਨਾ) ਦੇ ਯੋਜਨਾਬੱਧ ਇਲਾਜ ਲਈ ਜਾਣਿਆ ਜਾਂਦਾ ਹੈ। ਦਿਖਾਇਆ ਗਿਆ ਚਿੱਤਰ 1950 ਦੇ ਛਪੇ ਐਡੀਸ਼ਨ ਦਾ ਸਿਰਲੇਖ ਪੰਨਾ ਹੈ, ਕਿਉਂਕਿ ਵਿਕੀਮੀਡੀਆ ਕਾਮਨਜ਼ 'ਤੇ ਕੋਈ ਹੱਥ-ਲਿਖਤ ਫੋਟੋ ਨਹੀਂ ਮਿਲੀ ਹੈ।",
+      "era": "ਕੰਪਾਇਲਡ ਸੀ. ਸ਼ੁਰੂਆਤੀ-ਤੋਂ-ਮੱਧ 14ਵੀਂ ਸਦੀ ਈ"
+    },
+    "fr": {
+      "name": "Sharangdhara Samhita",
+      "imageAlt": "Page de titre d'une édition imprimée de 1950 du Sharangdhara Samhita (aucune photo manuscrite de ce texte n'a été trouvée sur Wikimedia Commons)",
+      "description": "Composé par Sharngadhara, ce texte est généralement daté du 14ème siècle environ et appartient à la « Laghutrayi » (petite triade) des textes ayurvédiques classiques, aux côtés du Madhava Nidana et du Bhavaprakasha. Il est particulièrement remarquable pour son traitement systématique du diagnostic du pouls (nadi pariksha) et des méthodes de préparation pharmaceutique (bhaishajya kalpana). L'image présentée est la page de titre d'une édition imprimée de 1950, puisqu'aucune photographie manuscrite n'a été trouvée sur Wikimedia Commons.",
+      "era": "Compilé c. du début au milieu du 14e siècle de notre ère"
+    },
+    "es": {
+      "name": "Sharangdhara Samhita",
+      "imageAlt": "Página de título de una edición impresa de 1950 del Sharangdhara Samhita (no se encontró ninguna fotografía manuscrita de este texto en Wikimedia Commons)",
+      "description": "Compuesto por Sharngadhara, este texto generalmente data alrededor del siglo XIV d.C. y pertenece a la 'Laghutrayi' (tríada menor) de textos ayurvédicos clásicos, junto con Madhava Nidana y Bhavaprakasha. Se destaca especialmente por su tratamiento sistemático del diagnóstico por pulso (nadi pariksha) y métodos de preparación farmacéutica (bhaishajya kalpana). La imagen mostrada es la portada de una edición impresa de 1950, ya que no se encontró ninguna fotografía manuscrita en Wikimedia Commons.",
+      "era": "Compilado c. principios a mediados del siglo XIV d.C."
+    },
+    "de": {
+      "name": "Sharangdhara Samhita",
+      "imageAlt": "Titelseite einer gedruckten Ausgabe des Sharangdhara Samhita aus dem Jahr 1950 (auf Wikimedia Commons wurde kein Manuskriptfoto dieses Textes gefunden)",
+      "description": "Dieser von Sharngadhara verfasste Text wird im Allgemeinen auf das 14. Jahrhundert n. Chr. datiert und gehört neben Madhava Nidana und Bhavaprakasha zur „Laghutrayi“ (kleineren Triade) der klassischen ayurvedischen Texte. Besonders hervorzuheben ist die systematische Behandlung der Pulsdiagnose (Nadi Pariksha) und der pharmazeutischen Zubereitungsmethoden (Bhaishajya Kalpana). Das gezeigte Bild ist die Titelseite einer gedruckten Ausgabe von 1950, da auf Wikimedia Commons kein Manuskriptfoto gefunden wurde.",
+      "era": "Zusammengestellt c. Anfang bis Mitte des 14. Jahrhunderts n. Chr"
+    },
+    "ru": {
+      "name": "Шарангдхара Самхита",
+      "imageAlt": "Титульный лист печатного издания Шарангдхара Самхиты 1950 года (на Wikimedia Commons не обнаружено рукописной фотографии этого текста)",
+      "description": "Этот текст, составленный Шарнгадхарой, обычно датируется примерно 14 веком нашей эры и принадлежит к «Лагхутраи» (малой триаде) классических аюрведических текстов, наряду с Мадхава Ниданой и Бхавапракашей. Он особенно известен систематическим лечением пульсовой диагностики (нади парикша) и методами фармацевтического приготовления (бхайшаджья калпана). Показанное изображение является титульным листом печатного издания 1950 года, поскольку на Wikimedia Commons не было найдено ни одной фотографии рукописи.",
+      "era": "Составлено c. начало-середина 14 века н.э."
+    },
+    "zh": {
+      "name": "舍让集",
+      "imageAlt": "1950 年印刷版《Sharangdhara Samhita》的扉页（在维基共享资源上未找到本文的手稿照片）",
+      "description": "该文本由 Sharngadhara 撰写，通常可追溯到公元 14 世纪左右，与 Madhava Nidana 和 Bhavaprakasha 一起属于古典阿育吠陀文本的“Laghutrayi”（小三合会）。它尤其以其脉诊（nadi pariksha）和药物制备方法（bhaishajya kalpana）的系统治疗而闻名。所示图像是 1950 年印刷版的扉页，因为在维基共享资源上没有找到手稿照片。",
+      "era": "编译 C.公元 14 世纪早期至中期"
+    },
+    "yue": {
+      "name": "舍让集",
+      "imageAlt": "1950 年印刷版《Sharangdhara Samhita》的扉页（在维基共享资源上未找到本文的手稿照片）",
+      "description": "该文本由 Sharngadhara 撰写，通常可追溯到公元 14 世纪左右，与 Madhava Nidana 和 Bhavaprakasha 一起属于古典阿育吠陀文本的“Laghutrayi”（小三合会）。它尤其以其脉诊（nadi pariksha）和药物制备方法（bhaishajya kalpana）的系统治疗而闻名。所示图像是 1950 年印刷版的扉页，因为在维基共享资源上没有找到手稿照片。",
+      "era": "编译 C.公元 14 世纪早期至中期"
+    }
+  },
+  {
+    "id": "bhaisajya-ratnavali",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Bhaishajya_Ratnavali_-_a_work_on_materia_medica_in_Bengali_%28IA_b21694072%29.pdf/page1-500px-Bhaishajya_Ratnavali_-_a_work_on_materia_medica_in_Bengali_%28IA_b21694072%29.pdf.jpg",
+    "isManuscriptPhoto": false,
+    "matchKeywords": [
+      "bhaisajya ratnavali",
+      "bhaishajya ratnavali"
+    ],
+    "en": {
+      "name": "Bhaisajya Ratnavali",
+      "imageAlt": "Title page of an 1883 Bengali printed edition of the Bhaisajya Ratnavali (no manuscript photo of this text was found on Wikimedia Commons)",
+      "description": "Traditionally attributed to the physician Govind Das Sen, the Bhaisajya Ratnavali is one of the most widely used later Ayurvedic formularies. Organized by disease chapters, it compiles medicinal formulations — churnas, vatis, avalehas, and other preparations — for treating specific conditions, and remains a standard clinical reference today. The image shown is the title page of an 1883 Bengali printed edition, since no manuscript photograph was found on Wikimedia Commons.",
+      "era": "Traditionally attributed to Govind Das Sen, c. 18th century CE (sources vary, ranging from the 17th to 19th century)"
+    },
+    "hi": {
+      "name": "भैषज्य रत्नावली",
+      "imageAlt": "भैषज्य रत्नावली के 1883 बांग्ला मुद्रित संस्करण का शीर्षक पृष्ठ (विकिमीडिया कॉमन्स पर इस पाठ की कोई पांडुलिपि तस्वीर नहीं मिली)",
+      "description": "परंपरागत रूप से चिकित्सक गोविंद दास सेन को श्रेय दिया जाता है, भैसज्य रत्नावली बाद में सबसे व्यापक रूप से इस्तेमाल की जाने वाली आयुर्वेदिक फॉर्मूलरी में से एक है। रोग अध्यायों द्वारा आयोजित, यह विशिष्ट स्थितियों के इलाज के लिए औषधीय योगों - चूर्ण, वटिस, अवलेहास और अन्य तैयारियों को संकलित करता है, और आज एक मानक नैदानिक ​​​​संदर्भ बना हुआ है। दिखाया गया चित्र 1883 के बंगाली मुद्रित संस्करण का शीर्षक पृष्ठ है, क्योंकि विकिमीडिया कॉमन्स पर कोई पांडुलिपि तस्वीर नहीं मिली थी।",
+      "era": "परंपरागत रूप से गोविंद दास सेन को जिम्मेदार ठहराया गया, सी। 18वीं सदी सीई (स्रोत अलग-अलग हैं, 17वीं से 19वीं सदी तक)"
+    },
+    "bn": {
+      "name": "ভাইসজ্যা রত্নাবলী",
+      "imageAlt": "ভাইসজ্যা রত্নাবলীর 1883 সালের বাংলা মুদ্রিত সংস্করণের শিরোনাম পৃষ্ঠা (উইকিমিডিয়া কমন্সে এই পাঠ্যের কোনো পাণ্ডুলিপির ছবি পাওয়া যায়নি)",
+      "description": "চিকিত্সক গোবিন্দ দাস সেনকে ঐতিহ্যগতভাবে দায়ী করা হয়, ভৈসজ্য রত্নাবলী পরবর্তীকালের আয়ুর্বেদিক সূত্রগুলির মধ্যে একটি বহুল ব্যবহৃত। রোগের অধ্যায় দ্বারা সংগঠিত, এটি নির্দিষ্ট অবস্থার চিকিৎসার জন্য ঔষধি ফর্মুলেশনগুলি — চুর্ণ, ভাটিস, অ্যাভেলহাস এবং অন্যান্য প্রস্তুতি — সংকলন করে এবং আজও একটি প্রমিত ক্লিনিকাল রেফারেন্স হিসাবে রয়ে গেছে। দেখানো চিত্রটি 1883 সালের বাংলা মুদ্রিত সংস্করণের শিরোনাম পৃষ্ঠা, যেহেতু উইকিমিডিয়া কমন্সে কোনো পাণ্ডুলিপির ছবি পাওয়া যায়নি।",
+      "era": "ঐতিহ্যগতভাবে গোবিন্দ দাস সেনকে দায়ী করা হয়, গ. 18 শতক সিই (উৎস পরিবর্তিত হয়, 17 থেকে 19 শতকের মধ্যে)"
+    },
+    "mr": {
+      "name": "भैसज्या रत्नावली",
+      "imageAlt": "भैसज्य रत्नावलीच्या १८८३ च्या बंगाली मुद्रित आवृत्तीचे शीर्षक पृष्ठ (या मजकुराचा कोणताही हस्तलिखित फोटो विकिमीडिया कॉमन्सवर आढळला नाही)",
+      "description": "पारंपारिकपणे वैद्य गोविंद दास सेन यांना श्रेय दिलेली, भैसज्य रत्नावली ही नंतरच्या आयुर्वेदिक सूत्रांपैकी एक आहे. रोगाच्या अध्यायांद्वारे आयोजित केलेले, हे औषधी फॉर्म्युलेशन संकलित करते — चूर्ण, वातिस, अवलेहा आणि इतर तयारी — विशिष्ट परिस्थितींवर उपचार करण्यासाठी, आणि आज एक मानक क्लिनिकल संदर्भ आहे. दाखवलेली प्रतिमा 1883 च्या बंगाली मुद्रित आवृत्तीचे शीर्षक पृष्ठ आहे, कारण विकिमीडिया कॉमन्सवर कोणतेही हस्तलिखित छायाचित्र आढळले नाही.",
+      "era": "परंपरेने गोविंद दास सेन, सी. 18 वे शतक CE (स्रोत बदलतात, 17 व्या ते 19 व्या शतकापर्यंत)"
+    },
+    "ta": {
+      "name": "பைசஜ்யா ரத்னாவலி",
+      "imageAlt": "பைசஜ்ய ரத்னாவளியின் 1883 பெங்காலி அச்சிடப்பட்ட பதிப்பின் தலைப்புப் பக்கம் (இந்த உரையின் கையெழுத்துப் புகைப்படம் விக்கிமீடியா காமன்ஸில் காணப்படவில்லை)",
+      "description": "பாரம்பரியமாக மருத்துவரான கோவிந்த் தாஸ் சென் என்பவரால் கூறப்படும் பைசஜ்ய ரத்னாவலி, பிற்காலத்தில் மிகவும் பரவலாகப் பயன்படுத்தப்பட்ட ஆயுர்வேத மருந்துகளில் ஒன்றாகும். நோய் அத்தியாயங்களால் ஒழுங்கமைக்கப்பட்டது, இது குறிப்பிட்ட நிலைமைகளுக்கு சிகிச்சையளிப்பதற்கான மருத்துவ சூத்திரங்களை - சூர்ணாஸ், வாடிஸ், அவலேஹாஸ் மற்றும் பிற தயாரிப்புகளை தொகுக்கிறது, மேலும் இன்றும் ஒரு நிலையான மருத்துவக் குறிப்பாக உள்ளது. விக்கிமீடியா காமன்ஸில் கையெழுத்துப் புகைப்படம் எதுவும் காணப்படாததால், காட்டப்பட்டுள்ள படம் 1883 பெங்காலி அச்சிடப்பட்ட பதிப்பின் தலைப்புப் பக்கமாகும்.",
+      "era": "பாரம்பரியமாக கோவிந்த் தாஸ் சென், சி. 18 ஆம் நூற்றாண்டு CE (ஆதாரங்கள் மாறுபடும், 17 முதல் 19 ஆம் நூற்றாண்டு வரை)"
+    },
+    "te": {
+      "name": "భైసజ్య రత్నావళి",
+      "imageAlt": "భైసజ్య రత్నావళి యొక్క 1883 బెంగాలీ ముద్రిత ఎడిషన్ యొక్క శీర్షిక పేజీ (ఈ వచనం యొక్క మాన్యుస్క్రిప్ట్ ఫోటో వికీమీడియా కామన్స్‌లో కనుగొనబడలేదు)",
+      "description": "సాంప్రదాయకంగా వైద్యుడు గోవింద్ దాస్ సేన్‌కు ఆపాదించబడిన భైసజ్య రత్నావళి తరువాతి కాలంలో ఎక్కువగా ఉపయోగించే ఆయుర్వేద సూత్రాలలో ఒకటి. వ్యాధి అధ్యాయాల ద్వారా నిర్వహించబడుతుంది, ఇది నిర్దిష్ట పరిస్థితులకు చికిత్స చేయడానికి ఔషధ సూత్రీకరణలను సంకలనం చేస్తుంది - చూర్నాలు, వాటిస్, అవలేహాలు మరియు ఇతర సన్నాహాలు - మరియు నేటికీ ఒక ప్రామాణిక వైద్య సూచనగా మిగిలిపోయింది. చూపిన చిత్రం 1883 బెంగాలీ ముద్రిత ఎడిషన్ యొక్క శీర్షిక పేజీ, ఎందుకంటే వికీమీడియా కామన్స్‌లో మాన్యుస్క్రిప్ట్ ఫోటో ఏదీ కనుగొనబడలేదు.",
+      "era": "సాంప్రదాయకంగా గోవింద్ దాస్ సేన్, c. 18వ శతాబ్దం CE (మూలాలు మారుతూ ఉంటాయి, 17వ శతాబ్దం నుండి 19వ శతాబ్దం వరకు)"
+    },
+    "kn": {
+      "name": "ಭೈಸಜ್ಯ ರತ್ನಾವಳಿ",
+      "imageAlt": "ಭೈಸಜ್ಯ ರತ್ನಾವಳಿಯ 1883 ರ ಬಂಗಾಳಿ ಮುದ್ರಿತ ಆವೃತ್ತಿಯ ಶೀರ್ಷಿಕೆ ಪುಟ (ಈ ಪಠ್ಯದ ಯಾವುದೇ ಹಸ್ತಪ್ರತಿ ಫೋಟೋ ವಿಕಿಮೀಡಿಯಾ ಕಾಮನ್ಸ್‌ನಲ್ಲಿ ಕಂಡುಬಂದಿಲ್ಲ)",
+      "description": "ಸಾಂಪ್ರದಾಯಿಕವಾಗಿ ವೈದ್ಯ ಗೋವಿಂದ್ ದಾಸ್ ಸೇನ್ ಕಾರಣವೆಂದು ಹೇಳಲಾಗುತ್ತದೆ, ಭೈಸಜ್ಯ ರತ್ನಾವಳಿಯು ನಂತರದ ಆಯುರ್ವೇದ ಸೂತ್ರಗಳಲ್ಲಿ ಹೆಚ್ಚು ವ್ಯಾಪಕವಾಗಿ ಬಳಸಲ್ಪಟ್ಟಿದೆ. ರೋಗದ ಅಧ್ಯಾಯಗಳ ಮೂಲಕ ಆಯೋಜಿಸಲಾಗಿದೆ, ಇದು ನಿರ್ದಿಷ್ಟ ಪರಿಸ್ಥಿತಿಗಳಿಗೆ ಚಿಕಿತ್ಸೆ ನೀಡಲು ಔಷಧೀಯ ಸೂತ್ರೀಕರಣಗಳನ್ನು ಸಂಗ್ರಹಿಸುತ್ತದೆ - ಚೂರ್ಣಗಳು, ವಾಟಿಗಳು, ಅವಲೆಹಗಳು ಮತ್ತು ಇತರ ಸಿದ್ಧತೆಗಳು - ಮತ್ತು ಇಂದಿಗೂ ಪ್ರಮಾಣಿತ ವೈದ್ಯಕೀಯ ಉಲ್ಲೇಖವಾಗಿ ಉಳಿದಿದೆ. ತೋರಿಸಿರುವ ಚಿತ್ರವು 1883 ರ ಬಂಗಾಳಿ ಮುದ್ರಿತ ಆವೃತ್ತಿಯ ಶೀರ್ಷಿಕೆ ಪುಟವಾಗಿದೆ, ಏಕೆಂದರೆ ವಿಕಿಮೀಡಿಯಾ ಕಾಮನ್ಸ್‌ನಲ್ಲಿ ಯಾವುದೇ ಹಸ್ತಪ್ರತಿ ಛಾಯಾಚಿತ್ರ ಕಂಡುಬಂದಿಲ್ಲ.",
+      "era": "ಸಾಂಪ್ರದಾಯಿಕವಾಗಿ ಗೋವಿಂದ್ ದಾಸ್ ಸೇನ್, ಸಿ. 18 ನೇ ಶತಮಾನ CE (ಮೂಲಗಳು ಬದಲಾಗುತ್ತವೆ, 17 ರಿಂದ 19 ನೇ ಶತಮಾನದವರೆಗೆ)"
+    },
+    "or": {
+      "name": "ଭ ha ଜୟ ରତ୍ନାଭାଲୀ",
+      "imageAlt": "1883 ବଙ୍ଗଳା ମୁଦ୍ରିତ ସଂସ୍କରଣର ଟାଇଟଲ୍ ପୃଷ୍ଠା ଭ is ୍ଜୟ ରତ୍ନାଭାଲି (ଉଇକିମିଡ଼ିଆ କମନ୍ସରେ ଏହି ପାଠ୍ୟର କ man ଣସି ପାଣ୍ଡୁଲିପି ଫଟୋ ମିଳିଲା ନାହିଁ)",
+      "description": "ପାରମ୍ପାରିକ ଭାବରେ ଡାକ୍ତର ଗୋବିନ୍ଦ ଦାସ ସେନଙ୍କ ଦ୍ uted ାରା ଦାୟୀ, ଭ is ଜା ରତ୍ନାଭାଲୀ ପରବର୍ତ୍ତୀ ସମୟରେ ଆୟୁର୍ବେଦିକ ସୂତ୍ର ମଧ୍ୟରୁ ଅନ୍ୟତମ | ରୋଗ ଅଧ୍ୟାୟ ଦ୍ Organ ାରା ସଂଗଠିତ, ଏହା medic ଷଧୀୟ ସୂତ୍ର - ଚୁର୍ନା, ଭାଟିସ୍, ଆଭାଲେହସ୍ ଏବଂ ଅନ୍ୟାନ୍ୟ ପ୍ରସ୍ତୁତି - ନିର୍ଦ୍ଦିଷ୍ଟ ସ୍ଥିତିର ଚିକିତ୍ସା ପାଇଁ ସଂକଳନ କରେ ଏବଂ ଆଜି ମଧ୍ୟ ଏକ ମାନକ କ୍ଲିନିକାଲ୍ ରେଫରେନ୍ସ ହୋଇ ରହିଛି | ପ୍ରଦର୍ଶିତ ପ୍ରତିଛବି ହେଉଛି 1883 ବଙ୍ଗାଳୀ ମୁଦ୍ରିତ ସଂସ୍କରଣର ଟାଇଟଲ୍ ପୃଷ୍ଠା, ଯେହେତୁ ୱିକିମିଡିଆ କମନ୍ସରେ କ man ଣସି ପାଣ୍ଡୁଲିପି ଫଟୋଗ୍ରାଫ୍ ମିଳିଲା ନାହିଁ |",
+      "era": "ପାରମ୍ପାରିକ ଭାବରେ ଗୋବିନ୍ଦ ଦାସ ସେନ୍, ସି। ଅଷ୍ଟାଦଶ ଶତାବ୍ଦୀ (ଉତ୍ସଗୁଡିକ ଭିନ୍ନ, 17 ରୁ 19 ଶତାବ୍ଦୀ ପର୍ଯ୍ୟନ୍ତ)"
+    },
+    "gu": {
+      "name": "ભાઈસાજ્ય રત્નાવલી",
+      "imageAlt": "ભૈસજ્ય રત્નાવલીની 1883ની બંગાળી મુદ્રિત આવૃત્તિનું શીર્ષક પૃષ્ઠ (વિકિમીડિયા કોમન્સ પર આ લખાણનો કોઈ હસ્તપ્રત ફોટો મળ્યો નથી)",
+      "description": "પરંપરાગત રીતે ચિકિત્સક ગોવિંદ દાસ સેનને આભારી છે, ભાઈસાજ્ય રત્નાવલી એ પછીના આયુર્વેદિક ફોર્મ્યુલારીઓમાં સૌથી વધુ ઉપયોગમાં લેવામાં આવે છે. રોગના પ્રકરણો દ્વારા આયોજિત, તે ઔષધીય ફોર્મ્યુલેશનનું સંકલન કરે છે - ચૂર્ણ, વાટીસ, અવલેહ અને અન્ય તૈયારીઓ - ચોક્કસ પરિસ્થિતિઓની સારવાર માટે, અને આજે તે પ્રમાણભૂત તબીબી સંદર્ભ છે. બતાવવામાં આવેલી છબી 1883ની બંગાળી મુદ્રિત આવૃત્તિનું શીર્ષક પૃષ્ઠ છે, કારણ કે વિકિમીડિયા કોમન્સ પર કોઈ હસ્તપ્રત ફોટોગ્રાફ મળ્યો નથી.",
+      "era": "પરંપરાગત રીતે ગોવિંદ દાસ સેનને આભારી છે, સી. 18મી સદી સીઇ (સ્રોતો બદલાય છે, 17મીથી 19મી સદી સુધી)"
+    },
+    "pa": {
+      "name": "ਭਾਈਸਜਿਆ ਰਤਨਾਵਲੀ",
+      "imageAlt": "ਭਾਈਸਾਜਯ ਰਤਨਾਵਲੀ ਦੇ 1883 ਦੇ ਬੰਗਾਲੀ ਪ੍ਰਿੰਟਿਡ ਐਡੀਸ਼ਨ ਦਾ ਟਾਈਟਲ ਪੰਨਾ (ਵਿਕੀਮੀਡੀਆ ਕਾਮਨਜ਼ 'ਤੇ ਇਸ ਲਿਖਤ ਦੀ ਕੋਈ ਹੱਥ-ਲਿਖਤ ਫੋਟੋ ਨਹੀਂ ਮਿਲੀ)",
+      "description": "ਪਰੰਪਰਾਗਤ ਤੌਰ 'ਤੇ ਡਾਕਟਰ ਗੋਵਿੰਦ ਦਾਸ ਸੇਨ ਨੂੰ ਦਿੱਤਾ ਗਿਆ, ਭਾਈਸਾਜਯ ਰਤਨਾਵਲੀ ਬਾਅਦ ਵਿੱਚ ਸਭ ਤੋਂ ਵੱਧ ਵਰਤੇ ਜਾਣ ਵਾਲੇ ਆਯੁਰਵੈਦਿਕ ਫਾਰਮੂਲੇ ਵਿੱਚੋਂ ਇੱਕ ਹੈ। ਰੋਗ ਅਧਿਆਵਾਂ ਦੁਆਰਾ ਸੰਗਠਿਤ, ਇਹ ਚਿਕਿਤਸਕ ਫਾਰਮੂਲੇ - ਚੂਰਨ, ਵਾਟਿਸ, ਅਵੇਲੇਹਾਸ, ਅਤੇ ਹੋਰ ਤਿਆਰੀਆਂ - ਨੂੰ ਖਾਸ ਸਥਿਤੀਆਂ ਦੇ ਇਲਾਜ ਲਈ ਸੰਕਲਿਤ ਕਰਦਾ ਹੈ, ਅਤੇ ਅੱਜ ਵੀ ਇੱਕ ਮਿਆਰੀ ਕਲੀਨਿਕਲ ਸੰਦਰਭ ਬਣਿਆ ਹੋਇਆ ਹੈ। ਦਿਖਾਇਆ ਗਿਆ ਚਿੱਤਰ 1883 ਦੇ ਬੰਗਾਲੀ ਪ੍ਰਿੰਟਿਡ ਐਡੀਸ਼ਨ ਦਾ ਸਿਰਲੇਖ ਪੰਨਾ ਹੈ, ਕਿਉਂਕਿ ਵਿਕੀਮੀਡੀਆ ਕਾਮਨਜ਼ 'ਤੇ ਕੋਈ ਹੱਥ-ਲਿਖਤ ਫੋਟੋ ਨਹੀਂ ਮਿਲੀ ਹੈ।",
+      "era": "ਪਰੰਪਰਾਗਤ ਤੌਰ 'ਤੇ ਗੋਵਿੰਦ ਦਾਸ ਸੇਨ, ਸੀ. 18ਵੀਂ ਸਦੀ ਈਸਵੀ (ਸਰੋਤ ਵੱਖ-ਵੱਖ ਹੁੰਦੇ ਹਨ, 17ਵੀਂ ਤੋਂ 19ਵੀਂ ਸਦੀ ਤੱਕ)"
+    },
+    "fr": {
+      "name": "Bhaisajya Ratnavali",
+      "imageAlt": "Page de titre d'une édition imprimée en bengali de 1883 du Bhaisajya Ratnavali (aucune photo manuscrite de ce texte n'a été trouvée sur Wikimedia Commons)",
+      "description": "Traditionnellement attribué au médecin Govind Das Sen, le Bhaisajya Ratnavali est l’un des formulaires ayurvédiques ultérieurs les plus utilisés. Organisé par chapitres sur les maladies, il compile des formulations médicinales – churnas, vatis, avalehas et autres préparations – pour traiter des affections spécifiques, et reste aujourd'hui une référence clinique standard. L'image présentée est la page de titre d'une édition imprimée en bengali de 1883, puisqu'aucune photographie manuscrite n'a été trouvée sur Wikimedia Commons.",
+      "era": "Traditionnellement attribué à Govind Das Sen, v. 18e siècle de notre ère (les sources varient, allant du 17e au 19e siècle)"
+    },
+    "es": {
+      "name": "Bhaisajya Ratnavali",
+      "imageAlt": "Página de título de una edición impresa en bengalí de 1883 del Bhaisajya Ratnavali (no se encontró ninguna fotografía manuscrita de este texto en Wikimedia Commons)",
+      "description": "Tradicionalmente atribuido al médico Govind Das Sen, el Bhaisajya Ratnavali es uno de los formularios ayurvédicos posteriores más utilizados. Organizado por capítulos de enfermedades, recopila formulaciones medicinales (churnas, vatis, avalehas y otras preparaciones) para el tratamiento de afecciones específicas y sigue siendo una referencia clínica estándar en la actualidad. La imagen mostrada es la portada de una edición impresa en bengalí de 1883, ya que no se encontró ninguna fotografía manuscrita en Wikimedia Commons.",
+      "era": "Atribuido tradicionalmente a Govind Das Sen, c. Siglo XVIII d.C. (las fuentes varían, desde el siglo XVII al XIX)"
+    },
+    "de": {
+      "name": "Bhaisajya Ratnavali",
+      "imageAlt": "Titelseite einer bengalischen Druckausgabe des Bhaisajya Ratnavali aus dem Jahr 1883 (auf Wikimedia Commons wurde kein Manuskriptfoto dieses Textes gefunden)",
+      "description": "Das Bhaisajya Ratnavali wird traditionell dem Arzt Govind Das Sen zugeschrieben und ist eines der am weitesten verbreiteten späteren ayurvedischen Formelwerke. Es ist nach Krankheitskapiteln geordnet und stellt medizinische Formulierungen – Churnas, Vatis, Avalehas und andere Präparate – zur Behandlung spezifischer Erkrankungen zusammen und ist bis heute ein klinisches Standardwerk. Das gezeigte Bild ist die Titelseite einer bengalischen Druckausgabe von 1883, da auf Wikimedia Commons kein Manuskriptfoto gefunden wurde.",
+      "era": "Traditionell Govind Das Sen zugeschrieben, ca. 18. Jahrhundert n. Chr. (Quellen variieren und reichen vom 17. bis 19. Jahrhundert)"
+    },
+    "ru": {
+      "name": "Бхайсаджья Ратнавали",
+      "imageAlt": "Титульный лист бенгальского печатного издания «Бхайсаджья Ратнавали» 1883 года (фотография рукописи этого текста не найдена на Wikimedia Commons)",
+      "description": "Традиционно приписываемый врачу Говинду Дасу Сену, Бхайсаджья Ратнавали является одним из наиболее широко используемых более поздних аюрведических рецептов. В нем, организованном по главам, посвященным заболеваниям, собраны лекарственные препараты — чурнас, ватис, авалехас и другие препараты — для лечения конкретных заболеваний, и сегодня он остается стандартным клиническим справочником. Показанное изображение является титульным листом бенгальского печатного издания 1883 года, поскольку на Wikimedia Commons не было найдено ни одной фотографии рукописи.",
+      "era": "Традиционно приписывают Говинду Дасу Сену, ок. 18 век н.э. (источники различаются: от 17 до 19 веков)"
+    },
+    "zh": {
+      "name": "药师拉那瓦里",
+      "imageAlt": "1883 年孟加拉语印刷版《Bhaisajya Ratnavali》的扉页（在维基共享资源上未找到该文本的手稿照片）",
+      "description": "Bhaisajya Ratnavali 传统上归功于医师 Govind Das Sen，它是后来使用最广泛的阿育吠陀处方集之一。它按疾病章节组织，汇编了用于治疗特定病症的药物配方（churnas、vatis、avalehas 和其他制剂），至今仍然是标准的临床参考。所示图像是 1883 年孟加拉语印刷版的扉页，因为在维基共享资源上没有找到手稿照片。",
+      "era": "传统上归因于 Govind Das Sen, c.公元 18 世纪（来源各异，范围从 17 世纪到 19 世纪）"
+    },
+    "yue": {
+      "name": "药师拉那瓦里",
+      "imageAlt": "1883 年孟加拉语印刷版《Bhaisajya Ratnavali》的扉页（在维基共享资源上未找到该文本的手稿照片）",
+      "description": "Bhaisajya Ratnavali 传统上归功于医师 Govind Das Sen，它是后来使用最广泛的阿育吠陀处方集之一。它按疾病章节组织，汇编了用于治疗特定病症的药物配方（churnas、vatis、avalehas 和其他制剂），至今仍然是标准的临床参考。所示图像是 1883 年孟加拉语印刷版的扉页，因为在维基共享资源上没有找到手稿照片。",
+      "era": "传统上归因于 Govind Das Sen, c.公元 18 世纪（来源各异，范围从 17 世纪到 19 世纪）"
+    }
+  },
+  {
+    "id": "bhavaprakasha",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/4990010228114_-_Bhav_Prakash%2C_Misra%2C_Bhava%2C_766p%2C_TECHNOLOGY%2C_bengali_%281888%29.pdf/page1-500px-4990010228114_-_Bhav_Prakash%2C_Misra%2C_Bhava%2C_766p%2C_TECHNOLOGY%2C_bengali_%281888%29.pdf.jpg",
+    "isManuscriptPhoto": false,
+    "matchKeywords": [
+      "bhavaprakasha",
+      "bhava prakash"
+    ],
+    "en": {
+      "name": "Bhavaprakasha",
+      "imageAlt": "Title page of an 1888 Bengali printed edition of the Bhavaprakasha (no manuscript photo of this text was found on Wikimedia Commons)",
+      "description": "Composed by the physician Bhavamishra around the mid-16th century CE, the Bhavaprakasha belongs to the Laghutrayi and is especially valued for its extensive nighantu (materia medica) section describing medicinal plants, minerals, and animal products, alongside chapters on anatomy, embryology, diet, and disease. The image shown is the title page of an 1888 Bengali printed edition, since no manuscript photograph was found on Wikimedia Commons.",
+      "era": "Compiled c. mid-16th century CE"
+    },
+    "hi": {
+      "name": "भावप्रकाश",
+      "imageAlt": "भावप्रकाश के 1888 बांग्ला मुद्रित संस्करण का शीर्षक पृष्ठ (विकिमीडिया कॉमन्स पर इस पाठ की कोई पांडुलिपि तस्वीर नहीं मिली)",
+      "description": "16वीं शताब्दी के मध्य में चिकित्सक भावमिश्रा द्वारा रचित, भावप्रकाश लघुत्रयी से संबंधित है और विशेष रूप से इसके व्यापक निघंटु (मटेरिया मेडिका) खंड के लिए मूल्यवान है, जिसमें शरीर रचना विज्ञान, भ्रूणविज्ञान, आहार और रोग पर अध्यायों के साथ-साथ औषधीय पौधों, खनिजों और पशु उत्पादों का वर्णन किया गया है। दिखाया गया चित्र 1888 के बंगाली मुद्रित संस्करण का शीर्षक पृष्ठ है, क्योंकि विकिमीडिया कॉमन्स पर कोई पांडुलिपि तस्वीर नहीं मिली थी।",
+      "era": "संकलित सी. 16वीं शताब्दी के मध्य ई.पू"
+    },
+    "bn": {
+      "name": "ভাবপ্রকাশ",
+      "imageAlt": "ভাবপ্রকাশের একটি 1888 সালের বাংলা মুদ্রিত সংস্করণের শিরোনাম পৃষ্ঠা (উইকিমিডিয়া কমন্সে এই লেখাটির কোনো পাণ্ডুলিপির ছবি পাওয়া যায়নি)",
+      "description": "16 শতকের মাঝামাঝি সময়ে চিকিত্সক ভবমিশ্র দ্বারা রচিত, ভবপ্রকাশ লঘুত্রয়ীর অন্তর্গত এবং বিশেষ করে এটির বিস্তৃত নিঘন্টু (ম্যাটেরিয়া মেডিকা) বিভাগের জন্য মূল্যবান যা ঔষধি গাছ, খনিজ পদার্থ এবং প্রাণীজ দ্রব্য, শারীরস্থানবিদ্যা, খাদ্যবিদ্যা, রোগবিদ্যা এবং ভ্রূণবিদ্যার অধ্যায়গুলির সাথে বর্ণনা করে। দেখানো চিত্রটি 1888 সালের বাংলা মুদ্রিত সংস্করণের শিরোনাম পৃষ্ঠা, যেহেতু উইকিমিডিয়া কমন্সে কোনো পাণ্ডুলিপির ছবি পাওয়া যায়নি।",
+      "era": "সংকলিত গ. 16 শতকের মাঝামাঝি"
+    },
+    "mr": {
+      "name": "भावप्रकाशा",
+      "imageAlt": "भावप्रकाशाच्या १८८८ च्या बंगाली मुद्रित आवृत्तीचे शीर्षक पृष्ठ (या मजकुराचा कोणताही हस्तलिखित फोटो विकिमीडिया कॉमन्सवर आढळला नाही)",
+      "description": "16व्या शतकाच्या मध्यभागी भवमिश्र या चिकित्सकाने रचलेली, भवप्रकाशा ही लघुत्रयीशी संबंधित आहे आणि विशेषत: शरीरशास्त्र, शरीरशास्त्र, आहारशास्त्र, रोगशास्त्र या विषयांसह औषधी वनस्पती, खनिजे आणि प्राणी उत्पादनांचे वर्णन करणाऱ्या त्याच्या विस्तृत निघंटू (मटेरिया मेडिका) विभागासाठी महत्त्वाची आहे. दाखवलेली प्रतिमा 1888 च्या बंगाली मुद्रित आवृत्तीचे शीर्षक पृष्ठ आहे, कारण विकिमीडिया कॉमन्सवर कोणतेही हस्तलिखित छायाचित्र आढळले नाही.",
+      "era": "संकलित सी. 16 व्या शतकाच्या मध्यभागी"
+    },
+    "ta": {
+      "name": "பாவப்பிரகாசம்",
+      "imageAlt": "பாவப்பிரகாசாவின் 1888 பெங்காலி அச்சிடப்பட்ட பதிப்பின் தலைப்புப் பக்கம் (இந்த உரையின் கையெழுத்துப் புகைப்படம் விக்கிமீடியா காமன்ஸில் காணப்படவில்லை)",
+      "description": "கிபி 16 ஆம் நூற்றாண்டின் நடுப்பகுதியில் மருத்துவர் பவாமிஷ்ராவால் இயற்றப்பட்டது, பவப்பிரகாசம் லகுத்ராயிக்கு சொந்தமானது மற்றும் மருத்துவ தாவரங்கள், தாதுக்கள் மற்றும் விலங்கு தயாரிப்புகளை விவரிக்கும் அதன் விரிவான நிகண்டு (மெட்ரியா மெடிகா) பகுதிக்கு குறிப்பாக மதிப்பிடப்படுகிறது, மேலும் உடற்கூறியல், கருவியல், உணவு மற்றும் நோய் பற்றிய அத்தியாயங்களுடன். விக்கிமீடியா காமன்ஸில் கையெழுத்துப் புகைப்படம் எதுவும் காணப்படாததால், காட்டப்பட்டுள்ள படம் 1888 பெங்காலி அச்சிடப்பட்ட பதிப்பின் தலைப்புப் பக்கமாகும்.",
+      "era": "தொகுக்கப்பட்டது சி. 16 ஆம் நூற்றாண்டின் மத்தியில் கி.பி"
+    },
+    "te": {
+      "name": "భావప్రకాశ",
+      "imageAlt": "భావప్రకాశ 1888 బెంగాలీ ముద్రిత ఎడిషన్ యొక్క శీర్షిక పేజీ (ఈ వచనం యొక్క మాన్యుస్క్రిప్ట్ ఫోటో వికీమీడియా కామన్స్‌లో కనుగొనబడలేదు)",
+      "description": "16వ శతాబ్దపు CE మధ్యకాలంలో వైద్యుడు భావమిశ్రా చేత స్వరపరచబడిన భావప్రకాశం లఘుత్రాయికి చెందినది మరియు శరీర నిర్మాణ శాస్త్రం, పిండశాస్త్రం, ఆహారం మరియు వ్యాధికి సంబంధించిన అధ్యాయాలతో పాటు ఔషధ మొక్కలు, ఖనిజాలు మరియు జంతు ఉత్పత్తులను వివరించే దాని విస్తృతమైన నిఘంటు (మెటీరియా మెడికా) విభాగానికి ప్రత్యేకంగా విలువైనది. చూపిన చిత్రం 1888 బెంగాలీ ముద్రిత ఎడిషన్ యొక్క శీర్షిక పేజీ, ఎందుకంటే వికీమీడియా కామన్స్‌లో మాన్యుస్క్రిప్ట్ ఫోటో ఏదీ కనుగొనబడలేదు.",
+      "era": "సంకలనం సి. మధ్య-16వ శతాబ్దం CE"
+    },
+    "kn": {
+      "name": "ಭಾವಪ್ರಕಾಶ",
+      "imageAlt": "ಭಾವಪ್ರಕಾಶದ 1888 ರ ಬಂಗಾಳಿ ಮುದ್ರಿತ ಆವೃತ್ತಿಯ ಶೀರ್ಷಿಕೆ ಪುಟ (ಈ ಪಠ್ಯದ ಯಾವುದೇ ಹಸ್ತಪ್ರತಿ ಫೋಟೋ ವಿಕಿಮೀಡಿಯಾ ಕಾಮನ್ಸ್‌ನಲ್ಲಿ ಕಂಡುಬಂದಿಲ್ಲ)",
+      "description": "16 ನೇ ಶತಮಾನದ ಮಧ್ಯಭಾಗದಲ್ಲಿ ವೈದ್ಯ ಭಾವಮಿಶ್ರರಿಂದ ರಚಿಸಲ್ಪಟ್ಟ, ಭಾವಪ್ರಕಾಶವು ಲಘುತ್ರಯಿಗೆ ಸೇರಿದೆ ಮತ್ತು ಅಂಗರಚನಾಶಾಸ್ತ್ರ, ಭ್ರೂಣಶಾಸ್ತ್ರ, ಆಹಾರ ಮತ್ತು ರೋಗಗಳ ಅಧ್ಯಾಯಗಳ ಜೊತೆಗೆ ಔಷಧೀಯ ಸಸ್ಯಗಳು, ಖನಿಜಗಳು ಮತ್ತು ಪ್ರಾಣಿ ಉತ್ಪನ್ನಗಳನ್ನು ವಿವರಿಸುವ ಅದರ ವ್ಯಾಪಕವಾದ ನಿಘಂಟು (ಮೆಟೀರಿಯಾ ಮೆಡಿಕಾ) ವಿಭಾಗಕ್ಕೆ ವಿಶೇಷವಾಗಿ ಮೌಲ್ಯಯುತವಾಗಿದೆ. ತೋರಿಸಿರುವ ಚಿತ್ರವು 1888 ರ ಬಂಗಾಳಿ ಮುದ್ರಿತ ಆವೃತ್ತಿಯ ಶೀರ್ಷಿಕೆ ಪುಟವಾಗಿದೆ, ಏಕೆಂದರೆ ವಿಕಿಮೀಡಿಯಾ ಕಾಮನ್ಸ್‌ನಲ್ಲಿ ಯಾವುದೇ ಹಸ್ತಪ್ರತಿ ಛಾಯಾಚಿತ್ರ ಕಂಡುಬಂದಿಲ್ಲ.",
+      "era": "ಸಂಕಲನ ಸಿ. 16 ನೇ ಶತಮಾನದ ಮಧ್ಯ CE"
+    },
+    "or": {
+      "name": "ଭବପ୍ରକାଶ",
+      "imageAlt": "ଭବପ୍ରକାଶଙ୍କ 1888 ବଙ୍ଗାଳୀ ମୁଦ୍ରିତ ସଂସ୍କରଣର ଆଖ୍ୟା ପୃଷ୍ଠା (ଉଇକିମିଡ଼ିଆ କମନ୍ସରେ ଏହି ପାଠ୍ୟର କ man ଣସି ପାଣ୍ଡୁଲିପି ଫଟୋ ମିଳିଲା ନାହିଁ)",
+      "description": "ଷୋଡଶ ଶତାବ୍ଦୀର ମଧ୍ୟଭାଗରେ ଚିକିତ୍ସକ ଭବମିଷାଙ୍କ ଦ୍ osed ାରା ରଚନା ହୋଇଥିବା ଭବପ୍ରକାଶ ଲଘୁଟ୍ରାଇଙ୍କର ଅଟେ ଏବଂ ଏହାର ବ୍ୟାପକ ନିଗୁଣ୍ଟୁ (ମ୍ୟାଟେରିଆ ମେଡିକା) ବିଭାଗ ପାଇଁ medic ଷଧୀୟ ଉଦ୍ଭିଦ, ଖଣିଜ ପଦାର୍ଥ ଏବଂ ପ୍ରାଣୀଜାତ ଦ୍ରବ୍ୟ ବର୍ଣ୍ଣନା କରିବା ସହିତ ଆନାଟୋମି, ଭ୍ରୁଣ, ଖାଦ୍ୟ ଏବଂ ରୋଗର ଅଧ୍ୟାୟ ସହିତ ମୂଲ୍ୟବାନ ଅଟେ | ପ୍ରଦର୍ଶିତ ପ୍ରତିଛବି ହେଉଛି 1888 ବଙ୍ଗାଳୀ ମୁଦ୍ରିତ ସଂସ୍କରଣର ଟାଇଟଲ୍ ପୃଷ୍ଠା, ଯେହେତୁ ୱିକିମିଡିଆ କମନ୍ସରେ କ man ଣସି ପାଣ୍ଡୁଲିପି ଫଟୋଗ୍ରାଫ୍ ମିଳିଲା ନାହିଁ |",
+      "era": "ସଂକଳିତ ଗ। ଷୋଡଶ ଶତାବ୍ଦୀର ମଧ୍ୟଭାଗ |"
+    },
+    "gu": {
+      "name": "ભવપ્રકાશા",
+      "imageAlt": "ભાવપ્રકાશની 1888ની બંગાળી મુદ્રિત આવૃત્તિનું શીર્ષક પૃષ્ઠ (વિકિમીડિયા કોમન્સ પર આ લખાણનો કોઈ હસ્તપ્રત ફોટો જોવા મળ્યો નથી)",
+      "description": "16મી સદીના મધ્યમાં ચિકિત્સક ભાવમિશ્ર દ્વારા રચિત, ભવપ્રકાશ લઘુત્રયીની છે અને ખાસ કરીને શરીરરચના, શરીરરચના, આહારશાસ્ત્ર અને રોગના પ્રકરણોની સાથે ઔષધીય વનસ્પતિઓ, ખનિજો અને પ્રાણી ઉત્પાદનોનું વર્ણન કરતા તેના વ્યાપક નિઘન્ટુ (મટેરિયા મેડિકા) વિભાગ માટે મૂલ્યવાન છે. બતાવવામાં આવેલી છબી 1888ની બંગાળી મુદ્રિત આવૃત્તિનું શીર્ષક પૃષ્ઠ છે, કારણ કે વિકિમીડિયા કોમન્સ પર કોઈ હસ્તપ્રત ફોટોગ્રાફ મળ્યો નથી.",
+      "era": "સંકલિત સી. 16મી સદીના મધ્યમાં"
+    },
+    "pa": {
+      "name": "ਭਵਪ੍ਰਕਾਸ਼ਾ",
+      "imageAlt": "ਭਾਵਪ੍ਰਕਾਸ਼ ਦੇ 1888 ਦੇ ਬੰਗਾਲੀ ਛਪੇ ਐਡੀਸ਼ਨ ਦਾ ਸਿਰਲੇਖ ਪੰਨਾ (ਵਿਕੀਮੀਡੀਆ ਕਾਮਨਜ਼ 'ਤੇ ਇਸ ਲਿਖਤ ਦੀ ਕੋਈ ਹੱਥ-ਲਿਖਤ ਫੋਟੋ ਨਹੀਂ ਮਿਲੀ)",
+      "description": "16ਵੀਂ ਸਦੀ ਈਸਵੀ ਦੇ ਅੱਧ ਦੇ ਆਸਪਾਸ ਚਿਕਿਤਸਕ ਭਵਾਮਿਸ਼ਰ ਦੁਆਰਾ ਰਚਿਆ ਗਿਆ, ਭਵਪ੍ਰਕਾਸ਼ ਲਘੁਤਰਾਈ ਨਾਲ ਸਬੰਧਤ ਹੈ ਅਤੇ ਵਿਸ਼ੇਸ਼ ਤੌਰ 'ਤੇ ਸਰੀਰ ਵਿਗਿਆਨ, ਆਹਾਰ ਵਿਗਿਆਨ, ਆਹਾਰ ਵਿਗਿਆਨ ਅਤੇ ਭ੍ਰੂਣ ਵਿਗਿਆਨ ਦੇ ਅਧਿਆਵਾਂ ਦੇ ਨਾਲ-ਨਾਲ ਚਿਕਿਤਸਕ ਪੌਦਿਆਂ, ਖਣਿਜਾਂ ਅਤੇ ਜਾਨਵਰਾਂ ਦੇ ਉਤਪਾਦਾਂ ਦਾ ਵਰਣਨ ਕਰਨ ਵਾਲੇ ਇਸਦੇ ਵਿਆਪਕ ਨਿਘੰਤੂ (ਮੈਟਰੀਆ ਮੈਡਿਕਾ) ਭਾਗ ਲਈ ਮਹੱਤਵਪੂਰਣ ਹੈ। ਦਿਖਾਇਆ ਗਿਆ ਚਿੱਤਰ 1888 ਦੇ ਬੰਗਾਲੀ ਛਪੇ ਐਡੀਸ਼ਨ ਦਾ ਸਿਰਲੇਖ ਪੰਨਾ ਹੈ, ਕਿਉਂਕਿ ਵਿਕੀਮੀਡੀਆ ਕਾਮਨਜ਼ 'ਤੇ ਕੋਈ ਹੱਥ-ਲਿਖਤ ਫੋਟੋ ਨਹੀਂ ਮਿਲੀ ਹੈ।",
+      "era": "ਕੰਪਾਇਲਡ ਸੀ. ਮੱਧ 16ਵੀਂ ਸਦੀ ਈ"
+    },
+    "fr": {
+      "name": "Bhavaprakasha",
+      "imageAlt": "Page de titre d'une édition imprimée en bengali de 1888 du Bhavaprakasha (aucune photo manuscrite de ce texte n'a été trouvée sur Wikimedia Commons)",
+      "description": "Composé par le médecin Bhavamishra vers le milieu du XVIe siècle de notre ère, le Bhavaprakasha appartient aux Laghutrayi et est particulièrement apprécié pour sa vaste section nighantu (matière médicale) décrivant les plantes médicinales, les minéraux et les produits d'origine animale, ainsi que des chapitres sur l'anatomie, l'embryologie, l'alimentation et les maladies. L'image présentée est la page de titre d'une édition imprimée en bengali de 1888, puisqu'aucune photographie manuscrite n'a été trouvée sur Wikimedia Commons.",
+      "era": "Compilé c. milieu du 16ème siècle de notre ère"
+    },
+    "es": {
+      "name": "bhavaprakasha",
+      "imageAlt": "Página de título de una edición impresa en bengalí de 1888 del Bhavaprakasha (no se encontró ninguna fotografía manuscrita de este texto en Wikimedia Commons)",
+      "description": "Compuesto por el médico Bhavamishra a mediados del siglo XVI d.C., el Bhavaprakasha pertenece a los Laghutrayi y es especialmente valorado por su extensa sección nighantu (materia médica) que describe plantas medicinales, minerales y productos animales, junto con capítulos sobre anatomía, embriología, dieta y enfermedades. La imagen mostrada es la portada de una edición impresa bengalí de 1888, ya que no se encontró ninguna fotografía manuscrita en Wikimedia Commons.",
+      "era": "Compilado c. mediados del siglo XVI d.C."
+    },
+    "de": {
+      "name": "Bhavaprakasha",
+      "imageAlt": "Titelseite einer bengalischen Druckausgabe des Bhavaprakasha aus dem Jahr 1888 (auf Wikimedia Commons wurde kein Manuskriptfoto dieses Textes gefunden)",
+      "description": "Das um die Mitte des 16. Jahrhunderts n. Chr. vom Arzt Bhavamishra verfasste Bhavaprakasha gehört zu den Laghutrayi und wird besonders wegen seines umfangreichen Nighantu-Abschnitts (Materia Medica) geschätzt, in dem Heilpflanzen, Mineralien und tierische Produkte beschrieben werden, sowie Kapitel über Anatomie, Embryologie, Ernährung und Krankheiten. Das gezeigte Bild ist die Titelseite einer bengalischen Druckausgabe von 1888, da auf Wikimedia Commons kein Manuskriptfoto gefunden wurde.",
+      "era": "Zusammengestellt c. Mitte des 16. Jahrhunderts n. Chr"
+    },
+    "ru": {
+      "name": "Бхавапракаша",
+      "imageAlt": "Титульный лист бенгальского печатного издания Бхавапракаши 1888 года (на Wikimedia Commons не было обнаружено ни одной рукописной фотографии этого текста)",
+      "description": "Составленная врачом Бхавамишрой примерно в середине XVI века н.э., Бхавапракаша принадлежит к Лагутрайи и особенно ценится за обширный раздел ниханту (материя медика), описывающий лекарственные растения, минералы и продукты животного происхождения, а также главы, посвященные анатомии, эмбриологии, диете и болезням. Показанное изображение является титульным листом бенгальского печатного издания 1888 года, поскольку на Wikimedia Commons не было найдено ни одной фотографии рукописи.",
+      "era": "Составлено c. середина 16 века н.э."
+    },
+    "zh": {
+      "name": "巴瓦普拉卡夏",
+      "imageAlt": "1888 年孟加拉语印刷版 Bhavaprakasha 的扉页（在维基共享资源上未找到该文本的手稿照片）",
+      "description": "《Bhavaprakasha》由医生 Bhavamishra 于公元 16 世纪中叶左右创作，属于 Laghutrayi，因其内容广泛的 nighantu（本草）部分描述药用植物、矿物质和动物产品，以及有关解剖学、胚胎学、饮食和疾病的章节而受到特别重视。所示图像是 1888 年孟加拉语印刷版的扉页，因为在维基共享资源上没有找到手稿照片。",
+      "era": "编译 C.公元16世纪中叶"
+    },
+    "yue": {
+      "name": "巴瓦普拉卡夏",
+      "imageAlt": "1888 年孟加拉语印刷版 Bhavaprakasha 的扉页（在维基共享资源上未找到该文本的手稿照片）",
+      "description": "《Bhavaprakasha》由医生 Bhavamishra 于公元 16 世纪中叶左右创作，属于 Laghutrayi，因其内容广泛的 nighantu（本草）部分描述药用植物、矿物质和动物产品，以及有关解剖学、胚胎学、饮食和疾病的章节而受到特别重视。所示图像是 1888 年孟加拉语印刷版的扉页，因为在维基共享资源上没有找到手稿照片。",
+      "era": "编译 C.公元16世纪中叶"
+    }
+  }
+]
