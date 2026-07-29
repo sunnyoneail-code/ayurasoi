@@ -708,3 +708,37 @@ h1 {
   margin: 14px 0;
   font-size: 0.85rem;
 }
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 8px;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+.checkbox-row input {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.suggestion-warning {
+  margin: 4px 0 10px;
+  font-size: 0.8rem;
+  color: var(--safety-border);
+  background: var(--safety-bg);
+  border: 1px solid var(--safety-border);
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+.suggestion-card-wrap {
+  margin-bottom: 14px;
+}

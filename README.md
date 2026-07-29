@@ -91,7 +91,17 @@ To enable persistent accounts: add `DATABASE_URL=postgresql://...` to `server/.e
 - **Favorites** — the star on any recipe card or detail page saves it to your account (`favorites` table in Postgres). "★ Favorites" in the chip row filters the list down to just your saved recipes.
 - **Ratings & comments** — a 1-5 star picker plus an optional comment on each recipe's detail page (`ratings` table, one rating per user per recipe — resubmitting updates it). Card view shows the average star rating once a recipe has any.
 - **Recipe of the Day** — a banner recipe that's the same for everyone on a given calendar date (deterministic hash of the date string picks the recipe, no backend state needed) and different the next day.
-- **"How are you feeling?" mood recommender** — a free-text box matched against a fixed set of keyword rules (`MOOD_RULES` in `public/app.js`) that map symptoms/moods to a category, then suggests a recipe from that category. Rule-based, not AI — consistent with the rest of the app's free/deterministic approach.
+- **"How are you feeling?" mood recommender** — a free-text box matched against a fixed set of keyword rules (`MOOD_RULES` in `public/app.js`) that map symptoms/moods to a category, then suggests up to 5 recipes from that category (ranked by rating, then personalized — see below). Rule-based, not AI — consistent with the rest of the app's free/deterministic approach.
+
+### Personal health profile (allergies, concerns, cycle tracking)
+
+A "Profile" section, open to every signed-in user (not admin-only), lets someone record allergies, health concerns, and basic cycle info to personalize their own mood-recommender suggestions:
+
+- **Strictly private** — stored in its own `health_profiles` table (`server/healthProfileStore.js`), readable/writable only by the account it belongs to, and deliberately never touched by `/api/admin/dashboard` or any aggregate query. A "Clear my health data" button on the profile page deletes the row outright.
+- **Allergies are a hard filter** — any recipe whose (English) ingredient list matches a declared allergy is excluded from suggestions entirely, since that's a safety issue, not a preference. Matching is keyword-based (`ALLERGY_OPTIONS` in `public/app.js`), so it can't catch every possible phrasing — the ingredient list is still shown on the recipe itself, and this is a helper, not a guarantee.
+- **Health concerns are a soft warning** — checked against each recipe's (English) safety note by keyword (`CONCERN_OPTIONS`). A match doesn't remove the recipe, just ranks it lower and shows a small caution note, since this is a keyword match against free text, not a verified medical exclusion.
+- **Cycle tracking is intentionally minimal** — just a last-period date and average cycle length, used only to estimate whether someone is likely in their period and lean the mood recommender toward "Women's Health" recipes when they haven't typed a specific symptom. It is not a period-tracking calendar or medical prediction tool.
+- **Checkbox option labels are stored as stable English keys** (e.g. `"Milk / Dairy"`) regardless of the UI language they were selected in, so the underlying personalization logic stays consistent — only the *displayed* text is translated.
 - **Real ingredient photos** — ingredient list items and the prep-visual strip show an actual Wikimedia Commons photo matched by ingredient name (`INGREDIENT_IMAGES` in `public/app.js`), falling back to a generic spices photo for anything unmatched, instead of an emoji/icon.
 
 ### Password recovery and Google sign-in

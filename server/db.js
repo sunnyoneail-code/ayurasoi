@@ -2,7 +2,15 @@
 // set, db is null and userStore.js falls back to a local JSON file —
 // that keeps local development working before/without a database.
 
-const { Pool } = require("pg");
+const { Pool, types } = require("pg");
+
+// By default node-postgres parses DATE columns into a JS Date at local
+// midnight, which then shifts by a day when later serialized through
+// UTC (toISOString()) on any machine whose local timezone is ahead of
+// UTC — a real bug caught in health_profiles.last_period_date. DATE
+// columns here are only ever read/written as plain "YYYY-MM-DD"
+// strings, so skip Date parsing entirely and keep the raw string.
+types.setTypeParser(1082, (val) => val);
 
 const pool = process.env.DATABASE_URL
   ? new Pool({
@@ -60,6 +68,23 @@ async function initSchema() {
       user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
       expires_at TIMESTAMPTZ NOT NULL,
       used BOOLEAN NOT NULL DEFAULT false
+    )
+  `);
+
+  // Strictly private per-account data, never exposed via the admin
+  // dashboard — used only to personalize this user's own suggestions
+  // (allergy filtering, concern warnings, cycle-aware timing). Deleting
+  // the account cascades here too; users can also clear it directly via
+  // DELETE /api/profile/health without deleting their account.
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS health_profiles (
+      user_id UUID PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+      last_period_date DATE,
+      average_cycle_length INTEGER,
+      allergies TEXT[] NOT NULL DEFAULT '{}',
+      concerns TEXT[] NOT NULL DEFAULT '{}',
+      other_notes TEXT NOT NULL DEFAULT '',
+      updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
     )
   `);
 }

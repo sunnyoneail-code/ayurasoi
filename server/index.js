@@ -17,6 +17,7 @@ const resetTokens = require("./resetTokenStore");
 const { sendPasswordResetEmail } = require("./email");
 const googleOAuth = require("./googleOAuth");
 const stats = require("./statsStore");
+const healthProfiles = require("./healthProfileStore");
 const { initSchema } = require("./db");
 
 const app = express();
@@ -243,6 +244,61 @@ app.put("/api/auth/demographics", requireAuth, async (req, res) => {
     res.json({ user: withAdminFlag(users.toPublicUser(updated)) });
   } catch (err) {
     res.status(502).json({ error: "Couldn't save that: " + err.message });
+  }
+});
+
+const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+
+function sanitizeStringList(list, maxItems, maxLength) {
+  if (!Array.isArray(list)) return [];
+  return list
+    .filter((s) => typeof s === "string" && s.trim())
+    .slice(0, maxItems)
+    .map((s) => s.trim().slice(0, maxLength));
+}
+
+// Strictly the current user's own data — there is no admin/other-user
+// read path for this route, and it never feeds into /api/admin/dashboard.
+app.get("/api/profile/health", requireAuth, async (req, res) => {
+  try {
+    res.json(await healthProfiles.getProfile(req.session.userId));
+  } catch (err) {
+    const status = err.code === "NO_DB" ? 501 : 502;
+    res.status(status).json({ error: err.message });
+  }
+});
+
+app.put("/api/profile/health", requireAuth, async (req, res) => {
+  try {
+    const { lastPeriodDate, averageCycleLength, allergies, concerns, otherNotes } = req.body || {};
+    if (lastPeriodDate && !DATE_RE.test(lastPeriodDate)) {
+      return res.status(400).json({ error: "Last period date must be in YYYY-MM-DD format." });
+    }
+    const cycleLength = averageCycleLength ? Number(averageCycleLength) : null;
+    if (cycleLength !== null && (!Number.isInteger(cycleLength) || cycleLength < 15 || cycleLength > 60)) {
+      return res.status(400).json({ error: "Average cycle length should be a number of days between 15 and 60." });
+    }
+    const updated = await healthProfiles.upsertProfile(req.session.userId, {
+      lastPeriodDate: lastPeriodDate || null,
+      averageCycleLength: cycleLength,
+      allergies: sanitizeStringList(allergies, 20, 60),
+      concerns: sanitizeStringList(concerns, 20, 60),
+      otherNotes: (otherNotes || "").trim().slice(0, 500)
+    });
+    res.json(updated);
+  } catch (err) {
+    const status = err.code === "NO_DB" ? 501 : 502;
+    res.status(status).json({ error: "Couldn't save that: " + err.message });
+  }
+});
+
+app.delete("/api/profile/health", requireAuth, async (req, res) => {
+  try {
+    await healthProfiles.clearProfile(req.session.userId);
+    res.json({ ok: true });
+  } catch (err) {
+    const status = err.code === "NO_DB" ? 501 : 502;
+    res.status(status).json({ error: err.message });
   }
 });
 

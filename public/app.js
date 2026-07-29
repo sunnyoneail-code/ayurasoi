@@ -213,6 +213,38 @@ const CATEGORY_DEFS = [
 const AGE_RANGES = ["Under 18", "18-24", "25-34", "35-44", "45-54", "55-64", "65+"];
 const GENDER_OPTIONS = ["Female", "Male", "Non-binary"];
 
+// "label" is the stable English key stored in the database and compared
+// against in the personalization logic — never translated, so profile
+// data stays meaningful regardless of which language it was saved in.
+// "key" looks up the translated display text shown to the user.
+// Matched against each recipe's (English) ingredient list — a hard
+// exclude from suggestions, since an allergy is a safety issue, not a
+// preference. Keep patterns broad enough to catch common phrasings
+// ("dairy", "curd", "yogurt" all mean milk-derived, for instance).
+const ALLERGY_OPTIONS = [
+  { label: "Milk / Dairy", key: "allergyMilk", match: /milk|dairy|curd|yogurt|yoghurt|ghee|paneer/i },
+  { label: "Honey", key: "allergyHoney", match: /honey/i },
+  { label: "Nuts / Almonds", key: "allergyNuts", match: /almond|walnut|cashew|pistachio|\bnuts?\b/i },
+  { label: "Sesame", key: "allergySesame", match: /sesame|\btil\b/i },
+  { label: "Gluten / Wheat", key: "allergyGluten", match: /wheat|barley|gluten/i },
+  { label: "Soy", key: "allergySoy", match: /soy/i },
+  { label: "Mustard", key: "allergyMustard", match: /mustard/i }
+];
+
+// Matched against each recipe's (English) safety note — a soft warning
+// shown alongside a suggestion, not a hard exclude, since this is a
+// keyword match against free text, not a verified medical exclusion.
+const CONCERN_OPTIONS = [
+  { label: "Pregnant", key: "concernPregnant", match: /pregnan/i },
+  { label: "Trying to conceive", key: "concernTryingToConceive", match: /pregnan/i },
+  { label: "Diabetes", key: "concernDiabetes", match: /diabet/i },
+  { label: "High blood pressure", key: "concernBloodPressure", match: /blood pressure|hypertension/i },
+  { label: "On blood-thinning medication", key: "concernBloodThinning", match: /blood.?thin|anticoagul/i },
+  { label: "Heart condition", key: "concernHeart", match: /\bheart\b/i },
+  { label: "Thyroid condition", key: "concernThyroid", match: /thyroid/i },
+  { label: "Autoimmune condition", key: "concernAutoimmune", match: /autoimmune/i }
+];
+
 let state = {
   lang: "en",
   category: "all",
@@ -257,7 +289,13 @@ let state = {
   viewingDashboard: false,
   dashboardData: null,
   dashboardStatus: "idle",
-  dashboardError: ""
+  dashboardError: "",
+  viewingProfile: false,
+  healthProfile: { lastPeriodDate: null, averageCycleLength: null, allergies: [], concerns: [], otherNotes: "" },
+  healthProfileForm: { lastPeriodDate: "", averageCycleLength: "", allergies: [], concerns: [], otherNotes: "" },
+  healthProfileStatus: "idle",
+  healthProfileError: "",
+  healthProfileSaved: false
 };
 
 function resetAuthForm() {
@@ -311,6 +349,69 @@ async function loadDashboard() {
   } catch (err) {
     state.dashboardStatus = "error";
     state.dashboardError = err.message;
+  }
+  render();
+}
+
+function profileToForm(profile) {
+  return {
+    lastPeriodDate: profile.lastPeriodDate || "",
+    averageCycleLength: profile.averageCycleLength ? String(profile.averageCycleLength) : "",
+    allergies: [...profile.allergies],
+    concerns: [...profile.concerns],
+    otherNotes: profile.otherNotes || ""
+  };
+}
+
+async function loadHealthProfile() {
+  try {
+    const res = await apiFetch("/api/profile/health");
+    if (res.ok) {
+      state.healthProfile = await res.json();
+      state.healthProfileForm = profileToForm(state.healthProfile);
+    }
+  } catch (err) {
+    // Non-fatal — suggestions just run unpersonalized if this fails.
+  }
+}
+
+async function submitHealthProfile() {
+  const f = state.healthProfileForm;
+  state.healthProfileStatus = "loading";
+  state.healthProfileError = "";
+  state.healthProfileSaved = false;
+  render();
+  try {
+    const res = await apiFetch("/api/profile/health", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(f)
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Unknown error");
+    state.healthProfile = data;
+    state.healthProfileForm = profileToForm(data);
+    state.healthProfileStatus = "idle";
+    state.healthProfileSaved = true;
+  } catch (err) {
+    state.healthProfileStatus = "error";
+    state.healthProfileError = err.message;
+  }
+  render();
+}
+
+async function clearHealthProfileData() {
+  state.healthProfileStatus = "loading";
+  render();
+  try {
+    await apiFetch("/api/profile/health", { method: "DELETE" });
+    state.healthProfile = { lastPeriodDate: null, averageCycleLength: null, allergies: [], concerns: [], otherNotes: "" };
+    state.healthProfileForm = profileToForm(state.healthProfile);
+    state.healthProfileStatus = "idle";
+    state.healthProfileSaved = false;
+  } catch (err) {
+    state.healthProfileStatus = "error";
+    state.healthProfileError = err.message;
   }
   render();
 }
@@ -417,7 +518,7 @@ async function submitSignUp() {
     state.user = data.user;
     state.authView = null;
     resetAuthForm();
-    await Promise.all([loadRecipes(), loadFavorites(), loadRatingsAverages()]);
+    await Promise.all([loadRecipes(), loadFavorites(), loadRatingsAverages(), loadHealthProfile()]);
   } catch (err) {
     state.authStatus = "error";
     state.authError = err.message;
@@ -441,7 +542,7 @@ async function submitSignIn() {
     state.user = data.user;
     state.authView = null;
     resetAuthForm();
-    await Promise.all([loadRecipes(), loadFavorites(), loadRatingsAverages()]);
+    await Promise.all([loadRecipes(), loadFavorites(), loadRatingsAverages(), loadHealthProfile()]);
   } catch (err) {
     state.authStatus = "error";
     state.authError = err.message;
@@ -470,7 +571,7 @@ async function submitCompleteProfile() {
     if (!res.ok) throw new Error(data.error || "Unknown error");
     state.user = data.user;
     state.completeProfileStatus = "idle";
-    await Promise.all([loadRecipes(), loadFavorites(), loadRatingsAverages()]);
+    await Promise.all([loadRecipes(), loadFavorites(), loadRatingsAverages(), loadHealthProfile()]);
   } catch (err) {
     state.completeProfileStatus = "error";
     state.completeProfileError = err.message;
@@ -662,6 +763,12 @@ function render() {
   headerControls.appendChild(langSelect);
   headerControls.appendChild(fontSizeControls());
 
+  if (!state.openRecipe && !state.authView && state.user && !state.user.needsDemographics) {
+    const profileBtn = el("button", "add-recipe-nav-btn", state.viewingProfile ? t.closeProfile : t.profileNav);
+    profileBtn.onclick = () => { state.viewingProfile = !state.viewingProfile; render(); };
+    headerControls.appendChild(profileBtn);
+  }
+
   if (!state.openRecipe && !state.authView && state.user && state.user.isAdmin) {
     const addBtn = el("button", "add-recipe-nav-btn", state.addingRecipe ? t.addRecipeCancel : t.addRecipeNav);
     addBtn.onclick = () => { state.addingRecipe = !state.addingRecipe; render(); };
@@ -737,6 +844,12 @@ function render() {
 
   if (state.viewingDashboard && state.user.isAdmin) {
     app.appendChild(renderDashboard());
+    app.appendChild(renderFooter(t));
+    return;
+  }
+
+  if (state.viewingProfile) {
+    app.appendChild(renderProfile(t));
     app.appendChild(renderFooter(t));
     return;
   }
@@ -845,21 +958,61 @@ const MOOD_RULES = [
   { re: /immun|weak|run down|sick often|fever/i, category: "immunity" }
 ];
 
-function suggestRecipeForMood(input) {
+const MAX_SUGGESTIONS = 5;
+
+// Hard exclude — an allergy is a safety issue, not a preference, so a
+// conflicting recipe never appears in suggestions at all.
+function recipeConflictsWithAllergies(recipe, allergies) {
+  if (!allergies || !allergies.length) return false;
+  const ingredientText = recipe.en.ingredients.join(" ");
+  return ALLERGY_OPTIONS.some((opt) => allergies.includes(opt.label) && opt.match.test(ingredientText));
+}
+
+// Soft warning — a keyword match against the recipe's free-text safety
+// note, not a verified medical exclusion, so conflicting recipes still
+// appear but ranked lower and flagged.
+function recipeConcernWarnings(recipe, concerns) {
+  if (!concerns || !concerns.length) return [];
+  const safetyText = recipe.en.safety || "";
+  return CONCERN_OPTIONS.filter((opt) => concerns.includes(opt.label) && opt.match.test(safetyText)).map((opt) => opt.label);
+}
+
+// A rough single-purpose estimate, not a full cycle tracker — used only
+// to proactively lean toward womens-health recipes around the user's
+// estimated period when they haven't typed a specific mood/symptom.
+function estimateInMenstrualPhase(profile) {
+  if (!profile.lastPeriodDate || !profile.averageCycleLength) return false;
+  const last = new Date(profile.lastPeriodDate + "T00:00:00");
+  const today = new Date();
+  const daysSince = Math.floor((today - last) / (1000 * 60 * 60 * 24));
+  if (daysSince < 0) return false;
+  return (daysSince % profile.averageCycleLength) < 5;
+}
+
+function suggestRecipesForMood(input) {
   const text = (input || "").toLowerCase();
   let matchedCategory = null;
   for (const rule of MOOD_RULES) {
     if (rule.re.test(text)) { matchedCategory = rule.category; break; }
   }
-  const pool = matchedCategory ? RECIPES.filter((r) => r.category === matchedCategory) : RECIPES;
-  if (!pool.length) return { recipe: null, matched: false };
-  let best = pool[0];
-  let bestScore = -1;
-  pool.forEach((r) => {
-    const avg = (RATINGS_AVERAGES[r.id] && RATINGS_AVERAGES[r.id].average) || 0;
-    if (avg > bestScore) { bestScore = avg; best = r; }
-  });
-  return { recipe: best, matched: !!matchedCategory };
+  if (!matchedCategory && !text.trim() && estimateInMenstrualPhase(state.healthProfile)) {
+    matchedCategory = "womens-health";
+  }
+
+  const allergies = state.healthProfile.allergies || [];
+  const concerns = state.healthProfile.concerns || [];
+  const pool = (matchedCategory ? RECIPES.filter((r) => r.category === matchedCategory) : RECIPES)
+    .filter((r) => !recipeConflictsWithAllergies(r, allergies));
+
+  const ranked = pool
+    .map((r) => ({
+      recipe: r,
+      average: (RATINGS_AVERAGES[r.id] && RATINGS_AVERAGES[r.id].average) || 0,
+      concernWarnings: recipeConcernWarnings(r, concerns)
+    }))
+    .sort((a, b) => (a.concernWarnings.length - b.concernWarnings.length) || (b.average - a.average));
+
+  return { matched: !!matchedCategory, suggestions: ranked.slice(0, MAX_SUGGESTIONS) };
 }
 
 function renderMoodPicker(t) {
@@ -879,17 +1032,25 @@ function renderMoodPicker(t) {
   wrap.appendChild(input);
 
   const submitBtn = el("button", "walkthrough-btn", t.moodSubmit);
-  submitBtn.onclick = () => { state.moodPick = suggestRecipeForMood(state.moodInputText); render(); };
+  submitBtn.onclick = () => { state.moodPick = suggestRecipesForMood(state.moodInputText); render(); };
   wrap.appendChild(submitBtn);
 
   if (state.moodPick) {
     if (!state.moodPick.matched) wrap.appendChild(el("p", "media-note", t.moodNoMatch));
-    if (state.moodPick.recipe) {
-      const card = renderCard(state.moodPick.recipe, t);
-      const pickedId = state.moodPick.recipe.id;
-      card.onclick = () => { state.moodOpen = false; state.openRecipe = pickedId; loadRatingForRecipe(pickedId); render(); };
-      wrap.appendChild(card);
+    if (!state.moodPick.suggestions.length) {
+      wrap.appendChild(el("p", "no-results", t.moodNoSuggestions));
     }
+    state.moodPick.suggestions.forEach(({ recipe, concernWarnings }) => {
+      const cardWrap = el("div", "suggestion-card-wrap");
+      if (concernWarnings.length) {
+        const translated = concernWarnings.map((label) => translateOptionLabel(t, CONCERN_OPTIONS, label));
+        cardWrap.appendChild(el("p", "suggestion-warning", t.concernWarningPrefix + translated.join(", ")));
+      }
+      const card = renderCard(recipe, t);
+      card.onclick = () => { state.moodOpen = false; state.openRecipe = recipe.id; loadRatingForRecipe(recipe.id); render(); };
+      cardWrap.appendChild(card);
+      wrap.appendChild(cardWrap);
+    });
   }
 
   return wrap;
@@ -1006,6 +1167,80 @@ function renderGate(t) {
 // sign-ins skip the sign-up form entirely, and this also catches the
 // handful of accounts that predate demographics being required. Blocks
 // the rest of the app the same way the anonymous gate screen does.
+function checkboxGroup(t, title, options, selectedList, onToggle) {
+  const wrap = el("div", "form-field");
+  wrap.appendChild(el("label", "form-label", title));
+  const grid = el("div", "checkbox-grid");
+  options.forEach((opt) => {
+    const row = el("label", "checkbox-row");
+    const box = document.createElement("input");
+    box.type = "checkbox";
+    box.checked = selectedList.includes(opt.label);
+    box.onchange = () => onToggle(opt.label, box.checked);
+    row.appendChild(box);
+    row.appendChild(document.createTextNode(t[opt.key] || opt.label));
+    grid.appendChild(row);
+  });
+  wrap.appendChild(grid);
+  return wrap;
+}
+
+// English label -> translated display text, for showing a user's
+// previously-saved (always-English) selections in their current language.
+function translateOptionLabel(t, options, label) {
+  const opt = options.find((o) => o.label === label);
+  return opt ? (t[opt.key] || label) : label;
+}
+
+function renderProfile(t) {
+  const wrap = el("div", "detail");
+  const backBtn = el("button", "back-btn", t.back);
+  backBtn.onclick = () => { state.viewingProfile = false; render(); };
+  wrap.appendChild(backBtn);
+
+  wrap.appendChild(el("h2", null, t.profileTitle));
+  wrap.appendChild(el("p", "card-purpose", t.profilePrivacyNote));
+
+  const f = state.healthProfileForm;
+
+  wrap.appendChild(el("h4", null, t.profileCycleHeading));
+  wrap.appendChild(el("p", "media-note", t.profileCycleHelp));
+  wrap.appendChild(labeledInput(t.profileLastPeriodLabel, "date", f.lastPeriodDate, (v) => { f.lastPeriodDate = v; }));
+  wrap.appendChild(labeledInput(t.profileCycleLengthLabel, "number", f.averageCycleLength, (v) => { f.averageCycleLength = v; }));
+
+  wrap.appendChild(el("h4", null, t.profileAllergiesHeading));
+  wrap.appendChild(checkboxGroup(t, t.profileAllergiesHelp, ALLERGY_OPTIONS, f.allergies, (label, checked) => {
+    f.allergies = checked ? [...f.allergies, label] : f.allergies.filter((a) => a !== label);
+  }));
+
+  wrap.appendChild(el("h4", null, t.profileConcernsHeading));
+  wrap.appendChild(checkboxGroup(t, t.profileConcernsHelp, CONCERN_OPTIONS, f.concerns, (label, checked) => {
+    f.concerns = checked ? [...f.concerns, label] : f.concerns.filter((c) => c !== label);
+  }));
+
+  wrap.appendChild(labeledInput(t.profileOtherNotesLabel, "text", f.otherNotes, (v) => { f.otherNotes = v; }));
+
+  if (state.healthProfileStatus === "error") {
+    wrap.appendChild(el("p", "media-note error-note", t.authErrorPrefix + state.healthProfileError));
+  }
+  if (state.healthProfileSaved && state.healthProfileStatus === "idle") {
+    wrap.appendChild(el("p", "media-note", t.profileSaved));
+  }
+
+  const saveBtn = el("button", "walkthrough-btn", state.healthProfileStatus === "loading" ? t.completeProfileSubmitting : t.profileSave);
+  saveBtn.disabled = state.healthProfileStatus === "loading";
+  saveBtn.onclick = submitHealthProfile;
+  wrap.appendChild(saveBtn);
+
+  const clearBtn = el("button", "walkthrough-btn secondary", t.profileClear);
+  clearBtn.onclick = () => {
+    if (window.confirm(t.profileClearConfirm)) clearHealthProfileData();
+  };
+  wrap.appendChild(clearBtn);
+
+  return wrap;
+}
+
 function renderCompleteProfile(t) {
   const wrap = el("div", "detail gate-screen");
   wrap.appendChild(el("h2", null, t.completeProfileTitle));
@@ -1485,7 +1720,7 @@ Promise.all([
     UI_TEXT = uiText;
     state.user = authMe.user;
     AMAZON_AFFILIATE_TAG = config.amazonAffiliateTag;
-    if (state.user) await Promise.all([loadRecipes(), loadFavorites(), loadRatingsAverages()]);
+    if (state.user) await Promise.all([loadRecipes(), loadFavorites(), loadRatingsAverages(), loadHealthProfile()]);
     state.loading = false;
     render();
   })
