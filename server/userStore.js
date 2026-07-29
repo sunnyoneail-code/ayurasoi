@@ -29,6 +29,7 @@ function rowToUser(row) {
       gender: row.gender ?? row.demographics?.gender ?? "",
       country: row.country ?? row.demographics?.country ?? ""
     },
+    emailOptIn: row.email_opt_in ?? row.emailOptIn ?? true,
     createdAt: row.created_at || row.createdAt
   };
 }
@@ -115,10 +116,31 @@ function hasCompleteDemographics(user) {
   return Boolean(d.ageRange && d.gender && d.country);
 }
 
+// Only ever used by the digest send route — never exposes password
+// hashes or any other field, just enough to address and greet each email.
+async function listOptedInForDigest() {
+  if (pool) {
+    const { rows } = await pool.query("SELECT id, name, email FROM users WHERE email_opt_in = true");
+    return rows;
+  }
+  const list = readUsersFile();
+  return list.filter((u) => u.emailOptIn !== false).map((u) => ({ id: u.id, name: u.name, email: u.email }));
+}
+
+async function setEmailOptIn(userId, optIn) {
+  if (pool) {
+    await pool.query("UPDATE users SET email_opt_in = $1 WHERE id = $2", [optIn, userId]);
+    return;
+  }
+  const list = readUsersFile();
+  const user = list.find((u) => u.id === userId);
+  if (user) { user.emailOptIn = optIn; writeUsersFile(list); }
+}
+
 function toPublicUser(user) {
   if (!user) return null;
   const { passwordHash, ...publicFields } = user;
   return publicFields;
 }
 
-module.exports = { findByEmail, findById, findByGoogleId, addUser, setPasswordHash, toPublicUser, updateDemographics, hasCompleteDemographics };
+module.exports = { findByEmail, findById, findByGoogleId, addUser, setPasswordHash, toPublicUser, updateDemographics, hasCompleteDemographics, listOptedInForDigest, setEmailOptIn };

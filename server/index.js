@@ -14,10 +14,11 @@ const users = require("./userStore");
 const favorites = require("./favoritesStore");
 const ratings = require("./ratingsStore");
 const resetTokens = require("./resetTokenStore");
-const { sendPasswordResetEmail } = require("./email");
+const { sendPasswordResetEmail, sendDigestEmail } = require("./email");
 const googleOAuth = require("./googleOAuth");
 const stats = require("./statsStore");
 const healthProfiles = require("./healthProfileStore");
+const digest = require("./digest");
 const { initSchema } = require("./db");
 
 const app = express();
@@ -308,6 +309,75 @@ app.get("/api/admin/dashboard", requireAdmin, async (req, res) => {
   } catch (err) {
     const status = err.code === "NO_DB" ? 501 : 502;
     res.status(status).json({ error: err.message });
+  }
+});
+
+// Compiles what a digest would contain right now — the automated parts
+// (Recipe of the Day, PubMed picks) plus a recipient count — WITHOUT
+// sending anything. The admin fills in the wellness tip client-side and
+// only /api/admin/digest/send actually dispatches email.
+app.get("/api/admin/digest/preview", requireAdmin, async (req, res) => {
+  try {
+    const recipeOfDay = digest.recipeOfDayForDate(new Date());
+    const pubmedPicks = await digest.fetchPubMedPicks();
+    const recipients = await users.listOptedInForDigest();
+    res.json({
+      recipeOfDay: recipeOfDay ? { id: recipeOfDay.id, name: recipeOfDay.en.name, purpose: recipeOfDay.en.purpose } : null,
+      pubmedPicks,
+      recipientCount: recipients.length
+    });
+  } catch (err) {
+    res.status(502).json({ error: err.message });
+  }
+});
+
+// The one real "send a message on the user's behalf" action in this
+// app — requires an explicit confirm:true from the admin every time
+// (no scheduled/recurring auto-send), and reuses the exact PubMed picks
+// and Recipe of the Day the admin already saw in the preview call.
+app.post("/api/admin/digest/send", requireAdmin, async (req, res) => {
+  try {
+    const { subject, tipTitle, tipText, confirm } = req.body || {};
+    if (!confirm) return res.status(400).json({ error: "Missing confirmation — this endpoint requires confirm: true." });
+    if (!subject || !subject.trim()) return res.status(400).json({ error: "Subject is required." });
+
+    const recipeOfDay = digest.recipeOfDayForDate(new Date());
+    const pubmedPicks = await digest.fetchPubMedPicks();
+    const content = digest.buildDigestContent({ tipTitle, tipText, recipeOfDay, pubmedPicks });
+    const recipients = await users.listOptedInForDigest();
+    const base = process.env.APP_BASE_URL || `${req.protocol}://${req.get("host")}`;
+
+    let sent = 0;
+    const failed = [];
+    for (const recipient of recipients) {
+      try {
+        const unsubscribeLink = digest.buildUnsubscribeLink(base, recipient.id);
+        await sendDigestEmail(recipient.email, recipient.name, subject, content, unsubscribeLink);
+        sent += 1;
+      } catch (err) {
+        failed.push({ email: recipient.email, error: err.message });
+      }
+    }
+    res.json({ sent, failed, totalRecipients: recipients.length });
+  } catch (err) {
+    res.status(502).json({ error: err.message });
+  }
+});
+
+// Public, no login required — email clients only support plain GET
+// links. Verifies the HMAC token before flipping the opt-in flag, then
+// redirects into the SPA so it can show a confirmation message.
+app.get("/api/digest/unsubscribe", async (req, res) => {
+  const { uid, token } = req.query;
+  const base = process.env.APP_BASE_URL || `${req.protocol}://${req.get("host")}`;
+  if (!uid || !token || !digest.verifyUnsubscribeToken(uid, token)) {
+    return res.redirect(`${base}/?unsubscribed=invalid`);
+  }
+  try {
+    await users.setEmailOptIn(uid, false);
+    res.redirect(`${base}/?unsubscribed=1`);
+  } catch (err) {
+    res.redirect(`${base}/?unsubscribed=error`);
   }
 });
 

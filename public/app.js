@@ -295,7 +295,18 @@ let state = {
   healthProfileForm: { lastPeriodDate: "", averageCycleLength: "", allergies: [], concerns: [], otherNotes: "" },
   healthProfileStatus: "idle",
   healthProfileError: "",
-  healthProfileSaved: false
+  healthProfileSaved: false,
+  viewingDigest: false,
+  digestPreview: null,
+  digestPreviewStatus: "idle",
+  digestSubject: "Your AyurRasoi Weekly",
+  digestTipTitle: "",
+  digestTipText: "",
+  digestSendConfirmed: false,
+  digestSendStatus: "idle",
+  digestSendResult: null,
+  digestSendError: "",
+  unsubscribeNotice: null
 };
 
 function resetAuthForm() {
@@ -349,6 +360,53 @@ async function loadDashboard() {
   } catch (err) {
     state.dashboardStatus = "error";
     state.dashboardError = err.message;
+  }
+  render();
+}
+
+async function loadDigestPreview() {
+  state.digestPreviewStatus = "loading";
+  state.digestSendConfirmed = false;
+  state.digestSendResult = null;
+  state.digestSendError = "";
+  render();
+  try {
+    const res = await apiFetch("/api/admin/digest/preview");
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Unknown error");
+    state.digestPreview = data;
+    state.digestPreviewStatus = "idle";
+  } catch (err) {
+    state.digestPreviewStatus = "error";
+    state.digestSendError = err.message;
+  }
+  render();
+}
+
+async function submitSendDigest() {
+  if (!state.digestSendConfirmed) return;
+  state.digestSendStatus = "loading";
+  state.digestSendError = "";
+  render();
+  try {
+    const res = await apiFetch("/api/admin/digest/send", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        subject: state.digestSubject,
+        tipTitle: state.digestTipTitle,
+        tipText: state.digestTipText,
+        confirm: true
+      })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Unknown error");
+    state.digestSendResult = data;
+    state.digestSendStatus = "idle";
+    state.digestSendConfirmed = false;
+  } catch (err) {
+    state.digestSendStatus = "error";
+    state.digestSendError = err.message;
   }
   render();
 }
@@ -781,6 +839,14 @@ function render() {
       render();
     };
     headerControls.appendChild(dashboardBtn);
+
+    const digestBtn = el("button", "add-recipe-nav-btn", state.viewingDigest ? "Close digest" : "Digest");
+    digestBtn.onclick = () => {
+      state.viewingDigest = !state.viewingDigest;
+      if (state.viewingDigest) loadDigestPreview();
+      render();
+    };
+    headerControls.appendChild(digestBtn);
   }
 
   if (state.user) {
@@ -800,6 +866,19 @@ function render() {
   titleRow.appendChild(headerControls);
   header.appendChild(titleRow);
   app.appendChild(header);
+
+  if (state.unsubscribeNotice) {
+    const noticeKey = state.unsubscribeNotice === "1" ? "unsubscribeSuccess"
+      : state.unsubscribeNotice === "invalid" ? "unsubscribeInvalid"
+      : "unsubscribeErrorGeneric";
+    const notice = el("p", "media-note", (t[noticeKey] || "") + "  ");
+    const dismiss = document.createElement("a");
+    dismiss.textContent = "×";
+    dismiss.style.cursor = "pointer";
+    dismiss.onclick = () => { state.unsubscribeNotice = null; render(); };
+    notice.appendChild(dismiss);
+    app.appendChild(notice);
+  }
 
   if (state.loading) {
     app.appendChild(el("p", "no-results", t.loading));
@@ -844,6 +923,12 @@ function render() {
 
   if (state.viewingDashboard && state.user.isAdmin) {
     app.appendChild(renderDashboard());
+    app.appendChild(renderFooter(t));
+    return;
+  }
+
+  if (state.viewingDigest && state.user.isAdmin) {
+    app.appendChild(renderDigestComposer());
     app.appendChild(renderFooter(t));
     return;
   }
@@ -1297,6 +1382,83 @@ function statBarGroup(title, rows) {
   return wrap;
 }
 
+// Admin-only, English-only (internal tooling, same reasoning as the
+// dashboard). Deliberately has real friction before the actual send —
+// a confirmation checkbox that must be ticked, spelling out the exact
+// recipient count, since this is the one place in the app that emails
+// real users and there is no scheduled/automatic path to this action.
+function renderDigestComposer() {
+  const wrap = el("div", "detail");
+  const backBtn = el("button", "back-btn", "← Back");
+  backBtn.onclick = () => { state.viewingDigest = false; render(); };
+  wrap.appendChild(backBtn);
+  wrap.appendChild(el("h2", null, "Weekly digest"));
+
+  if (state.digestPreviewStatus === "loading" && !state.digestPreview) {
+    wrap.appendChild(el("p", "no-results", "Loading…"));
+    return wrap;
+  }
+
+  const preview = state.digestPreview;
+  if (preview) {
+    wrap.appendChild(el("h4", null, "Recipe of the Day (automatic)"));
+    wrap.appendChild(el("p", "card-purpose", preview.recipeOfDay ? `${preview.recipeOfDay.name} — ${preview.recipeOfDay.purpose}` : "None available."));
+
+    wrap.appendChild(el("h4", null, "Ayurveda research picks (automatic, PubMed)"));
+    if (preview.pubmedPicks.length) {
+      const list = el("ul", "dashboard-list");
+      preview.pubmedPicks.forEach((p) => {
+        list.appendChild(el("li", null, `${p.label}: ${p.title}${p.journal ? " — " + p.journal : ""}`));
+      });
+      wrap.appendChild(list);
+    } else {
+      wrap.appendChild(el("p", "media-note", "No picks available right now."));
+    }
+
+    wrap.appendChild(el("h4", null, "Wellness tip (you write this)"));
+    wrap.appendChild(labeledInput("Tip title", "text", state.digestTipTitle, (v) => { state.digestTipTitle = v; }));
+    const tipWrap = el("div", "form-field");
+    tipWrap.appendChild(el("label", "form-label", "Tip text"));
+    const tipArea = document.createElement("textarea");
+    tipArea.className = "add-recipe-textarea";
+    tipArea.style.minHeight = "80px";
+    tipArea.value = state.digestTipText;
+    tipArea.oninput = (e) => { state.digestTipText = e.target.value; };
+    tipWrap.appendChild(tipArea);
+    wrap.appendChild(tipWrap);
+
+    wrap.appendChild(labeledInput("Subject line", "text", state.digestSubject, (v) => { state.digestSubject = v; }));
+
+    const recipientNote = el("p", "media-note");
+    recipientNote.innerHTML = `This will send to <strong>${preview.recipientCount}</strong> opted-in subscriber${preview.recipientCount === 1 ? "" : "s"}.`;
+    wrap.appendChild(recipientNote);
+
+    if (state.digestSendResult) {
+      const r = state.digestSendResult;
+      wrap.appendChild(el("p", "media-note", `Sent to ${r.sent} of ${r.totalRecipients}.${r.failed.length ? " " + r.failed.length + " failed." : ""}`));
+    }
+    if (state.digestSendStatus === "error") {
+      wrap.appendChild(el("p", "media-note error-note", state.digestSendError));
+    }
+
+    const confirmRow = el("label", "checkbox-row");
+    const confirmBox = document.createElement("input");
+    confirmBox.type = "checkbox";
+    confirmBox.checked = state.digestSendConfirmed;
+    confirmBox.onchange = (e) => { state.digestSendConfirmed = e.target.checked; render(); };
+    confirmRow.appendChild(confirmBox);
+    confirmRow.appendChild(document.createTextNode(`I understand this will immediately email all ${preview.recipientCount} subscribers.`));
+    wrap.appendChild(confirmRow);
+
+    const sendBtn = el("button", "walkthrough-btn", state.digestSendStatus === "loading" ? "Sending…" : `Send to ${preview.recipientCount} subscribers`);
+    sendBtn.disabled = !state.digestSendConfirmed || state.digestSendStatus === "loading";
+    sendBtn.onclick = submitSendDigest;
+    wrap.appendChild(sendBtn);
+  }
+
+  return wrap;
+}
+
 function renderDashboard() {
   const wrap = el("div", "detail");
   const backBtn = el("button", "back-btn", "← Back");
@@ -1704,6 +1866,11 @@ if (authErrorFromUrl) {
   state.authView = "signin";
   state.authStatus = "error";
   state.authError = authErrorFromUrl;
+  window.history.replaceState({}, "", startupUrl.pathname);
+}
+const unsubscribedFromUrl = startupUrl.searchParams.get("unsubscribed");
+if (unsubscribedFromUrl) {
+  state.unsubscribeNotice = unsubscribedFromUrl;
   window.history.replaceState({}, "", startupUrl.pathname);
 }
 

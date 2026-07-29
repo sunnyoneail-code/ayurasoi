@@ -40,6 +40,9 @@ async function initSchema() {
   // the original schema, so this only matters for fresh databases.
   await pool.query(`ALTER TABLE users ALTER COLUMN password_hash DROP NOT NULL`).catch(() => {});
   await pool.query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS google_id TEXT UNIQUE`).catch(() => {});
+  // Defaults to true (opted in) for everyone, including existing accounts
+  // — flipped false via the one-click unsubscribe link in digest emails.
+  await pool.query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS email_opt_in BOOLEAN NOT NULL DEFAULT true`).catch(() => {});
 
   await pool.query(`
     CREATE TABLE IF NOT EXISTS favorites (

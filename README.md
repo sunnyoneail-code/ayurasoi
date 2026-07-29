@@ -86,6 +86,16 @@ To enable persistent accounts: add `DATABASE_URL=postgresql://...` to `server/.e
 
 **Admin dashboard** — a "Dashboard" button (same admin-only gating as "Add recipe") shows aggregate stats pulled live from Postgres: total users, new signups (7/30 days), sign-up method (password vs. Google), age/gender/country breakdowns, total favorites/ratings, most-favorited recipes, top-rated recipes, and favorites by category. Requires `DATABASE_URL` to be set (same as favorites/ratings) — it's read-only aggregate queries, no new tables. Deliberately kept English-only rather than run through the translation pipeline, since it's internal tooling for the site owner, not user-facing content.
 
+### Weekly digest email
+
+A "Digest" admin panel (`server/digest.js` + the `/api/admin/digest/*` routes) composes and sends a weekly email via SendGrid:
+
+- **Recipe of the Day** — reuses the exact same deterministic pick the app itself shows that day, ported to Node (`digest.recipeOfDayForDate`).
+- **Ayurveda research picks** — pulled live from two distinct PubMed searches (clinical trials; reviews/mechanisms) via NCBI's free, keyless E-utilities API, not any individual journal's RSS feed — those proved fragile (redirects, platform moves, blocked scraping) when checked directly.
+- **Wellness tip** — written by the admin each send, not automated.
+- **No scheduled/automatic sending.** The admin previews the compiled content (`GET /api/admin/digest/preview`, read-only), then must explicitly tick a confirmation checkbox naming the exact recipient count before the send button enables. `POST /api/admin/digest/send` also requires an explicit `confirm: true` server-side. This is the one place in the app that emails real users on someone's behalf, so it's deliberately friction-heavy and never automatic.
+- **One-click unsubscribe** — every digest email includes a link with a stateless HMAC-signed token (`digest.unsubscribeToken`, keyed off `SESSION_SECRET`) rather than a stored token table. `GET /api/digest/unsubscribe` verifies it and flips a new `email_opt_in` column (defaults `true`) before redirecting back into the app with a confirmation banner. Only opted-in users are ever included in a send.
+
 ### Making it stickier: favorites, ratings, a daily pick, and a mood-based recommender
 
 - **Favorites** — the star on any recipe card or detail page saves it to your account (`favorites` table in Postgres). "★ Favorites" in the chip row filters the list down to just your saved recipes.

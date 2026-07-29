@@ -131,6 +131,9 @@
     "resetPasswordHelp": "Enter your account email and we'll send a reset link.",
     "sendResetLink": "Send reset link",
     "resetLinkSent": "If that email has an account, a reset link is on its way.",
+    "unsubscribeSuccess": "You've been unsubscribed from AyurRasoi emails.",
+    "unsubscribeInvalid": "That unsubscribe link isn't valid.",
+    "unsubscribeErrorGeneric": "Something went wrong processing that request.",
     "newPasswordLabel": "New password",
     "resetPasswordSubmit": "Set new password",
     "resetPasswordSuccess": "Password updated. You can sign in now.",
@@ -272,7 +275,10 @@
     "concernBloodThinning": "खून पतला करने वाली दवा पर",
     "concernHeart": "हृदय की स्थिति",
     "concernThyroid": "थायराइड की स्थिति",
-    "concernAutoimmune": "स्वप्रतिरक्षी स्थिति"
+    "concernAutoimmune": "स्वप्रतिरक्षी स्थिति",
+    "unsubscribeSuccess": "आपको AyurRasoi ईमेल से सदस्यता समाप्त कर दी गई है।",
+    "unsubscribeInvalid": "वह सदस्यता समाप्त लिंक मान्य नहीं है.",
+    "unsubscribeErrorGeneric": "उस अनुरोध को संसाधित करते समय कुछ गलत हो गया।"
   },
   "bn": {
     "title": "আয়ুররসোই",
@@ -410,7 +416,10 @@
     "concernBloodThinning": "রক্ত পাতলা করার ওষুধে",
     "concernHeart": "হার্টের অবস্থা",
     "concernThyroid": "থাইরয়েড অবস্থা",
-    "concernAutoimmune": "অটোইমিউন অবস্থা"
+    "concernAutoimmune": "অটোইমিউন অবস্থা",
+    "unsubscribeSuccess": "আপনি AyurRasoi ইমেল থেকে সদস্যতা বাতিল করা হয়েছে.",
+    "unsubscribeInvalid": "যে আনসাবস্ক্রাইব লিঙ্ক বৈধ নয়.",
+    "unsubscribeErrorGeneric": "অনুরোধটি প্রক্রিয়া করার সময় কিছু ভুল হয়েছে।"
   },
   "mr": {
     "title": "आयुर्रासोई",
@@ -548,7 +557,10 @@
     "concernBloodThinning": "रक्त पातळ करणाऱ्या औषधांवर",
     "concernHeart": "हृदयाची स्थिती",
     "concernThyroid": "थायरॉईड स्थिती",
-    "concernAutoimmune": "स्वयंप्रतिकार स्थिती"
+    "concernAutoimmune": "स्वयंप्रतिकार स्थिती",
+    "unsubscribeSuccess": "तुम्ही AyurRasoi ईमेलचे सदस्यत्व रद्द केले आहे.",
+    "unsubscribeInvalid": "ती सदस्यता रद्द करण्याची लिंक वैध नाही.",
+    "unsubscribeErrorGeneric": "त्या विनंतीवर प्रक्रिया करताना काहीतरी चूक झाली."
   },
   "ta": {
     "title": "ஆயுர்ரசோய்",
@@ -686,7 +698,10 @@
     "concernBloodThinning": "இரத்தத்தை மெலிக்கும் மருந்தில்",
     "concernHeart": "இதய நிலை",
     "concernThyroid": "தைராய்டு நிலை",
-    "concernAutoimmune": "ஆட்டோ இம்யூன் நிலை"
+    "concernAutoimmune": "ஆட்டோ இம்யூன் நிலை",
+    "unsubscribeSuccess": "AyurRasoi மின்னஞ்சல்களிலிருந்து நீங்கள் குழுவிலகியுள்ளீர்கள்.",
+    "unsubscribeInvalid": "அந்த குழுவிலகல் இணைப்பு தவறானது.",
+    "unsubscribeErrorGeneric": "அந்தக் கோரிக்கையைச் செயல்படுத்துவதில் ஏதோ தவறு ஏற்பட்டது."
   },
   "te": {
     "title": "ఆయుర్ రసోయ్",
@@ -824,7 +839,10 @@
     "concernBloodThinning": "రక్తాన్ని పలచబరిచే మందులపై",
     "concernHeart": "గుండె పరిస్థితి",
     "concernThyroid": "థైరాయిడ్ పరిస్థితి",
-    "concernAutoimmune": "ఆటో ఇమ్యూన్ పరిస్థితి"
+    "concernAutoimmune": "ఆటో ఇమ్యూన్ పరిస్థితి",
+    "unsubscribeSuccess": "మీరు AyurRasoi ఇమెయిల్‌ల నుండి అన్‌సబ్‌స్క్రైబ్ చేయబడ్డారు.",
+    "unsubscribeInvalid": "ఆ అన్‌సబ్‌స్క్రైబ్ లింక్ చెల్లదు.",
+    "unsubscribeErrorGeneric": "ఆ అభ్యర్థనను ప్రాసెస్ చేయడంలో ఏదో తప్పు జరిగింది."
   },
   "kn": {
     "title": "ಆಯುರ್ರಾಸೋಯಿ",
@@ -962,7 +980,10 @@
     "concernBloodThinning": "ರಕ್ತ ತೆಳುಗೊಳಿಸುವ ಔಷಧಿಗಳ ಮೇಲೆ",
     "concernHeart": "ಹೃದಯ ಸ್ಥಿತಿ",
     "concernThyroid": "ಥೈರಾಯ್ಡ್ ಸ್ಥಿತಿ",
-    "concernAutoimmune": "ಆಟೋಇಮ್ಯೂನ್ ಸ್ಥಿತಿ"
+    "concernAutoimmune": "ಆಟೋಇಮ್ಯೂನ್ ಸ್ಥಿತಿ",
+    "unsubscribeSuccess": "ನೀವು AyurRasoi ಇಮೇಲ್‌ಗಳಿಂದ ಅನ್‌ಸಬ್‌ಸ್ಕ್ರೈಬ್ ಆಗಿರುವಿರಿ.",
+    "unsubscribeInvalid": "ಆ ಅನ್‌ಸಬ್‌ಸ್ಕ್ರೈಬ್ ಲಿಂಕ್ ಮಾನ್ಯವಾಗಿಲ್ಲ.",
+    "unsubscribeErrorGeneric": "ಆ ವಿನಂತಿಯನ್ನು ಪ್ರಕ್ರಿಯೆಗೊಳಿಸುವಾಗ ಏನೋ ತಪ್ಪಾಗಿದೆ."
   },
   "or": {
     "title": "ଆୟୁର୍ ରସୋଇ |",
@@ -1100,7 +1121,10 @@
     "concernBloodThinning": "ରକ୍ତ-ପତଳା ication ଷଧ ଉପରେ |",
     "concernHeart": "ହୃଦୟ ଅବସ୍ଥା",
     "concernThyroid": "ଥାଇରଏଡ୍ ଅବସ୍ଥା |",
-    "concernAutoimmune": "ଅଟୋମ୍ୟୁମ୍ୟୁନ୍ ସ୍ଥିତି |"
+    "concernAutoimmune": "ଅଟୋମ୍ୟୁମ୍ୟୁନ୍ ସ୍ଥିତି |",
+    "unsubscribeSuccess": "ତୁମେ ଆୟୁର୍ ରସୋଇ ଇମେଲରୁ ସଦସ୍ୟତା ଗ୍ରହଣ କରିଛ |",
+    "unsubscribeInvalid": "ସେହି ସଦସ୍ୟତା ଲିଙ୍କ ବ valid ଧ ନୁହେଁ |",
+    "unsubscribeErrorGeneric": "ସେହି ଅନୁରୋଧ ପ୍ରକ୍ରିୟାକରଣରେ କିଛି ଭୁଲ ହୋଇଗଲା |"
   },
   "gu": {
     "title": "આયુરરાસોઈ",
@@ -1238,7 +1262,10 @@
     "concernBloodThinning": "લોહી પાતળું કરવાની દવા પર",
     "concernHeart": "હૃદયની સ્થિતિ",
     "concernThyroid": "થાઇરોઇડની સ્થિતિ",
-    "concernAutoimmune": "સ્વયંપ્રતિરક્ષા સ્થિતિ"
+    "concernAutoimmune": "સ્વયંપ્રતિરક્ષા સ્થિતિ",
+    "unsubscribeSuccess": "તમે AyurRasoi ઇમેઇલ્સમાંથી અનસબ્સ્ક્રાઇબ કરવામાં આવ્યા છો.",
+    "unsubscribeInvalid": "તે અનસબ્સ્ક્રાઇબ લિંક માન્ય નથી.",
+    "unsubscribeErrorGeneric": "તે વિનંતી પર પ્રક્રિયા કરવામાં કંઈક ખોટું થયું."
   },
   "pa": {
     "title": "ਆਯੁਰਰਾਸੋਈ",
@@ -1376,7 +1403,10 @@
     "concernBloodThinning": "ਖੂਨ ਪਤਲਾ ਕਰਨ ਵਾਲੀ ਦਵਾਈ 'ਤੇ",
     "concernHeart": "ਦਿਲ ਦੀ ਸਥਿਤੀ",
     "concernThyroid": "ਥਾਈਰੋਇਡ ਦੀ ਸਥਿਤੀ",
-    "concernAutoimmune": "ਆਟੋਇਮਿਊਨ ਸਥਿਤੀ"
+    "concernAutoimmune": "ਆਟੋਇਮਿਊਨ ਸਥਿਤੀ",
+    "unsubscribeSuccess": "ਤੁਹਾਨੂੰ AyurRasoi ਈਮੇਲਾਂ ਤੋਂ ਗਾਹਕੀ ਹਟਾ ਦਿੱਤੀ ਗਈ ਹੈ।",
+    "unsubscribeInvalid": "ਉਹ ਗਾਹਕੀ ਰੱਦ ਕਰਨ ਵਾਲਾ ਲਿੰਕ ਵੈਧ ਨਹੀਂ ਹੈ।",
+    "unsubscribeErrorGeneric": "ਉਸ ਬੇਨਤੀ 'ਤੇ ਪ੍ਰਕਿਰਿਆ ਕਰਦੇ ਸਮੇਂ ਕੁਝ ਗਲਤ ਹੋ ਗਿਆ।"
   },
   "fr": {
     "title": "AyurRasoi",
@@ -1514,7 +1544,10 @@
     "concernBloodThinning": "Sous médicaments anticoagulants",
     "concernHeart": "Maladie cardiaque",
     "concernThyroid": "État de la thyroïde",
-    "concernAutoimmune": "Maladie auto-immune"
+    "concernAutoimmune": "Maladie auto-immune",
+    "unsubscribeSuccess": "Vous avez été désabonné des e-mails d'AyurRasoi.",
+    "unsubscribeInvalid": "Ce lien de désabonnement n'est pas valide.",
+    "unsubscribeErrorGeneric": "Une erreur s'est produite lors du traitement de cette demande."
   },
   "es": {
     "title": "AyurRasoi",
@@ -1652,7 +1685,10 @@
     "concernBloodThinning": "Con medicamentos anticoagulantes",
     "concernHeart": "Condición del corazón",
     "concernThyroid": "Condición de tiroides",
-    "concernAutoimmune": "Condición autoinmune"
+    "concernAutoimmune": "Condición autoinmune",
+    "unsubscribeSuccess": "Se te ha cancelado la suscripción a los correos electrónicos de AyurRasoi.",
+    "unsubscribeInvalid": "Ese enlace para cancelar la suscripción no es válido.",
+    "unsubscribeErrorGeneric": "Algo salió mal al procesar esa solicitud."
   },
   "de": {
     "title": "AyurRasoi",
@@ -1790,7 +1826,10 @@
     "concernBloodThinning": "Auf blutverdünnende Medikamente",
     "concernHeart": "Herzerkrankung",
     "concernThyroid": "Schilddrüsenerkrankung",
-    "concernAutoimmune": "Autoimmunerkrankung"
+    "concernAutoimmune": "Autoimmunerkrankung",
+    "unsubscribeSuccess": "Sie wurden von AyurRasoi-E-Mails abgemeldet.",
+    "unsubscribeInvalid": "Dieser Abmeldelink ist ungültig.",
+    "unsubscribeErrorGeneric": "Bei der Verarbeitung dieser Anfrage ist ein Fehler aufgetreten."
   },
   "ru": {
     "title": "АюрРасой",
@@ -1928,7 +1967,10 @@
     "concernBloodThinning": "О лекарствах, разжижающих кровь",
     "concernHeart": "Состояние сердца",
     "concernThyroid": "Состояние щитовидной железы",
-    "concernAutoimmune": "Аутоиммунное состояние"
+    "concernAutoimmune": "Аутоиммунное состояние",
+    "unsubscribeSuccess": "Вы отписались от рассылок AyurRasoi.",
+    "unsubscribeInvalid": "Эта ссылка для отказа от подписки недействительна.",
+    "unsubscribeErrorGeneric": "Что-то пошло не так при обработке этого запроса."
   },
   "zh": {
     "title": "阿尤拉索伊",
@@ -2066,7 +2108,10 @@
     "concernBloodThinning": "关于血液稀释药物",
     "concernHeart": "心脏病",
     "concernThyroid": "甲状腺状况",
-    "concernAutoimmune": "自身免疫性疾病"
+    "concernAutoimmune": "自身免疫性疾病",
+    "unsubscribeSuccess": "您已取消订阅 AyurRasoi 电子邮件。",
+    "unsubscribeInvalid": "该取消订阅链接无效。",
+    "unsubscribeErrorGeneric": "处理该请求时出了点问题。"
   },
   "yue": {
     "title": "阿尤拉索伊",
@@ -2204,6 +2249,9 @@
     "concernBloodThinning": "关于血液稀释药物",
     "concernHeart": "心脏病",
     "concernThyroid": "甲状腺状况",
-    "concernAutoimmune": "自身免疫性疾病"
+    "concernAutoimmune": "自身免疫性疾病",
+    "unsubscribeSuccess": "您已取消订阅 AyurRasoi 电子邮件。",
+    "unsubscribeInvalid": "该取消订阅链接无效。",
+    "unsubscribeErrorGeneric": "处理该请求时出了点问题。"
   }
 }
