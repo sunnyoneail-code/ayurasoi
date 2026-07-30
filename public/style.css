@@ -1,3 +1,18 @@
+/* Yatra One — a libre (OFL-licensed) Devanagari-and-Latin display face
+   modeled on hand-painted signage from the Mumbai local railway. Used
+   only for the fixed "AyuRasoi" wordmark (see .brand-wordmark) — kept
+   as a real brand mark rather than translated UI text, same as any
+   other logo. Self-hosted (public/YatraOne.ttf) rather than linked
+   from a font CDN, consistent with the app's no-external-dependency
+   philosophy. */
+@font-face {
+  font-family: "Yatra One";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("YatraOne.ttf") format("truetype");
+}
+
 :root {
   /* Warm turmeric gold — the single most recognizable Ayurvedic
      substance (haridra), tied to purification and agni (digestive
@@ -60,14 +75,42 @@ h1 {
 .brand-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
+/* The fruit sits inside a tulsi-tinted rounded-square tile — the same
+   "icon in a soft tile" pattern most app icons already use — so it
+   reads as one resolved mark next to the wordmark instead of a small
+   decorative flourish floating apart from the name. */
 .brand-logo {
-  width: 30px;
-  height: 30px;
+  width: 42px;
+  height: 42px;
   flex-shrink: 0;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-green-soft);
+  border-radius: 11px;
+  padding: 7px;
+}
+
+/* Fixed brand wordmark — "Ayu" (ink) + "Rasoi" (tulsi green) set in
+   Yatra One, the dual Devanagari/Latin brush face. Always literal
+   English, independent of the translated t.title used elsewhere.
+   Spelled with one shared "R" ("AyuRasoi") rather than "AyurRasoi" so
+   the two color halves read as a single continuous name. */
+.brand-wordmark {
+  font-family: "Yatra One", var(--serif, serif);
+  font-size: 1.9rem;
+  letter-spacing: 0.3px;
+}
+
+.wm-ayu {
+  color: var(--ink);
+}
+
+.wm-rasoi {
+  color: var(--accent-green);
 }
 
 .subtitle {

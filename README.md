@@ -1,4 +1,4 @@
-# AyurRasoi (prototype)
+# AyuRasoi (prototype)
 
 A local prototype Ayurvedic recipe app. Runs entirely on your machine — nothing is deployed publicly, and nothing costs money.
 

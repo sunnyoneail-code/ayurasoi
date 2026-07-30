@@ -18,16 +18,16 @@ async function sendPasswordResetEmail(toEmail, resetLink) {
     },
     body: JSON.stringify({
       personalizations: [{ to: [{ email: toEmail }] }],
-      from: { email: fromEmail, name: "AyurRasoi" },
-      subject: "Reset your AyurRasoi password",
+      from: { email: fromEmail, name: "AyuRasoi" },
+      subject: "Reset your AyuRasoi password",
       content: [
         {
           type: "text/plain",
-          value: `Someone requested a password reset for this email address on AyurRasoi.\n\nIf this was you, click the link below (valid for 1 hour):\n${resetLink}\n\nIf you didn't request this, you can safely ignore this email.`
+          value: `Someone requested a password reset for this email address on AyuRasoi.\n\nIf this was you, click the link below (valid for 1 hour):\n${resetLink}\n\nIf you didn't request this, you can safely ignore this email.`
         },
         {
           type: "text/html",
-          value: `<p>Someone requested a password reset for this email address on AyurRasoi.</p><p>If this was you, click the link below (valid for 1 hour):</p><p><a href="${resetLink}">${resetLink}</a></p><p>If you didn't request this, you can safely ignore this email.</p>`
+          value: `<p>Someone requested a password reset for this email address on AyuRasoi.</p><p>If this was you, click the link below (valid for 1 hour):</p><p><a href="${resetLink}">${resetLink}</a></p><p>If you didn't request this, you can safely ignore this email.</p>`
         }
       ]
     })
@@ -50,7 +50,7 @@ async function sendDigestEmail(toEmail, toName, subject, { recipeSection, tipSec
 
   const html = `
     <div style="font-family: -apple-system, Segoe UI, Roboto, sans-serif; max-width: 560px; margin: 0 auto;">
-      <h2 style="color:#b5651d;">AyurRasoi Weekly</h2>
+      <h2 style="color:#c08829;">AyuRasoi Weekly</h2>
       <p>Hi ${toName},</p>
       ${recipeSection}
       ${tipSection}
@@ -61,7 +61,7 @@ async function sendDigestEmail(toEmail, toName, subject, { recipeSection, tipSec
       </p>
     </div>`;
 
-  const text = `AyurRasoi Weekly\n\nHi ${toName},\n\n(View this email in HTML for full formatting.)\n\nUnsubscribe: ${unsubscribeLink}`;
+  const text = `AyuRasoi Weekly\n\nHi ${toName},\n\n(View this email in HTML for full formatting.)\n\nUnsubscribe: ${unsubscribeLink}`;
 
   const res = await fetch("https://api.sendgrid.com/v3/mail/send", {
     method: "POST",
@@ -71,7 +71,7 @@ async function sendDigestEmail(toEmail, toName, subject, { recipeSection, tipSec
     },
     body: JSON.stringify({
       personalizations: [{ to: [{ email: toEmail, name: toName }] }],
-      from: { email: fromEmail, name: "AyurRasoi" },
+      from: { email: fromEmail, name: "AyuRasoi" },
       subject,
       content: [
         { type: "text/plain", value: text },

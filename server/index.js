@@ -509,12 +509,12 @@ app.post("/api/recipes/:id/rating", requireAuth, async (req, res) => {
 initSchema()
   .then(() => {
     app.listen(PORT, () => {
-      console.log(`AyurRasoi server running at http://localhost:${PORT}`);
+      console.log(`AyuRasoi server running at http://localhost:${PORT}`);
     });
   })
   .catch((err) => {
     console.error("Failed to initialize database schema:", err.message);
     app.listen(PORT, () => {
-      console.log(`AyurRasoi server running at http://localhost:${PORT} (database schema init failed — see error above)`);
+      console.log(`AyuRasoi server running at http://localhost:${PORT} (database schema init failed — see error above)`);
     });
   });

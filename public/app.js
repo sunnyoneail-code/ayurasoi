@@ -300,7 +300,7 @@ let state = {
   viewingDigest: false,
   digestPreview: null,
   digestPreviewStatus: "idle",
-  digestSubject: "Your AyurRasoi Weekly",
+  digestSubject: "Your AyuRasoi Weekly",
   digestTipTitle: "",
   digestTipText: "",
   digestSendConfirmed: false,
@@ -816,6 +816,24 @@ function appLogo(className) {
   return wrap;
 }
 
+// The wordmark is fixed, non-localized brand identity — "Ayu"/"Rasoi"
+// stay literal English in the Yatra One brush face regardless of
+// state.lang, the same way a real logotype doesn't get retranslated.
+// (uiText.json's own "title" key is NOT uniform across languages —
+// e.g. Tamil/Chinese use real transliterations — so it can't be split
+// on script-independent characters the way this hardcoded pair can.)
+// Spelled "AyuRasoi" (one shared R, not "AyurRasoi") so the two color
+// halves read as one continuous name instead of two words bumped
+// together.
+function appWordmark() {
+  const h1 = el("h1", "brand-wordmark");
+  const ayu = el("span", "wm-ayu", "Ayu");
+  const rasoi = el("span", "wm-rasoi", "Rasoi");
+  h1.appendChild(ayu);
+  h1.appendChild(rasoi);
+  return h1;
+}
+
 function render() {
   const app = document.getElementById("app");
   app.innerHTML = "";
@@ -831,7 +849,7 @@ function render() {
   const titleBlock = el("div");
   const brandRow = el("div", "brand-row");
   brandRow.appendChild(appLogo("brand-logo"));
-  brandRow.appendChild(el("h1", null, t.title));
+  brandRow.appendChild(appWordmark());
   titleBlock.appendChild(brandRow);
   titleBlock.appendChild(el("p", "subtitle", t.subtitle));
   titleRow.appendChild(titleBlock);
