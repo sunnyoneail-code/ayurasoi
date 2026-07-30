@@ -1,10 +1,18 @@
 :root {
+  /* Warm turmeric gold — the single most recognizable Ayurvedic
+     substance (haridra), tied to purification and agni (digestive
+     fire); echoes the app's own "Golden Milk" recipe. */
   --bg: #fdf8f0;
   --surface: #ffffff;
   --ink: #2b2013;
   --muted: #7a6a52;
-  --accent: #b5651d;
-  --accent-soft: #f0dcc0;
+  --accent: #c08829;
+  --accent-soft: #f5e2bc;
+  /* Tulsi/sage green — sacred basil and neem are central healing herbs;
+     used deliberately (not everywhere) for "fresh pick" and success
+     moments, so it reads as accent rather than a clash. */
+  --accent-green: #4f7a52;
+  --accent-green-soft: #dce9dc;
   --safety-bg: #fff2e0;
   --safety-border: #d98c2b;
   --border: #e7dcc8;
@@ -17,8 +25,10 @@
     --surface: #262016;
     --ink: #f2e9da;
     --muted: #b8a98c;
-    --accent: #e0984a;
-    --accent-soft: #3a2c1a;
+    --accent: #e8b23d;
+    --accent-soft: #3d2f16;
+    --accent-green: #86bf8a;
+    --accent-green-soft: #23352a;
     --safety-bg: #3a2a12;
     --safety-border: #e0984a;
     --border: #3a2f20;
@@ -55,6 +65,19 @@ h1 {
   margin: 0;
   font-size: 1.6rem;
   color: var(--accent);
+}
+
+.brand-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-logo {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  display: inline-block;
 }
 
 .subtitle {
@@ -534,6 +557,11 @@ h1 {
   color: var(--safety-border);
 }
 
+.success-note {
+  color: var(--accent-green);
+  font-weight: 600;
+}
+
 .app-footer {
   margin-top: 28px;
   text-align: center;
@@ -671,12 +699,17 @@ h1 {
 }
 
 .recipe-of-day {
-  background: var(--accent-soft);
-  border: 1px solid var(--accent);
+  background: var(--accent-green-soft);
+  border: 1px solid var(--accent-green);
   border-radius: var(--radius);
   padding: 16px;
   margin-bottom: 14px;
   cursor: pointer;
+}
+
+.recipe-of-day .card-category {
+  color: var(--accent-green);
+  background: var(--surface);
 }
 
 .recipe-of-day h3 {

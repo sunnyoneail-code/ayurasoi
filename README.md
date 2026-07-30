@@ -12,6 +12,12 @@ node server/index.js
 
 Then open http://localhost:5173 in a browser.
 
+## Visual identity
+
+The palette (`public/style.css` `:root`) is drawn from actual Ayurvedic substances rather than a generic "earthy" mood board: turmeric gold (`--accent`) as the primary color, tulsi/sage green (`--accent-green`) used deliberately for the Recipe of the Day banner and success states rather than everywhere, and the original sandalwood-cream background kept as-is. Both are re-defined for dark mode under `@media (prefers-color-scheme: dark)`.
+
+The app mark (`public/favicon.svg`, mirrored inline in the header via `appLogo()` in `public/app.js`) is an amalaki (amla) fruit — "king of Rasayana" and the fruit behind several of the app's own flagship recipes — in kumkum terracotta rather than the accent gold, so it reads as its own thing instead of a repeated button color.
+
 ## Everything here is free — no API keys required
 
 Earlier versions of this prototype used paid APIs (Anthropic Claude for recipe extraction, Runway for AI video). Both have been replaced with free alternatives:

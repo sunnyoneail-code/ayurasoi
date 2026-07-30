@@ -801,6 +801,21 @@ function el(tag, className, text) {
   return e;
 }
 
+// The app mark — an amalaki (amla) fruit, "king of Rasayana" and the
+// fruit behind several of the app's own flagship recipes, in kumkum
+// terracotta rather than the accent gold so it reads as its own thing
+// instead of a repeated button color. Same SVG as public/favicon.svg.
+function appLogo(className) {
+  const wrap = document.createElement("span");
+  wrap.className = className;
+  wrap.innerHTML = '<svg viewBox="0 0 56 56" width="100%" height="100%" aria-hidden="true">'
+    + '<circle cx="28" cy="30" r="15" fill="#a6432e"/>'
+    + '<path d="M20 22 Q28 30 20 38 M28 18 Q33 30 28 42 M36 22 Q28 30 36 38" stroke="#7c2f20" stroke-width="1.3" fill="none" opacity="0.5"/>'
+    + '<path d="M28 15 C26 11 28 8 26 5" stroke="#4f7a52" stroke-width="2.4" fill="none" stroke-linecap="round"/>'
+    + '</svg>';
+  return wrap;
+}
+
 function render() {
   const app = document.getElementById("app");
   app.innerHTML = "";
@@ -814,7 +829,10 @@ function render() {
   const header = el("header", "app-header");
   const titleRow = el("div", "title-row");
   const titleBlock = el("div");
-  titleBlock.appendChild(el("h1", null, t.title));
+  const brandRow = el("div", "brand-row");
+  brandRow.appendChild(appLogo("brand-logo"));
+  brandRow.appendChild(el("h1", null, t.title));
+  titleBlock.appendChild(brandRow);
   titleBlock.appendChild(el("p", "subtitle", t.subtitle));
   titleRow.appendChild(titleBlock);
 
@@ -1375,7 +1393,7 @@ function renderProfile(t) {
     wrap.appendChild(el("p", "media-note error-note", t.authErrorPrefix + state.healthProfileError));
   }
   if (state.healthProfileSaved && state.healthProfileStatus === "idle") {
-    wrap.appendChild(el("p", "media-note", t.profileSaved));
+    wrap.appendChild(el("p", "success-note", t.profileSaved));
   }
 
   const saveBtn = el("button", "walkthrough-btn", state.healthProfileStatus === "loading" ? t.completeProfileSubmitting : t.profileSave);
