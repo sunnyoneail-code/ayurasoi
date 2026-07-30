@@ -31,6 +31,7 @@ function rowToUser(row) {
       country: row.country ?? row.demographics?.country ?? ""
     },
     emailOptIn: row.email_opt_in ?? row.emailOptIn ?? true,
+    emailVerified: row.email_verified ?? row.emailVerified ?? true,
     createdAt: row.created_at || row.createdAt
   };
 }
@@ -71,24 +72,34 @@ async function findByFacebookId(facebookId) {
   return list.find((u) => u.facebookId === facebookId) || null;
 }
 
-async function addUser({ name, email, passwordHash, googleId, facebookId, demographics }) {
+async function addUser({ name, email, passwordHash, googleId, facebookId, demographics, emailVerified = true }) {
   const id = crypto.randomUUID();
   const demo = demographics || {};
 
   if (pool) {
     const { rows } = await pool.query(
-      `INSERT INTO users (id, name, email, password_hash, google_id, facebook_id, age_range, gender, country)
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *`,
-      [id, name, email, passwordHash || null, googleId || null, facebookId || null, demo.ageRange || "", demo.gender || "", demo.country || ""]
+      `INSERT INTO users (id, name, email, password_hash, google_id, facebook_id, age_range, gender, country, email_verified)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *`,
+      [id, name, email, passwordHash || null, googleId || null, facebookId || null, demo.ageRange || "", demo.gender || "", demo.country || "", emailVerified]
     );
     return rowToUser(rows[0]);
   }
 
   const list = readUsersFile();
-  const user = { id, name, email, passwordHash: passwordHash || null, googleId: googleId || null, facebookId: facebookId || null, demographics: demo, createdAt: new Date().toISOString() };
+  const user = { id, name, email, passwordHash: passwordHash || null, googleId: googleId || null, facebookId: facebookId || null, demographics: demo, emailVerified, createdAt: new Date().toISOString() };
   list.push(user);
   writeUsersFile(list);
   return user;
+}
+
+async function markEmailVerified(userId) {
+  if (pool) {
+    await pool.query("UPDATE users SET email_verified = true WHERE id = $1", [userId]);
+    return;
+  }
+  const list = readUsersFile();
+  const user = list.find((u) => u.id === userId);
+  if (user) { user.emailVerified = true; writeUsersFile(list); }
 }
 
 async function setPasswordHash(userId, passwordHash) {
@@ -153,4 +164,4 @@ function toPublicUser(user) {
   return publicFields;
 }
 
-module.exports = { findByEmail, findById, findByGoogleId, findByFacebookId, addUser, setPasswordHash, toPublicUser, updateDemographics, hasCompleteDemographics, listOptedInForDigest, setEmailOptIn };
+module.exports = { findByEmail, findById, findByGoogleId, findByFacebookId, addUser, setPasswordHash, toPublicUser, updateDemographics, hasCompleteDemographics, listOptedInForDigest, setEmailOptIn, markEmailVerified };

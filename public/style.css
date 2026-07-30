@@ -744,6 +744,43 @@ h1 {
   font-weight: 600;
 }
 
+.verify-email-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  background: var(--safety-bg);
+  border: 1px solid var(--safety-border);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  margin-bottom: 16px;
+}
+
+.verify-email-banner p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--ink);
+  flex: 1 1 220px;
+}
+
+.verify-email-resend-btn {
+  border: 1px solid var(--safety-border);
+  background: transparent;
+  color: var(--safety-border);
+  padding: 6px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.verify-email-resend-note {
+  flex-basis: 100%;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
 .app-footer {
   margin-top: 28px;
   text-align: center;

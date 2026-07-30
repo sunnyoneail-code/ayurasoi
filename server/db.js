@@ -45,6 +45,12 @@ async function initSchema() {
   // Defaults to true (opted in) for everyone, including existing accounts
   // — flipped false via the one-click unsubscribe link in digest emails.
   await pool.query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS email_opt_in BOOLEAN NOT NULL DEFAULT true`).catch(() => {});
+  // Defaults to true so existing accounts (created before this feature
+  // existed) and OAuth sign-ins (Google/Facebook already verified the
+  // email themselves) aren't retroactively flagged unverified. New
+  // password-based sign-ups explicitly pass emailVerified: false in
+  // userStore.addUser and get a real verification email instead.
+  await pool.query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS email_verified BOOLEAN NOT NULL DEFAULT true`).catch(() => {});
 
   await pool.query(`
     CREATE TABLE IF NOT EXISTS favorites (
@@ -69,6 +75,15 @@ async function initSchema() {
 
   await pool.query(`
     CREATE TABLE IF NOT EXISTS password_reset_tokens (
+      token TEXT PRIMARY KEY,
+      user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      expires_at TIMESTAMPTZ NOT NULL,
+      used BOOLEAN NOT NULL DEFAULT false
+    )
+  `);
+
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS email_verification_tokens (
       token TEXT PRIMARY KEY,
       user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
       expires_at TIMESTAMPTZ NOT NULL,

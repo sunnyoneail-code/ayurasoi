@@ -390,7 +390,9 @@ let state = {
   digestSendError: "",
   unsubscribeNotice: null,
   viewingSourceLibrary: false,
-  viewingSettings: false
+  viewingSettings: false,
+  emailVerifiedNotice: null,
+  verifyResendStatus: "idle"
 };
 
 function resetAuthForm() {
@@ -1088,6 +1090,50 @@ function render() {
     dismiss.onclick = () => { state.unsubscribeNotice = null; render(); };
     notice.appendChild(dismiss);
     app.appendChild(notice);
+  }
+
+  if (state.emailVerifiedNotice) {
+    const noticeKey = state.emailVerifiedNotice === "1" ? "verifyEmailSuccess"
+      : state.emailVerifiedNotice === "expired" ? "verifyEmailExpired"
+      : state.emailVerifiedNotice === "used" ? "verifyEmailUsed"
+      : "verifyEmailInvalid";
+    const cls = state.emailVerifiedNotice === "1" ? "media-note success-note" : "media-note error-note";
+    const notice = el("p", cls, (t[noticeKey] || "") + "  ");
+    const dismiss = document.createElement("a");
+    dismiss.textContent = "×";
+    dismiss.style.cursor = "pointer";
+    dismiss.onclick = () => { state.emailVerifiedNotice = null; render(); };
+    notice.appendChild(dismiss);
+    app.appendChild(notice);
+  }
+
+  if (state.user && !state.user.emailVerified) {
+    const banner = el("div", "verify-email-banner");
+    banner.appendChild(el("p", null, t.verifyEmailBanner));
+    const resendBtn = el("button", "verify-email-resend-btn",
+      state.verifyResendStatus === "loading" ? t.verifyEmailResendSending : t.verifyEmailResend);
+    resendBtn.type = "button";
+    resendBtn.disabled = state.verifyResendStatus === "loading";
+    resendBtn.onclick = async () => {
+      state.verifyResendStatus = "loading";
+      render();
+      try {
+        const res = await apiFetch("/api/auth/resend-verification", { method: "POST" });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Unknown error");
+        state.verifyResendStatus = "sent";
+      } catch (err) {
+        state.verifyResendStatus = "error";
+      }
+      render();
+    };
+    banner.appendChild(resendBtn);
+    if (state.verifyResendStatus === "sent") {
+      banner.appendChild(el("p", "verify-email-resend-note", t.verifyEmailResendSent));
+    } else if (state.verifyResendStatus === "error") {
+      banner.appendChild(el("p", "verify-email-resend-note error-note", t.verifyEmailResendError));
+    }
+    app.appendChild(banner);
   }
 
   if (state.loading) {
@@ -2204,6 +2250,11 @@ if (authErrorFromUrl) {
 const unsubscribedFromUrl = startupUrl.searchParams.get("unsubscribed");
 if (unsubscribedFromUrl) {
   state.unsubscribeNotice = unsubscribedFromUrl;
+  window.history.replaceState({}, "", startupUrl.pathname);
+}
+const emailVerifiedFromUrl = startupUrl.searchParams.get("emailVerified");
+if (emailVerifiedFromUrl) {
+  state.emailVerifiedNotice = emailVerifiedFromUrl;
   window.history.replaceState({}, "", startupUrl.pathname);
 }
 

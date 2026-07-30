@@ -14,7 +14,8 @@ const users = require("./userStore");
 const favorites = require("./favoritesStore");
 const ratings = require("./ratingsStore");
 const resetTokens = require("./resetTokenStore");
-const { sendPasswordResetEmail, sendDigestEmail } = require("./email");
+const verificationTokens = require("./emailVerificationStore");
+const { sendPasswordResetEmail, sendDigestEmail, sendVerificationEmail } = require("./email");
 const googleOAuth = require("./googleOAuth");
 const facebookOAuth = require("./facebookOAuth");
 const stats = require("./statsStore");
@@ -119,9 +120,22 @@ app.post("/api/auth/register", async (req, res) => {
         ageRange: (demographics && demographics.ageRange) || "",
         gender: (demographics && demographics.gender) || "",
         country: (demographics && demographics.country) || ""
-      }
+      },
+      emailVerified: false
     });
     req.session.userId = user.id;
+
+    // Best-effort — a flaky email provider shouldn't block account
+    // creation. The "Resend verification email" link in-app covers a
+    // failed or lost send.
+    try {
+      const token = await verificationTokens.createVerificationToken(user.id);
+      const base = process.env.APP_BASE_URL || `${req.protocol}://${req.get("host")}`;
+      await sendVerificationEmail(user.email, `${base}/api/auth/verify-email?token=${token}`);
+    } catch (err) {
+      console.error("Couldn't send verification email:", err.message);
+    }
+
     res.json({ user: withAdminFlag(users.toPublicUser(user)) });
   } catch (err) {
     res.status(502).json({ error: "Couldn't create account: " + err.message });
@@ -188,6 +202,37 @@ app.post("/api/auth/reset-password", async (req, res) => {
   }
 });
 
+app.get("/api/auth/verify-email", async (req, res) => {
+  const { token } = req.query;
+  const base = process.env.APP_BASE_URL || `${req.protocol}://${req.get("host")}`;
+  try {
+    const result = await verificationTokens.consumeVerificationToken(token || "");
+    if (!result.valid) {
+      const codes = { not_found: "invalid", used: "used", expired: "expired" };
+      return res.redirect(`${base}/?emailVerified=${codes[result.reason] || "invalid"}`);
+    }
+    await users.markEmailVerified(result.userId);
+    res.redirect(`${base}/?emailVerified=1`);
+  } catch (err) {
+    res.redirect(`${base}/?emailVerified=invalid`);
+  }
+});
+
+app.post("/api/auth/resend-verification", requireAuth, async (req, res) => {
+  try {
+    const user = await users.findById(req.session.userId);
+    if (!user) return res.status(404).json({ error: "Account not found." });
+    if (user.emailVerified) return res.json({ ok: true, alreadyVerified: true });
+    const token = await verificationTokens.createVerificationToken(user.id);
+    const base = process.env.APP_BASE_URL || `${req.protocol}://${req.get("host")}`;
+    await sendVerificationEmail(user.email, `${base}/api/auth/verify-email?token=${token}`);
+    res.json({ ok: true });
+  } catch (err) {
+    const status = err.code === "NO_DB" || err.code === "EMAIL_NOT_CONFIGURED" ? 501 : 502;
+    res.status(status).json({ error: "Couldn't resend verification email: " + err.message });
+  }
+});
+
 app.get("/api/auth/google", (req, res) => {
   if (!process.env.GOOGLE_CLIENT_ID) {
     return res.status(501).send("Google Sign-In isn't configured on this server yet.");
@@ -220,7 +265,8 @@ app.get("/api/auth/google/callback", async (req, res) => {
           email: profile.email,
           passwordHash: null,
           googleId: profile.googleId,
-          demographics: {}
+          demographics: {},
+          emailVerified: true
         });
       }
     }
@@ -264,7 +310,8 @@ app.get("/api/auth/facebook/callback", async (req, res) => {
           email: profile.email,
           passwordHash: null,
           facebookId: profile.facebookId,
-          demographics: {}
+          demographics: {},
+          emailVerified: true
         });
       }
     }

@@ -8,12 +8,9 @@ const { LANGUAGES } = require("../languages");
 const { translateBlock } = require("../recipeExtractor");
 
 const NEW_KEYS = [
-  "onboardingWelcomeTitle", "onboardingWelcomeText",
-  "onboardingSearchTitle", "onboardingSearchText",
-  "onboardingMoodTitle", "onboardingMoodText",
-  "onboardingFavoritesTitle", "onboardingFavoritesText",
-  "onboardingSettingsTitle", "onboardingSettingsText",
-  "onboardingNext", "onboardingSkip", "onboardingDone", "onboardingReplay"
+  "verifyEmailBanner", "verifyEmailResend", "verifyEmailResendSending",
+  "verifyEmailResendSent", "verifyEmailResendError", "verifyEmailSuccess",
+  "verifyEmailInvalid", "verifyEmailExpired", "verifyEmailUsed"
 ];
 
 const UI_EN_PATH = path.join(__dirname, "..", "data", "uiText.en.json");

@@ -39,6 +39,44 @@ async function sendPasswordResetEmail(toEmail, resetLink) {
   }
 }
 
+async function sendVerificationEmail(toEmail, verifyLink) {
+  const apiKey = process.env.SENDGRID_API_KEY;
+  const fromEmail = process.env.SENDGRID_FROM_EMAIL;
+  if (!apiKey || !fromEmail) {
+    const err = new Error("Verification email isn't configured on the server (SENDGRID_API_KEY / SENDGRID_FROM_EMAIL missing).");
+    err.code = "EMAIL_NOT_CONFIGURED";
+    throw err;
+  }
+
+  const res = await fetch("https://api.sendgrid.com/v3/mail/send", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      personalizations: [{ to: [{ email: toEmail }] }],
+      from: { email: fromEmail, name: "AyuRasoi" },
+      subject: "Confirm your email for AyuRasoi",
+      content: [
+        {
+          type: "text/plain",
+          value: `Welcome to AyuRasoi! Please confirm this is your email address by clicking the link below (valid for 24 hours):\n${verifyLink}\n\nIf you didn't create this account, you can safely ignore this email.`
+        },
+        {
+          type: "text/html",
+          value: `<p>Welcome to AyuRasoi! Please confirm this is your email address by clicking the link below (valid for 24 hours):</p><p><a href="${verifyLink}">${verifyLink}</a></p><p>If you didn't create this account, you can safely ignore this email.</p>`
+        }
+      ]
+    })
+  });
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`SendGrid returned ${res.status}: ${text}`);
+  }
+}
+
 async function sendDigestEmail(toEmail, toName, subject, { recipeSection, tipSection, newsSection }, unsubscribeLink) {
   const apiKey = process.env.SENDGRID_API_KEY;
   const fromEmail = process.env.SENDGRID_FROM_EMAIL;
@@ -86,4 +124,4 @@ async function sendDigestEmail(toEmail, toName, subject, { recipeSection, tipSec
   }
 }
 
-module.exports = { sendPasswordResetEmail, sendDigestEmail };
+module.exports = { sendPasswordResetEmail, sendDigestEmail, sendVerificationEmail };

@@ -163,7 +163,16 @@
     "onboardingNext": "Next",
     "onboardingSkip": "Skip",
     "onboardingDone": "Get started",
-    "onboardingReplay": "Show welcome tour again"
+    "onboardingReplay": "Show welcome tour again",
+    "verifyEmailBanner": "Please verify your email address — check your inbox for a confirmation link.",
+    "verifyEmailResend": "Resend email",
+    "verifyEmailResendSending": "Sending…",
+    "verifyEmailResendSent": "Verification email sent — check your inbox.",
+    "verifyEmailResendError": "Couldn't resend the email. Please try again later.",
+    "verifyEmailSuccess": "Your email is verified. Thanks!",
+    "verifyEmailInvalid": "That verification link isn't valid.",
+    "verifyEmailExpired": "That verification link has expired — you can request a new one from the banner at the top of the app.",
+    "verifyEmailUsed": "That verification link has already been used."
   },
   "hi": {
     "title": "AyuRasoi",
@@ -330,7 +339,16 @@
     "onboardingNext": "अगला",
     "onboardingSkip": "छोडना",
     "onboardingDone": "शुरू हो जाओ",
-    "onboardingReplay": "स्वागत यात्रा फिर से दिखाएँ"
+    "onboardingReplay": "स्वागत यात्रा फिर से दिखाएँ",
+    "verifyEmailBanner": "कृपया अपना ईमेल पता सत्यापित करें - पुष्टिकरण लिंक के लिए अपना इनबॉक्स जांचें।",
+    "verifyEmailResend": "ईमेल दुबारा भेजें",
+    "verifyEmailResendSending": "भेजा जा रहा है...",
+    "verifyEmailResendSent": "सत्यापन ईमेल भेजा गया - अपना इनबॉक्स जांचें।",
+    "verifyEmailResendError": "ईमेल दोबारा नहीं भेजा जा सका. कृपया बाद में पुन: प्रयास करें।",
+    "verifyEmailSuccess": "आपका ईमेल सत्यापित है. धन्यवाद!",
+    "verifyEmailInvalid": "वह सत्यापन लिंक मान्य नहीं है.",
+    "verifyEmailExpired": "वह सत्यापन लिंक समाप्त हो गया है - आप ऐप के शीर्ष पर बैनर से एक नए का अनुरोध कर सकते हैं।",
+    "verifyEmailUsed": "वह सत्यापन लिंक पहले ही उपयोग किया जा चुका है."
   },
   "bn": {
     "title": "আয়ুররসোই",
@@ -497,7 +515,16 @@
     "onboardingNext": "পরবর্তী",
     "onboardingSkip": "এড়িয়ে যান",
     "onboardingDone": "শুরু করুন",
-    "onboardingReplay": "আবার স্বাগত সফর দেখান"
+    "onboardingReplay": "আবার স্বাগত সফর দেখান",
+    "verifyEmailBanner": "অনুগ্রহ করে আপনার ইমেল ঠিকানা যাচাই করুন — একটি নিশ্চিতকরণ লিঙ্কের জন্য আপনার ইনবক্স চেক করুন।",
+    "verifyEmailResend": "ইমেল পুনরায় পাঠান",
+    "verifyEmailResendSending": "পাঠানো হচ্ছে...",
+    "verifyEmailResendSent": "যাচাইকরণ ইমেল পাঠানো হয়েছে — আপনার ইনবক্স চেক করুন.",
+    "verifyEmailResendError": "ইমেলটি আবার পাঠানো যায়নি। পরে আবার চেষ্টা করুন.",
+    "verifyEmailSuccess": "আপনার ইমেল যাচাই করা হয়েছে. ধন্যবাদ!",
+    "verifyEmailInvalid": "সেই যাচাইকরণ লিঙ্কটি বৈধ নয়৷",
+    "verifyEmailExpired": "সেই যাচাইকরণ লিঙ্কটির মেয়াদ শেষ হয়ে গেছে — আপনি অ্যাপের শীর্ষে থাকা ব্যানার থেকে একটি নতুন অনুরোধ করতে পারেন।",
+    "verifyEmailUsed": "সেই যাচাইকরণ লিঙ্কটি ইতিমধ্যেই ব্যবহার করা হয়েছে।"
   },
   "mr": {
     "title": "आयुर्रासोई",
@@ -664,7 +691,16 @@
     "onboardingNext": "पुढे",
     "onboardingSkip": "वगळा",
     "onboardingDone": "सुरुवात करा",
-    "onboardingReplay": "पुन्हा स्वागत दौरा दाखवा"
+    "onboardingReplay": "पुन्हा स्वागत दौरा दाखवा",
+    "verifyEmailBanner": "कृपया तुमचा ईमेल पत्ता सत्यापित करा — पुष्टीकरण दुव्यासाठी तुमचा इनबॉक्स तपासा.",
+    "verifyEmailResend": "ईमेल पुन्हा पाठवा",
+    "verifyEmailResendSending": "पाठवत आहे...",
+    "verifyEmailResendSent": "पडताळणी ईमेल पाठवला — तुमचा इनबॉक्स तपासा.",
+    "verifyEmailResendError": "ईमेल पुन्हा पाठवू शकलो नाही. कृपया नंतर पुन्हा प्रयत्न करा.",
+    "verifyEmailSuccess": "तुमचा ईमेल सत्यापित झाला आहे. धन्यवाद!",
+    "verifyEmailInvalid": "ती पडताळणी लिंक वैध नाही.",
+    "verifyEmailExpired": "ती पडताळणी लिंक कालबाह्य झाली आहे — तुम्ही ॲपच्या शीर्षस्थानी असलेल्या बॅनरवरून नवीन विनंती करू शकता.",
+    "verifyEmailUsed": "ती पडताळणी लिंक आधीच वापरली गेली आहे."
   },
   "ta": {
     "title": "ஆயுர்ரசோய்",
@@ -831,7 +867,16 @@
     "onboardingNext": "அடுத்து",
     "onboardingSkip": "தவிர்க்கவும்",
     "onboardingDone": "தொடங்குங்கள்",
-    "onboardingReplay": "வரவேற்பு பயணத்தை மீண்டும் காட்டு"
+    "onboardingReplay": "வரவேற்பு பயணத்தை மீண்டும் காட்டு",
+    "verifyEmailBanner": "உங்கள் மின்னஞ்சல் முகவரியைச் சரிபார்க்கவும் - உறுதிப்படுத்தல் இணைப்புக்காக உங்கள் இன்பாக்ஸைச் சரிபார்க்கவும்.",
+    "verifyEmailResend": "மின்னஞ்சலை மீண்டும் அனுப்பவும்",
+    "verifyEmailResendSending": "அனுப்புகிறது…",
+    "verifyEmailResendSent": "சரிபார்ப்பு மின்னஞ்சல் அனுப்பப்பட்டது - உங்கள் இன்பாக்ஸை சரிபார்க்கவும்.",
+    "verifyEmailResendError": "மின்னஞ்சலை மீண்டும் அனுப்ப முடியவில்லை. பிறகு முயற்சிக்கவும்.",
+    "verifyEmailSuccess": "உங்கள் மின்னஞ்சல் சரிபார்க்கப்பட்டது. நன்றி!",
+    "verifyEmailInvalid": "அந்த சரிபார்ப்பு இணைப்பு தவறானது.",
+    "verifyEmailExpired": "அந்தச் சரிபார்ப்பு இணைப்பு காலாவதியாகிவிட்டது - பயன்பாட்டின் மேலே உள்ள பேனரிலிருந்து புதிய ஒன்றைக் கோரலாம்.",
+    "verifyEmailUsed": "அந்த சரிபார்ப்பு இணைப்பு ஏற்கனவே பயன்படுத்தப்பட்டது."
   },
   "te": {
     "title": "ఆయుర్ రసోయ్",
@@ -998,7 +1043,16 @@
     "onboardingNext": "తదుపరి",
     "onboardingSkip": "దాటవేయి",
     "onboardingDone": "ప్రారంభించండి",
-    "onboardingReplay": "స్వాగత పర్యటనను మళ్లీ చూపించు"
+    "onboardingReplay": "స్వాగత పర్యటనను మళ్లీ చూపించు",
+    "verifyEmailBanner": "దయచేసి మీ ఇమెయిల్ చిరునామాను ధృవీకరించండి - నిర్ధారణ లింక్ కోసం మీ ఇన్‌బాక్స్‌ని తనిఖీ చేయండి.",
+    "verifyEmailResend": "ఇమెయిల్‌ని మళ్లీ పంపండి",
+    "verifyEmailResendSending": "పంపుతోంది...",
+    "verifyEmailResendSent": "ధృవీకరణ ఇమెయిల్ పంపబడింది — మీ ఇన్‌బాక్స్‌ని తనిఖీ చేయండి.",
+    "verifyEmailResendError": "ఇమెయిల్‌ని మళ్లీ పంపడం సాధ్యపడలేదు. దయచేసి తర్వాత మళ్లీ ప్రయత్నించండి.",
+    "verifyEmailSuccess": "మీ ఇమెయిల్ ధృవీకరించబడింది. ధన్యవాదాలు!",
+    "verifyEmailInvalid": "ఆ ధృవీకరణ లింక్ చెల్లదు.",
+    "verifyEmailExpired": "ఆ ధృవీకరణ లింక్ గడువు ముగిసింది — మీరు యాప్ ఎగువన ఉన్న బ్యానర్ నుండి కొత్త దానిని అభ్యర్థించవచ్చు.",
+    "verifyEmailUsed": "ఆ ధృవీకరణ లింక్ ఇప్పటికే ఉపయోగించబడింది."
   },
   "kn": {
     "title": "ಆಯುರ್ರಾಸೋಯಿ",
@@ -1165,7 +1219,16 @@
     "onboardingNext": "ಮುಂದೆ",
     "onboardingSkip": "ಬಿಟ್ಟುಬಿಡಿ",
     "onboardingDone": "ಪ್ರಾರಂಭಿಸಿ",
-    "onboardingReplay": "ಸ್ವಾಗತ ಪ್ರವಾಸವನ್ನು ಮತ್ತೊಮ್ಮೆ ತೋರಿಸಿ"
+    "onboardingReplay": "ಸ್ವಾಗತ ಪ್ರವಾಸವನ್ನು ಮತ್ತೊಮ್ಮೆ ತೋರಿಸಿ",
+    "verifyEmailBanner": "ದಯವಿಟ್ಟು ನಿಮ್ಮ ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ಪರಿಶೀಲಿಸಿ - ದೃಢೀಕರಣ ಲಿಂಕ್‌ಗಾಗಿ ನಿಮ್ಮ ಇನ್‌ಬಾಕ್ಸ್ ಅನ್ನು ಪರಿಶೀಲಿಸಿ.",
+    "verifyEmailResend": "ಇಮೇಲ್ ಅನ್ನು ಮರುಕಳುಹಿಸಿ",
+    "verifyEmailResendSending": "ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ...",
+    "verifyEmailResendSent": "ಪರಿಶೀಲನೆ ಇಮೇಲ್ ಕಳುಹಿಸಲಾಗಿದೆ - ನಿಮ್ಮ ಇನ್‌ಬಾಕ್ಸ್ ಪರಿಶೀಲಿಸಿ.",
+    "verifyEmailResendError": "ಇಮೇಲ್ ಅನ್ನು ಮರುಕಳುಹಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+    "verifyEmailSuccess": "ನಿಮ್ಮ ಇಮೇಲ್ ಅನ್ನು ಪರಿಶೀಲಿಸಲಾಗಿದೆ. ಧನ್ಯವಾದಗಳು!",
+    "verifyEmailInvalid": "ಆ ಪರಿಶೀಲನೆ ಲಿಂಕ್ ಮಾನ್ಯವಾಗಿಲ್ಲ.",
+    "verifyEmailExpired": "ಆ ಪರಿಶೀಲನಾ ಲಿಂಕ್ ಅವಧಿ ಮೀರಿದೆ - ನೀವು ಅಪ್ಲಿಕೇಶನ್‌ನ ಮೇಲ್ಭಾಗದಲ್ಲಿರುವ ಬ್ಯಾನರ್‌ನಿಂದ ಹೊಸದನ್ನು ವಿನಂತಿಸಬಹುದು.",
+    "verifyEmailUsed": "ಆ ಪರಿಶೀಲನೆ ಲಿಂಕ್ ಅನ್ನು ಈಗಾಗಲೇ ಬಳಸಲಾಗಿದೆ."
   },
   "or": {
     "title": "ଆୟୁର୍ ରସୋଇ |",
@@ -1332,7 +1395,16 @@
     "onboardingNext": "ପରବର୍ତ୍ତୀ",
     "onboardingSkip": "ଛାଡିଦିଅ |",
     "onboardingDone": "ଆରମ୍ଭ କର |",
-    "onboardingReplay": "ପୁନର୍ବାର ସ୍ୱାଗତ ଯାତ୍ରା ଦେଖାନ୍ତୁ |"
+    "onboardingReplay": "ପୁନର୍ବାର ସ୍ୱାଗତ ଯାତ୍ରା ଦେଖାନ୍ତୁ |",
+    "verifyEmailBanner": "ଦୟାକରି ଆପଣଙ୍କର ଇମେଲ୍ ଠିକଣା ଯାଞ୍ଚ କରନ୍ତୁ - ଏକ ନିଶ୍ଚିତକରଣ ଲିଙ୍କ୍ ପାଇଁ ଆପଣଙ୍କର ଇନବକ୍ସ ଯାଞ୍ଚ କରନ୍ତୁ |",
+    "verifyEmailResend": "ଇମେଲ୍ ପଠାନ୍ତୁ |",
+    "verifyEmailResendSending": "ପଠାଉଛି…",
+    "verifyEmailResendSent": "ଯାଞ୍ଚ ଇମେଲ ପଠାଯାଇଛି - ଆପଣଙ୍କର ଇନବକ୍ସ ଯାଞ୍ଚ କରନ୍ତୁ |",
+    "verifyEmailResendError": "ଇମେଲ୍ ପଠାଇ ପାରିଲା ନାହିଁ | ଦୟାକରି ପରେ ପୁନର୍ବାର ଚେଷ୍ଟା କରନ୍ତୁ |",
+    "verifyEmailSuccess": "ଆପଣଙ୍କର ଇମେଲ୍ ଯାଞ୍ଚ ହୋଇଛି | ଧନ୍ୟବାଦ!",
+    "verifyEmailInvalid": "ସେହି ଯାଞ୍ଚ ଲିଙ୍କ୍ ବ valid ଧ ନୁହେଁ |",
+    "verifyEmailExpired": "ସେହି ଯାଞ୍ଚ ଲିଙ୍କ୍ ମିଆଦ ପୂର୍ଣ୍ଣ ହୋଇଛି - ଆପଣ ଆପର ଉପରି ଭାଗରେ ଥିବା ବ୍ୟାନରରୁ ଏକ ନୂତନ ଅନୁରୋଧ କରିପାରିବେ |",
+    "verifyEmailUsed": "ସେହି ଯାଞ୍ଚ ଲିଙ୍କ୍ ପୂର୍ବରୁ ବ୍ୟବହୃତ ହୋଇସାରିଛି |"
   },
   "gu": {
     "title": "આયુરરાસોઈ",
@@ -1499,7 +1571,16 @@
     "onboardingNext": "આગળ",
     "onboardingSkip": "છોડો",
     "onboardingDone": "પ્રારંભ કરો",
-    "onboardingReplay": "ફરી સ્વાગત પ્રવાસ બતાવો"
+    "onboardingReplay": "ફરી સ્વાગત પ્રવાસ બતાવો",
+    "verifyEmailBanner": "કૃપા કરીને તમારું ઇમેઇલ સરનામું ચકાસો — પુષ્ટિકરણ લિંક માટે તમારું ઇનબોક્સ તપાસો.",
+    "verifyEmailResend": "ઈમેલ ફરીથી મોકલો",
+    "verifyEmailResendSending": "મોકલી રહ્યું છે...",
+    "verifyEmailResendSent": "વેરિફિકેશન ઈમેલ મોકલવામાં આવ્યો છે - તમારું ઇનબોક્સ તપાસો.",
+    "verifyEmailResendError": "ઇમેઇલ ફરીથી મોકલી શકાયો નથી. કૃપા કરીને પછીથી ફરી પ્રયાસ કરો.",
+    "verifyEmailSuccess": "તમારો ઈમેલ ચકાસાયેલ છે. આભાર!",
+    "verifyEmailInvalid": "તે ચકાસણી લિંક માન્ય નથી.",
+    "verifyEmailExpired": "તે ચકાસણી લિંકની સમયસીમા સમાપ્ત થઈ ગઈ છે — તમે એપ્લિકેશનની ટોચ પરના બેનરમાંથી એક નવી વિનંતી કરી શકો છો.",
+    "verifyEmailUsed": "તે વેરિફિકેશન લિંકનો ઉપયોગ પહેલેથી જ કરવામાં આવ્યો છે."
   },
   "pa": {
     "title": "ਆਯੁਰਰਾਸੋਈ",
@@ -1666,7 +1747,16 @@
     "onboardingNext": "ਅਗਲਾ",
     "onboardingSkip": "ਛੱਡੋ",
     "onboardingDone": "ਸ਼ੁਰੂ ਕਰੋ",
-    "onboardingReplay": "ਸੁਆਗਤ ਦੌਰਾ ਦੁਬਾਰਾ ਦਿਖਾਓ"
+    "onboardingReplay": "ਸੁਆਗਤ ਦੌਰਾ ਦੁਬਾਰਾ ਦਿਖਾਓ",
+    "verifyEmailBanner": "ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੇ ਈਮੇਲ ਪਤੇ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ — ਪੁਸ਼ਟੀਕਰਨ ਲਿੰਕ ਲਈ ਆਪਣੇ ਇਨਬਾਕਸ ਦੀ ਜਾਂਚ ਕਰੋ।",
+    "verifyEmailResend": "ਈਮੇਲ ਦੁਬਾਰਾ ਭੇਜੋ",
+    "verifyEmailResendSending": "ਭੇਜਿਆ ਜਾ ਰਿਹਾ ਹੈ...",
+    "verifyEmailResendSent": "ਪੁਸ਼ਟੀਕਰਨ ਈਮੇਲ ਭੇਜੀ ਗਈ — ਆਪਣੇ ਇਨਬਾਕਸ ਦੀ ਜਾਂਚ ਕਰੋ।",
+    "verifyEmailResendError": "ਈਮੇਲ ਦੁਬਾਰਾ ਨਹੀਂ ਭੇਜੀ ਜਾ ਸਕੀ। ਕਿਰਪਾ ਕਰਕੇ ਬਾਅਦ ਵਿੱਚ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
+    "verifyEmailSuccess": "ਤੁਹਾਡੀ ਈਮੇਲ ਦੀ ਪੁਸ਼ਟੀ ਹੋ ​​ਗਈ ਹੈ। ਧੰਨਵਾਦ!",
+    "verifyEmailInvalid": "ਉਹ ਪੁਸ਼ਟੀਕਰਨ ਲਿੰਕ ਵੈਧ ਨਹੀਂ ਹੈ।",
+    "verifyEmailExpired": "ਉਸ ਪੁਸ਼ਟੀਕਰਨ ਲਿੰਕ ਦੀ ਮਿਆਦ ਪੁੱਗ ਗਈ ਹੈ — ਤੁਸੀਂ ਐਪ ਦੇ ਸਿਖਰ 'ਤੇ ਬੈਨਰ ਤੋਂ ਇੱਕ ਨਵੇਂ ਲਈ ਬੇਨਤੀ ਕਰ ਸਕਦੇ ਹੋ।",
+    "verifyEmailUsed": "ਉਹ ਪੁਸ਼ਟੀਕਰਨ ਲਿੰਕ ਪਹਿਲਾਂ ਹੀ ਵਰਤਿਆ ਜਾ ਚੁੱਕਾ ਹੈ।"
   },
   "fr": {
     "title": "AyuRasoi",
@@ -1833,7 +1923,16 @@
     "onboardingNext": "Suivant",
     "onboardingSkip": "Sauter",
     "onboardingDone": "Commencer",
-    "onboardingReplay": "Afficher à nouveau la visite de bienvenue"
+    "onboardingReplay": "Afficher à nouveau la visite de bienvenue",
+    "verifyEmailBanner": "Veuillez vérifier votre adresse e-mail — vérifiez votre boîte de réception pour un lien de confirmation.",
+    "verifyEmailResend": "Renvoyer l'e-mail",
+    "verifyEmailResendSending": "Envoi…",
+    "verifyEmailResendSent": "E-mail de vérification envoyé — vérifiez votre boîte de réception.",
+    "verifyEmailResendError": "Impossible de renvoyer l'e-mail. Veuillez réessayer plus tard.",
+    "verifyEmailSuccess": "Votre email est vérifié. Merci!",
+    "verifyEmailInvalid": "Ce lien de vérification n'est pas valide.",
+    "verifyEmailExpired": "Ce lien de vérification a expiré. Vous pouvez en demander un nouveau depuis la bannière en haut de l'application.",
+    "verifyEmailUsed": "Ce lien de vérification a déjà été utilisé."
   },
   "es": {
     "title": "AyuRasoi",
@@ -2000,7 +2099,16 @@
     "onboardingNext": "Próximo",
     "onboardingSkip": "Saltar",
     "onboardingDone": "empezar",
-    "onboardingReplay": "Mostrar tour de bienvenida nuevamente"
+    "onboardingReplay": "Mostrar tour de bienvenida nuevamente",
+    "verifyEmailBanner": "Verifique su dirección de correo electrónico; revise su bandeja de entrada para obtener un enlace de confirmación.",
+    "verifyEmailResend": "Reenviar correo electrónico",
+    "verifyEmailResendSending": "Envío…",
+    "verifyEmailResendSent": "Correo electrónico de verificación enviado: revisa tu bandeja de entrada.",
+    "verifyEmailResendError": "No se pudo reenviar el correo electrónico. Inténtelo de nuevo más tarde.",
+    "verifyEmailSuccess": "Su correo electrónico está verificado. ¡Gracias!",
+    "verifyEmailInvalid": "Ese enlace de verificación no es válido.",
+    "verifyEmailExpired": "Ese enlace de verificación ha caducado; puedes solicitar uno nuevo desde el banner en la parte superior de la aplicación.",
+    "verifyEmailUsed": "Ese enlace de verificación ya se ha utilizado."
   },
   "de": {
     "title": "AyuRasoi",
@@ -2167,7 +2275,16 @@
     "onboardingNext": "Nächste",
     "onboardingSkip": "Überspringen",
     "onboardingDone": "Fangen Sie an",
-    "onboardingReplay": "Begrüßungsrundgang erneut anzeigen"
+    "onboardingReplay": "Begrüßungsrundgang erneut anzeigen",
+    "verifyEmailBanner": "Bitte überprüfen Sie Ihre E-Mail-Adresse. Suchen Sie in Ihrem Posteingang nach einem Bestätigungslink.",
+    "verifyEmailResend": "E-Mail erneut senden",
+    "verifyEmailResendSending": "Senden…",
+    "verifyEmailResendSent": "Bestätigungs-E-Mail gesendet – überprüfen Sie Ihren Posteingang.",
+    "verifyEmailResendError": "Die E-Mail konnte nicht erneut gesendet werden. Bitte versuchen Sie es später noch einmal.",
+    "verifyEmailSuccess": "Ihre E-Mail-Adresse ist bestätigt. Danke!",
+    "verifyEmailInvalid": "Dieser Bestätigungslink ist ungültig.",
+    "verifyEmailExpired": "Dieser Bestätigungslink ist abgelaufen. Sie können über das Banner oben in der App einen neuen anfordern.",
+    "verifyEmailUsed": "Dieser Bestätigungslink wurde bereits verwendet."
   },
   "ru": {
     "title": "АюрРасой",
@@ -2334,7 +2451,16 @@
     "onboardingNext": "Следующий",
     "onboardingSkip": "Пропускать",
     "onboardingDone": "Начать",
-    "onboardingReplay": "Показать приветственный тур еще раз"
+    "onboardingReplay": "Показать приветственный тур еще раз",
+    "verifyEmailBanner": "Пожалуйста, подтвердите свой адрес электронной почты — проверьте свой почтовый ящик на наличие ссылки для подтверждения.",
+    "verifyEmailResend": "Отправить письмо повторно",
+    "verifyEmailResendSending": "Отправка…",
+    "verifyEmailResendSent": "Письмо с подтверждением отправлено — проверьте свой почтовый ящик.",
+    "verifyEmailResendError": "Не удалось отправить письмо повторно. Пожалуйста, повторите попытку позже.",
+    "verifyEmailSuccess": "Ваш адрес электронной почты подтвержден. Спасибо!",
+    "verifyEmailInvalid": "Эта ссылка для подтверждения недействительна.",
+    "verifyEmailExpired": "Срок действия этой ссылки для проверки истек. Вы можете запросить новую с помощью баннера в верхней части приложения.",
+    "verifyEmailUsed": "Эта ссылка для проверки уже использовалась."
   },
   "zh": {
     "title": "阿尤拉索伊",
@@ -2501,7 +2627,16 @@
     "onboardingNext": "下一个",
     "onboardingSkip": "跳过",
     "onboardingDone": "开始使用",
-    "onboardingReplay": "再次显示欢迎游览"
+    "onboardingReplay": "再次显示欢迎游览",
+    "verifyEmailBanner": "请验证您的电子邮件地址 - 检查您的收件箱中的确认链接。",
+    "verifyEmailResend": "重新发送电子邮件",
+    "verifyEmailResendSending": "正在发送...",
+    "verifyEmailResendSent": "验证电子邮件已发送 — 请检查您的收件箱。",
+    "verifyEmailResendError": "无法重新发送电子邮件。请稍后重试。",
+    "verifyEmailSuccess": "您的电子邮件已验证。谢谢！",
+    "verifyEmailInvalid": "该验证链接无效。",
+    "verifyEmailExpired": "该验证链接已过期 - 您可以从应用程序顶部的横幅请求一个新的链接。",
+    "verifyEmailUsed": "该验证链接已被使用。"
   },
   "yue": {
     "title": "阿尤拉索伊",
@@ -2668,6 +2803,15 @@
     "onboardingNext": "下一个",
     "onboardingSkip": "跳过",
     "onboardingDone": "开始使用",
-    "onboardingReplay": "再次显示欢迎游览"
+    "onboardingReplay": "再次显示欢迎游览",
+    "verifyEmailBanner": "请验证您的电子邮件地址 - 检查您的收件箱中的确认链接。",
+    "verifyEmailResend": "重新发送电子邮件",
+    "verifyEmailResendSending": "正在发送...",
+    "verifyEmailResendSent": "验证电子邮件已发送 — 请检查您的收件箱。",
+    "verifyEmailResendError": "无法重新发送电子邮件。请稍后重试。",
+    "verifyEmailSuccess": "您的电子邮件已验证。谢谢！",
+    "verifyEmailInvalid": "该验证链接无效。",
+    "verifyEmailExpired": "该验证链接已过期 - 您可以从应用程序顶部的横幅请求一个新的链接。",
+    "verifyEmailUsed": "该验证链接已被使用。"
   }
 }

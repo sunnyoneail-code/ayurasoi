@@ -162,5 +162,14 @@
   "onboardingNext": "Next",
   "onboardingSkip": "Skip",
   "onboardingDone": "Get started",
-  "onboardingReplay": "Show welcome tour again"
+  "onboardingReplay": "Show welcome tour again",
+  "verifyEmailBanner": "Please verify your email address — check your inbox for a confirmation link.",
+  "verifyEmailResend": "Resend email",
+  "verifyEmailResendSending": "Sending…",
+  "verifyEmailResendSent": "Verification email sent — check your inbox.",
+  "verifyEmailResendError": "Couldn't resend the email. Please try again later.",
+  "verifyEmailSuccess": "Your email is verified. Thanks!",
+  "verifyEmailInvalid": "That verification link isn't valid.",
+  "verifyEmailExpired": "That verification link has expired — you can request a new one from the banner at the top of the app.",
+  "verifyEmailUsed": "That verification link has already been used."
 }
