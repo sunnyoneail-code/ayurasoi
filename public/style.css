@@ -80,7 +80,10 @@ body {
   margin-top: 14px;
 }
 
-.settings-btn {
+/* Shared circular icon-only button — the settings gear and the log
+   out control both use this, so a signed-in header reads as a small,
+   consistent set of controls rather than a row of mismatched shapes. */
+.icon-btn {
   width: 34px;
   height: 34px;
   flex-shrink: 0;
@@ -95,9 +98,21 @@ body {
   cursor: pointer;
 }
 
-.settings-btn:hover {
+.icon-btn:hover {
   color: var(--accent);
   border-color: var(--accent);
+}
+
+.settings-select-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.settings-select-icon {
+  flex-shrink: 0;
+  color: var(--muted);
+  display: flex;
 }
 
 h1 {

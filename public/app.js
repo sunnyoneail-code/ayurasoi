@@ -836,7 +836,7 @@ function appWordmark() {
 }
 
 function settingsButton(t) {
-  const btn = el("button", "settings-btn");
+  const btn = el("button", "icon-btn");
   btn.type = "button";
   btn.setAttribute("aria-label", t.settingsNav || "Settings");
   btn.title = t.settingsNav || "Settings";
@@ -849,6 +849,26 @@ function settingsButton(t) {
     + '<circle cx="11" cy="18" r="2.3" fill="var(--surface)" stroke="currentColor" stroke-width="1.6"/>'
     + '</svg>';
   btn.onclick = () => { state.viewingSettings = !state.viewingSettings; render(); };
+  return btn;
+}
+
+const GLOBE_ICON = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">'
+  + '<circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6" fill="none"/>'
+  + '<ellipse cx="12" cy="12" rx="4" ry="9" stroke="currentColor" stroke-width="1.6" fill="none"/>'
+  + '<line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="1.6"/>'
+  + '</svg>';
+
+function logOutButton(t) {
+  const btn = el("button", "icon-btn");
+  btn.type = "button";
+  btn.setAttribute("aria-label", t.logOut);
+  btn.title = t.logOut;
+  btn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">'
+    + '<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
+    + '<path d="M16 17l5-5-5-5" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
+    + '<line x1="21" y1="12" x2="9" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>'
+    + '</svg>';
+  btn.onclick = submitLogOut;
   return btn;
 }
 
@@ -911,9 +931,7 @@ function render() {
   // copy was pure duplication rather than a shortcut from elsewhere.
   if (state.user) {
     headerControls.appendChild(el("span", "welcome-text", t.welcomePrefix + state.user.name));
-    const logOutBtn = el("button", "add-recipe-nav-btn", t.logOut);
-    logOutBtn.onclick = submitLogOut;
-    headerControls.appendChild(logOutBtn);
+    headerControls.appendChild(logOutButton(t));
   }
 
   topBar.appendChild(headerControls);
@@ -1395,6 +1413,11 @@ function renderSettings(t) {
   wrap.appendChild(el("h2", null, t.settingsNav || "Settings"));
 
   wrap.appendChild(el("h4", null, t.settingsLanguageLabel || "Language"));
+  const langRow = el("div", "settings-select-row");
+  const langIcon = document.createElement("span");
+  langIcon.className = "settings-select-icon";
+  langIcon.innerHTML = GLOBE_ICON;
+  langRow.appendChild(langIcon);
   const langSelect = document.createElement("select");
   langSelect.className = "lang-select";
   LANGUAGES.forEach((lang) => {
@@ -1405,7 +1428,8 @@ function renderSettings(t) {
     langSelect.appendChild(opt);
   });
   langSelect.onchange = (e) => { stopWalkthrough(); state.lang = e.target.value; render(); };
-  wrap.appendChild(langSelect);
+  langRow.appendChild(langSelect);
+  wrap.appendChild(langRow);
 
   wrap.appendChild(el("h4", null, t.settingsTextSizeLabel || "Text size"));
   wrap.appendChild(fontSizeControls());
