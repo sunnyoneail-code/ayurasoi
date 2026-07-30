@@ -309,7 +309,9 @@ const CATEGORY_DEFS = [
   { id: "oral-care", key: "catOralCare" },
   { id: "eye-care", key: "catEyeCare" },
   { id: "weight-management", key: "catWeightManagement" },
-  { id: "detox", key: "catDetox" }
+  { id: "detox", key: "catDetox" },
+  { id: "memory-focus", key: "catMemoryFocus" },
+  { id: "respiratory", key: "catRespiratory" }
 ];
 
 const AGE_RANGES = ["Under 18", "18-24", "25-34", "35-44", "45-54", "55-64", "65+"];

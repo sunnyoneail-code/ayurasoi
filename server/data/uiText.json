@@ -46,6 +46,8 @@
     "catEyeCare": "Eye Care",
     "catWeightManagement": "Weight Management",
     "catDetox": "Detox",
+    "catMemoryFocus": "Memory & Focus",
+    "catRespiratory": "Respiratory",
     "signIn": "Sign in",
     "signUp": "Sign up",
     "logOut": "Log out",
@@ -146,10 +148,10 @@
     "resetPasswordSuccess": "Password updated. You can sign in now.",
     "continueWithGoogle": "Continue with Google",
     "continueWithFacebook": "Continue with Facebook",
+    "orDivider": "or",
     "settingsNav": "Settings",
     "settingsLanguageLabel": "Language",
     "settingsTextSizeLabel": "Text size",
-    "orDivider": "or",
     "onboardingWelcomeTitle": "Welcome to AyuRasoi",
     "onboardingWelcomeText": "Simple, traditional Ayurvedic remedies for everyday ailments, right from your phone.",
     "onboardingSearchTitle": "Find what you need",
@@ -358,7 +360,9 @@
     "closeShoppingList": "खरीदारी सूची बंद करें",
     "shoppingListTitle": "खरीदारी की सूची",
     "shoppingListEmpty": "आपने अभी तक कोई पसंदीदा सहेजा नहीं है - यहां इसकी सामग्री जोड़ने के लिए एक रेसिपी को तारांकित करें।",
-    "shoppingListHelp": "आपके पसंदीदा व्यंजनों की सामग्री, नुस्खा के अनुसार समूहीकृत। खरीदारी करते समय वस्तुओं की जाँच करें।"
+    "shoppingListHelp": "आपके पसंदीदा व्यंजनों की सामग्री, नुस्खा के अनुसार समूहीकृत। खरीदारी करते समय वस्तुओं की जाँच करें।",
+    "catMemoryFocus": "मेमोरी और फोकस",
+    "catRespiratory": "श्वसन"
   },
   "bn": {
     "title": "আয়ুররসোই",
@@ -539,7 +543,9 @@
     "closeShoppingList": "কেনাকাটার তালিকা বন্ধ করুন",
     "shoppingListTitle": "কেনাকাটার তালিকা",
     "shoppingListEmpty": "আপনি এখনও কোনো পছন্দসই সংরক্ষণ করেননি — এখানে উপাদান যোগ করতে একটি রেসিপি তারকাচিহ্নিত করুন।",
-    "shoppingListHelp": "আপনার পছন্দের রেসিপি থেকে উপাদান, রেসিপি দ্বারা গোষ্ঠীবদ্ধ। আপনি কেনাকাটা হিসাবে আইটেম চেক বন্ধ."
+    "shoppingListHelp": "আপনার পছন্দের রেসিপি থেকে উপাদান, রেসিপি দ্বারা গোষ্ঠীবদ্ধ। আপনি কেনাকাটা হিসাবে আইটেম চেক বন্ধ.",
+    "catMemoryFocus": "মেমরি এবং ফোকাস",
+    "catRespiratory": "শ্বাসযন্ত্র"
   },
   "mr": {
     "title": "आयुर्रासोई",
@@ -720,7 +726,9 @@
     "closeShoppingList": "खरेदी सूची बंद करा",
     "shoppingListTitle": "खरेदी सूची",
     "shoppingListEmpty": "तुम्ही अद्याप कोणतेही आवडते सेव्ह केलेले नाहीत — येथे घटक जोडण्यासाठी रेसिपी तारांकित करा.",
-    "shoppingListHelp": "तुमच्या आवडत्या रेसिपीमधील घटक, रेसिपीनुसार गटबद्ध. तुम्ही खरेदी करता तेव्हा वस्तू तपासा."
+    "shoppingListHelp": "तुमच्या आवडत्या रेसिपीमधील घटक, रेसिपीनुसार गटबद्ध. तुम्ही खरेदी करता तेव्हा वस्तू तपासा.",
+    "catMemoryFocus": "मेमरी आणि फोकस",
+    "catRespiratory": "श्वसन"
   },
   "ta": {
     "title": "ஆயுர்ரசோய்",
@@ -901,7 +909,9 @@
     "closeShoppingList": "ஷாப்பிங் பட்டியலை மூடு",
     "shoppingListTitle": "ஷாப்பிங் பட்டியல்",
     "shoppingListEmpty": "நீங்கள் இதுவரை பிடித்தவை எதையும் சேமிக்கவில்லை — அதன் பொருட்களைச் சேர்க்க, செய்முறையை இங்கே நட்சத்திரமிடுங்கள்.",
-    "shoppingListHelp": "உங்களுக்குப் பிடித்த ரெசிபிகளிலிருந்து தேவையான பொருட்கள், செய்முறையின் அடிப்படையில் தொகுக்கப்பட்டுள்ளன. நீங்கள் ஷாப்பிங் செய்யும் போது பொருட்களை சரிபார்க்கவும்."
+    "shoppingListHelp": "உங்களுக்குப் பிடித்த ரெசிபிகளிலிருந்து தேவையான பொருட்கள், செய்முறையின் அடிப்படையில் தொகுக்கப்பட்டுள்ளன. நீங்கள் ஷாப்பிங் செய்யும் போது பொருட்களை சரிபார்க்கவும்.",
+    "catMemoryFocus": "நினைவகம் & கவனம்",
+    "catRespiratory": "சுவாசம்"
   },
   "te": {
     "title": "ఆయుర్ రసోయ్",
@@ -1082,7 +1092,9 @@
     "closeShoppingList": "షాపింగ్ జాబితాను మూసివేయండి",
     "shoppingListTitle": "షాపింగ్ జాబితా",
     "shoppingListEmpty": "మీరు ఇంకా ఇష్టమైనవి ఏవీ సేవ్ చేయలేదు — దాని పదార్థాలను ఇక్కడ జోడించడానికి ఒక రెసిపీకి నక్షత్రం ఉంచండి.",
-    "shoppingListHelp": "మీకు ఇష్టమైన వంటకాల నుండి పదార్థాలు, రెసిపీ ద్వారా సమూహం చేయబడ్డాయి. మీరు షాపింగ్ చేస్తున్నప్పుడు వస్తువులను చెక్ చేయండి."
+    "shoppingListHelp": "మీకు ఇష్టమైన వంటకాల నుండి పదార్థాలు, రెసిపీ ద్వారా సమూహం చేయబడ్డాయి. మీరు షాపింగ్ చేస్తున్నప్పుడు వస్తువులను చెక్ చేయండి.",
+    "catMemoryFocus": "మెమరీ & ఫోకస్",
+    "catRespiratory": "శ్వాసకోశ"
   },
   "kn": {
     "title": "ಆಯುರ್ರಾಸೋಯಿ",
@@ -1263,7 +1275,9 @@
     "closeShoppingList": "ಶಾಪಿಂಗ್ ಪಟ್ಟಿಯನ್ನು ಮುಚ್ಚಿ",
     "shoppingListTitle": "ಶಾಪಿಂಗ್ ಪಟ್ಟಿ",
     "shoppingListEmpty": "ನೀವು ಇನ್ನೂ ಯಾವುದೇ ಮೆಚ್ಚಿನವುಗಳನ್ನು ಉಳಿಸಿಲ್ಲ - ಅದರ ಪದಾರ್ಥಗಳನ್ನು ಇಲ್ಲಿ ಸೇರಿಸಲು ಪಾಕವಿಧಾನವನ್ನು ನಕ್ಷತ್ರ ಹಾಕಿ.",
-    "shoppingListHelp": "ನಿಮ್ಮ ಮೆಚ್ಚಿನ ಪಾಕವಿಧಾನಗಳಿಂದ ಪದಾರ್ಥಗಳು, ಪಾಕವಿಧಾನದ ಪ್ರಕಾರ ಗುಂಪು ಮಾಡಲಾಗಿದೆ. ನೀವು ಶಾಪಿಂಗ್ ಮಾಡುವಾಗ ಐಟಂಗಳನ್ನು ಪರಿಶೀಲಿಸಿ."
+    "shoppingListHelp": "ನಿಮ್ಮ ಮೆಚ್ಚಿನ ಪಾಕವಿಧಾನಗಳಿಂದ ಪದಾರ್ಥಗಳು, ಪಾಕವಿಧಾನದ ಪ್ರಕಾರ ಗುಂಪು ಮಾಡಲಾಗಿದೆ. ನೀವು ಶಾಪಿಂಗ್ ಮಾಡುವಾಗ ಐಟಂಗಳನ್ನು ಪರಿಶೀಲಿಸಿ.",
+    "catMemoryFocus": "ಸ್ಮರಣೆ ಮತ್ತು ಗಮನ",
+    "catRespiratory": "ಉಸಿರಾಟ"
   },
   "or": {
     "title": "ଆୟୁର୍ ରସୋଇ |",
@@ -1444,7 +1458,9 @@
     "closeShoppingList": "ସପିଂ ତାଲିକା ବନ୍ଦ କରନ୍ତୁ |",
     "shoppingListTitle": "ସପିଂ ତାଲିକା |",
     "shoppingListEmpty": "ଆପଣ ଏପର୍ଯ୍ୟନ୍ତ କ favorites ଣସି ପସନ୍ଦିତା ସଞ୍ଚୟ କରିନାହାଁନ୍ତି - ଏହାର ଉପାଦାନ ଏଠାରେ ଯୋଡିବା ପାଇଁ ଏକ ରେସିପି ଷ୍ଟାର୍ କରନ୍ତୁ |",
-    "shoppingListHelp": "ରେସିପି ଦ୍ group ାରା ଗ୍ରୁପ୍ ହୋଇଥିବା ଆପଣଙ୍କ ପସନ୍ଦିତ ରେସିପିରୁ ଉପାଦାନ | ଆପଣ ସପିଂ କରିବା ସମୟରେ ଆଇଟମ୍ ଗୁଡିକ ଯାଞ୍ଚ କରନ୍ତୁ |"
+    "shoppingListHelp": "ରେସିପି ଦ୍ group ାରା ଗ୍ରୁପ୍ ହୋଇଥିବା ଆପଣଙ୍କ ପସନ୍ଦିତ ରେସିପିରୁ ଉପାଦାନ | ଆପଣ ସପିଂ କରିବା ସମୟରେ ଆଇଟମ୍ ଗୁଡିକ ଯାଞ୍ଚ କରନ୍ତୁ |",
+    "catMemoryFocus": "ସ୍ମୃତି ଏବଂ ଫୋକସ୍ |",
+    "catRespiratory": "ଶ୍ୱାସକ୍ରିୟା"
   },
   "gu": {
     "title": "આયુરરાસોઈ",
@@ -1625,7 +1641,9 @@
     "closeShoppingList": "ખરીદીની સૂચિ બંધ કરો",
     "shoppingListTitle": "ખરીદી યાદી",
     "shoppingListEmpty": "તમે હજી સુધી કોઈ મનપસંદ સાચવ્યું નથી — અહીં તેના ઘટકો ઉમેરવા માટે રેસીપીને સ્ટાર કરો.",
-    "shoppingListHelp": "તમારી મનપસંદ વાનગીઓમાંથી ઘટકો, રેસીપી દ્વારા જૂથબદ્ધ. જ્યારે તમે ખરીદી કરો ત્યારે વસ્તુઓને ચેક કરો."
+    "shoppingListHelp": "તમારી મનપસંદ વાનગીઓમાંથી ઘટકો, રેસીપી દ્વારા જૂથબદ્ધ. જ્યારે તમે ખરીદી કરો ત્યારે વસ્તુઓને ચેક કરો.",
+    "catMemoryFocus": "મેમરી અને ફોકસ",
+    "catRespiratory": "શ્વસન"
   },
   "pa": {
     "title": "ਆਯੁਰਰਾਸੋਈ",
@@ -1806,7 +1824,9 @@
     "closeShoppingList": "ਖਰੀਦਦਾਰੀ ਸੂਚੀ ਬੰਦ ਕਰੋ",
     "shoppingListTitle": "ਖਰੀਦਦਾਰੀ ਸੂਚੀ",
     "shoppingListEmpty": "ਤੁਸੀਂ ਅਜੇ ਤੱਕ ਕੋਈ ਵੀ ਮਨਪਸੰਦ ਨੂੰ ਸੁਰੱਖਿਅਤ ਨਹੀਂ ਕੀਤਾ ਹੈ — ਇੱਥੇ ਇਸਦੀ ਸਮੱਗਰੀ ਸ਼ਾਮਲ ਕਰਨ ਲਈ ਇੱਕ ਵਿਅੰਜਨ ਨੂੰ ਸਟਾਰ ਕਰੋ।",
-    "shoppingListHelp": "ਤੁਹਾਡੀਆਂ ਮਨਪਸੰਦ ਪਕਵਾਨਾਂ ਦੀਆਂ ਸਮੱਗਰੀਆਂ, ਵਿਅੰਜਨ ਦੁਆਰਾ ਸਮੂਹਿਤ। ਜਦੋਂ ਤੁਸੀਂ ਖਰੀਦਦਾਰੀ ਕਰਦੇ ਹੋ ਤਾਂ ਚੀਜ਼ਾਂ ਦੀ ਜਾਂਚ ਕਰੋ।"
+    "shoppingListHelp": "ਤੁਹਾਡੀਆਂ ਮਨਪਸੰਦ ਪਕਵਾਨਾਂ ਦੀਆਂ ਸਮੱਗਰੀਆਂ, ਵਿਅੰਜਨ ਦੁਆਰਾ ਸਮੂਹਿਤ। ਜਦੋਂ ਤੁਸੀਂ ਖਰੀਦਦਾਰੀ ਕਰਦੇ ਹੋ ਤਾਂ ਚੀਜ਼ਾਂ ਦੀ ਜਾਂਚ ਕਰੋ।",
+    "catMemoryFocus": "ਮੈਮੋਰੀ ਅਤੇ ਫੋਕਸ",
+    "catRespiratory": "ਸਾਹ"
   },
   "fr": {
     "title": "AyuRasoi",
@@ -1987,7 +2007,9 @@
     "closeShoppingList": "Fermer la liste de courses",
     "shoppingListTitle": "Liste de courses",
     "shoppingListEmpty": "Vous n'avez pas encore enregistré de favoris : marquez une recette pour ajouter ses ingrédients ici.",
-    "shoppingListHelp": "Ingrédients de vos recettes préférées, regroupés par recette. Cochez les articles pendant que vous magasinez."
+    "shoppingListHelp": "Ingrédients de vos recettes préférées, regroupés par recette. Cochez les articles pendant que vous magasinez.",
+    "catMemoryFocus": "Mémoire et concentration",
+    "catRespiratory": "Respiratoire"
   },
   "es": {
     "title": "AyuRasoi",
@@ -2168,7 +2190,9 @@
     "closeShoppingList": "Cerrar lista de compras",
     "shoppingListTitle": "Lista de compras",
     "shoppingListEmpty": "Aún no has guardado ningún favorito: destaca una receta para agregar sus ingredientes aquí.",
-    "shoppingListHelp": "Ingredientes de tus recetas favoritas, agrupados por receta. Marque los artículos mientras compra."
+    "shoppingListHelp": "Ingredientes de tus recetas favoritas, agrupados por receta. Marque los artículos mientras compra.",
+    "catMemoryFocus": "Memoria y enfoque",
+    "catRespiratory": "Respiratorio"
   },
   "de": {
     "title": "AyuRasoi",
@@ -2349,7 +2373,9 @@
     "closeShoppingList": "Einkaufsliste schließen",
     "shoppingListTitle": "Einkaufsliste",
     "shoppingListEmpty": "Sie haben noch keine Favoriten gespeichert – markieren Sie ein Rezept, um dessen Zutaten hier hinzuzufügen.",
-    "shoppingListHelp": "Zutaten aus Ihren Lieblingsrezepten, nach Rezept gruppiert. Checken Sie Artikel ab, während Sie einkaufen."
+    "shoppingListHelp": "Zutaten aus Ihren Lieblingsrezepten, nach Rezept gruppiert. Checken Sie Artikel ab, während Sie einkaufen.",
+    "catMemoryFocus": "Gedächtnis und Fokus",
+    "catRespiratory": "Atemwege"
   },
   "ru": {
     "title": "АюрРасой",
@@ -2530,7 +2556,9 @@
     "closeShoppingList": "Закрыть список покупок",
     "shoppingListTitle": "Список покупок",
     "shoppingListEmpty": "Вы еще не сохранили ни одного избранного — отметьте рецепт, чтобы добавить сюда ингредиенты.",
-    "shoppingListHelp": "Ингредиенты из ваших любимых рецептов, сгруппированные по рецептам. Проверяйте товары во время покупок."
+    "shoppingListHelp": "Ингредиенты из ваших любимых рецептов, сгруппированные по рецептам. Проверяйте товары во время покупок.",
+    "catMemoryFocus": "Память и фокус",
+    "catRespiratory": "Дыхательная система"
   },
   "zh": {
     "title": "阿尤拉索伊",
@@ -2711,7 +2739,9 @@
     "closeShoppingList": "关闭购物清单",
     "shoppingListTitle": "购物清单",
     "shoppingListEmpty": "您尚未保存任何收藏夹 - 为食谱加注星标以在此处添加其成分。",
-    "shoppingListHelp": "来自您最喜欢的食谱的成分，按食谱分组。购物时检查商品。"
+    "shoppingListHelp": "来自您最喜欢的食谱的成分，按食谱分组。购物时检查商品。",
+    "catMemoryFocus": "记忆力与注意力",
+    "catRespiratory": "呼吸系统"
   },
   "yue": {
     "title": "阿尤拉索伊",
@@ -2892,6 +2922,8 @@
     "closeShoppingList": "关闭购物清单",
     "shoppingListTitle": "购物清单",
     "shoppingListEmpty": "您尚未保存任何收藏夹 - 为食谱加注星标以在此处添加其成分。",
-    "shoppingListHelp": "来自您最喜欢的食谱的成分，按食谱分组。购物时检查商品。"
+    "shoppingListHelp": "来自您最喜欢的食谱的成分，按食谱分组。购物时检查商品。",
+    "catMemoryFocus": "记忆力与注意力",
+    "catRespiratory": "呼吸系统"
   }
 }

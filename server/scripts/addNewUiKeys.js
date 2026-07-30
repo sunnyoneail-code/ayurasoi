@@ -7,10 +7,7 @@ const path = require("path");
 const { LANGUAGES } = require("../languages");
 const { translateBlock } = require("../recipeExtractor");
 
-const NEW_KEYS = [
-  "shoppingListNav", "closeShoppingList", "shoppingListTitle",
-  "shoppingListEmpty", "shoppingListHelp"
-];
+const NEW_KEYS = ["catMemoryFocus", "catRespiratory"];
 
 const UI_EN_PATH = path.join(__dirname, "..", "data", "uiText.en.json");
 const UI_OUT_PATH = path.join(__dirname, "..", "data", "uiText.json");
