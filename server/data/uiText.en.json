@@ -143,5 +143,10 @@
   "newPasswordLabel": "New password",
   "resetPasswordSubmit": "Set new password",
   "resetPasswordSuccess": "Password updated. You can sign in now.",
-  "continueWithGoogle": "Continue with Google"
+  "continueWithGoogle": "Continue with Google",
+  "continueWithFacebook": "Continue with Facebook",
+  "orDivider": "or",
+  "settingsNav": "Settings",
+  "settingsLanguageLabel": "Language",
+  "settingsTextSizeLabel": "Text size"
 }

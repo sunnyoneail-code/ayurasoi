@@ -19,7 +19,8 @@ async function getUserStats() {
   const methodRes = await pool.query(
     `SELECT
        COUNT(*) FILTER (WHERE google_id IS NOT NULL)::int AS google,
-       COUNT(*) FILTER (WHERE google_id IS NULL)::int AS password
+       COUNT(*) FILTER (WHERE facebook_id IS NOT NULL)::int AS facebook,
+       COUNT(*) FILTER (WHERE google_id IS NULL AND facebook_id IS NULL)::int AS password
      FROM users`
   );
   const ageRes = await pool.query(
@@ -39,7 +40,7 @@ async function getUserStats() {
     total: totalRes.rows[0].count,
     newLast7Days: recentRes.rows[0].last7,
     newLast30Days: recentRes.rows[0].last30,
-    signupMethod: { google: methodRes.rows[0].google, password: methodRes.rows[0].password },
+    signupMethod: { google: methodRes.rows[0].google, facebook: methodRes.rows[0].facebook, password: methodRes.rows[0].password },
     ageRangeBreakdown: ageRes.rows,
     genderBreakdown: genderRes.rows,
     countryBreakdown: countryRes.rows

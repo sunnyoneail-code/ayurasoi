@@ -59,11 +59,45 @@ body {
   margin-bottom: 16px;
 }
 
-.title-row {
+/* A slim utility row (account actions + the settings gear) sits above
+   the brand block, which is centered in its own row below — rather
+   than splitting the header into a left-brand / right-controls pair,
+   which left the logo and name looking like they were shoved aside by
+   the controls instead of being the header's main event. */
+.header-top-bar {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 14px;
+}
+
+.settings-btn {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+}
+
+.settings-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 h1 {
@@ -94,6 +128,15 @@ h1 {
   padding: 7px;
 }
 
+/* Explicit CSS sizing rather than relying on the SVG's own percentage
+   width/height attributes, which some embedded browser engines size
+   inconsistently for inline SVG. */
+.brand-logo svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 /* Fixed brand wordmark — "Ayu" (ink) + "Rasoi" (tulsi green) set in
    Yatra One, the dual Devanagari/Latin brush face. Always literal
    English, independent of the translated t.title used elsewhere.
@@ -117,6 +160,7 @@ h1 {
   margin: 4px 0 0;
   color: var(--muted);
   font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 .lang-select {
@@ -559,6 +603,7 @@ h1 {
   flex-shrink: 0;
   flex-wrap: wrap;
   justify-content: flex-end;
+  max-width: 100%;
 }
 
 .add-recipe-nav-btn {
@@ -619,6 +664,42 @@ h1 {
   font-size: 0.85rem;
   color: var(--muted);
   margin-bottom: 4px;
+}
+
+.form-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.form-select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 36px 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position: calc(100% - 18px) center, calc(100% - 13px) center;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.form-input:focus, .form-select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
 .switch-link {
@@ -761,18 +842,66 @@ h1 {
   color: var(--muted);
 }
 
-.google-btn {
-  display: block;
+/* Google/Facebook sign-in — a two-column row on wider screens, one
+   column on narrow ones, each button carrying its brand's own icon so
+   the two are told apart at a glance rather than reading as identical
+   grey pills with different text. */
+.social-btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.social-btn {
+  flex: 1 1 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   text-align: center;
   text-decoration: none;
   box-sizing: border-box;
 }
 
+.social-btn-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
 .or-divider {
+  display: flex;
+  align-items: center;
   text-align: center;
   color: var(--muted);
-  margin: 14px 0;
-  font-size: 0.85rem;
+  margin: 18px 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.or-divider::before, .or-divider::after {
+  content: "";
+  flex: 1;
+  border-top: 1px solid var(--border);
+}
+
+.or-divider::before {
+  margin-right: 12px;
+}
+
+.or-divider::after {
+  margin-left: 12px;
+}
+
+.auth-submit-btn {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 18px;
+  padding: 11px 16px;
+  font-size: 0.95rem;
+  text-align: center;
 }
 
 .checkbox-grid {

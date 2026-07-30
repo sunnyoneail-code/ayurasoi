@@ -308,7 +308,8 @@ let state = {
   digestSendResult: null,
   digestSendError: "",
   unsubscribeNotice: null,
-  viewingSourceLibrary: false
+  viewingSourceLibrary: false,
+  viewingSettings: false
 };
 
 function resetAuthForm() {
@@ -834,6 +835,23 @@ function appWordmark() {
   return h1;
 }
 
+function settingsButton(t) {
+  const btn = el("button", "settings-btn");
+  btn.type = "button";
+  btn.setAttribute("aria-label", t.settingsNav || "Settings");
+  btn.title = t.settingsNav || "Settings";
+  btn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">'
+    + '<line x1="4" y1="6" x2="20" y2="6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>'
+    + '<circle cx="9" cy="6" r="2.3" fill="var(--surface)" stroke="currentColor" stroke-width="1.6"/>'
+    + '<line x1="4" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>'
+    + '<circle cx="15" cy="12" r="2.3" fill="var(--surface)" stroke="currentColor" stroke-width="1.6"/>'
+    + '<line x1="4" y1="18" x2="20" y2="18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>'
+    + '<circle cx="11" cy="18" r="2.3" fill="var(--surface)" stroke="currentColor" stroke-width="1.6"/>'
+    + '</svg>';
+  btn.onclick = () => { state.viewingSettings = !state.viewingSettings; render(); };
+  return btn;
+}
+
 function render() {
   const app = document.getElementById("app");
   app.innerHTML = "";
@@ -845,28 +863,16 @@ function render() {
   const t = UI_TEXT[state.lang];
 
   const header = el("header", "app-header");
-  const titleRow = el("div", "title-row");
-  const titleBlock = el("div");
+
+  const brandCenter = el("div", "brand-center");
   const brandRow = el("div", "brand-row");
   brandRow.appendChild(appLogo("brand-logo"));
   brandRow.appendChild(appWordmark());
-  titleBlock.appendChild(brandRow);
-  titleBlock.appendChild(el("p", "subtitle", t.subtitle));
-  titleRow.appendChild(titleBlock);
+  brandCenter.appendChild(brandRow);
+  brandCenter.appendChild(el("p", "subtitle", t.subtitle));
 
+  const topBar = el("div", "header-top-bar");
   const headerControls = el("div", "header-controls");
-  const langSelect = document.createElement("select");
-  langSelect.className = "lang-select";
-  LANGUAGES.forEach((lang) => {
-    const opt = document.createElement("option");
-    opt.value = lang.code;
-    opt.textContent = lang.label;
-    if (lang.code === state.lang) opt.selected = true;
-    langSelect.appendChild(opt);
-  });
-  langSelect.onchange = (e) => { stopWalkthrough(); state.lang = e.target.value; render(); };
-  headerControls.appendChild(langSelect);
-  headerControls.appendChild(fontSizeControls());
 
   if (!state.openRecipe && !state.authView && state.user && !state.user.needsDemographics) {
     const profileBtn = el("button", "add-recipe-nav-btn", state.viewingProfile ? t.closeProfile : t.profileNav);
@@ -900,23 +906,27 @@ function render() {
     headerControls.appendChild(digestBtn);
   }
 
+  // No header sign in/up buttons when logged out — the gate screen and
+  // every auth form already offer both, right in the body, so a header
+  // copy was pure duplication rather than a shortcut from elsewhere.
   if (state.user) {
     headerControls.appendChild(el("span", "welcome-text", t.welcomePrefix + state.user.name));
     const logOutBtn = el("button", "add-recipe-nav-btn", t.logOut);
     logOutBtn.onclick = submitLogOut;
     headerControls.appendChild(logOutBtn);
-  } else {
-    const signInBtn = el("button", "add-recipe-nav-btn", t.signIn);
-    signInBtn.onclick = () => { state.authView = "signin"; resetAuthForm(); render(); };
-    headerControls.appendChild(signInBtn);
-    const signUpBtn = el("button", "add-recipe-nav-btn", t.signUp);
-    signUpBtn.onclick = () => { state.authView = "signup"; resetAuthForm(); render(); };
-    headerControls.appendChild(signUpBtn);
   }
 
-  titleRow.appendChild(headerControls);
-  header.appendChild(titleRow);
+  topBar.appendChild(headerControls);
+  topBar.appendChild(settingsButton(t));
+  header.appendChild(topBar);
+  header.appendChild(brandCenter);
   app.appendChild(header);
+
+  if (state.viewingSettings) {
+    app.appendChild(renderSettings(t));
+    app.appendChild(renderFooter(t));
+    return;
+  }
 
   if (state.unsubscribeNotice) {
     const noticeKey = state.unsubscribeNotice === "1" ? "unsubscribeSuccess"
@@ -1257,8 +1267,7 @@ function labeledInput(labelText, type, value, onInput) {
   const input = document.createElement("input");
   input.type = type;
   input.value = value;
-  input.className = "add-recipe-textarea";
-  input.style.minHeight = "auto";
+  input.className = "form-input";
   input.oninput = (e) => onInput(e.target.value);
   wrap.appendChild(input);
   return wrap;
@@ -1268,9 +1277,7 @@ function labeledSelect(labelText, options, placeholderText, value, onChange) {
   const wrap = el("div", "form-field");
   wrap.appendChild(el("label", "form-label", labelText));
   const select = document.createElement("select");
-  select.className = "lang-select";
-  select.style.maxWidth = "none";
-  select.style.width = "100%";
+  select.className = "form-select";
   const blank = document.createElement("option");
   blank.value = "";
   blank.textContent = placeholderText;
@@ -1375,6 +1382,33 @@ function renderSourceLibrary(t) {
     grid.appendChild(card);
   });
   wrap.appendChild(grid);
+
+  return wrap;
+}
+
+function renderSettings(t) {
+  const wrap = el("div", "detail");
+  const backBtn = el("button", "back-btn", t.back);
+  backBtn.onclick = () => { state.viewingSettings = false; render(); };
+  wrap.appendChild(backBtn);
+
+  wrap.appendChild(el("h2", null, t.settingsNav || "Settings"));
+
+  wrap.appendChild(el("h4", null, t.settingsLanguageLabel || "Language"));
+  const langSelect = document.createElement("select");
+  langSelect.className = "lang-select";
+  LANGUAGES.forEach((lang) => {
+    const opt = document.createElement("option");
+    opt.value = lang.code;
+    opt.textContent = lang.label;
+    if (lang.code === state.lang) opt.selected = true;
+    langSelect.appendChild(opt);
+  });
+  langSelect.onchange = (e) => { stopWalkthrough(); state.lang = e.target.value; render(); };
+  wrap.appendChild(langSelect);
+
+  wrap.appendChild(el("h4", null, t.settingsTextSizeLabel || "Text size"));
+  wrap.appendChild(fontSizeControls());
 
   return wrap;
 }
@@ -1591,7 +1625,8 @@ function renderDashboard() {
 
   wrap.appendChild(statBarGroup("Sign-up method", [
     { label: "Password", count: d.users.signupMethod.password },
-    { label: "Google", count: d.users.signupMethod.google }
+    { label: "Google", count: d.users.signupMethod.google },
+    { label: "Facebook", count: d.users.signupMethod.facebook }
   ]));
   wrap.appendChild(statBarGroup("Age range", d.users.ageRangeBreakdown.map((r) => ({ label: r.label, count: r.count }))));
   wrap.appendChild(statBarGroup("Gender", d.users.genderBreakdown.map((r) => ({ label: r.label, count: r.count }))));
@@ -1619,12 +1654,42 @@ function renderDashboard() {
   return wrap;
 }
 
-function googleButton() {
+const GOOGLE_G_ICON = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">'
+  + '<path fill="#4285F4" d="M23.52 12.273c0-.851-.076-1.67-.218-2.455H12v4.64h6.458c-.28 1.5-1.128 2.77-2.4 3.62v3.01h3.885c2.276-2.096 3.578-5.184 3.578-8.815z"/>'
+  + '<path fill="#34A853" d="M12 24c3.24 0 5.956-1.075 7.942-2.912l-3.885-3.01c-1.077.72-2.454 1.147-4.057 1.147-3.12 0-5.762-2.107-6.705-4.938H1.29v3.104C3.266 21.302 7.31 24 12 24z"/>'
+  + '<path fill="#FBBC05" d="M5.295 14.287A7.21 7.21 0 0 1 4.909 12c0-.794.137-1.567.386-2.287V6.61H1.29A11.996 11.996 0 0 0 0 12c0 1.936.463 3.769 1.29 5.39l4.005-3.103z"/>'
+  + '<path fill="#EA4335" d="M12 4.773c1.763 0 3.345.606 4.59 1.797l3.444-3.444C17.95 1.19 15.234 0 12 0 7.31 0 3.266 2.698 1.29 6.61l4.005 3.103C6.238 6.882 8.88 4.773 12 4.773z"/>'
+  + '</svg>';
+
+const FACEBOOK_F_ICON = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">'
+  + '<path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>'
+  + '</svg>';
+
+function socialButton(href, iconSvg, label) {
   const btn = document.createElement("a");
-  btn.href = "/api/auth/google";
-  btn.className = "walkthrough-btn secondary google-btn";
-  btn.textContent = UI_TEXT[state.lang].continueWithGoogle;
+  btn.href = href;
+  btn.className = "walkthrough-btn secondary social-btn";
+  const icon = document.createElement("span");
+  icon.className = "social-btn-icon";
+  icon.innerHTML = iconSvg;
+  btn.appendChild(icon);
+  btn.appendChild(document.createTextNode(label));
   return btn;
+}
+
+function googleButton() {
+  return socialButton("/api/auth/google", GOOGLE_G_ICON, UI_TEXT[state.lang].continueWithGoogle);
+}
+
+function facebookButton() {
+  return socialButton("/api/auth/facebook", FACEBOOK_F_ICON, UI_TEXT[state.lang].continueWithFacebook);
+}
+
+function socialButtonRow() {
+  const row = el("div", "social-btn-row");
+  row.appendChild(googleButton());
+  row.appendChild(facebookButton());
+  return row;
 }
 
 function renderSignUp(t) {
@@ -1634,8 +1699,8 @@ function renderSignUp(t) {
   wrap.appendChild(backBtn);
 
   wrap.appendChild(el("h2", null, t.signUpTitle));
-  wrap.appendChild(googleButton());
-  wrap.appendChild(el("p", "or-divider", "—"));
+  wrap.appendChild(socialButtonRow());
+  wrap.appendChild(el("p", "or-divider", t.orDivider || "or"));
 
   const f = state.authForm;
   wrap.appendChild(labeledInput(t.nameLabel, "text", f.name, (v) => { f.name = v; }));
@@ -1651,7 +1716,7 @@ function renderSignUp(t) {
     wrap.appendChild(el("p", "media-note error-note", t.authErrorPrefix + state.authError));
   }
 
-  const submitBtn = el("button", "walkthrough-btn", state.authStatus === "loading" ? t.signUpSubmitting : t.signUpSubmit);
+  const submitBtn = el("button", "walkthrough-btn auth-submit-btn", state.authStatus === "loading" ? t.signUpSubmitting : t.signUpSubmit);
   submitBtn.disabled = state.authStatus === "loading";
   submitBtn.onclick = submitSignUp;
   wrap.appendChild(submitBtn);
@@ -1670,8 +1735,8 @@ function renderSignIn(t) {
   wrap.appendChild(backBtn);
 
   wrap.appendChild(el("h2", null, t.signInTitle));
-  wrap.appendChild(googleButton());
-  wrap.appendChild(el("p", "or-divider", "—"));
+  wrap.appendChild(socialButtonRow());
+  wrap.appendChild(el("p", "or-divider", t.orDivider || "or"));
 
   const f = state.authForm;
   wrap.appendChild(labeledInput(t.emailLabel, "email", f.email, (v) => { f.email = v; }));
@@ -1681,7 +1746,7 @@ function renderSignIn(t) {
     wrap.appendChild(el("p", "media-note error-note", t.authErrorPrefix + state.authError));
   }
 
-  const submitBtn = el("button", "walkthrough-btn", state.authStatus === "loading" ? t.signInSubmitting : t.signInSubmit);
+  const submitBtn = el("button", "walkthrough-btn auth-submit-btn", state.authStatus === "loading" ? t.signInSubmitting : t.signInSubmit);
   submitBtn.disabled = state.authStatus === "loading";
   submitBtn.onclick = submitSignIn;
   wrap.appendChild(submitBtn);

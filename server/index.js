@@ -16,6 +16,7 @@ const ratings = require("./ratingsStore");
 const resetTokens = require("./resetTokenStore");
 const { sendPasswordResetEmail, sendDigestEmail } = require("./email");
 const googleOAuth = require("./googleOAuth");
+const facebookOAuth = require("./facebookOAuth");
 const stats = require("./statsStore");
 const healthProfiles = require("./healthProfileStore");
 const digest = require("./digest");
@@ -228,6 +229,51 @@ app.get("/api/auth/google/callback", async (req, res) => {
   } catch (err) {
     console.error("Google OAuth callback error:", err.message);
     res.redirect(`${base}/?authError=${encodeURIComponent("Couldn't complete Google sign-in. Please try again.")}`);
+  }
+});
+
+app.get("/api/auth/facebook", (req, res) => {
+  if (!process.env.FACEBOOK_APP_ID) {
+    return res.status(501).send("Facebook Sign-In isn't configured on this server yet.");
+  }
+  const state = facebookOAuth.randomState();
+  req.session.facebookOAuthState = state;
+  res.redirect(facebookOAuth.buildAuthUrl(req, state));
+});
+
+app.get("/api/auth/facebook/callback", async (req, res) => {
+  const { code, state } = req.query;
+  const base = process.env.APP_BASE_URL || `${req.protocol}://${req.get("host")}`;
+  if (!code || !state || state !== req.session.facebookOAuthState) {
+    return res.redirect(`${base}/?authError=${encodeURIComponent("Facebook sign-in failed (invalid state). Please try again.")}`);
+  }
+  delete req.session.facebookOAuthState;
+
+  try {
+    const profile = await facebookOAuth.exchangeCodeForProfile(req, code);
+    let user = await users.findByFacebookId(profile.facebookId);
+    if (!user) {
+      user = await users.findByEmail(profile.email);
+      if (user && !user.facebookId) {
+        // An account with this email already exists via password or Google
+        // sign-up. Since we can't attach facebookId without a dedicated
+        // "link accounts" flow, treat this as a normal login for that account.
+      } else if (!user) {
+        user = await users.addUser({
+          name: profile.name,
+          email: profile.email,
+          passwordHash: null,
+          facebookId: profile.facebookId,
+          demographics: {}
+        });
+      }
+    }
+    req.session.userId = user.id;
+    res.redirect(base + "/");
+  } catch (err) {
+    console.error("Facebook OAuth callback error:", err.message);
+    const message = err.code === "NO_EMAIL" ? err.message : "Couldn't complete Facebook sign-in. Please try again.";
+    res.redirect(`${base}/?authError=${encodeURIComponent(message)}`);
   }
 });
 

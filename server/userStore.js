@@ -24,6 +24,7 @@ function rowToUser(row) {
     email: row.email,
     passwordHash: row.password_hash ?? row.passwordHash ?? null,
     googleId: row.google_id ?? row.googleId ?? null,
+    facebookId: row.facebook_id ?? row.facebookId ?? null,
     demographics: {
       ageRange: row.age_range ?? row.demographics?.ageRange ?? "",
       gender: row.gender ?? row.demographics?.gender ?? "",
@@ -61,21 +62,30 @@ async function findByGoogleId(googleId) {
   return list.find((u) => u.googleId === googleId) || null;
 }
 
-async function addUser({ name, email, passwordHash, googleId, demographics }) {
+async function findByFacebookId(facebookId) {
+  if (pool) {
+    const { rows } = await pool.query("SELECT * FROM users WHERE facebook_id = $1", [facebookId]);
+    return rowToUser(rows[0]);
+  }
+  const list = readUsersFile();
+  return list.find((u) => u.facebookId === facebookId) || null;
+}
+
+async function addUser({ name, email, passwordHash, googleId, facebookId, demographics }) {
   const id = crypto.randomUUID();
   const demo = demographics || {};
 
   if (pool) {
     const { rows } = await pool.query(
-      `INSERT INTO users (id, name, email, password_hash, google_id, age_range, gender, country)
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`,
-      [id, name, email, passwordHash || null, googleId || null, demo.ageRange || "", demo.gender || "", demo.country || ""]
+      `INSERT INTO users (id, name, email, password_hash, google_id, facebook_id, age_range, gender, country)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *`,
+      [id, name, email, passwordHash || null, googleId || null, facebookId || null, demo.ageRange || "", demo.gender || "", demo.country || ""]
     );
     return rowToUser(rows[0]);
   }
 
   const list = readUsersFile();
-  const user = { id, name, email, passwordHash: passwordHash || null, googleId: googleId || null, demographics: demo, createdAt: new Date().toISOString() };
+  const user = { id, name, email, passwordHash: passwordHash || null, googleId: googleId || null, facebookId: facebookId || null, demographics: demo, createdAt: new Date().toISOString() };
   list.push(user);
   writeUsersFile(list);
   return user;
@@ -143,4 +153,4 @@ function toPublicUser(user) {
   return publicFields;
 }
 
-module.exports = { findByEmail, findById, findByGoogleId, addUser, setPasswordHash, toPublicUser, updateDemographics, hasCompleteDemographics, listOptedInForDigest, setEmailOptIn };
+module.exports = { findByEmail, findById, findByGoogleId, findByFacebookId, addUser, setPasswordHash, toPublicUser, updateDemographics, hasCompleteDemographics, listOptedInForDigest, setEmailOptIn };

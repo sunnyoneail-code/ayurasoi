@@ -144,7 +144,12 @@
     "newPasswordLabel": "New password",
     "resetPasswordSubmit": "Set new password",
     "resetPasswordSuccess": "Password updated. You can sign in now.",
-    "continueWithGoogle": "Continue with Google"
+    "continueWithGoogle": "Continue with Google",
+    "continueWithFacebook": "Continue with Facebook",
+    "settingsNav": "Settings",
+    "settingsLanguageLabel": "Language",
+    "settingsTextSizeLabel": "Text size",
+    "orDivider": "or"
   },
   "hi": {
     "title": "AyuRasoi",
@@ -292,7 +297,12 @@
     "sourceLibraryIntro": "इस ऐप के नुस्खे शास्त्रीय आयुर्वेदिक ग्रंथों की तस्वीरें और पृष्ठभूमि से लिए गए हैं।",
     "sourceLibraryPrintedEditionNote": "यहां दिखाया गया एक ऐतिहासिक मुद्रित संस्करण है, क्योंकि इस विशिष्ट पाठ की कोई पांडुलिपि तस्वीर विकिमीडिया कॉमन्स पर नहीं मिली थी।",
     "sourceLibraryRecipeSingular": "नुस्खा इस पाठ का संदर्भ देता है",
-    "sourceLibraryRecipePlural": "व्यंजन इस पाठ का संदर्भ देते हैं"
+    "sourceLibraryRecipePlural": "व्यंजन इस पाठ का संदर्भ देते हैं",
+    "continueWithFacebook": "फेसबुक के साथ जारी रखें",
+    "settingsNav": "सेटिंग्स",
+    "settingsLanguageLabel": "भाषा",
+    "settingsTextSizeLabel": "टेक्स्ट का साइज़",
+    "orDivider": "या"
   },
   "bn": {
     "title": "আয়ুররসোই",
@@ -440,7 +450,12 @@
     "sourceLibraryIntro": "ক্লাসিক্যাল আয়ুর্বেদিক পাঠ্যের ফটো এবং পটভূমিতে এই অ্যাপের রেসিপিগুলি থেকে আঁকা হয়েছে।",
     "sourceLibraryPrintedEditionNote": "এখানে দেখানো হয়েছে একটি ঐতিহাসিক মুদ্রিত সংস্করণ, যেহেতু উইকিমিডিয়া কমন্সে এই নির্দিষ্ট লেখাটির কোনো পাণ্ডুলিপির ছবি পাওয়া যায়নি।",
     "sourceLibraryRecipeSingular": "রেসিপি এই টেক্সট উল্লেখ",
-    "sourceLibraryRecipePlural": "রেসিপি এই টেক্সট উল্লেখ"
+    "sourceLibraryRecipePlural": "রেসিপি এই টেক্সট উল্লেখ",
+    "continueWithFacebook": "ফেসবুকের সাথে চালিয়ে যান",
+    "settingsNav": "সেটিংস",
+    "settingsLanguageLabel": "ভাষা",
+    "settingsTextSizeLabel": "পাঠ্যের আকার",
+    "orDivider": "বা"
   },
   "mr": {
     "title": "आयुर्रासोई",
@@ -588,7 +603,12 @@
     "sourceLibraryIntro": "शास्त्रीय आयुर्वेदिक ग्रंथांचे फोटो आणि पार्श्वभूमी या ॲपच्या रेसिपीजमधून काढल्या आहेत.",
     "sourceLibraryPrintedEditionNote": "विकिमीडिया कॉमन्सवर या विशिष्ट मजकुराचा कोणताही हस्तलिखित फोटो आढळला नसल्यामुळे येथे एक ऐतिहासिक मुद्रित आवृत्ती दाखवली आहे.",
     "sourceLibraryRecipeSingular": "रेसिपी या मजकुराचा संदर्भ देते",
-    "sourceLibraryRecipePlural": "पाककृती या मजकूराचा संदर्भ देते"
+    "sourceLibraryRecipePlural": "पाककृती या मजकूराचा संदर्भ देते",
+    "continueWithFacebook": "Facebook सह सुरू ठेवा",
+    "settingsNav": "सेटिंग्ज",
+    "settingsLanguageLabel": "भाषा",
+    "settingsTextSizeLabel": "मजकूर आकार",
+    "orDivider": "किंवा"
   },
   "ta": {
     "title": "ஆயுர்ரசோய்",
@@ -736,7 +756,12 @@
     "sourceLibraryIntro": "கிளாசிக்கல் ஆயுர்வேத நூல்களின் புகைப்படங்களும் பின்புலமும் இந்த ஆப்ஸின் சமையல் குறிப்புகள் வரையப்பட்டவை.",
     "sourceLibraryPrintedEditionNote": "விக்கிமீடியா காமன்ஸில் இந்தக் குறிப்பிட்ட உரையின் கையெழுத்துப் புகைப்படம் எதுவும் காணப்படாததால், ஒரு வரலாற்று அச்சிடப்பட்ட பதிப்பு இங்கே காட்டப்பட்டுள்ளது.",
     "sourceLibraryRecipeSingular": "செய்முறை இந்த உரையை குறிக்கிறது",
-    "sourceLibraryRecipePlural": "சமையல் குறிப்பு இந்த உரையை குறிப்பிடுகிறது"
+    "sourceLibraryRecipePlural": "சமையல் குறிப்பு இந்த உரையை குறிப்பிடுகிறது",
+    "continueWithFacebook": "Facebook உடன் தொடரவும்",
+    "settingsNav": "அமைப்புகள்",
+    "settingsLanguageLabel": "மொழி",
+    "settingsTextSizeLabel": "உரை அளவு",
+    "orDivider": "அல்லது"
   },
   "te": {
     "title": "ఆయుర్ రసోయ్",
@@ -884,7 +909,12 @@
     "sourceLibraryIntro": "క్లాసికల్ ఆయుర్వేద గ్రంథాల ఫోటోలు మరియు నేపథ్యం ఈ యాప్ వంటకాల నుండి తీసుకోబడ్డాయి.",
     "sourceLibraryPrintedEditionNote": "వికీమీడియా కామన్స్‌లో ఈ నిర్దిష్ట టెక్స్ట్ యొక్క మాన్యుస్క్రిప్ట్ ఫోటో ఏదీ కనుగొనబడలేదు కాబట్టి ఇక్కడ ఒక చారిత్రక ముద్రిత ఎడిషన్ చూపబడింది.",
     "sourceLibraryRecipeSingular": "రెసిపీ ఈ వచనాన్ని సూచిస్తుంది",
-    "sourceLibraryRecipePlural": "వంటకాలు ఈ వచనాన్ని సూచిస్తాయి"
+    "sourceLibraryRecipePlural": "వంటకాలు ఈ వచనాన్ని సూచిస్తాయి",
+    "continueWithFacebook": "Facebookతో కొనసాగించండి",
+    "settingsNav": "సెట్టింగ్‌లు",
+    "settingsLanguageLabel": "భాష",
+    "settingsTextSizeLabel": "వచన పరిమాణం",
+    "orDivider": "లేదా"
   },
   "kn": {
     "title": "ಆಯುರ್ರಾಸೋಯಿ",
@@ -1032,7 +1062,12 @@
     "sourceLibraryIntro": "ಶಾಸ್ತ್ರೀಯ ಆಯುರ್ವೇದ ಪಠ್ಯಗಳ ಫೋಟೋಗಳು ಮತ್ತು ಹಿನ್ನೆಲೆ ಈ ಅಪ್ಲಿಕೇಶನ್‌ನ ಪಾಕವಿಧಾನಗಳನ್ನು ಎಳೆಯಲಾಗಿದೆ.",
     "sourceLibraryPrintedEditionNote": "ವಿಕಿಮೀಡಿಯಾ ಕಾಮನ್ಸ್‌ನಲ್ಲಿ ಈ ನಿರ್ದಿಷ್ಟ ಪಠ್ಯದ ಯಾವುದೇ ಹಸ್ತಪ್ರತಿ ಫೋಟೋ ಕಂಡುಬಂದಿಲ್ಲವಾದ್ದರಿಂದ ಐತಿಹಾಸಿಕ ಮುದ್ರಿತ ಆವೃತ್ತಿಯನ್ನು ಇಲ್ಲಿ ತೋರಿಸಲಾಗಿದೆ.",
     "sourceLibraryRecipeSingular": "ಪಾಕವಿಧಾನ ಈ ಪಠ್ಯವನ್ನು ಉಲ್ಲೇಖಿಸುತ್ತದೆ",
-    "sourceLibraryRecipePlural": "ಪಾಕವಿಧಾನಗಳು ಈ ಪಠ್ಯವನ್ನು ಉಲ್ಲೇಖಿಸುತ್ತವೆ"
+    "sourceLibraryRecipePlural": "ಪಾಕವಿಧಾನಗಳು ಈ ಪಠ್ಯವನ್ನು ಉಲ್ಲೇಖಿಸುತ್ತವೆ",
+    "continueWithFacebook": "Facebook ನೊಂದಿಗೆ ಮುಂದುವರಿಸಿ",
+    "settingsNav": "ಸೆಟ್ಟಿಂಗ್‌ಗಳು",
+    "settingsLanguageLabel": "ಭಾಷೆ",
+    "settingsTextSizeLabel": "ಪಠ್ಯದ ಗಾತ್ರ",
+    "orDivider": "ಅಥವಾ"
   },
   "or": {
     "title": "ଆୟୁର୍ ରସୋଇ |",
@@ -1180,7 +1215,12 @@
     "sourceLibraryIntro": "ଶାସ୍ତ୍ରୀୟ ଆୟୁର୍ବେଦିକ ଗ୍ରନ୍ଥଗୁଡ଼ିକରେ ଫଟୋ ଏବଂ ପୃଷ୍ଠଭୂମି ଏହି ଆପର ରେସିପିଗୁଡ଼ିକ ଅଙ୍କିତ |",
     "sourceLibraryPrintedEditionNote": "ୱିକିମିଡିଆ କମନ୍ସରେ ଏହି ନିର୍ଦ୍ଦିଷ୍ଟ ପାଠ୍ୟର କ man ଣସି ପାଣ୍ଡୁଲିପି ଫଟୋ ମିଳି ନ ଥିବାରୁ ଏଠାରେ ଏକ historical ତିହାସିକ ମୁଦ୍ରିତ ସଂସ୍କରଣ ପ୍ରଦର୍ଶିତ ହୋଇଛି |",
     "sourceLibraryRecipeSingular": "ରେସିପି ଏହି ପାଠ୍ୟକୁ ଦର୍ଶାଏ |",
-    "sourceLibraryRecipePlural": "ରେସିପିଗୁଡ଼ିକ ଏହି ପାଠ୍ୟକୁ ସୂଚିତ କରେ |"
+    "sourceLibraryRecipePlural": "ରେସିପିଗୁଡ଼ିକ ଏହି ପାଠ୍ୟକୁ ସୂଚିତ କରେ |",
+    "continueWithFacebook": "ଫେସବୁକ୍ ସହିତ ଜାରି ରଖ |",
+    "settingsNav": "ସେଟିଂସମୂହ",
+    "settingsLanguageLabel": "ଭାଷା",
+    "settingsTextSizeLabel": "ପାଠ୍ୟ ଆକାର |",
+    "orDivider": "କିମ୍ବା"
   },
   "gu": {
     "title": "આયુરરાસોઈ",
@@ -1328,7 +1368,12 @@
     "sourceLibraryIntro": "શાસ્ત્રીય આયુર્વેદિક ગ્રંથો પરના ફોટા અને પૃષ્ઠભૂમિ આ એપ્લિકેશનની વાનગીઓમાંથી લેવામાં આવી છે.",
     "sourceLibraryPrintedEditionNote": "અહીં એક ઐતિહાસિક મુદ્રિત આવૃત્તિ બતાવવામાં આવી છે, કારણ કે વિકિમીડિયા કોમન્સ પર આ વિશિષ્ટ લખાણનો કોઈ હસ્તપ્રત ફોટો મળ્યો નથી.",
     "sourceLibraryRecipeSingular": "રેસીપી આ ટેક્સ્ટનો સંદર્ભ આપે છે",
-    "sourceLibraryRecipePlural": "વાનગીઓ આ ટેક્સ્ટનો સંદર્ભ આપે છે"
+    "sourceLibraryRecipePlural": "વાનગીઓ આ ટેક્સ્ટનો સંદર્ભ આપે છે",
+    "continueWithFacebook": "Facebook સાથે ચાલુ રાખો",
+    "settingsNav": "સેટિંગ્સ",
+    "settingsLanguageLabel": "ભાષા",
+    "settingsTextSizeLabel": "ટેક્સ્ટનું કદ",
+    "orDivider": "અથવા"
   },
   "pa": {
     "title": "ਆਯੁਰਰਾਸੋਈ",
@@ -1476,7 +1521,12 @@
     "sourceLibraryIntro": "ਕਲਾਸੀਕਲ ਆਯੁਰਵੈਦਿਕ ਪਾਠਾਂ ਦੀਆਂ ਫੋਟੋਆਂ ਅਤੇ ਪਿਛੋਕੜ ਇਸ ਐਪ ਦੀਆਂ ਪਕਵਾਨਾਂ ਤੋਂ ਖਿੱਚੀਆਂ ਗਈਆਂ ਹਨ।",
     "sourceLibraryPrintedEditionNote": "ਇੱਥੇ ਇੱਕ ਇਤਿਹਾਸਕ ਪ੍ਰਿੰਟਿਡ ਐਡੀਸ਼ਨ ਦਿਖਾਇਆ ਗਿਆ ਹੈ, ਕਿਉਂਕਿ ਵਿਕੀਮੀਡੀਆ ਕਾਮਨਜ਼ 'ਤੇ ਇਸ ਖਾਸ ਟੈਕਸਟ ਦੀ ਕੋਈ ਹੱਥ-ਲਿਖਤ ਫੋਟੋ ਨਹੀਂ ਮਿਲੀ ਹੈ।",
     "sourceLibraryRecipeSingular": "ਵਿਅੰਜਨ ਇਸ ਟੈਕਸਟ ਦਾ ਹਵਾਲਾ ਦਿੰਦਾ ਹੈ",
-    "sourceLibraryRecipePlural": "ਵਿਅੰਜਨ ਇਸ ਟੈਕਸਟ ਦਾ ਹਵਾਲਾ ਦਿੰਦੇ ਹਨ"
+    "sourceLibraryRecipePlural": "ਵਿਅੰਜਨ ਇਸ ਟੈਕਸਟ ਦਾ ਹਵਾਲਾ ਦਿੰਦੇ ਹਨ",
+    "continueWithFacebook": "Facebook ਦੇ ਨਾਲ ਜਾਰੀ ਰੱਖੋ",
+    "settingsNav": "ਸੈਟਿੰਗਾਂ",
+    "settingsLanguageLabel": "ਭਾਸ਼ਾ",
+    "settingsTextSizeLabel": "ਟੈਕਸਟ ਦਾ ਆਕਾਰ",
+    "orDivider": "ਜਾਂ"
   },
   "fr": {
     "title": "AyuRasoi",
@@ -1624,7 +1674,12 @@
     "sourceLibraryIntro": "Photos et arrière-plan des textes ayurvédiques classiques dont sont tirées les recettes de cette application.",
     "sourceLibraryPrintedEditionNote": "Il s'agit ici d'une édition imprimée historique, puisqu'aucune photo manuscrite de ce texte spécifique n'a été trouvée sur Wikimedia Commons.",
     "sourceLibraryRecipeSingular": "la recette fait référence à ce texte",
-    "sourceLibraryRecipePlural": "les recettes font référence à ce texte"
+    "sourceLibraryRecipePlural": "les recettes font référence à ce texte",
+    "continueWithFacebook": "Continuer avec Facebook",
+    "settingsNav": "Paramètres",
+    "settingsLanguageLabel": "Langue",
+    "settingsTextSizeLabel": "Taille du texte",
+    "orDivider": "ou"
   },
   "es": {
     "title": "AyuRasoi",
@@ -1772,7 +1827,12 @@
     "sourceLibraryIntro": "Fotos y antecedentes de los textos ayurvédicos clásicos de los que se extraen las recetas de esta aplicación.",
     "sourceLibraryPrintedEditionNote": "Aquí se muestra una edición impresa histórica, ya que no se encontró ninguna fotografía manuscrita de este texto específico en Wikimedia Commons.",
     "sourceLibraryRecipeSingular": "la receta hace referencia a este texto",
-    "sourceLibraryRecipePlural": "recetas hacen referencia a este texto"
+    "sourceLibraryRecipePlural": "recetas hacen referencia a este texto",
+    "continueWithFacebook": "Continuar con Facebook",
+    "settingsNav": "Ajustes",
+    "settingsLanguageLabel": "Idioma",
+    "settingsTextSizeLabel": "Tamaño del texto",
+    "orDivider": "o"
   },
   "de": {
     "title": "AyuRasoi",
@@ -1920,7 +1980,12 @@
     "sourceLibraryIntro": "Fotos und Hintergrundinformationen zu den klassischen ayurvedischen Texten, aus denen die Rezepte dieser App stammen.",
     "sourceLibraryPrintedEditionNote": "Hier ist eine historische gedruckte Ausgabe abgebildet, da auf Wikimedia Commons kein Manuskriptfoto dieses spezifischen Textes gefunden wurde.",
     "sourceLibraryRecipeSingular": "Das Rezept verweist auf diesen Text",
-    "sourceLibraryRecipePlural": "Rezepte verweisen auf diesen Text"
+    "sourceLibraryRecipePlural": "Rezepte verweisen auf diesen Text",
+    "continueWithFacebook": "Weiter mit Facebook",
+    "settingsNav": "Einstellungen",
+    "settingsLanguageLabel": "Sprache",
+    "settingsTextSizeLabel": "Textgröße",
+    "orDivider": "oder"
   },
   "ru": {
     "title": "АюрРасой",
@@ -2068,7 +2133,12 @@
     "sourceLibraryIntro": "Фотографии и предыстория классических аюрведических текстов, на основе которых взяты рецепты этого приложения.",
     "sourceLibraryPrintedEditionNote": "Здесь показано историческое печатное издание, поскольку на Wikimedia Commons не было найдено ни одной рукописной фотографии этого конкретного текста.",
     "sourceLibraryRecipeSingular": "рецепт ссылается на этот текст",
-    "sourceLibraryRecipePlural": "рецепты ссылаются на этот текст"
+    "sourceLibraryRecipePlural": "рецепты ссылаются на этот текст",
+    "continueWithFacebook": "Продолжить через Facebook",
+    "settingsNav": "Настройки",
+    "settingsLanguageLabel": "Язык",
+    "settingsTextSizeLabel": "Размер текста",
+    "orDivider": "или"
   },
   "zh": {
     "title": "阿尤拉索伊",
@@ -2216,7 +2286,12 @@
     "sourceLibraryIntro": "该应用程序的食谱取自经典阿育吠陀文本的照片和背景。",
     "sourceLibraryPrintedEditionNote": "这里显示的是历史印刷版，因为在维基共享资源上没有找到该特定文本的手稿照片。",
     "sourceLibraryRecipeSingular": "食谱引用了这篇文章",
-    "sourceLibraryRecipePlural": "食谱参考这篇文章"
+    "sourceLibraryRecipePlural": "食谱参考这篇文章",
+    "continueWithFacebook": "继续使用 Facebook",
+    "settingsNav": "设置",
+    "settingsLanguageLabel": "语言",
+    "settingsTextSizeLabel": "文字大小",
+    "orDivider": "或者"
   },
   "yue": {
     "title": "阿尤拉索伊",
@@ -2364,6 +2439,11 @@
     "sourceLibraryIntro": "该应用程序的食谱取自经典阿育吠陀文本的照片和背景。",
     "sourceLibraryPrintedEditionNote": "这里显示的是历史印刷版，因为在维基共享资源上没有找到该特定文本的手稿照片。",
     "sourceLibraryRecipeSingular": "食谱引用了这篇文章",
-    "sourceLibraryRecipePlural": "食谱参考这篇文章"
+    "sourceLibraryRecipePlural": "食谱参考这篇文章",
+    "continueWithFacebook": "继续使用 Facebook",
+    "settingsNav": "设置",
+    "settingsLanguageLabel": "语言",
+    "settingsTextSizeLabel": "文字大小",
+    "orDivider": "或者"
   }
 }
