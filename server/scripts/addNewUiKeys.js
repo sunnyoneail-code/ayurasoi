@@ -8,9 +8,8 @@ const { LANGUAGES } = require("../languages");
 const { translateBlock } = require("../recipeExtractor");
 
 const NEW_KEYS = [
-  "verifyEmailBanner", "verifyEmailResend", "verifyEmailResendSending",
-  "verifyEmailResendSent", "verifyEmailResendError", "verifyEmailSuccess",
-  "verifyEmailInvalid", "verifyEmailExpired", "verifyEmailUsed"
+  "shoppingListNav", "closeShoppingList", "shoppingListTitle",
+  "shoppingListEmpty", "shoppingListHelp"
 ];
 
 const UI_EN_PATH = path.join(__dirname, "..", "data", "uiText.en.json");

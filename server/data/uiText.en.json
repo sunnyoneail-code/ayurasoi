@@ -171,5 +171,10 @@
   "verifyEmailSuccess": "Your email is verified. Thanks!",
   "verifyEmailInvalid": "That verification link isn't valid.",
   "verifyEmailExpired": "That verification link has expired — you can request a new one from the banner at the top of the app.",
-  "verifyEmailUsed": "That verification link has already been used."
+  "verifyEmailUsed": "That verification link has already been used.",
+  "shoppingListNav": "Shopping list",
+  "closeShoppingList": "Close shopping list",
+  "shoppingListTitle": "Shopping list",
+  "shoppingListEmpty": "You haven't saved any favorites yet — star a recipe to add its ingredients here.",
+  "shoppingListHelp": "Ingredients from your favorited recipes, grouped by recipe. Check items off as you shop."
 }

@@ -389,6 +389,44 @@ h1 {
   background: var(--accent-soft);
 }
 
+.shopping-list-group {
+  padding-left: 0;
+  margin: 0 0 20px;
+}
+
+.shopping-list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.shopping-list-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  cursor: pointer;
+}
+
+.shopping-list-check input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  accent-color: var(--accent-green);
+}
+
+.shopping-list-text {
+  flex: 1;
+}
+
+.shopping-list-text.checked {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
 .affiliate-disclosure {
   margin-top: 6px;
   font-size: 0.75rem;

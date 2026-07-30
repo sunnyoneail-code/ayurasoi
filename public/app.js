@@ -171,6 +171,26 @@ function markOnboardingSeen(userId) {
   localStorage.setItem(onboardingSeenKey(userId), "1");
 }
 
+// Which shopping-list items are already ticked off — kept client-side
+// only, same reasoning as the font-size and onboarding preferences:
+// it's a per-device, per-shopping-trip nicety, not account data.
+function shoppingListStorageKey(userId) {
+  return `ayurasoi_shopping_checked_${userId}`;
+}
+
+function loadShoppingListChecked(userId) {
+  try {
+    return JSON.parse(localStorage.getItem(shoppingListStorageKey(userId)) || "{}");
+  } catch (err) {
+    return {};
+  }
+}
+
+function saveShoppingListChecked() {
+  if (!state.user) return;
+  localStorage.setItem(shoppingListStorageKey(state.user.id), JSON.stringify(state.shoppingListChecked));
+}
+
 // A short first-time tour, attached directly to <body> like the image
 // lightbox above — it manages its own step state internally so that
 // re-renders of the main app (recipes loading, etc.) underneath it
@@ -392,7 +412,9 @@ let state = {
   viewingSourceLibrary: false,
   viewingSettings: false,
   emailVerifiedNotice: null,
-  verifyResendStatus: "idle"
+  verifyResendStatus: "idle",
+  viewingShoppingList: false,
+  shoppingListChecked: {}
 };
 
 function resetAuthForm() {
@@ -1034,6 +1056,14 @@ function render() {
     const sourceLibraryBtn = el("button", "add-recipe-nav-btn", state.viewingSourceLibrary ? t.closeSourceLibrary : t.sourceLibraryNav);
     sourceLibraryBtn.onclick = () => { state.viewingSourceLibrary = !state.viewingSourceLibrary; render(); };
     headerControls.appendChild(sourceLibraryBtn);
+
+    const shoppingListBtn = el("button", "add-recipe-nav-btn", state.viewingShoppingList ? t.closeShoppingList : t.shoppingListNav);
+    shoppingListBtn.onclick = () => {
+      state.viewingShoppingList = !state.viewingShoppingList;
+      if (state.viewingShoppingList) state.shoppingListChecked = loadShoppingListChecked(state.user.id);
+      render();
+    };
+    headerControls.appendChild(shoppingListBtn);
   }
 
   if (!state.openRecipe && !state.authView && state.user && state.user.isAdmin) {
@@ -1197,6 +1227,12 @@ function render() {
 
   if (state.viewingSourceLibrary) {
     app.appendChild(renderSourceLibrary(t));
+    app.appendChild(renderFooter(t));
+    return;
+  }
+
+  if (state.viewingShoppingList) {
+    app.appendChild(renderShoppingList(t));
     app.appendChild(renderFooter(t));
     return;
   }
@@ -1541,6 +1577,56 @@ function translateOptionLabel(t, options, label) {
 // a lightweight connective touch, not a precise citation index.
 function recipesCitingText(entry) {
   return RECIPES.filter((r) => entry.matchKeywords.some((kw) => (r.source || "").toLowerCase().includes(kw))).length;
+}
+
+function renderShoppingList(t) {
+  const wrap = el("div", "detail");
+  const backBtn = el("button", "back-btn", t.back);
+  backBtn.onclick = () => { state.viewingShoppingList = false; render(); };
+  wrap.appendChild(backBtn);
+
+  wrap.appendChild(el("h2", null, t.shoppingListTitle));
+
+  const favRecipes = RECIPES.filter((r) => state.favoriteIds.has(r.id));
+
+  if (favRecipes.length === 0) {
+    wrap.appendChild(el("p", "card-purpose", t.shoppingListEmpty));
+    return wrap;
+  }
+
+  wrap.appendChild(el("p", "card-purpose", t.shoppingListHelp));
+
+  favRecipes.forEach((recipe) => {
+    const data = recipe[state.lang] || recipe.en;
+    wrap.appendChild(el("h4", null, data.name));
+    const ul = el("ul", "shopping-list-group");
+    data.ingredients.forEach((ingredientText, idx) => {
+      const key = recipe.id + "::" + idx;
+      const checked = !!state.shoppingListChecked[key];
+
+      const li = el("li", "shopping-list-item");
+      const label = document.createElement("label");
+      label.className = "shopping-list-check";
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.checked = checked;
+      checkbox.onchange = (e) => {
+        state.shoppingListChecked[key] = e.target.checked;
+        saveShoppingListChecked();
+        render();
+      };
+      label.appendChild(checkbox);
+      label.appendChild(el("span", checked ? "shopping-list-text checked" : "shopping-list-text", ingredientText));
+      li.appendChild(label);
+      li.appendChild(ingredientBuyLink(recipe.en.ingredients[idx], t.buyLabel));
+      ul.appendChild(li);
+    });
+    wrap.appendChild(ul);
+  });
+
+  wrap.appendChild(el("p", "affiliate-disclosure", t.affiliateDisclosure));
+
+  return wrap;
 }
 
 function renderSourceLibrary(t) {

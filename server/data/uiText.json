@@ -172,7 +172,12 @@
     "verifyEmailSuccess": "Your email is verified. Thanks!",
     "verifyEmailInvalid": "That verification link isn't valid.",
     "verifyEmailExpired": "That verification link has expired — you can request a new one from the banner at the top of the app.",
-    "verifyEmailUsed": "That verification link has already been used."
+    "verifyEmailUsed": "That verification link has already been used.",
+    "shoppingListNav": "Shopping list",
+    "closeShoppingList": "Close shopping list",
+    "shoppingListTitle": "Shopping list",
+    "shoppingListEmpty": "You haven't saved any favorites yet — star a recipe to add its ingredients here.",
+    "shoppingListHelp": "Ingredients from your favorited recipes, grouped by recipe. Check items off as you shop."
   },
   "hi": {
     "title": "AyuRasoi",
@@ -348,7 +353,12 @@
     "verifyEmailSuccess": "आपका ईमेल सत्यापित है. धन्यवाद!",
     "verifyEmailInvalid": "वह सत्यापन लिंक मान्य नहीं है.",
     "verifyEmailExpired": "वह सत्यापन लिंक समाप्त हो गया है - आप ऐप के शीर्ष पर बैनर से एक नए का अनुरोध कर सकते हैं।",
-    "verifyEmailUsed": "वह सत्यापन लिंक पहले ही उपयोग किया जा चुका है."
+    "verifyEmailUsed": "वह सत्यापन लिंक पहले ही उपयोग किया जा चुका है.",
+    "shoppingListNav": "खरीदारी की सूची",
+    "closeShoppingList": "खरीदारी सूची बंद करें",
+    "shoppingListTitle": "खरीदारी की सूची",
+    "shoppingListEmpty": "आपने अभी तक कोई पसंदीदा सहेजा नहीं है - यहां इसकी सामग्री जोड़ने के लिए एक रेसिपी को तारांकित करें।",
+    "shoppingListHelp": "आपके पसंदीदा व्यंजनों की सामग्री, नुस्खा के अनुसार समूहीकृत। खरीदारी करते समय वस्तुओं की जाँच करें।"
   },
   "bn": {
     "title": "আয়ুররসোই",
@@ -524,7 +534,12 @@
     "verifyEmailSuccess": "আপনার ইমেল যাচাই করা হয়েছে. ধন্যবাদ!",
     "verifyEmailInvalid": "সেই যাচাইকরণ লিঙ্কটি বৈধ নয়৷",
     "verifyEmailExpired": "সেই যাচাইকরণ লিঙ্কটির মেয়াদ শেষ হয়ে গেছে — আপনি অ্যাপের শীর্ষে থাকা ব্যানার থেকে একটি নতুন অনুরোধ করতে পারেন।",
-    "verifyEmailUsed": "সেই যাচাইকরণ লিঙ্কটি ইতিমধ্যেই ব্যবহার করা হয়েছে।"
+    "verifyEmailUsed": "সেই যাচাইকরণ লিঙ্কটি ইতিমধ্যেই ব্যবহার করা হয়েছে।",
+    "shoppingListNav": "কেনাকাটার তালিকা",
+    "closeShoppingList": "কেনাকাটার তালিকা বন্ধ করুন",
+    "shoppingListTitle": "কেনাকাটার তালিকা",
+    "shoppingListEmpty": "আপনি এখনও কোনো পছন্দসই সংরক্ষণ করেননি — এখানে উপাদান যোগ করতে একটি রেসিপি তারকাচিহ্নিত করুন।",
+    "shoppingListHelp": "আপনার পছন্দের রেসিপি থেকে উপাদান, রেসিপি দ্বারা গোষ্ঠীবদ্ধ। আপনি কেনাকাটা হিসাবে আইটেম চেক বন্ধ."
   },
   "mr": {
     "title": "आयुर्रासोई",
@@ -700,7 +715,12 @@
     "verifyEmailSuccess": "तुमचा ईमेल सत्यापित झाला आहे. धन्यवाद!",
     "verifyEmailInvalid": "ती पडताळणी लिंक वैध नाही.",
     "verifyEmailExpired": "ती पडताळणी लिंक कालबाह्य झाली आहे — तुम्ही ॲपच्या शीर्षस्थानी असलेल्या बॅनरवरून नवीन विनंती करू शकता.",
-    "verifyEmailUsed": "ती पडताळणी लिंक आधीच वापरली गेली आहे."
+    "verifyEmailUsed": "ती पडताळणी लिंक आधीच वापरली गेली आहे.",
+    "shoppingListNav": "खरेदी सूची",
+    "closeShoppingList": "खरेदी सूची बंद करा",
+    "shoppingListTitle": "खरेदी सूची",
+    "shoppingListEmpty": "तुम्ही अद्याप कोणतेही आवडते सेव्ह केलेले नाहीत — येथे घटक जोडण्यासाठी रेसिपी तारांकित करा.",
+    "shoppingListHelp": "तुमच्या आवडत्या रेसिपीमधील घटक, रेसिपीनुसार गटबद्ध. तुम्ही खरेदी करता तेव्हा वस्तू तपासा."
   },
   "ta": {
     "title": "ஆயுர்ரசோய்",
@@ -876,7 +896,12 @@
     "verifyEmailSuccess": "உங்கள் மின்னஞ்சல் சரிபார்க்கப்பட்டது. நன்றி!",
     "verifyEmailInvalid": "அந்த சரிபார்ப்பு இணைப்பு தவறானது.",
     "verifyEmailExpired": "அந்தச் சரிபார்ப்பு இணைப்பு காலாவதியாகிவிட்டது - பயன்பாட்டின் மேலே உள்ள பேனரிலிருந்து புதிய ஒன்றைக் கோரலாம்.",
-    "verifyEmailUsed": "அந்த சரிபார்ப்பு இணைப்பு ஏற்கனவே பயன்படுத்தப்பட்டது."
+    "verifyEmailUsed": "அந்த சரிபார்ப்பு இணைப்பு ஏற்கனவே பயன்படுத்தப்பட்டது.",
+    "shoppingListNav": "ஷாப்பிங் பட்டியல்",
+    "closeShoppingList": "ஷாப்பிங் பட்டியலை மூடு",
+    "shoppingListTitle": "ஷாப்பிங் பட்டியல்",
+    "shoppingListEmpty": "நீங்கள் இதுவரை பிடித்தவை எதையும் சேமிக்கவில்லை — அதன் பொருட்களைச் சேர்க்க, செய்முறையை இங்கே நட்சத்திரமிடுங்கள்.",
+    "shoppingListHelp": "உங்களுக்குப் பிடித்த ரெசிபிகளிலிருந்து தேவையான பொருட்கள், செய்முறையின் அடிப்படையில் தொகுக்கப்பட்டுள்ளன. நீங்கள் ஷாப்பிங் செய்யும் போது பொருட்களை சரிபார்க்கவும்."
   },
   "te": {
     "title": "ఆయుర్ రసోయ్",
@@ -1052,7 +1077,12 @@
     "verifyEmailSuccess": "మీ ఇమెయిల్ ధృవీకరించబడింది. ధన్యవాదాలు!",
     "verifyEmailInvalid": "ఆ ధృవీకరణ లింక్ చెల్లదు.",
     "verifyEmailExpired": "ఆ ధృవీకరణ లింక్ గడువు ముగిసింది — మీరు యాప్ ఎగువన ఉన్న బ్యానర్ నుండి కొత్త దానిని అభ్యర్థించవచ్చు.",
-    "verifyEmailUsed": "ఆ ధృవీకరణ లింక్ ఇప్పటికే ఉపయోగించబడింది."
+    "verifyEmailUsed": "ఆ ధృవీకరణ లింక్ ఇప్పటికే ఉపయోగించబడింది.",
+    "shoppingListNav": "షాపింగ్ జాబితా",
+    "closeShoppingList": "షాపింగ్ జాబితాను మూసివేయండి",
+    "shoppingListTitle": "షాపింగ్ జాబితా",
+    "shoppingListEmpty": "మీరు ఇంకా ఇష్టమైనవి ఏవీ సేవ్ చేయలేదు — దాని పదార్థాలను ఇక్కడ జోడించడానికి ఒక రెసిపీకి నక్షత్రం ఉంచండి.",
+    "shoppingListHelp": "మీకు ఇష్టమైన వంటకాల నుండి పదార్థాలు, రెసిపీ ద్వారా సమూహం చేయబడ్డాయి. మీరు షాపింగ్ చేస్తున్నప్పుడు వస్తువులను చెక్ చేయండి."
   },
   "kn": {
     "title": "ಆಯುರ್ರಾಸೋಯಿ",
@@ -1228,7 +1258,12 @@
     "verifyEmailSuccess": "ನಿಮ್ಮ ಇಮೇಲ್ ಅನ್ನು ಪರಿಶೀಲಿಸಲಾಗಿದೆ. ಧನ್ಯವಾದಗಳು!",
     "verifyEmailInvalid": "ಆ ಪರಿಶೀಲನೆ ಲಿಂಕ್ ಮಾನ್ಯವಾಗಿಲ್ಲ.",
     "verifyEmailExpired": "ಆ ಪರಿಶೀಲನಾ ಲಿಂಕ್ ಅವಧಿ ಮೀರಿದೆ - ನೀವು ಅಪ್ಲಿಕೇಶನ್‌ನ ಮೇಲ್ಭಾಗದಲ್ಲಿರುವ ಬ್ಯಾನರ್‌ನಿಂದ ಹೊಸದನ್ನು ವಿನಂತಿಸಬಹುದು.",
-    "verifyEmailUsed": "ಆ ಪರಿಶೀಲನೆ ಲಿಂಕ್ ಅನ್ನು ಈಗಾಗಲೇ ಬಳಸಲಾಗಿದೆ."
+    "verifyEmailUsed": "ಆ ಪರಿಶೀಲನೆ ಲಿಂಕ್ ಅನ್ನು ಈಗಾಗಲೇ ಬಳಸಲಾಗಿದೆ.",
+    "shoppingListNav": "ಶಾಪಿಂಗ್ ಪಟ್ಟಿ",
+    "closeShoppingList": "ಶಾಪಿಂಗ್ ಪಟ್ಟಿಯನ್ನು ಮುಚ್ಚಿ",
+    "shoppingListTitle": "ಶಾಪಿಂಗ್ ಪಟ್ಟಿ",
+    "shoppingListEmpty": "ನೀವು ಇನ್ನೂ ಯಾವುದೇ ಮೆಚ್ಚಿನವುಗಳನ್ನು ಉಳಿಸಿಲ್ಲ - ಅದರ ಪದಾರ್ಥಗಳನ್ನು ಇಲ್ಲಿ ಸೇರಿಸಲು ಪಾಕವಿಧಾನವನ್ನು ನಕ್ಷತ್ರ ಹಾಕಿ.",
+    "shoppingListHelp": "ನಿಮ್ಮ ಮೆಚ್ಚಿನ ಪಾಕವಿಧಾನಗಳಿಂದ ಪದಾರ್ಥಗಳು, ಪಾಕವಿಧಾನದ ಪ್ರಕಾರ ಗುಂಪು ಮಾಡಲಾಗಿದೆ. ನೀವು ಶಾಪಿಂಗ್ ಮಾಡುವಾಗ ಐಟಂಗಳನ್ನು ಪರಿಶೀಲಿಸಿ."
   },
   "or": {
     "title": "ଆୟୁର୍ ରସୋଇ |",
@@ -1404,7 +1439,12 @@
     "verifyEmailSuccess": "ଆପଣଙ୍କର ଇମେଲ୍ ଯାଞ୍ଚ ହୋଇଛି | ଧନ୍ୟବାଦ!",
     "verifyEmailInvalid": "ସେହି ଯାଞ୍ଚ ଲିଙ୍କ୍ ବ valid ଧ ନୁହେଁ |",
     "verifyEmailExpired": "ସେହି ଯାଞ୍ଚ ଲିଙ୍କ୍ ମିଆଦ ପୂର୍ଣ୍ଣ ହୋଇଛି - ଆପଣ ଆପର ଉପରି ଭାଗରେ ଥିବା ବ୍ୟାନରରୁ ଏକ ନୂତନ ଅନୁରୋଧ କରିପାରିବେ |",
-    "verifyEmailUsed": "ସେହି ଯାଞ୍ଚ ଲିଙ୍କ୍ ପୂର୍ବରୁ ବ୍ୟବହୃତ ହୋଇସାରିଛି |"
+    "verifyEmailUsed": "ସେହି ଯାଞ୍ଚ ଲିଙ୍କ୍ ପୂର୍ବରୁ ବ୍ୟବହୃତ ହୋଇସାରିଛି |",
+    "shoppingListNav": "ସପିଂ ତାଲିକା |",
+    "closeShoppingList": "ସପିଂ ତାଲିକା ବନ୍ଦ କରନ୍ତୁ |",
+    "shoppingListTitle": "ସପିଂ ତାଲିକା |",
+    "shoppingListEmpty": "ଆପଣ ଏପର୍ଯ୍ୟନ୍ତ କ favorites ଣସି ପସନ୍ଦିତା ସଞ୍ଚୟ କରିନାହାଁନ୍ତି - ଏହାର ଉପାଦାନ ଏଠାରେ ଯୋଡିବା ପାଇଁ ଏକ ରେସିପି ଷ୍ଟାର୍ କରନ୍ତୁ |",
+    "shoppingListHelp": "ରେସିପି ଦ୍ group ାରା ଗ୍ରୁପ୍ ହୋଇଥିବା ଆପଣଙ୍କ ପସନ୍ଦିତ ରେସିପିରୁ ଉପାଦାନ | ଆପଣ ସପିଂ କରିବା ସମୟରେ ଆଇଟମ୍ ଗୁଡିକ ଯାଞ୍ଚ କରନ୍ତୁ |"
   },
   "gu": {
     "title": "આયુરરાસોઈ",
@@ -1580,7 +1620,12 @@
     "verifyEmailSuccess": "તમારો ઈમેલ ચકાસાયેલ છે. આભાર!",
     "verifyEmailInvalid": "તે ચકાસણી લિંક માન્ય નથી.",
     "verifyEmailExpired": "તે ચકાસણી લિંકની સમયસીમા સમાપ્ત થઈ ગઈ છે — તમે એપ્લિકેશનની ટોચ પરના બેનરમાંથી એક નવી વિનંતી કરી શકો છો.",
-    "verifyEmailUsed": "તે વેરિફિકેશન લિંકનો ઉપયોગ પહેલેથી જ કરવામાં આવ્યો છે."
+    "verifyEmailUsed": "તે વેરિફિકેશન લિંકનો ઉપયોગ પહેલેથી જ કરવામાં આવ્યો છે.",
+    "shoppingListNav": "ખરીદી યાદી",
+    "closeShoppingList": "ખરીદીની સૂચિ બંધ કરો",
+    "shoppingListTitle": "ખરીદી યાદી",
+    "shoppingListEmpty": "તમે હજી સુધી કોઈ મનપસંદ સાચવ્યું નથી — અહીં તેના ઘટકો ઉમેરવા માટે રેસીપીને સ્ટાર કરો.",
+    "shoppingListHelp": "તમારી મનપસંદ વાનગીઓમાંથી ઘટકો, રેસીપી દ્વારા જૂથબદ્ધ. જ્યારે તમે ખરીદી કરો ત્યારે વસ્તુઓને ચેક કરો."
   },
   "pa": {
     "title": "ਆਯੁਰਰਾਸੋਈ",
@@ -1756,7 +1801,12 @@
     "verifyEmailSuccess": "ਤੁਹਾਡੀ ਈਮੇਲ ਦੀ ਪੁਸ਼ਟੀ ਹੋ ​​ਗਈ ਹੈ। ਧੰਨਵਾਦ!",
     "verifyEmailInvalid": "ਉਹ ਪੁਸ਼ਟੀਕਰਨ ਲਿੰਕ ਵੈਧ ਨਹੀਂ ਹੈ।",
     "verifyEmailExpired": "ਉਸ ਪੁਸ਼ਟੀਕਰਨ ਲਿੰਕ ਦੀ ਮਿਆਦ ਪੁੱਗ ਗਈ ਹੈ — ਤੁਸੀਂ ਐਪ ਦੇ ਸਿਖਰ 'ਤੇ ਬੈਨਰ ਤੋਂ ਇੱਕ ਨਵੇਂ ਲਈ ਬੇਨਤੀ ਕਰ ਸਕਦੇ ਹੋ।",
-    "verifyEmailUsed": "ਉਹ ਪੁਸ਼ਟੀਕਰਨ ਲਿੰਕ ਪਹਿਲਾਂ ਹੀ ਵਰਤਿਆ ਜਾ ਚੁੱਕਾ ਹੈ।"
+    "verifyEmailUsed": "ਉਹ ਪੁਸ਼ਟੀਕਰਨ ਲਿੰਕ ਪਹਿਲਾਂ ਹੀ ਵਰਤਿਆ ਜਾ ਚੁੱਕਾ ਹੈ।",
+    "shoppingListNav": "ਖਰੀਦਦਾਰੀ ਸੂਚੀ",
+    "closeShoppingList": "ਖਰੀਦਦਾਰੀ ਸੂਚੀ ਬੰਦ ਕਰੋ",
+    "shoppingListTitle": "ਖਰੀਦਦਾਰੀ ਸੂਚੀ",
+    "shoppingListEmpty": "ਤੁਸੀਂ ਅਜੇ ਤੱਕ ਕੋਈ ਵੀ ਮਨਪਸੰਦ ਨੂੰ ਸੁਰੱਖਿਅਤ ਨਹੀਂ ਕੀਤਾ ਹੈ — ਇੱਥੇ ਇਸਦੀ ਸਮੱਗਰੀ ਸ਼ਾਮਲ ਕਰਨ ਲਈ ਇੱਕ ਵਿਅੰਜਨ ਨੂੰ ਸਟਾਰ ਕਰੋ।",
+    "shoppingListHelp": "ਤੁਹਾਡੀਆਂ ਮਨਪਸੰਦ ਪਕਵਾਨਾਂ ਦੀਆਂ ਸਮੱਗਰੀਆਂ, ਵਿਅੰਜਨ ਦੁਆਰਾ ਸਮੂਹਿਤ। ਜਦੋਂ ਤੁਸੀਂ ਖਰੀਦਦਾਰੀ ਕਰਦੇ ਹੋ ਤਾਂ ਚੀਜ਼ਾਂ ਦੀ ਜਾਂਚ ਕਰੋ।"
   },
   "fr": {
     "title": "AyuRasoi",
@@ -1932,7 +1982,12 @@
     "verifyEmailSuccess": "Votre email est vérifié. Merci!",
     "verifyEmailInvalid": "Ce lien de vérification n'est pas valide.",
     "verifyEmailExpired": "Ce lien de vérification a expiré. Vous pouvez en demander un nouveau depuis la bannière en haut de l'application.",
-    "verifyEmailUsed": "Ce lien de vérification a déjà été utilisé."
+    "verifyEmailUsed": "Ce lien de vérification a déjà été utilisé.",
+    "shoppingListNav": "Liste de courses",
+    "closeShoppingList": "Fermer la liste de courses",
+    "shoppingListTitle": "Liste de courses",
+    "shoppingListEmpty": "Vous n'avez pas encore enregistré de favoris : marquez une recette pour ajouter ses ingrédients ici.",
+    "shoppingListHelp": "Ingrédients de vos recettes préférées, regroupés par recette. Cochez les articles pendant que vous magasinez."
   },
   "es": {
     "title": "AyuRasoi",
@@ -2108,7 +2163,12 @@
     "verifyEmailSuccess": "Su correo electrónico está verificado. ¡Gracias!",
     "verifyEmailInvalid": "Ese enlace de verificación no es válido.",
     "verifyEmailExpired": "Ese enlace de verificación ha caducado; puedes solicitar uno nuevo desde el banner en la parte superior de la aplicación.",
-    "verifyEmailUsed": "Ese enlace de verificación ya se ha utilizado."
+    "verifyEmailUsed": "Ese enlace de verificación ya se ha utilizado.",
+    "shoppingListNav": "Lista de compras",
+    "closeShoppingList": "Cerrar lista de compras",
+    "shoppingListTitle": "Lista de compras",
+    "shoppingListEmpty": "Aún no has guardado ningún favorito: destaca una receta para agregar sus ingredientes aquí.",
+    "shoppingListHelp": "Ingredientes de tus recetas favoritas, agrupados por receta. Marque los artículos mientras compra."
   },
   "de": {
     "title": "AyuRasoi",
@@ -2284,7 +2344,12 @@
     "verifyEmailSuccess": "Ihre E-Mail-Adresse ist bestätigt. Danke!",
     "verifyEmailInvalid": "Dieser Bestätigungslink ist ungültig.",
     "verifyEmailExpired": "Dieser Bestätigungslink ist abgelaufen. Sie können über das Banner oben in der App einen neuen anfordern.",
-    "verifyEmailUsed": "Dieser Bestätigungslink wurde bereits verwendet."
+    "verifyEmailUsed": "Dieser Bestätigungslink wurde bereits verwendet.",
+    "shoppingListNav": "Einkaufsliste",
+    "closeShoppingList": "Einkaufsliste schließen",
+    "shoppingListTitle": "Einkaufsliste",
+    "shoppingListEmpty": "Sie haben noch keine Favoriten gespeichert – markieren Sie ein Rezept, um dessen Zutaten hier hinzuzufügen.",
+    "shoppingListHelp": "Zutaten aus Ihren Lieblingsrezepten, nach Rezept gruppiert. Checken Sie Artikel ab, während Sie einkaufen."
   },
   "ru": {
     "title": "АюрРасой",
@@ -2460,7 +2525,12 @@
     "verifyEmailSuccess": "Ваш адрес электронной почты подтвержден. Спасибо!",
     "verifyEmailInvalid": "Эта ссылка для подтверждения недействительна.",
     "verifyEmailExpired": "Срок действия этой ссылки для проверки истек. Вы можете запросить новую с помощью баннера в верхней части приложения.",
-    "verifyEmailUsed": "Эта ссылка для проверки уже использовалась."
+    "verifyEmailUsed": "Эта ссылка для проверки уже использовалась.",
+    "shoppingListNav": "Список покупок",
+    "closeShoppingList": "Закрыть список покупок",
+    "shoppingListTitle": "Список покупок",
+    "shoppingListEmpty": "Вы еще не сохранили ни одного избранного — отметьте рецепт, чтобы добавить сюда ингредиенты.",
+    "shoppingListHelp": "Ингредиенты из ваших любимых рецептов, сгруппированные по рецептам. Проверяйте товары во время покупок."
   },
   "zh": {
     "title": "阿尤拉索伊",
@@ -2636,7 +2706,12 @@
     "verifyEmailSuccess": "您的电子邮件已验证。谢谢！",
     "verifyEmailInvalid": "该验证链接无效。",
     "verifyEmailExpired": "该验证链接已过期 - 您可以从应用程序顶部的横幅请求一个新的链接。",
-    "verifyEmailUsed": "该验证链接已被使用。"
+    "verifyEmailUsed": "该验证链接已被使用。",
+    "shoppingListNav": "购物清单",
+    "closeShoppingList": "关闭购物清单",
+    "shoppingListTitle": "购物清单",
+    "shoppingListEmpty": "您尚未保存任何收藏夹 - 为食谱加注星标以在此处添加其成分。",
+    "shoppingListHelp": "来自您最喜欢的食谱的成分，按食谱分组。购物时检查商品。"
   },
   "yue": {
     "title": "阿尤拉索伊",
@@ -2812,6 +2887,11 @@
     "verifyEmailSuccess": "您的电子邮件已验证。谢谢！",
     "verifyEmailInvalid": "该验证链接无效。",
     "verifyEmailExpired": "该验证链接已过期 - 您可以从应用程序顶部的横幅请求一个新的链接。",
-    "verifyEmailUsed": "该验证链接已被使用。"
+    "verifyEmailUsed": "该验证链接已被使用。",
+    "shoppingListNav": "购物清单",
+    "closeShoppingList": "关闭购物清单",
+    "shoppingListTitle": "购物清单",
+    "shoppingListEmpty": "您尚未保存任何收藏夹 - 为食谱加注星标以在此处添加其成分。",
+    "shoppingListHelp": "来自您最喜欢的食谱的成分，按食谱分组。购物时检查商品。"
   }
 }
