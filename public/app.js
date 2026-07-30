@@ -156,6 +156,83 @@ function openImageLightbox(url, alt) {
   document.body.appendChild(overlay);
 }
 
+// Which users have already dismissed the welcome tour — kept client-side
+// only (like the font-size preference) since it's a per-device nicety,
+// not something that needs to follow the account across devices.
+function onboardingSeenKey(userId) {
+  return `ayurasoi_onboarding_seen_${userId}`;
+}
+
+function hasSeenOnboarding(userId) {
+  return localStorage.getItem(onboardingSeenKey(userId)) === "1";
+}
+
+function markOnboardingSeen(userId) {
+  localStorage.setItem(onboardingSeenKey(userId), "1");
+}
+
+// A short first-time tour, attached directly to <body> like the image
+// lightbox above — it manages its own step state internally so that
+// re-renders of the main app (recipes loading, etc.) underneath it
+// don't wipe it out mid-tour.
+function showOnboardingTour(t, userId) {
+  const steps = [
+    { icon: appLogo("onboarding-icon-inner").outerHTML, title: t.onboardingWelcomeTitle, text: t.onboardingWelcomeText },
+    { icon: SEARCH_ICON, title: t.onboardingSearchTitle, text: t.onboardingSearchText },
+    { icon: MOOD_ICON, title: t.onboardingMoodTitle, text: t.onboardingMoodText },
+    { icon: STAR_ICON, title: t.onboardingFavoritesTitle, text: t.onboardingFavoritesText },
+    { icon: GEAR_ICON, title: t.onboardingSettingsTitle, text: t.onboardingSettingsText }
+  ];
+  let step = 0;
+
+  const overlay = el("div", "onboarding-overlay");
+  const card = el("div", "onboarding-card");
+  overlay.appendChild(card);
+
+  function close() {
+    markOnboardingSeen(userId);
+    overlay.remove();
+  }
+
+  function renderStep() {
+    card.innerHTML = "";
+    const s = steps[step];
+
+    const iconWrap = el("div", "onboarding-icon");
+    iconWrap.innerHTML = s.icon;
+    card.appendChild(iconWrap);
+
+    card.appendChild(el("h3", null, s.title));
+    card.appendChild(el("p", "card-purpose", s.text));
+
+    const dots = el("div", "onboarding-dots");
+    steps.forEach((_, i) => {
+      dots.appendChild(el("span", i === step ? "onboarding-dot active" : "onboarding-dot"));
+    });
+    card.appendChild(dots);
+
+    const controls = el("div", "onboarding-controls");
+    const skipBtn = el("button", "onboarding-skip", t.onboardingSkip);
+    skipBtn.type = "button";
+    skipBtn.onclick = close;
+    controls.appendChild(skipBtn);
+
+    const nextBtn = el("button", "walkthrough-btn", step === steps.length - 1 ? t.onboardingDone : t.onboardingNext);
+    nextBtn.type = "button";
+    nextBtn.onclick = () => {
+      if (step === steps.length - 1) { close(); return; }
+      step += 1;
+      renderStep();
+    };
+    controls.appendChild(nextBtn);
+
+    card.appendChild(controls);
+  }
+
+  renderStep();
+  document.body.appendChild(overlay);
+}
+
 function ingredientPhoto(text, className) {
   const img = document.createElement("img");
   const info = getIngredientImage(text);
@@ -598,6 +675,7 @@ async function submitSignUp() {
     state.authError = err.message;
   }
   render();
+  if (state.user && !hasSeenOnboarding(state.user.id)) showOnboardingTour(UI_TEXT[state.lang], state.user.id);
 }
 
 async function submitSignIn() {
@@ -622,6 +700,7 @@ async function submitSignIn() {
     state.authError = err.message;
   }
   render();
+  if (state.user && !hasSeenOnboarding(state.user.id)) showOnboardingTour(UI_TEXT[state.lang], state.user.id);
 }
 
 async function submitCompleteProfile() {
@@ -651,6 +730,7 @@ async function submitCompleteProfile() {
     state.completeProfileError = err.message;
   }
   render();
+  if (state.user && !hasSeenOnboarding(state.user.id)) showOnboardingTour(UI_TEXT[state.lang], state.user.id);
 }
 
 async function submitForgotPassword() {
@@ -839,19 +919,21 @@ function appWordmark() {
   return h1;
 }
 
+const GEAR_ICON = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">'
+  + '<line x1="4" y1="6" x2="20" y2="6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>'
+  + '<circle cx="9" cy="6" r="2.3" fill="var(--surface)" stroke="currentColor" stroke-width="1.6"/>'
+  + '<line x1="4" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>'
+  + '<circle cx="15" cy="12" r="2.3" fill="var(--surface)" stroke="currentColor" stroke-width="1.6"/>'
+  + '<line x1="4" y1="18" x2="20" y2="18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>'
+  + '<circle cx="11" cy="18" r="2.3" fill="var(--surface)" stroke="currentColor" stroke-width="1.6"/>'
+  + '</svg>';
+
 function settingsButton(t) {
   const btn = el("button", "icon-btn");
   btn.type = "button";
   btn.setAttribute("aria-label", t.settingsNav || "Settings");
   btn.title = t.settingsNav || "Settings";
-  btn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">'
-    + '<line x1="4" y1="6" x2="20" y2="6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>'
-    + '<circle cx="9" cy="6" r="2.3" fill="var(--surface)" stroke="currentColor" stroke-width="1.6"/>'
-    + '<line x1="4" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>'
-    + '<circle cx="15" cy="12" r="2.3" fill="var(--surface)" stroke="currentColor" stroke-width="1.6"/>'
-    + '<line x1="4" y1="18" x2="20" y2="18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>'
-    + '<circle cx="11" cy="18" r="2.3" fill="var(--surface)" stroke="currentColor" stroke-width="1.6"/>'
-    + '</svg>';
+  btn.innerHTML = GEAR_ICON;
   btn.onclick = () => { state.viewingSettings = !state.viewingSettings; render(); };
   return btn;
 }
@@ -860,6 +942,22 @@ const GLOBE_ICON = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden=
   + '<circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6" fill="none"/>'
   + '<ellipse cx="12" cy="12" rx="4" ry="9" stroke="currentColor" stroke-width="1.6" fill="none"/>'
   + '<line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="1.6"/>'
+  + '</svg>';
+
+const SEARCH_ICON = '<svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">'
+  + '<circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.8" fill="none"/>'
+  + '<line x1="15.3" y1="15.3" x2="21" y2="21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>'
+  + '</svg>';
+
+const MOOD_ICON = '<svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">'
+  + '<circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" fill="none"/>'
+  + '<circle cx="8.7" cy="10" r="1.1" fill="currentColor"/>'
+  + '<circle cx="15.3" cy="10" r="1.1" fill="currentColor"/>'
+  + '<path d="M8 15c1.2 1.1 2.6 1.6 4 1.6s2.8-.5 4-1.6" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>'
+  + '</svg>';
+
+const STAR_ICON = '<svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">'
+  + '<path d="M12 3.5l2.47 5.24 5.53.68-4.05 3.99 1.03 5.59L12 16.2l-4.98 2.8 1.03-5.59-4.05-3.99 5.53-.68z" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linejoin="round"/>'
   + '</svg>';
 
 function logOutButton(t) {
@@ -1437,6 +1535,13 @@ function renderSettings(t) {
 
   wrap.appendChild(el("h4", null, t.settingsTextSizeLabel || "Text size"));
   wrap.appendChild(fontSizeControls());
+
+  if (state.user) {
+    const replayLink = el("p", "card-purpose switch-link", t.onboardingReplay || "Show welcome tour again");
+    replayLink.style.marginTop = "22px";
+    replayLink.onclick = () => showOnboardingTour(t, state.user.id);
+    wrap.appendChild(replayLink);
+  }
 
   return wrap;
 }
@@ -2085,6 +2190,9 @@ Promise.all([
     if (state.user) await Promise.all([loadRecipes(), loadFavorites(), loadRatingsAverages(), loadHealthProfile(), loadSourceTexts()]);
     state.loading = false;
     render();
+    if (state.user && !state.user.needsDemographics && !hasSeenOnboarding(state.user.id)) {
+      showOnboardingTour(UI_TEXT[state.lang], state.user.id);
+    }
   })
   .catch((err) => {
     state.loading = false;

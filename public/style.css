@@ -415,6 +415,95 @@ h1 {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
+.onboarding-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(43, 32, 19, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+}
+
+.onboarding-card {
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 32px 28px 24px;
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(43, 32, 19, 0.25);
+}
+
+.onboarding-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--accent-green-soft);
+  color: var(--accent-green);
+}
+
+.onboarding-icon-inner {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
+.onboarding-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.15rem;
+}
+
+.onboarding-card .card-purpose {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0 0 20px;
+}
+
+.onboarding-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.onboarding-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.onboarding-dot.active {
+  background: var(--accent);
+}
+
+.onboarding-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.onboarding-skip {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 8px 4px;
+}
+
+.onboarding-controls .walkthrough-btn {
+  flex: 1;
+}
+
 .font-size-controls {
   display: flex;
   align-items: center;

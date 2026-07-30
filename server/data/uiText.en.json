@@ -148,5 +148,19 @@
   "orDivider": "or",
   "settingsNav": "Settings",
   "settingsLanguageLabel": "Language",
-  "settingsTextSizeLabel": "Text size"
+  "settingsTextSizeLabel": "Text size",
+  "onboardingWelcomeTitle": "Welcome to AyuRasoi",
+  "onboardingWelcomeText": "Simple, traditional Ayurvedic remedies for everyday ailments, right from your phone.",
+  "onboardingSearchTitle": "Find what you need",
+  "onboardingSearchText": "Search by name, or tap a category to browse remedies for digestion, sleep, skin, and more.",
+  "onboardingMoodTitle": "Not sure where to start?",
+  "onboardingMoodText": "Tap \"How are you feeling?\" and describe your symptom — we'll suggest a few recipes.",
+  "onboardingFavoritesTitle": "Save your favorites",
+  "onboardingFavoritesText": "Tap the star on any recipe to save it for quick access later.",
+  "onboardingSettingsTitle": "Make it yours",
+  "onboardingSettingsText": "Use the settings icon anytime to change language or adjust text size.",
+  "onboardingNext": "Next",
+  "onboardingSkip": "Skip",
+  "onboardingDone": "Get started",
+  "onboardingReplay": "Show welcome tour again"
 }

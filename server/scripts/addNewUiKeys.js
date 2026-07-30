@@ -7,7 +7,14 @@ const path = require("path");
 const { LANGUAGES } = require("../languages");
 const { translateBlock } = require("../recipeExtractor");
 
-const NEW_KEYS = ["continueWithFacebook", "settingsNav", "settingsLanguageLabel", "settingsTextSizeLabel", "orDivider"];
+const NEW_KEYS = [
+  "onboardingWelcomeTitle", "onboardingWelcomeText",
+  "onboardingSearchTitle", "onboardingSearchText",
+  "onboardingMoodTitle", "onboardingMoodText",
+  "onboardingFavoritesTitle", "onboardingFavoritesText",
+  "onboardingSettingsTitle", "onboardingSettingsText",
+  "onboardingNext", "onboardingSkip", "onboardingDone", "onboardingReplay"
+];
 
 const UI_EN_PATH = path.join(__dirname, "..", "data", "uiText.en.json");
 const UI_OUT_PATH = path.join(__dirname, "..", "data", "uiText.json");
