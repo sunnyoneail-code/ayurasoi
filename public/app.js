@@ -175,11 +175,15 @@ function ingredientSearchTerm(text) {
   return text.split(/[—-]\s*(?:\d|a pinch|to taste)/i)[0].trim();
 }
 
+// amazon.in, not amazon.com — the AMAZON_AFFILIATE_TAG is registered
+// with the India Associates program, which only pays out on amazon.in
+// purchases. Pointing these at .com would show working-looking links
+// that silently earn nothing.
 function amazonBuyLink(text) {
   const term = ingredientSearchTerm(text);
   const params = new URLSearchParams({ k: term });
   if (AMAZON_AFFILIATE_TAG) params.set("tag", AMAZON_AFFILIATE_TAG);
-  return `https://www.amazon.com/s?${params.toString()}`;
+  return `https://www.amazon.in/s?${params.toString()}`;
 }
 
 function ingredientBuyLink(text, label) {
