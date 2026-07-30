@@ -14,7 +14,7 @@ Then open http://localhost:5173 in a browser.
 
 ## Visual identity
 
-The palette (`public/style.css` `:root`) is drawn from actual Ayurvedic substances rather than a generic "earthy" mood board: turmeric gold (`--accent`) as the primary color, tulsi/sage green (`--accent-green`) used deliberately for the Recipe of the Day banner and success states rather than everywhere, and the original sandalwood-cream background kept as-is. Both are re-defined for dark mode under `@media (prefers-color-scheme: dark)`.
+The palette (`public/style.css` `:root`) is drawn from actual Ayurvedic substances rather than a generic "earthy" mood board: turmeric gold (`--accent`) as the primary color, tulsi/sage green (`--accent-green`) used deliberately for the Recipe of the Day banner and success states rather than everywhere, and the original sandalwood-cream background kept as-is. **Deliberately no dark-mode variant** — the app used to swap to a darker, browner palette under `@media (prefers-color-scheme: dark)`, but that meant it looked meaningfully different (and less "on-brand") depending on a visitor's device setting. The light palette is now the only one, everywhere.
 
 The app mark (`public/favicon.svg`, mirrored inline in the header via `appLogo()` in `public/app.js`) is an amalaki (amla) fruit — "king of Rasayana" and the fruit behind several of the app's own flagship recipes — in kumkum terracotta rather than the accent gold, so it reads as its own thing instead of a repeated button color.
 
@@ -84,7 +84,9 @@ Real accounts with hashed passwords (Node's built-in `scrypt`, never stored in p
 - **No `DATABASE_URL` set** → accounts are stored in `server/data/users.json` (gitignored, never committed). Fine for local testing, but wiped on every server restart — same limitation as recipes added via "Add recipe."
 - **`DATABASE_URL` set** (a free [Neon](https://console.neon.tech) Postgres connection string) → accounts persist for real, survive restarts and redeploys. The `users` table is created automatically on first startup if it doesn't exist.
 
-To enable persistent accounts: add `DATABASE_URL=postgresql://...` to `server/.env` locally, and as an environment variable in Render's dashboard for the deployed version. Also set `SESSION_SECRET` to a fixed random string in both places — without it, a new one is generated on every restart, which silently logs everyone out.
+To enable persistent accounts: add `DATABASE_URL=postgresql://...` to `server/.env` locally, and as an environment variable in Render's dashboard for the deployed version. Also set `SESSION_SECRET` to a fixed random string in both places — without it, a new one is generated on every restart, which silently logs everyone out even though sessions themselves now persist (see below).
+
+**Sessions persist too, the same way.** With `DATABASE_URL` set, sessions are stored via `connect-pg-simple` in Postgres (a `session` table, created automatically) instead of Express's default in-memory store — so a server restart no longer signs everyone out. Without `DATABASE_URL`, it falls back to the in-memory default, same dual-mode pattern as everything else.
 
 **"Add recipe" is admin-only.** Regular accounts (including every tester) can sign up, sign in, and use everything else, but can't add recipes — that button only appears for accounts whose email is listed in `ADMIN_EMAILS` (comma-separated, in `server/.env`). This is enforced on the backend too, not just hidden in the UI — a non-admin hitting the endpoint directly gets a `403`. Remember to set `ADMIN_EMAILS` as an environment variable in Render's dashboard as well, since `.env` itself is never committed to git.
 

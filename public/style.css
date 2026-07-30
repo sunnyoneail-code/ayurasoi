@@ -19,21 +19,11 @@
   --radius: 14px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #1b160f;
-    --surface: #262016;
-    --ink: #f2e9da;
-    --muted: #b8a98c;
-    --accent: #e8b23d;
-    --accent-soft: #3d2f16;
-    --accent-green: #86bf8a;
-    --accent-green-soft: #23352a;
-    --safety-bg: #3a2a12;
-    --safety-border: #e0984a;
-    --border: #3a2f20;
-  }
-}
+/* Deliberately no @media (prefers-color-scheme: dark) override — the
+   turmeric/tulsi palette above is the app's visual identity and should
+   look the same for everyone regardless of device theme setting,
+   rather than switching to a darker, browner look that doesn't match
+   what's shown anywhere else (the design pitch, the header logo, etc). */
 
 * { box-sizing: border-box; }
 

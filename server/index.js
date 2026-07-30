@@ -19,20 +19,31 @@ const googleOAuth = require("./googleOAuth");
 const stats = require("./statsStore");
 const healthProfiles = require("./healthProfileStore");
 const digest = require("./digest");
-const { initSchema } = require("./db");
+const { initSchema, pool } = require("./db");
 
 const app = express();
 const PORT = process.env.PORT || 5173;
 
-// Auto-generated if not set — fine for a prototype, but note that it
-// (like server/data/users.json) doesn't survive a restart on Render's
-// free tier, so existing sessions/accounts reset along with everything
-// else ephemeral in this deployment.
+// Auto-generated if not set — fine for a prototype, but note that a
+// fresh random secret on every restart invalidates every existing
+// session cookie even though the sessions themselves now persist in
+// Postgres (see sessionStore below). Set SESSION_SECRET to a fixed
+// value to avoid that.
 const SESSION_SECRET = process.env.SESSION_SECRET || crypto.randomBytes(32).toString("hex");
+
+// With a database available, sessions persist in Postgres instead of
+// the server's memory — logins now survive a server restart instead of
+// signing everyone out. Falls back to the default in-memory store when
+// no DATABASE_URL is set (same dual-mode pattern as userStore.js etc.),
+// since connect-pg-simple needs a real pg pool to attach to.
+const sessionStore = pool
+  ? new (require("connect-pg-simple")(session))({ pool, createTableIfMissing: true })
+  : undefined;
 
 app.set("trust proxy", 1);
 app.use(express.json({ limit: "1mb" }));
 app.use(session({
+  store: sessionStore,
   secret: SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
