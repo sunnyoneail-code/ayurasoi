@@ -886,6 +886,34 @@ function el(tag, className, text) {
   return e;
 }
 
+// Generated profile "picture" — no upload, just initials on a color
+// deterministically picked per account so the same person always gets
+// the same avatar. Colors are named after real Ayurvedic dye/material
+// sources (turmeric, tulsi, kumkum, sandalwood, indigo, manjistha)
+// rather than a generic Bootstrap-style swatch pick, so it stays in
+// the same material-first register as the rest of the brand.
+const AVATAR_COLORS = ["#c08829", "#4f7a52", "#a6432e", "#8a6d3b", "#4a5d7a", "#9c5468"];
+
+function avatarColorForId(seed) {
+  let hash = 0;
+  for (let i = 0; i < seed.length; i++) hash = (hash * 31 + seed.charCodeAt(i)) >>> 0;
+  return AVATAR_COLORS[hash % AVATAR_COLORS.length];
+}
+
+function initialsFromName(name) {
+  const parts = (name || "").trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return "?";
+  if (parts.length === 1) return parts[0][0].toUpperCase();
+  return (parts[0][0] + parts[1][0]).toUpperCase();
+}
+
+function userAvatar(user, className) {
+  const badge = el("span", className, initialsFromName(user.name));
+  badge.style.background = avatarColorForId(user.id || user.email || user.name || "?");
+  badge.setAttribute("aria-hidden", "true");
+  return badge;
+}
+
 // The app mark — an amalaki (amla) fruit, "king of Rasayana" and the
 // fruit behind several of the app's own flagship recipes, in kumkum
 // terracotta rather than the accent gold so it reads as its own thing
@@ -1032,6 +1060,7 @@ function render() {
   // every auth form already offer both, right in the body, so a header
   // copy was pure duplication rather than a shortcut from elsewhere.
   if (state.user) {
+    headerControls.appendChild(userAvatar(state.user, "user-avatar"));
     headerControls.appendChild(el("span", "welcome-text", t.welcomePrefix + state.user.name));
     headerControls.appendChild(logOutButton(t));
   }
@@ -1552,7 +1581,11 @@ function renderProfile(t) {
   backBtn.onclick = () => { state.viewingProfile = false; render(); };
   wrap.appendChild(backBtn);
 
-  wrap.appendChild(el("h2", null, t.profileTitle));
+  const identity = el("div", "profile-identity");
+  identity.appendChild(userAvatar(state.user, "user-avatar large"));
+  identity.appendChild(el("h2", null, t.profileTitle));
+  identity.appendChild(el("p", "media-note", state.user.name + " · " + state.user.email));
+  wrap.appendChild(identity);
   wrap.appendChild(el("p", "card-purpose", t.profilePrivacyNote));
 
   const f = state.healthProfileForm;

@@ -759,6 +759,45 @@ h1 {
   align-self: center;
 }
 
+/* Generated profile "picture" — initials on a deterministic color, no
+   upload involved. Same badge at two sizes: a small one riding along
+   in the header controls, a large one heading the profile page. */
+.user-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  flex-shrink: 0;
+  letter-spacing: 0.02em;
+}
+
+.user-avatar.large {
+  width: 64px;
+  height: 64px;
+  font-size: 1.4rem;
+}
+
+.profile-identity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.profile-identity .user-avatar.large {
+  margin-bottom: 12px;
+}
+
+.profile-identity h2 {
+  margin: 0;
+}
+
 .form-field {
   margin-bottom: 14px;
 }
