@@ -1014,20 +1014,6 @@ const STAR_ICON = '<svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="
   + '<path d="M12 3.5l2.47 5.24 5.53.68-4.05 3.99 1.03 5.59L12 16.2l-4.98 2.8 1.03-5.59-4.05-3.99 5.53-.68z" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linejoin="round"/>'
   + '</svg>';
 
-function logOutButton(t) {
-  const btn = el("button", "icon-btn");
-  btn.type = "button";
-  btn.setAttribute("aria-label", t.logOut);
-  btn.title = t.logOut;
-  btn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">'
-    + '<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
-    + '<path d="M16 17l5-5-5-5" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
-    + '<line x1="21" y1="12" x2="9" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>'
-    + '</svg>';
-  btn.onclick = submitLogOut;
-  return btn;
-}
-
 // render() wipes and rebuilds the entire #app DOM tree on every state
 // change — including on every keystroke in a text input, since input
 // handlers call render() directly. That means each keystroke destroys
@@ -1136,7 +1122,6 @@ function renderInner() {
   if (state.user) {
     headerControls.appendChild(userAvatar(state.user, "user-avatar"));
     headerControls.appendChild(el("span", "welcome-text", t.welcomePrefix + state.user.name));
-    headerControls.appendChild(logOutButton(t));
   }
 
   topBar.appendChild(headerControls);
@@ -1744,6 +1729,11 @@ function renderSettings(t) {
     replayLink.style.marginTop = "22px";
     replayLink.onclick = () => showOnboardingTour(t, state.user.id);
     wrap.appendChild(replayLink);
+
+    const logOutBtn = el("button", "add-recipe-nav-btn", t.logOut);
+    logOutBtn.style.marginTop = "14px";
+    logOutBtn.onclick = submitLogOut;
+    wrap.appendChild(logOutBtn);
   }
 
   return wrap;
