@@ -1028,7 +1028,47 @@ function logOutButton(t) {
   return btn;
 }
 
+// render() wipes and rebuilds the entire #app DOM tree on every state
+// change — including on every keystroke in a text input, since input
+// handlers call render() directly. That means each keystroke destroys
+// the focused <input> and creates a brand-new one in its place, which
+// loses cursor position and (critically, on mobile) dismisses the
+// on-screen keyboard after every character. This wrapper captures
+// which input/textarea/select was focused (and its cursor position)
+// before the rebuild, then re-focuses the equivalent element
+// afterward — identified by matching tag+class and position among
+// same-class elements, since nothing here has stable element IDs.
 function render() {
+  const app = document.getElementById("app");
+  const active = document.activeElement;
+  let focusInfo = null;
+  if (active && app.contains(active) && ["INPUT", "TEXTAREA", "SELECT"].includes(active.tagName)) {
+    const selector = active.tagName.toLowerCase()
+      + (active.className ? "." + active.className.trim().split(/\s+/).join(".") : "");
+    const siblings = Array.from(app.querySelectorAll(selector));
+    focusInfo = {
+      selector,
+      index: siblings.indexOf(active),
+      selectionStart: active.selectionStart,
+      selectionEnd: active.selectionEnd
+    };
+  }
+
+  renderInner();
+
+  if (focusInfo) {
+    const matches = app.querySelectorAll(focusInfo.selector);
+    const el = matches[focusInfo.index];
+    if (el) {
+      el.focus();
+      if (focusInfo.selectionStart != null && typeof el.setSelectionRange === "function") {
+        try { el.setSelectionRange(focusInfo.selectionStart, focusInfo.selectionEnd); } catch (err) { /* not all input types support this */ }
+      }
+    }
+  }
+}
+
+function renderInner() {
   const app = document.getElementById("app");
   app.innerHTML = "";
 
